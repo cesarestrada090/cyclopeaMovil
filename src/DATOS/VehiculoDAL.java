@@ -23,77 +23,42 @@ public class VehiculoDAL {
     ResultSet rs= null;
     CallableStatement cs= null;
 
-    public int obtenerNumeroRegistroUsuario()
-    {
-        try{
-            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            st=cn.createStatement();
-            rs=st.executeQuery("select max(Veh_Id) from vehiculo;");
-            while (rs.next()) {
-                String numero= rs.getString(1);
-                if(numero!=null){
-                    return Integer.parseInt(numero);
-                }
-                else
-                    return 0;
-            }
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",0);
-        }
-        finally{
-            try {
-                cn.close();
-                st.close();
-                rs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(VehiculoDAL.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return 0;
-    }
-
-    public int BusquedaPlacas(String placa)
-    {
-
-        try {
-            cn= (Connection) Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=(CallableStatement) cn.prepareCall("{CALL BusquedadePlacas('"+placa+"')}");
-            rs=cs.executeQuery();
-            int current=rs.getRow(); rs.last();
-            rs.relative(current);
-            int Veh_Id=rs.getInt(1);
-            return Veh_Id;
-
-        } catch (Exception ex) {
-           //JOptionPane.showMessageDialog(null, ex);
-        }
-        finally{
-            try {
-                cn.close();
-                rs.close();
-                cs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(VehiculoDAL.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return 0;
-    }
-
 
     public boolean registrarDatosVehiculo(Vehiculo v)
     {
         try {
             cn=(Connection) Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            String sentencia="insert into vehiculo values(?,?,?,?,?,?,?,?)";
+            String sentencia="insert into vehiculo(STR_PLACA,STR_CATEGORIA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
+                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETONUM_CUTIL,NUM_PBRUTO,NUM_PUERTAS,NUM_SALIDAS,NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA)"
+                    + ""
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setInt(1,v.getIdVehiculo());
-            ps.setString(2,v.getPlaca());
-            ps.setString(3,v.getAnioFabricacion());
-            ps.setString(4,v.getMarca());
-            ps.setString(5,v.getModelo());
-            ps.setString(6,v.getTiposervicio());
-            ps.setInt(7,v.getIdPersona());
-            ps.setInt(8,v.getEstado());
+            ps.setString(1,v.getPlaca());
+            ps.setString(2,v.getCategoria());
+            ps.setString(3,v.getMotor());
+            ps.setString(4,v.getSerie());
+            ps.setInt(5,v.getAnio());
+            ps.setInt(6,v.getnEjes());
+            ps.setInt(7,v.getNumRuedas());
+            ps.setInt(8,v.getNumAsientos());
+            ps.setInt(9,v.getNumPasajeros());
+            ps.setDouble(10,v.getLargo());
+            ps.setDouble(11,v.getAncho());
+            ps.setDouble(12,v.getAlto());
+            ps.setDouble(13,v.getPesoNeto());
+            ps.setDouble(14,v.getCargaUtil());
+            ps.setDouble(15,v.getPesoBruto());
+            ps.setInt(16,v.getNumPuertas());
+            ps.setInt(17,v.getNumSalidas());
+            ps.setInt(18,v.getNumCilindros());
+            ps.setString(19,v.getColor());
+            ps.setString(20,v.getIdCombustible());
+            ps.setString(21,v.getIdMarca());
+            ps.setString(22,v.getIdModelo());
+            ps.setString(23,v.getIdCarroceria());
+            
+            ps.setDouble(23,v.getPesoNeto());
+            ps.setDouble(24,v.getPesoNeto());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
@@ -111,55 +76,7 @@ public class VehiculoDAL {
         }
     }
 
-    public int BusquedaPlaca(String usuario,String password)
-    {
-
-        try {
-            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=cn.prepareCall("{CALL BusquedaUsuario('"+usuario+"','"+password+"')}");
-            rs=cs.executeQuery();
-            int current=rs.getRow(); rs.last();
-            rs.relative(current);
-            int tipoUsuario=rs.getInt(1);
-            return tipoUsuario;
-
-        } catch (Exception ex) {
-            //JOptionPane.showMessageDialog(null, ex);
-        }
-        finally{
-            try {
-                cn.close();
-                rs.close();
-                cs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return 0;
-    }
-
-    public boolean ModificarDatosVehiculo(int idVehiculo)
-    {
-        try {
-            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            String sentencia="update vehiculo set estado=1 where Veh_Id='"+idVehiculo+"'";
-            ps=cn.prepareStatement(sentencia);
-            ps.executeUpdate();
-            return true;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",0);
-            return false;
-        }
-        finally{
-            try {
-                cn.close();
-                ps.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+ 
 
 }
 
