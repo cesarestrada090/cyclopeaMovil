@@ -27,10 +27,12 @@ public class VehiculoDAL {
     public boolean registrarDatosVehiculo(Vehiculo v)
     {
         try {
-            cn=(Connection) Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            String sentencia="insert into vehiculo(STR_PLACA,STR_CATEGORIA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
-                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETONUM_CUTIL,NUM_PBRUTO,NUM_PUERTAS,NUM_SALIDAS,NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA)"
-                    + ""
+            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","restfullcyclopea","root","123456");
+            String sentencia="insert into vehiculo("
+                    + "STR_PLACA,STR_CATEGORIA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
+                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETO,NUM_CUTIL,NUM_PBRUTO,NUM_PUERTAS,"
+                    + "NUM_SALIDAS,NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA)"
                     + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setString(1,v.getPlaca());
@@ -57,8 +59,6 @@ public class VehiculoDAL {
             ps.setString(22,v.getIdModelo());
             ps.setString(23,v.getIdCarroceria());
             
-            ps.setDouble(23,v.getPesoNeto());
-            ps.setDouble(24,v.getPesoNeto());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"

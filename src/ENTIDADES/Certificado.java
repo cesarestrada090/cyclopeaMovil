@@ -1,46 +1,124 @@
-package clases;
+package ENTIDADES;
 
 import java.util.Date;
 
 public class Certificado {
-	
-	private String tipoDocEval;
-	private String numDocEvaluar;
-	private long binFotografia1;
-	private long binFotografia2;
-	private long bingFotografia3;
-	
-	public String getTipoDocEval() {
-		return tipoDocEval;
-	}
-	public void setTipoDocEval(String tipoDocEval) {
-		this.tipoDocEval = tipoDocEval;
-	}
-	public String getNumDocEvaluar() {
-		return numDocEvaluar;
-	}
-	public void setNumDocEvaluar(String numDocEvaluar) {
-		this.numDocEvaluar = numDocEvaluar;
-	}
-	public long getBinFotografia1() {
-		return binFotografia1;
-	}
-	public void setBinFotografia1(long binFotografia1) {
-		this.binFotografia1 = binFotografia1;
-	}
-	public long getBinFotografia2() {
-		return binFotografia2;
-	}
-	public void setBinFotografia2(long binFotografia2) {
-		this.binFotografia2 = binFotografia2;
-	}
-	public long getBingFotografia3() {
-		return bingFotografia3;
-	}
-	public void setBingFotografia3(long bingFotografia3) {
-		this.bingFotografia3 = bingFotografia3;
-	}
-	
 
-	
+    private String tipoDocTransp;
+    private String numDocTransp;
+    private String razonTransp;
+    private String tipoDocEvaluar;
+    private String numDocEvaluar;
+    private String claseAutorizacion;
+    private int resultado;
+    private String vigencia;
+    private Date fecInspeccion;
+    private Date fecVencimiento;
+    private String cIdentidadCert;
+    private String codLocal;
+    private String ubigeo;
+
+    public String getTipoDocTransp() {
+        return tipoDocTransp;
+    }
+
+    public void setTipoDocTransp(String tipoDocTransp) {
+        this.tipoDocTransp = tipoDocTransp;
+    }
+
+    public String getNumDocTransp() {
+        return numDocTransp;
+    }
+
+    public void setNumDocTransp(String numDocTransp) {
+        this.numDocTransp = numDocTransp;
+    }
+
+    public String getRazonTransp() {
+        return razonTransp;
+    }
+
+    public void setRazonTransp(String razonTransp) {
+        this.razonTransp = razonTransp;
+    }
+
+    public String getTipoDocEvaluar() {
+        return tipoDocEvaluar;
+    }
+
+    public void setTipoDocEvaluar(String tipoDocEvaluar) {
+        this.tipoDocEvaluar = tipoDocEvaluar;
+    }
+
+    public String getNumDocEvaluar() {
+        return numDocEvaluar;
+    }
+
+    public void setNumDocEvaluar(String numDocEvaluar) {
+        this.numDocEvaluar = numDocEvaluar;
+    }
+
+    public String getClaseAutorizacion() {
+        return claseAutorizacion;
+    }
+
+    public void setClaseAutorizacion(String claseAutorizacion) {
+        this.claseAutorizacion = claseAutorizacion;
+    }
+
+    public int getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(int resultado) {
+        this.resultado = resultado;
+    }
+
+    public String getVigencia() {
+        return vigencia;
+    }
+
+    public void setVigencia(String vigencia) {
+        this.vigencia = vigencia;
+    }
+
+    public Date getFecInspeccion() {
+        return fecInspeccion;
+    }
+
+    public void setFecInspeccion(Date fecInspeccion) {
+        this.fecInspeccion = fecInspeccion;
+    }
+
+    public Date getFecVencimiento() {
+        return fecVencimiento;
+    }
+
+    public void setFecVencimiento(Date fecVencimiento) {
+        this.fecVencimiento = fecVencimiento;
+    }
+
+    public String getcIdentidadCert() {
+        return cIdentidadCert;
+    }
+
+    public void setcIdentidadCert(String cIdentidadCert) {
+        this.cIdentidadCert = cIdentidadCert;
+    }
+
+    public String getCodLocal() {
+        return codLocal;
+    }
+
+    public void setCodLocal(String codLocal) {
+        this.codLocal = codLocal;
+    }
+
+    public String getUbigeo() {
+        return ubigeo;
+    }
+
+    public void setUbigeo(String ubigeo) {
+        this.ubigeo = ubigeo;
+    }
 }
