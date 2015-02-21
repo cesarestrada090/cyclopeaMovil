@@ -7,12 +7,8 @@ package DATOS;
 
 import ENTIDADES.Persona;
 import PRESENTACION.frmInicio;
-import com.mysql.jdbc.CallableStatement;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
