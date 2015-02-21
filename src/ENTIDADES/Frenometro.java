@@ -30,6 +30,16 @@ public class Frenometro {
     private double desequilibrioEstacionamiento;
     private double desequilibrioEmergencia;
 
+    public int getIdCerticado() {
+        return idCerticado;
+    }
+
+    public void setIdCerticado(int idCerticado) {
+        this.idCerticado = idCerticado;
+    }
+
+    
+    
     public double getPesoServicio() {
         return pesoServicio;
     }

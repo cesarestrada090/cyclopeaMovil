@@ -23,6 +23,16 @@ public class Suspension {
     private String posteriorResult;
     private String posteriorResultFinal;
 
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
+    }
+
+    
+    
     public double getDelanteraIzq() {
         return delanteraIzq;
     }
