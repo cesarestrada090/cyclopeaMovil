@@ -9,10 +9,10 @@ public class TarjetaPropiedad {
     private String nTarjeta;
     private String NombrePropietario;
     private String domicilio;
-    private int idCategoria;
-    private int idMarca;
+    private String idCategoria;
+    private String idMarca;
     private int fabricacion;
-    private int idModelo;
+    private String idModelo;
     private String version;
     private String idCombustible;
     private String idCarroceria;
@@ -63,31 +63,33 @@ public class TarjetaPropiedad {
     public void setKilometraje(double Kilometraje) {
         this.Kilometraje = Kilometraje;
     }
-    
 
-    public int getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 
-    public int getIdMarca() {
+    public String getIdMarca() {
         return idMarca;
     }
 
-    public void setIdMarca(int idMarca) {
+    public void setIdMarca(String idMarca) {
         this.idMarca = idMarca;
     }
 
-    public int getIdModelo() {
+    public String getIdModelo() {
         return idModelo;
     }
 
-    public void setIdModelo(int idModelo) {
+    public void setIdModelo(String idModelo) {
         this.idModelo = idModelo;
     }
+    
+
+  
 
     public String getIdTarjeta() {
         return idTarjeta;
