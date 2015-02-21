@@ -4,7 +4,6 @@
  */
 package DATOS;
 
-import ENTIDADES.Certificado;
 import ENTIDADES.TarjetaPropiedad;
 import java.sql.*;
 import java.util.logging.Level;

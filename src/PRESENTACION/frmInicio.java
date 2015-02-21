@@ -83,7 +83,7 @@ public class frmInicio extends javax.swing.JFrame {
 
         jTextField1.setText("localhost");
 
-        jTextField2.setText("bdcallcentercyc");
+        jTextField2.setText("bdnuevamovil");
 
         jTextField3.setText("root");
 
@@ -104,17 +104,18 @@ public class frmInicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(64, 64, 64))
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -137,7 +138,7 @@ public class frmInicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
         );
 
@@ -184,19 +185,19 @@ public class frmInicio extends javax.swing.JFrame {
 
         jDesktopPane1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24));
-        jLabel7.setText("Call Center");
-        jLabel7.setBounds(190, 270, 120, 60);
-        jDesktopPane1.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setText("Planta Móvil");
+        jDesktopPane1.add(jLabel7);
+        jLabel7.setBounds(170, 270, 150, 60);
 
-        label1.setFont(new java.awt.Font("Arial", 1, 36));
+        label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         label1.setText("C Y C L O P E A  S.A.C");
+        jDesktopPane1.add(label1);
         label1.setBounds(110, 330, 280, 40);
-        jDesktopPane1.add(label1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/logo.png"))); // NOI18N
+        jDesktopPane1.add(jLabel5);
         jLabel5.setBounds(90, 50, 310, 200);
-        jDesktopPane1.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
