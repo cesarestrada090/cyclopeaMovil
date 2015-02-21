@@ -22,7 +22,7 @@ public class TarjetaPropiedadDAL {
     ResultSet rs = null;
     CallableStatement cs = null;
 
-    public boolean registrarDatosCertificado(TarjetaPropiedad v) {
+    public boolean registrarDatosTarjeta(TarjetaPropiedad v) {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
