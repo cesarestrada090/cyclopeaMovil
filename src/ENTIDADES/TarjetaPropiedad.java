@@ -16,6 +16,7 @@ public class TarjetaPropiedad {
     private String version;
     private String idCombustible;
     private String idCarroceria;
+    private int nRuedas;
     private int ejes;
     private String colores;
     private String nMotor;
@@ -35,6 +36,16 @@ public class TarjetaPropiedad {
     private Date fecha;
     private int idMarcaCarroceria;
 
+    public int getnRuedas() {
+        return nRuedas;
+    }
+
+    public void setnRuedas(int nRuedas) {
+        this.nRuedas = nRuedas;
+    }
+
+    
+    
     public int getIdMarcaCarroceria() {
         return idMarcaCarroceria;
     }
