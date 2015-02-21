@@ -1,4 +1,4 @@
-package clases;
+package ENTIDADES;
 
 public class Supervisor {
 	private String dni;
