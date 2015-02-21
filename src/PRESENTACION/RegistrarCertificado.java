@@ -2639,31 +2639,45 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             //// PRUEBA DE LUCES
             Luxometro objLuzBaja= new Luxometro();
             objLuzBaja.setTipoLuz(1);
-            objLuzBaja.setMedidaDerLuz(WIDTH);
-            objLuzBaja.setMedidaIzqLuz(WIDTH);
-            objLuzBaja.setAlineamientoLuz(title);
-            objLuzBaja.setResultadoLuz(title);
-            int lucesDerobajas = Integer.parseInt(jTextField159.getText());
-            int lucesDeroaltas = Integer.parseInt(jTextField160.getText());
-            int lucesDeroaltasad = Integer.parseInt(jTextField161.getText());
-            int lucesDeroneblineras = Integer.parseInt(jTextField162.getText());
-
-            int lucesIzqbajas = Integer.parseInt(jTextField163.getText());
-            int lucesIzqaltas = Integer.parseInt(jTextField168.getText());
-            int lucesIzqaltasad = Integer.parseInt(jTextField165.getText());
-            int lucesIzqneblineras = Integer.parseInt(jTextField166.getText());
-
-            String aliLucesbajas = jTextField167.getText();
-            String aliLucesaltas = jTextField164.getText();
-            String aliLucesaltasad = jTextField169.getText();
-            String aliLucesneblineras = jTextField170.getText();
-
-            String lucesResultbajas = jTextField171.getText();
-            String lucesResultaltas = jTextField172.getText();
-            String lucesResultaltasad = jTextField173.getText();
-            String lucesResultneblineras = jTextField174.getText();
-
+            objLuzBaja.setMedidaDerLuz(Double.parseDouble(jTextField159.getText()));
+            objLuzBaja.setMedidaIzqLuz(Double.parseDouble(jTextField163.getText()));
+            objLuzBaja.setAlineamientoLuz(jTextField167.getText());
+            objLuzBaja.setResultadoLuz(jTextField171.getText());
+            
+            Luxometro objLuzAlta= new Luxometro();
+            objLuzAlta.setTipoLuz(2);
+            objLuzAlta.setMedidaDerLuz(Double.parseDouble(jTextField160.getText()));
+            objLuzAlta.setMedidaIzqLuz(Double.parseDouble(jTextField168.getText()));
+            objLuzAlta.setAlineamientoLuz(jTextField164.getText());
+            objLuzAlta.setResultadoLuz(jTextField172.getText());
+            
+            Luxometro objLuzAltaAd= new Luxometro();
+            objLuzAltaAd.setTipoLuz(3);
+            objLuzAltaAd.setMedidaDerLuz(Double.parseDouble(jTextField161.getText()));
+            objLuzAltaAd.setMedidaIzqLuz(Double.parseDouble(jTextField165.getText()));
+            objLuzAltaAd.setAlineamientoLuz(jTextField169.getText());
+            objLuzAltaAd.setResultadoLuz(jTextField173.getText());
+            
+            Luxometro objLuzNeblineras= new Luxometro();
+            objLuzNeblineras.setTipoLuz(4);
+            objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
+            objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
+            objLuzNeblineras.setAlineamientoLuz(jTextField169.getText());
+            objLuzNeblineras.setResultadoLuz(jTextField174.getText());
+            
             //// PRUEBA DE SUSPENSIÓN
+            Suspension objSuspension= new Suspension();
+            objSuspension.setDelanteraIzq(PROPERTIES);
+            objSuspension.setDelanteraDer(WIDTH);
+            objSuspension.setDelanteraDesv(WIDTH);
+            objSuspension.setDelanteraResult(title);
+            objSuspension.setDelanteraResultFinal(title);
+            objSuspension.setPosteriorIzq(PROPERTIES);
+            objSuspension.setPosteriorDer(WIDTH);
+            objSuspension.setPosteriorDesv(WIDTH);
+            objSuspension.setPosteriorResult(title);
+            objSuspension.setPosteriorResultFinal(title);
+            
             double sdizq = Double.parseDouble(jTextField177.getText());
             double sdder = Double.parseDouble(jTextField178.getText());
             double sddesv = Double.parseDouble(jTextField179.getText());
