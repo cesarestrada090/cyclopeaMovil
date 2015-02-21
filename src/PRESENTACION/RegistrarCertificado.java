@@ -1197,7 +1197,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1266,11 +1265,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField104, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField104, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1593,8 +1593,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel32)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel32))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField159, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2313,7 +2312,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
             objTarjetaP.setAsientos(Integer.parseInt(jTextField124.getText()));
             objTarjetaP.setCargaUtil(Double.parseDouble(jTextField120.getText()));
-            objTarjetaP.setIdCategoria(jComboBox14.getSelectedIndex());
+            objTarjetaP.setIdCategoria(String.valueOf(jComboBox14.getSelectedItem()));
             objTarjetaP.setColores(jTextField122.getText());
             objTarjetaP.setPlaca(jTextField83.getText());
             objTarjetaP.setEjes(Integer.parseInt(jTextField115.getText()));
@@ -2324,8 +2323,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
             objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
             objTarjetaP.setIdCombustible(String.valueOf(jComboBox12.getSelectedItem()));
-            objTarjetaP.setIdMarca(jComboBox9.getSelectedIndex());
-            objTarjetaP.setIdModelo(jComboBox10.getSelectedIndex());
+            objTarjetaP.setIdMarca(String.valueOf(jComboBox9.getSelectedIndex()));
+            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
             objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
             objTarjetaP.setNombrePropietario(jTextField82.getText());
             objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());

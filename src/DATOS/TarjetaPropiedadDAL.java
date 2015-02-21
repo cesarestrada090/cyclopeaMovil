@@ -5,6 +5,7 @@
 package DATOS;
 
 import ENTIDADES.Certificado;
+import ENTIDADES.TarjetaPropiedad;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,28 +23,45 @@ public class TarjetaPropiedadDAL {
     ResultSet rs = null;
     CallableStatement cs = null;
 
-    public boolean registrarDatosCertificado(Certificado v) {
+    public boolean registrarDatosCertificado(TarjetaPropiedad v) {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia = "insert into certificado(STR_TPDOCTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA,DTE_FECINSPECCION,"
-                    + "DTE_FECVENCIMIENTO,STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO)"
-                    + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sentencia = "insert into tarjetapropiedad(placa,ntarjeta,razon1,domicilio,idclase,idmarca,fabricacion,"
+                    + "idmodelo,version,idcombustible,idcarroceria,ejes,colores,nmotor,cilindros,nserie,vin,ruedas,pasajeros,asientos,"
+                    + "peso_seco,peso_bruto,longitud,altura,ancho,carga_util,estado,fecha,nruedas)"
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setString(1, v.getTipoDocTransp());
-            ps.setString(2, v.getNumDocTransp());
-            ps.setString(3, v.getRazonTransp());
-            ps.setString(4, v.getTipoDocEvaluar());
-            ps.setString(5, v.getNumDocEvaluar());
-            ps.setString(6, v.getClaseAutorizacion());
-            ps.setInt(7, v.getResultado());
-            ps.setString(8, v.getVigencia());
-            ps.setObject(9, v.getFecInspeccion());
-            ps.setObject(10, v.getFecVencimiento());
-            ps.setString(11, v.getcIdentidadCert());
-            ps.setString(12, v.getCodLocal());
-            ps.setString(13, v.getUbigeo());
+
+            ps.setString(1, v.getPlaca());
+            ps.setString(2, v.getnTarjeta());
+            ps.setString(3, v.getNombrePropietario());
+            ps.setString(4, v.getDomicilio());
+            ps.setString(5, "");
+            ps.setString(6, v.getIdMarca());
+            ps.setInt(7, v.getFabricacion());
+            ps.setString(8, v.getIdModelo());
+            ps.setString(9, v.getVersion());
+            ps.setString(10, v.getIdCombustible());
+            ps.setString(11, v.getIdCarroceria());
+            ps.setInt(12, v.getEjes());
+            ps.setString(13, v.getColores());
+            ps.setObject(14, v.getnMotor());
+            ps.setInt(15, v.getCilindros());
+            ps.setString(16, v.getnSerie());
+            ps.setString(17, v.getVin());
+            ps.setObject(18, v.getRuedas());
+            ps.setInt(19, v.getPasajeros());
+            ps.setInt(20, v.getAsientos());
+            ps.setDouble(21, v.getPesoSeco());
+            ps.setDouble(22, v.getPesoBruto());
+            ps.setDouble(23, v.getLongitud());
+            ps.setDouble(24, v.getAltura());
+            ps.setDouble(25, v.getAncho());
+            ps.setDouble(26, v.getCargaUtil());
+            ps.setString(27, v.getEstado());
+            ps.setObject(28, v.getFecha());
+            ps.setInt(29, v.getnRuedas());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
