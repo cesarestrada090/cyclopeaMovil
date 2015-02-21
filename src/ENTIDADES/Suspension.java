@@ -11,6 +11,7 @@ package ENTIDADES;
  * @author KACESE
  */
 public class Suspension {
+    private int idCertificado;
     private double delanteraIzq;
     private double delanteraDer;
     private double delanteraDesv;

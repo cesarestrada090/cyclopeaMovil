@@ -11,6 +11,7 @@ package ENTIDADES;
  * @author KACESE
  */
 public class Luxometro {
+    private int luxometro;
     private int TipoLuz;
     private double medidaDerLuz;
     private double medidaIzqLuz;
@@ -20,6 +21,16 @@ public class Luxometro {
     public int getTipoLuz() {
         return TipoLuz;
     }
+
+    public int getLuxometro() {
+        return luxometro;
+    }
+
+    public void setLuxometro(int luxometro) {
+        this.luxometro = luxometro;
+    }
+    
+    
 
     public void setTipoLuz(int TipoLuz) {
         this.TipoLuz = TipoLuz;

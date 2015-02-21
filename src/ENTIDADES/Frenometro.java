@@ -2,6 +2,7 @@ package ENTIDADES;
 
 public class Frenometro {
 
+    private int idCerticado;
     private int idFrenometro;
     private int idEsqueda;
     private int nEjes;

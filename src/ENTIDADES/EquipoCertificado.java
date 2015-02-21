@@ -11,12 +11,23 @@ package ENTIDADES;
  */
 public class EquipoCertificado {
 
+    private int idCertificado;
     private int NumFrenometro;
     private int NumAlineador;
     private int NumAnalizador;
     private int NumRegloscopio;
     private int NumBancoSuspension;
 
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
+    }
+
+    
+    
     public int getNumFrenometro() {
         return NumFrenometro;
     }

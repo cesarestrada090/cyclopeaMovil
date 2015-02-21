@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Certificado {
 
+    private int idCertificado;
     private String tipoDocTransp;
     private String numDocTransp;
     private String razonTransp;
@@ -18,6 +19,16 @@ public class Certificado {
     private String codLocal;
     private String ubigeo;
 
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
+    }
+
+    
+    
     public String getTipoDocTransp() {
         return tipoDocTransp;
     }
