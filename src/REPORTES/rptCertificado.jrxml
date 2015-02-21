@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="44"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="2" width="301" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="292" y="1" width="125" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="292" y="21" width="125" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="292" y="41" width="125" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="1" width="138" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="21" width="138" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="41" width="138" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="63" y="31" width="192" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="31" width="63" height="29"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="3" y="31" width="60" height="29"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Tipo de 
+Inspección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="31" width="185" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[INSPECCIÓN TÉCNICA ORDINARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="0" width="121" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="21" width="121" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha de Inspección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="41" width="121" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Informe de Inspección N°:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="221" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#009933"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="272" height="20" forecolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I. CARACTERÍSTICAS DEL VEHÍCULO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="20" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="40" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="60" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="80" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="100" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="120" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="140" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="120" width="77" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="38" y="120" width="71" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Año de Fabricación]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="32" y="100" width="77" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="80" width="77" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="60" width="77" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="40" width="77" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="20" width="175" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="32" y="140" width="77" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="100" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="40" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="60" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="80" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="120" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="109" y="140" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="20" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="40" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="60" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="80" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="100" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="120" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="207" y="140" width="32" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="140" width="103" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="247" y="140" width="95" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N° de Ejes/ N° de Ruedas:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="239" y="120" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="100" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="80" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="60" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="40" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="239" y="20" width="103" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="20" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="40" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="60" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="80" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="100" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="120" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="140" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="20" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="40" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="60" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="80" width="100" height="20"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
