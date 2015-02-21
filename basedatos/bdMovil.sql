@@ -184,6 +184,31 @@ CREATE TABLE `luxometro` (
 
 
 --
+-- Definition of table `persona`
+--
+
+DROP TABLE IF EXISTS `persona`;
+CREATE TABLE `persona` (
+  `Per_Id` int(11) NOT NULL,
+  `Per_DNI` varchar(80) DEFAULT NULL,
+  `Per_RUC` varchar(50) DEFAULT NULL,
+  `Per_Nombre_Razon` varchar(145) NOT NULL,
+  `Direccion` varchar(30) DEFAULT NULL,
+  `Telefono` varchar(50) DEFAULT NULL,
+  `Celular` varchar(10) DEFAULT NULL,
+  `Correo` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Per_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `persona`
+--
+
+/*!40000 ALTER TABLE `persona` DISABLE KEYS */;
+/*!40000 ALTER TABLE `persona` ENABLE KEYS */;
+
+
+--
 -- Definition of table `suspension`
 --
 
@@ -257,6 +282,52 @@ CREATE TABLE `tarjetapropiedad` (
 
 /*!40000 ALTER TABLE `tarjetapropiedad` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tarjetapropiedad` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipo_usuario`
+--
+
+DROP TABLE IF EXISTS `tipo_usuario`;
+CREATE TABLE `tipo_usuario` (
+  `Tip_TipoId` int(11) NOT NULL,
+  `Tip_Descripcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`Tip_TipoId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipo_usuario`
+--
+
+/*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
+INSERT INTO `tipo_usuario` (`Tip_TipoId`,`Tip_Descripcion`) VALUES 
+ (1,'administrador'),
+ (2,'usuario');
+/*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
+
+
+--
+-- Definition of table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE `usuario` (
+  `Usu_Id` varchar(10) NOT NULL,
+  `Usu_Password` varchar(10) NOT NULL,
+  `Tip_TipoId` int(11) NOT NULL,
+  PRIMARY KEY (`Usu_Id`),
+  KEY `fk_USUARIO_TIPO_USUARIO` (`Tip_TipoId`),
+  CONSTRAINT `fk_USUARIO_TIPO_USUARIO` FOREIGN KEY (`Tip_TipoId`) REFERENCES `tipo_usuario` (`Tip_TipoId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `usuario`
+--
+
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` (`Usu_Id`,`Usu_Password`,`Tip_TipoId`) VALUES 
+ ('movil01','123321',1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 
 
