@@ -37,5 +37,6 @@ public class CertificadoPrueba {
         
         CertificadoDAL data= new CertificadoDAL();
         System.out.print(data.registrarDatosCertificado(c)) ;
+        System.out.print(data.obtenerNumeroRegistroCertificado()) ;
     }
 }

@@ -25,5 +25,11 @@ public class TarjetaPropiedadBL {
           else
               return false;
     }
+    
+    public int obtenerTarjetaPropiedad()
+    {
+         return new TarjetaPropiedadDAL().obtenerNumeroRegistroTarjeta();
+          
+    }
 
 }

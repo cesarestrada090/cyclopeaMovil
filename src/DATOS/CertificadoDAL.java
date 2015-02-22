@@ -11,6 +11,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -27,25 +28,27 @@ public class CertificadoDAL {
     public boolean registrarDatosCertificado(Certificado v) {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia = "insert into certificado(STR_TPDOCTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA,DTE_FECINSPECCION,"
-                    + "DTE_FECVENCIMIENTO,STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO)"
+            cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "bdnuevamovil", "root", "123456");
+            
+            String sentencia = "insert into certificado("
+                    + "tipoDocTransp,numDocTransp,tipoDocEvaluar,numDocEvaluar,"
+                    + "claseAutorizacion,resultado,vigencia,fecInspeccion,fecVencimiento,"
+                    + "cIdentidadCert,codLocal,ubigeo)"
                     + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setString(1, v.getTipoDocTransp());
             ps.setString(2, v.getNumDocTransp());
-            ps.setString(3, v.getRazonTransp());
-            ps.setString(4, v.getTipoDocEvaluar());
-            ps.setString(5, v.getNumDocEvaluar());
-            ps.setString(6, v.getClaseAutorizacion());
-            ps.setInt(7, v.getResultado());
-            ps.setString(8, v.getVigencia());
-            ps.setObject(9, v.getFecInspeccion());
-            ps.setObject(10, v.getFecVencimiento());
-            ps.setString(11, v.getcIdentidadCert());
-            ps.setString(12, v.getCodLocal());
-            ps.setString(13, v.getUbigeo());
+            ps.setString(3, v.getTipoDocEvaluar());
+            ps.setString(4, v.getNumDocEvaluar());
+            ps.setString(5, v.getClaseAutorizacion());
+            ps.setInt(6, v.getResultado());
+            ps.setString(7, v.getVigencia());
+            ps.setObject(8, v.getFecInspeccion());
+            ps.setObject(9, v.getFecVencimiento());
+            ps.setString(10, v.getcIdentidadCert());
+            ps.setString(11, v.getCodLocal());
+            ps.setString(12, v.getUbigeo());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
@@ -60,6 +63,34 @@ public class CertificadoDAL {
                 Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    public int obtenerNumeroRegistroCertificado()
+    {
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select max(idCertificado) from certificado;");
+            if (rs.next()) {
+                Integer numero= rs.getInt(1);
+                if(numero!=null){
+                    return numero;
+                }
+                else
+                    return 0;
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
     }
 }
 /*

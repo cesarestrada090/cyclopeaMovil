@@ -5,10 +5,12 @@
 package DATOS;
 
 import ENTIDADES.TarjetaPropiedad;
+import PRESENTACION.frmInicio;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -75,6 +77,35 @@ public class TarjetaPropiedadDAL {
                 Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public int obtenerNumeroRegistroTarjeta()
+    {
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select max(id_tarjeta) from tarjetaPropiedad;");
+            if (rs.next()) {
+                Integer numero= rs.getInt(1);
+                if(numero!=null){
+                    return numero;
+                }
+                else
+                    return 0;
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
     }
 }
 /*

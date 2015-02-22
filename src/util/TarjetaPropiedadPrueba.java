@@ -38,5 +38,6 @@ public class TarjetaPropiedadPrueba {
         c.setFecha(new Date());
         TarjetaPropiedadDAL data= new TarjetaPropiedadDAL();
         System.out.print(data.registrarDatosTarjeta(c));
+        System.out.print(data.obtenerNumeroRegistroTarjeta());
     }
 }
