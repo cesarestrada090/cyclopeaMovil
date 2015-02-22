@@ -14,6 +14,7 @@ package PRESENTACION;
 //import ENTIDADES.Usuario;
 //import NEGOCIO.UsuarioBL;
 import ENTIDADES.*;
+import NEGOCIO.*;
 import java.awt.Dimension;
 import java.awt.List;
 import java.awt.event.KeyEvent;
@@ -2301,14 +2302,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         resultado = validarVacios();
         if (resultado) {
-            
-            //CERTIFICADO
-            Certificado objCertificado = new Certificado();
-            objCertificado.setFecInspeccion(jDateChooser1.getDate());
-            objCertificado.setFecVencimiento(jDateChooser2.getDate()); // Fecha de la próxima inspección
-            objCertificado.setResultado(jComboBox3.getSelectedIndex());
-            objCertificado.setVigencia(jTextField195.getText());
-            
+
             // CARACTERÍSTICAS DEL VEHÍCULO 
             TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
             objTarjetaP.setIdTarjeta(jTextField55.getText());
@@ -2334,7 +2328,26 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objTarjetaP.setNombrePropietario(jTextField82.getText());
             objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
             objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
-                        
+            objTarjetaP.setnTarjeta(jTextField55.getText());
+
+            int idTarjeta;
+            TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
+            objTPBL.registrarTarjetaPropiedad(objTarjetaP);
+            idTarjeta = objTPBL.obtenerTarjetaPropiedad();
+
+            //CERTIFICADO
+            Certificado objCertificado = new Certificado();
+            objCertificado.setFecInspeccion(jDateChooser1.getDate());
+            objCertificado.setFecVencimiento(jDateChooser2.getDate()); // Fecha de la próxima inspección
+            objCertificado.setResultado(jComboBox3.getSelectedIndex());
+            objCertificado.setVigencia(jTextField195.getText());
+            objCertificado.setIdTarjeta(idTarjeta);
+
+            int idCertificado;
+            CertificadoBL objCertBL = new CertificadoBL();
+            objCertBL.registrarCertificado(objCertificado);
+            idCertificado = objCertBL.obtenerIdCertificado();
+
             //RESULTADOS - PRUEBA DE FRENOS
             Frenometro objFrenometro1 = new Frenometro();
             objFrenometro1.setnEjes(1);
@@ -2357,6 +2370,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
             objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
             objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
+            
+            FrenometroBL objFrenometroBL = new FrenometroBL();
+            objFrenometroBL.registrarFrenometro(objFrenometro1);
 
             Frenometro objFrenometro2 = new Frenometro();
             objFrenometro2.setnEjes(2);
@@ -2379,7 +2395,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
             objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
             objFrenometro2.setDesequilibrioEmergencia(Double.parseDouble(jTextField103.getText()));
-
+            
+            objFrenometroBL.registrarFrenometro(objFrenometro2);
+            
             Frenometro objFrenometro3 = new Frenometro();
             objFrenometro3.setnEjes(3);
             objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
@@ -2402,6 +2420,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
             objFrenometro3.setDesequilibrioEmergencia(Double.parseDouble(jTextField104.getText()));
 
+            objFrenometroBL.registrarFrenometro(objFrenometro3);
+            
             Frenometro objFrenometro4 = new Frenometro();
             objFrenometro4.setnEjes(4);
             objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
@@ -2424,6 +2444,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
             objFrenometro4.setDesequilibrioEmergencia(Double.parseDouble(jTextField105.getText()));
 
+            objFrenometroBL.registrarFrenometro(objFrenometro4);
+            
             Frenometro objFrenometro5 = new Frenometro();
             objFrenometro5.setnEjes(5);
             objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
@@ -2441,19 +2463,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro5.setResultadoEjeEstacionamiento(jTextField111.getText());
             objFrenometro5.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
             objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
-            objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));            
+            objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
             objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
             objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
-            objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));            
+            objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));
 
+            objFrenometroBL.registrarFrenometro(objFrenometro5);
+            
             // DATOS DE LOS EQUIPOS
             EquipoCertificado objEquipos = new EquipoCertificado();
             objEquipos.setNumAlineador(jComboBox15.getSelectedIndex());
             objEquipos.setNumAnalizador(jComboBox16.getSelectedIndex());
             objEquipos.setNumBancoSuspension(jComboBox17.getSelectedIndex());
             objEquipos.setNumFrenometro(jComboBox18.getSelectedIndex());
-            objEquipos.setNumRegloscopio(jComboBox19.getSelectedIndex());
-
+            objEquipos.setNumRegloscopio(jComboBox19.getSelectedIndex());  
+            
+            EquipoCertificadoBL objEquipoBL = new EquipoCertificadoBL();
+            objEquipoBL.registrarEquipoCertificado(objEquipos);
+            
             // RESULTADOS - PRUEBA DE ALINEAMIENTO
             Alineador objAlineador1 = new Alineador();
             objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField5.getText()));
@@ -2462,6 +2489,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlineador1.setResultadoejealineamiento(jTextField10.getText());
             objAlineador1.setResultadoejeneumatico(jTextField21.getText());
             
+            AlineadorBL objAlinBL = new AlineadorBL();
+            objAlinBL.registrarAlineador(objAlineador1);
+
             Alineador objAlineador2 = new Alineador();
             objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
             objAlineador2.setEje(2);
@@ -2469,12 +2499,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlineador2.setResultadoejealineamiento(jTextField11.getText());
             objAlineador2.setResultadoejeneumatico(jTextField22.getText());
             
+            objAlinBL.registrarAlineador(objAlineador2);
+
             Alineador objAlineador3 = new Alineador();
             objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
             objAlineador3.setEje(3);
             objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
             objAlineador3.setResultadoejealineamiento(jTextField13.getText());
             objAlineador3.setResultadoejeneumatico(jTextField23.getText());
+
+            objAlinBL.registrarAlineador(objAlineador3);
             
             Alineador objAlineador4 = new Alineador();
             objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
@@ -2483,44 +2517,57 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlineador4.setResultadoejealineamiento(jTextField14.getText());
             objAlineador4.setResultadoejeneumatico(jTextField24.getText());
             
+            objAlinBL.registrarAlineador(objAlineador4);
+            
             Alineador objAlineador5 = new Alineador();
             objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
             objAlineador5.setEje(5);
             objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
             objAlineador5.setResultadoejealineamiento(jTextField15.getText());
             objAlineador5.setResultadoejeneumatico(jTextField25.getText());
+
+            objAlinBL.registrarAlineador(objAlineador5);
             
             //// PRUEBA DE LUCES
-            Luxometro objLuzBaja= new Luxometro();
+            Luxometro objLuzBaja = new Luxometro();
             objLuzBaja.setTipoLuz(1);
             objLuzBaja.setMedidaDerLuz(Double.parseDouble(jTextField159.getText()));
             objLuzBaja.setMedidaIzqLuz(Double.parseDouble(jTextField163.getText()));
             objLuzBaja.setAlineamientoLuz(jTextField167.getText());
             objLuzBaja.setResultadoLuz(jTextField171.getText());
             
-            Luxometro objLuzAlta= new Luxometro();
+            LuxometroBL objLuxBL = new LuxometroBL();
+            objLuxBL.registrarLuxometro(objLuzBaja);
+
+            Luxometro objLuzAlta = new Luxometro();
             objLuzAlta.setTipoLuz(2);
             objLuzAlta.setMedidaDerLuz(Double.parseDouble(jTextField160.getText()));
             objLuzAlta.setMedidaIzqLuz(Double.parseDouble(jTextField168.getText()));
             objLuzAlta.setAlineamientoLuz(jTextField164.getText());
             objLuzAlta.setResultadoLuz(jTextField172.getText());
             
-            Luxometro objLuzAltaAd= new Luxometro();
+            objLuxBL.registrarLuxometro(objLuzAlta);
+
+            Luxometro objLuzAltaAd = new Luxometro();
             objLuzAltaAd.setTipoLuz(3);
             objLuzAltaAd.setMedidaDerLuz(Double.parseDouble(jTextField161.getText()));
             objLuzAltaAd.setMedidaIzqLuz(Double.parseDouble(jTextField165.getText()));
             objLuzAltaAd.setAlineamientoLuz(jTextField169.getText());
             objLuzAltaAd.setResultadoLuz(jTextField173.getText());
+
+            objLuxBL.registrarLuxometro(objLuzAltaAd);
             
-            Luxometro objLuzNeblineras= new Luxometro();
+            Luxometro objLuzNeblineras = new Luxometro();
             objLuzNeblineras.setTipoLuz(4);
             objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
             objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
             objLuzNeblineras.setAlineamientoLuz(jTextField169.getText());
             objLuzNeblineras.setResultadoLuz(jTextField174.getText());
+
+            objLuxBL.registrarLuxometro(objLuzNeblineras);
             
             //// PRUEBA DE SUSPENSIÓN
-            Suspension objSuspension= new Suspension();
+            Suspension objSuspension = new Suspension();
             objSuspension.setDelanteraIzq(Double.parseDouble(jTextField177.getText()));
             objSuspension.setDelanteraDer(Double.parseDouble(jTextField178.getText()));
             objSuspension.setDelanteraDesv(Double.parseDouble(jTextField179.getText()));
@@ -2531,8 +2578,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objSuspension.setPosteriorDesv(Double.parseDouble(jTextField183.getText()));
             objSuspension.setPosteriorResult(jTextField184.getText());
             objSuspension.setPosteriorResultFinal(String.valueOf(jComboBox8.getSelectedItem()));
+            
+            SuspensionBL objSusBL = new SuspensionBL();
+            objSusBL.registrarSuspension(objSuspension);
 
             ////EMISIÓN DE GASES
+            
             double tAceite = Double.parseDouble(jTextField181.getText());
             double Rpm = Double.parseDouble(jTextField181.getText());
             double Opacidad = Double.parseDouble(jTextField181.getText());
@@ -2599,12 +2650,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             //String fechaVig=jTextField195.getText();                    
 //            JOptionPane.showMessageDialog(null, modelo, "CAMPOS VACÍOS", 0);
 //        }else{
-//            JOptionPane.showMessageDialog(null, "Es necesario completar toda la información requerida", "CAMPOS VACÍOS", 0);
+            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 0);
         }
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
-    
+
     public boolean validarVacios() {
         if (jTextField82.getText().trim().equals("")) {
             resultado = false;
