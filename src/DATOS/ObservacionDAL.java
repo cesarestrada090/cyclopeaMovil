@@ -28,8 +28,8 @@ public class ObservacionDAL {
     public boolean registrarDatosObservacion(Observacion v)
     {
         try {
-            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
             String sentencia="insert into observacion(idCertificado,codigoObservacion,interpretacion,calificacion) values(?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,v.getIdCertificado());

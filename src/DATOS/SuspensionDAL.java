@@ -30,8 +30,8 @@ public class SuspensionDAL {
     public boolean registrarDatosSuspension(Suspension v)
     {
         try {
-            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
-            cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
             String sentencia="insert into suspension(idCertificado,delanteraIzq,delanteraDer,delanteraDesv,resultadoDelantera,resultadoFinalDelantera,posteriorIzq,posteriorDer,posteriorDesv,resultadoPosterior,resultadoFinalPosterior)"
                     + " values(?,?,?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);

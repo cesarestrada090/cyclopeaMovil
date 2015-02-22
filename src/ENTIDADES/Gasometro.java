@@ -3,7 +3,6 @@ package ENTIDADES;
 public class Gasometro {
 
     private int idCertificado;
-    private String tipoEmision;
     private double tAceite;
     private double rpm;
     private double opacidad;
@@ -23,13 +22,6 @@ public class Gasometro {
         this.idCertificado = idCertificado;
     }
 
-    public String getTipoEmision() {
-        return tipoEmision;
-    }
-
-    public void setTipoEmision(String tipoEmision) {
-        this.tipoEmision = tipoEmision;
-    }
 
     public double gettAceite() {
         return tAceite;

@@ -27,7 +27,6 @@ public class GasometroPruebas {
         c.setOpacidad(3);
         c.setResultado("Aprobado");
         c.setRpm(56);
-        c.setTipoEmision("Max 77");
         c.settAceite(33.2);
         
         GasometroDAL data= new GasometroDAL();

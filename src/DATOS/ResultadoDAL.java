@@ -27,8 +27,8 @@ public class ResultadoDAL {
 
     public boolean registrarDatosResultado(Resultado v) {
         try {
-            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            //cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
             String sentencia = "insert into resultados(INT_PRUEALI,INT_PROFNEUMA,INT_PRUEBLUCES,INT_SUSPENSION,INT_EMIGASES,INT_FRESERV,INT_FREESTAC,INT_FREEMER,NUM_DISEJES,"
                     + "NUM_PISOS,STR_OBSERVACIONES)"
                     + ""

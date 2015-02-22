@@ -31,8 +31,8 @@ public class LuxometroDAL {
     {
         try {
 
-            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
-            cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
             String sentencia="insert into luxometro(idCertificado,tipoLuz,medidaDerLuz,medidaIzqLuz,alineamiento,resultadoTipoLuz)"
                     + " values(?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
