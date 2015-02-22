@@ -23,5 +23,10 @@ public class CertificadoBL {
           else
               return false;
     }
+    public int obtenerIdCertificado()
+    {
+         return new CertificadoDAL().obtenerNumeroRegistroCertificado();
+          
+    }
 
 }

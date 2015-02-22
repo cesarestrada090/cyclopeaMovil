@@ -5,6 +5,7 @@ import java.util.Date;
 public class Certificado {
 
     private int idCertificado;
+    private int idTarjeta;
     private String tipoDocTransp;
     private String numDocTransp;
     private String razonTransp;
@@ -19,6 +20,15 @@ public class Certificado {
     private String codLocal;
     private String ubigeo;
 
+    public int getIdTarjeta() {
+        return idTarjeta;
+    }
+
+    public void setIdTarjeta(int idTarjeta) {
+        this.idTarjeta = idTarjeta;
+    }
+
+    
     public int getIdCertificado() {
         return idCertificado;
     }
