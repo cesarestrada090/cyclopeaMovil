@@ -32,7 +32,7 @@ public class CertificadoPrueba {
         Date d= new Date();
         c.setFecInspeccion(d);
         c.setFecVencimiento(d);
-        
+        c.setIdTarjeta(332);
         
         
         CertificadoDAL data= new CertificadoDAL();

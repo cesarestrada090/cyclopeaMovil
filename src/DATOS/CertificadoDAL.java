@@ -33,9 +33,9 @@ public class CertificadoDAL {
             String sentencia = "insert into certificado("
                     + "tipoDocTransp,numDocTransp,tipoDocEvaluar,numDocEvaluar,"
                     + "claseAutorizacion,resultado,vigencia,fecInspeccion,fecVencimiento,"
-                    + "cIdentidadCert,codLocal,ubigeo)"
+                    + "cIdentidadCert,codLocal,ubigeo,idTarjeta)"
                     + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setString(1, v.getTipoDocTransp());
             ps.setString(2, v.getNumDocTransp());
@@ -49,6 +49,7 @@ public class CertificadoDAL {
             ps.setString(10, v.getcIdentidadCert());
             ps.setString(11, v.getCodLocal());
             ps.setString(12, v.getUbigeo());
+            ps.setInt(13, v.getIdTarjeta());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
