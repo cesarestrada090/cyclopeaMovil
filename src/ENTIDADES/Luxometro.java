@@ -12,7 +12,6 @@ package ENTIDADES;
  */
 public class Luxometro {
     private int idCertificado;
-    private int luxometro;
     private int TipoLuz;
     private double medidaDerLuz;
     private double medidaIzqLuz;
@@ -31,14 +30,7 @@ public class Luxometro {
         return TipoLuz;
     }
 
-    public int getLuxometro() {
-        return luxometro;
-    }
 
-    public void setLuxometro(int luxometro) {
-        this.luxometro = luxometro;
-    }
-    
     
 
     public void setTipoLuz(int TipoLuz) {
