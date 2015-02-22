@@ -6,22 +6,22 @@ public class Frenometro {
     private int idFrenometro;
     private int idEsqueda;
     private int nEjes;
-
     private double pesoServicio;
+    
     private double fuerzaServicioDer;
     private double fuerzaServicioIzq;
     private double fuerzaEstDer;
     private double fuerzaEstIzq;
     private double fuerzaEmerDer;
+    
     private double fuerzaEmerIzq;
     private double eficienciaServicio;
     private double eficienciaEst;
     private double eficienciaEmergencia;
-
     private String resultadoEjeServicio;
+    
     private String resultadoEjeEstacionamiento;
     private String resultadoEjeEmergencia;
-
     private String resultadoGlobalServicio;
     private String resultadoGlobalEstacionamiento;
     private String resultadoGlobalEmergencia;

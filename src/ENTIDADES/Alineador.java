@@ -11,12 +11,23 @@ package ENTIDADES;
  * @author KACESE
  */
 public class Alineador {
+    private int idCertificado;
     private int eje;
     private double desviacionejealineamiento;
     private String resultadoejealineamiento;
     private double medidaejeneumatico;
     private String resultadoejeneumatico;
 
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
+    }
+
+    
+    
     public int getEje() {
         return eje;
     }

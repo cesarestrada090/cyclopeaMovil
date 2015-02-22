@@ -11,12 +11,21 @@ package ENTIDADES;
  * @author KACESE
  */
 public class Luxometro {
+    private int idCertificado;
     private int luxometro;
     private int TipoLuz;
     private double medidaDerLuz;
     private double medidaIzqLuz;
     private String alineamientoLuz;
     private String resultadoLuz;
+
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
+    }
 
     public int getTipoLuz() {
         return TipoLuz;

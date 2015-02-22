@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TarjetaPropiedad {
 
+    private int idCertificado;
     private String idTarjeta;
     private String placa;
     private String nTarjeta;
@@ -42,6 +43,14 @@ public class TarjetaPropiedad {
 
     public void setnRuedas(int nRuedas) {
         this.nRuedas = nRuedas;
+    }
+
+    public int getIdCertificado() {
+        return idCertificado;
+    }
+
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
     }
 
     
