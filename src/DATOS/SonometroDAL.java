@@ -6,6 +6,7 @@
 package DATOS;
 import ENTIDADES.Certificado;
 import ENTIDADES.Observacion;
+import ENTIDADES.Sonometro;
 import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
@@ -18,24 +19,23 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 
-public class ObservacionDAL {
+public class SonometroDAL {
     Connection cn=null;
     Statement st= null;
     PreparedStatement ps=null;
     ResultSet rs= null;
     CallableStatement cs= null;
 
-    public boolean registrarDatosObservacion(Observacion v)
+    public boolean registrarDatosObservacion(Sonometro v)
     {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
-            String sentencia="insert into observacion(idCertificado,codigoObservacion,interpretacion,calificacion) values(?,?,?,?)";
+            String sentencia="insert into sonometro(idCertificado,sonometroValor,resultado) values(?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,v.getIdCertificado());
-            ps.setString(2,v.getCodigoObservacion());
-            ps.setString(3,v.getInterpretacion());
-            ps.setString(4,v.getCalificacion());
+            ps.setDouble(2,v.getSonometroValor());
+            ps.setString(3,v.getResultado());
 
             ps.executeUpdate();
             return true;

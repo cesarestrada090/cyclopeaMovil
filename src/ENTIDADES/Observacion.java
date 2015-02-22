@@ -2,40 +2,41 @@ package ENTIDADES;
 
 public class Observacion {
 
-    private String tipoDocEval;
-    private String numDocEvaluar;
-    private String codigoObsDetec;
-    private String descObservacionDetec;
+    private int idCertificado;
+    private String codigoObservacion;
+    private String interpretacion;
+    private String calificacion;
 
-    public String getTipoDocEval() {
-        return tipoDocEval;
+    public int getIdCertificado() {
+        return idCertificado;
     }
 
-    public void setTipoDocEval(String tipoDocEval) {
-        this.tipoDocEval = tipoDocEval;
+    public void setIdCertificado(int idCertificado) {
+        this.idCertificado = idCertificado;
     }
 
-    public String getNumDocEvaluar() {
-        return numDocEvaluar;
+    public String getCodigoObservacion() {
+        return codigoObservacion;
     }
 
-    public void setNumDocEvaluar(String numDocEvaluar) {
-        this.numDocEvaluar = numDocEvaluar;
+    public void setCodigoObservacion(String codigoObservacion) {
+        this.codigoObservacion = codigoObservacion;
     }
 
-    public String getCodigoObsDetec() {
-        return codigoObsDetec;
+    public String getInterpretacion() {
+        return interpretacion;
     }
 
-    public void setCodigoObsDetec(String codigoObsDetec) {
-        this.codigoObsDetec = codigoObsDetec;
+    public void setInterpretacion(String interpretacion) {
+        this.interpretacion = interpretacion;
     }
 
-    public String getDescObservacionDetec() {
-        return descObservacionDetec;
+    public String getCalificacion() {
+        return calificacion;
     }
 
-    public void setDescObservacionDetec(String descObservacionDetec) {
-        this.descObservacionDetec = descObservacionDetec;
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
     }
+    
 }

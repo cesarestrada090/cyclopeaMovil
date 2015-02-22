@@ -15,10 +15,10 @@ public class ObservacionPrueba {
 
     public static void main(String[] args) {
         Observacion obs = new Observacion();
-        obs.setNumDocEvaluar("46541974");
-        obs.setTipoDocEval("1"); // 1: Certificado Inspeccion vehicular , 2: Informe Técnico
-        obs.setCodigoObsDetec("23,25");
-        obs.setDescObservacionDetec("Choque en la parte frontal");
+        obs.setCodigoObservacion("46541974");
+        obs.setIdCertificado(1); // 1: Certificado Inspeccion vehicular , 2: Informe Técnico
+        obs.setInterpretacion("23,25");
+        obs.setCalificacion("Choque en la parte frontal");
         
         ObservacionDAL data= new ObservacionDAL();
         System.out.print(data.registrarDatosObservacion(obs)) ;
