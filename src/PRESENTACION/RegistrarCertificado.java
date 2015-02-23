@@ -2862,7 +2862,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro2.setnEjes(2);
             objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
-            objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField49.getText()));
+            objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
             objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
             objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
@@ -2887,7 +2887,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro3.setnEjes(3);
             objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
-            objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField49.getText()));
+            objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
             objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
             objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
@@ -2912,7 +2912,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro4.setnEjes(4);
             objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
-            objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField49.getText()));
+            objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
             objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
             objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
