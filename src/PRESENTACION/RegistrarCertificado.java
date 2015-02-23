@@ -45,6 +45,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private boolean frenoServicioCompleto;
     private boolean frenoEstacionamientoCompleto;
     private boolean frenoEmergenciaCompleto;
+    private boolean suspensionCompleto;
+    private boolean gasometroCompleto;
+    private boolean sonometroCompleto;
 
     public void limpiarUsuarios() {
         jTextField4.setText("");
@@ -3012,7 +3015,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             } catch (NumberFormatException e) {
             }
 
-
             try {
                 Alineador objAlineador3 = new Alineador();
                 objAlineador3.setIdCertificado(idCertificado);
@@ -3282,7 +3284,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         /* Segundo Freno Servicio */
-
         if (!jTextField3.getText().trim().equals("") && !jTextField32.getText().trim().equals("")
                 && !jTextField36.getText().trim().equals("") && !jTextField41.getText().trim().equals("")
                 && !jTextField46.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
@@ -3290,7 +3291,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         /* Tercer Freno Servicio */
-
         if (!jTextField4.getText().trim().equals("") && !jTextField33.getText().trim().equals("")
                 && !jTextField37.getText().trim().equals("") && !jTextField42.getText().trim().equals("")
                 && !jTextField47.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
@@ -3311,80 +3311,70 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             frenoServicioCompleto = true;
         }
 
-
-
-
         /* primer freno Estacionamiento */
         if (!jTextField65.getText().trim().equals("") && !jTextField66.getText().trim().equals("")
                 && !jTextField75.getText().trim().equals("") && !jTextField76.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
-        
-         /* Segundo freno Estacionamiento */
+
+        /* Segundo freno Estacionamiento */
         if (!jTextField64.getText().trim().equals("") && !jTextField67.getText().trim().equals("")
                 && !jTextField74.getText().trim().equals("") && !jTextField77.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
-        
-         /* Tercer freno Estacionamiento */
+
+        /* Tercer freno Estacionamiento */
         if (!jTextField63.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
                 && !jTextField73.getText().trim().equals("") && !jTextField78.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
-         /* Cuarto freno Estacionamiento */
+        /* Cuarto freno Estacionamiento */
         if (!jTextField62.getText().trim().equals("") && !jTextField69.getText().trim().equals("")
                 && !jTextField72.getText().trim().equals("") && !jTextField79.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
-         /* Quinto freno Estacionamiento */
+        /* Quinto freno Estacionamiento */
         if (!jTextField61.getText().trim().equals("") && !jTextField70.getText().trim().equals("")
                 && !jTextField71.getText().trim().equals("") && !jTextField80.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
-
-
-
-
-
-
-        
         /* primer freno Emergencia */
         if (!jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
                 && !jTextField102.getText().trim().equals("") && !jTextField107.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
-        
-         /* Segundo freno Emergencia */
+
+        /* Segundo freno Emergencia */
         if (!jTextField93.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
                 && !jTextField103.getText().trim().equals("") && !jTextField108.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
-        
-         /* Tercer freno Emergencia */
+
+        /* Tercer freno Emergencia */
         if (!jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
                 && !jTextField104.getText().trim().equals("") && !jTextField109.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
-         /* Cuarto freno Emergencia */
+        /* Cuarto freno Emergencia */
         if (!jTextField100.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
                 && !jTextField105.getText().trim().equals("") && !jTextField110.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
-         /* Quinto freno Emergencia */
+        /* Quinto freno Emergencia */
         if (!jTextField99.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
                 && !jTextField106.getText().trim().equals("") && !jTextField111.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
@@ -3392,45 +3382,67 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
 
+        /* validar Suspension */
+        if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
+                && !jTextField179.getText().trim().equals("") && !jTextField181.getText().trim().equals("")
+                && !jTextField182.getText().trim().equals("") && !jTextField183.getText().trim().equals("")
+                && !jTextField184.getText().trim().equals("")) {
+            suspensionCompleto = true;
+        }
 
+        /* validar Emision Gas  */
+        if (!jTextField185.getText().trim().equals("") && !jTextField186.getText().trim().equals("")
+                && !jTextField187.getText().trim().equals("") && !jTextField188.getText().trim().equals("")
+                && !jTextField189.getText().trim().equals("") && !jTextField190.getText().trim().equals("")
+                && !jTextField191.getText().trim().equals("") && !jTextField192.getText().trim().equals("")
+                && !jTextField193.getText().trim().equals("")) {
+            gasometroCompleto = true;
+        }
 
+        /* validar Sonometro  */
+        if (jTextField194.getText().trim().equals("")) {
+            sonometroCompleto = true;
+        }
 
-
-
-
-
-
-
-
-
-
-        if (frenoServicioCompleto && frenoEstacionamientoCompleto && frenoEmergenciaCompleto) {
+        if (frenoServicioCompleto 
+                && frenoEstacionamientoCompleto 
+                && sonometroCompleto 
+                && gasometroCompleto 
+                && suspensionCompleto 
+                && frenoEmergenciaCompleto) {
             return true;
         } else {
-            if(!frenoServicioCompleto){
-            JOptionPane.showMessageDialog(null, "Complete frenos de Servicio", "CAMPOS VACÍOS", 0);
+            if (!frenoServicioCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete frenos de Servicio", "CAMPOS VACÍOS", 0);
+
+            }
+            if (!frenoEstacionamientoCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete frenos de Estacionamiento", "CAMPOS VACÍOS", 0);
+
+            }
+            if (!frenoEmergenciaCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete frenos de Emergencia", "CAMPOS VACÍOS", 0);
+
+            }
             
+            if (!sonometroCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete campos de Emisión Sonora", "CAMPOS VACÍOS", 0);
+
             }
-            if(!frenoEstacionamientoCompleto){
-            JOptionPane.showMessageDialog(null, "Complete frenos de Estacionamiento", "CAMPOS VACÍOS", 0);
-          
-            }
-            if(!frenoEmergenciaCompleto){
-            JOptionPane.showMessageDialog(null, "Complete frenos de Emergencia", "CAMPOS VACÍOS", 0);
             
+            if (!suspensionCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete campos de Suspensión", "CAMPOS VACÍOS", 0);
+
             }
+            
+            if (!gasometroCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete campos de Emisión de Gases", "CAMPOS VACÍOS", 0);
+
+            }
+            
             return false;
 
         }
-
-
-
-
-
-
-
-
-
 
     }
 
