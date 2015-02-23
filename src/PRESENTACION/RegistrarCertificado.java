@@ -3274,63 +3274,158 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
 
         /* primer freno servicio */
-        if (!jTextField116.getText().trim().equals("") && !jTextField50.getText().trim().equals("")
-                && !jTextField65.getText().trim().equals("") && !jTextField66.getText().trim().equals("")
+        if (!jTextField2.getText().trim().equals("")
                 && !jTextField30.getText().trim().equals("") && !jTextField31.getText().trim().equals("")
-                && !jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
-                && !jTextField2.getText().trim().equals("") && !jTextField45.getText().trim().equals("")
-                && !jTextField76.getText().trim().equals("") && !jTextField107.getText().trim().equals("")
-                && !jTextField40.getText().trim().equals("") && !jTextField75.getText().trim().equals("")
-                && !jTextField40.getText().trim().equals("")) {
+                && !jTextField40.getText().trim().equals("") && !jTextField50.getText().trim().equals("")
+                && !jTextField45.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* Segundo Freno Servicio */
 
-        if (!jTextField85.getText().trim().equals("") && !jTextField116.getText().trim().equals("")
-                && !jTextField50.getText().trim().equals("") && !jTextField64.getText().trim().equals("")
-                && !jTextField67.getText().trim().equals("") && !jTextField32.getText().trim().equals("")
-                && !jTextField36.getText().trim().equals("") && !jTextField93.getText().trim().equals("")
-                && !jTextField95.getText().trim().equals("") && !jTextField3.getText().trim().equals("")
-                && !jTextField46.getText().trim().equals("") && !jTextField77.getText().trim().equals("")
-                && !jTextField108.getText().trim().equals("") && !jTextField74.getText().trim().equals("")
-                && !jTextField103.getText().trim().equals("")  && !jTextField41.getText().trim().equals("")) {
+        if (!jTextField3.getText().trim().equals("") && !jTextField32.getText().trim().equals("")
+                && !jTextField36.getText().trim().equals("") && !jTextField41.getText().trim().equals("")
+                && !jTextField46.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
-        
+
         /* Tercer Freno Servicio */
-        
-        if (!jTextField85.getText().trim().equals("") && !jTextField85.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("") && !jTextField50.getText().trim().equals("")
-                && !jTextField63.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
-                && !jTextField33.getText().trim().equals("") && !jTextField37.getText().trim().equals("")
-                && !jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
-                && !jTextField4.getText().trim().equals("") && !jTextField47.getText().trim().equals("")
-                && !jTextField78.getText().trim().equals("") && !jTextField109.getText().trim().equals("")
-                && !jTextField42.getText().trim().equals("")  && !jTextField73.getText().trim().equals("") && !jTextField104.getText().trim().equals("")) {
+
+        if (!jTextField4.getText().trim().equals("") && !jTextField33.getText().trim().equals("")
+                && !jTextField37.getText().trim().equals("") && !jTextField42.getText().trim().equals("")
+                && !jTextField47.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
-        
+
         /* Cuarto Freno Servicio */
-        if (!jTextField85.getText().trim().equals("") && !jTextField85.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("") && !jTextField50.getText().trim().equals("")
-                && !jTextField63.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
-                && !jTextField33.getText().trim().equals("") && !jTextField37.getText().trim().equals("")
-                && !jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
-                && !jTextField4.getText().trim().equals("") && !jTextField47.getText().trim().equals("")
-                && !jTextField78.getText().trim().equals("") && !jTextField109.getText().trim().equals("")
-                && !jTextField42.getText().trim().equals("")  && !jTextField73.getText().trim().equals("") && !jTextField104.getText().trim().equals("")) {
+        if (!jTextField1.getText().trim().equals("") && !jTextField34.getText().trim().equals("")
+                && !jTextField38.getText().trim().equals("") && !jTextField43.getText().trim().equals("")
+                && !jTextField48.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
+
+        /* Quinto Freno Servicio */
+        if (!jTextField12.getText().trim().equals("") && !jTextField35.getText().trim().equals("")
+                && !jTextField39.getText().trim().equals("") && !jTextField44.getText().trim().equals("")
+                && !jTextField49.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
+            frenoServicioCompleto = true;
+        }
+
+
+
+
+        /* primer freno Estacionamiento */
+        if (!jTextField65.getText().trim().equals("") && !jTextField66.getText().trim().equals("")
+                && !jTextField75.getText().trim().equals("") && !jTextField76.getText().trim().equals("")
+                && !jTextField85.getText().trim().equals("")) {
+            frenoEstacionamientoCompleto = true;
+        }
         
-        if(frenoServicioCompleto)
+         /* Segundo freno Estacionamiento */
+        if (!jTextField64.getText().trim().equals("") && !jTextField67.getText().trim().equals("")
+                && !jTextField74.getText().trim().equals("") && !jTextField77.getText().trim().equals("")
+                && !jTextField85.getText().trim().equals("")) {
+            frenoEstacionamientoCompleto = true;
+        }
+        
+         /* Tercer freno Estacionamiento */
+        if (!jTextField63.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
+                && !jTextField73.getText().trim().equals("") && !jTextField78.getText().trim().equals("")
+                && !jTextField85.getText().trim().equals("")) {
+            frenoEstacionamientoCompleto = true;
+        }
+
+         /* Cuarto freno Estacionamiento */
+        if (!jTextField62.getText().trim().equals("") && !jTextField69.getText().trim().equals("")
+                && !jTextField72.getText().trim().equals("") && !jTextField79.getText().trim().equals("")
+                && !jTextField85.getText().trim().equals("")) {
+            frenoEstacionamientoCompleto = true;
+        }
+
+         /* Quinto freno Estacionamiento */
+        if (!jTextField61.getText().trim().equals("") && !jTextField70.getText().trim().equals("")
+                && !jTextField71.getText().trim().equals("") && !jTextField80.getText().trim().equals("")
+                && !jTextField85.getText().trim().equals("")) {
+            frenoEstacionamientoCompleto = true;
+        }
+
+
+
+
+
+
+
+        
+        /* primer freno Emergencia */
+        if (!jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
+                && !jTextField102.getText().trim().equals("") && !jTextField107.getText().trim().equals("")
+                && !jTextField116.getText().trim().equals("")) {
+            frenoEmergenciaCompleto = true;
+        }
+        
+         /* Segundo freno Emergencia */
+        if (!jTextField93.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
+                && !jTextField103.getText().trim().equals("") && !jTextField108.getText().trim().equals("")
+                && !jTextField116.getText().trim().equals("")) {
+            frenoEmergenciaCompleto = true;
+        }
+        
+         /* Tercer freno Emergencia */
+        if (!jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
+                && !jTextField104.getText().trim().equals("") && !jTextField109.getText().trim().equals("")
+                && !jTextField116.getText().trim().equals("")) {
+            frenoEmergenciaCompleto = true;
+        }
+
+         /* Cuarto freno Emergencia */
+        if (!jTextField100.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
+                && !jTextField105.getText().trim().equals("") && !jTextField110.getText().trim().equals("")
+                && !jTextField116.getText().trim().equals("")) {
+            frenoEmergenciaCompleto = true;
+        }
+
+         /* Quinto freno Emergencia */
+        if (!jTextField99.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
+                && !jTextField106.getText().trim().equals("") && !jTextField111.getText().trim().equals("")
+                && !jTextField116.getText().trim().equals("")) {
+            frenoEmergenciaCompleto = true;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (frenoServicioCompleto && frenoEstacionamientoCompleto && frenoEmergenciaCompleto) {
             return true;
-        else {
+        } else {
+            if(!frenoServicioCompleto){
+            JOptionPane.showMessageDialog(null, "Complete frenos de Servicio", "CAMPOS VACÍOS", 0);
             
-            JOptionPane.showMessageDialog(null, "Llene frenos de Servicio", "CAMPOS VACÍOS", 0);
+            }
+            if(!frenoEstacionamientoCompleto){
+            JOptionPane.showMessageDialog(null, "Complete frenos de Estacionamiento", "CAMPOS VACÍOS", 0);
+          
+            }
+            if(!frenoEmergenciaCompleto){
+            JOptionPane.showMessageDialog(null, "Complete frenos de Emergencia", "CAMPOS VACÍOS", 0);
+            
+            }
             return false;
 
         }
+
+
+
+
 
 
 
