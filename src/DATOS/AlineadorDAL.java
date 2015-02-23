@@ -29,8 +29,8 @@ public class AlineadorDAL {
     public boolean registrarDatosAlineador(Alineador v)
     {
         try {
-            //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
-            cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
+           // cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
             String sentencia="insert into alineador(idCertificado,nEje,desviacionAlineamiento,resultadoAlineamiento,medidaObtenidaNeumatico,resultadoNeumatico)"
                     + " values(?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
