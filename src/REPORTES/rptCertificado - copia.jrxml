@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="388"/>
+	<property name="ireport.y" value="715"/>
 	<parameter name="idCertificado" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -450,121 +450,6 @@ Inspección:]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecinspeccion}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="14" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[desviacionAlineamiento5]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="14" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[desviacionAlineamiento4]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="14" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[desviacionAlineamiento3]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="14" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[desviacionAlineamiento2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="14" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[desviacionAlineamiento1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="54" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoAlineamiento5]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="54" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoAlineamiento4]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="54" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoAlineamiento3]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="54" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoAlineamiento2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="54" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoAlineamiento1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="348" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoTipoLuz1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="348" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoTipoLuz2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="348" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoTipoLuz3]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="347" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[resultadoTipoLuz4]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaObtenidaNeumatico1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaObtenidaNeumatico2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaObtenidaNeumatico3]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaObtenidaNeumatico4]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="90" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaObtenidaNeumatico5]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="244" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaDerLuz1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="244" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaDerLuz2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="244" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaDerLuz3]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="244" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[medidaDerLuz4]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -4589,166 +4474,238 @@ NEUMÁTICOS]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pasajeros}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement x="15" y="337" width="40" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="15" y="349" width="40" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="15" y="361" width="40" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="15" y="373" width="40" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="15" y="385" width="40" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
 			<textField>
-				<reportElement x="14" y="386" width="41" height="11"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="283" y="57" width="88" height="14"/>
+				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{desviacionAlineamiento5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nmotor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="14" y="373" width="41" height="12"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{desviacionAlineamiento4}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="14" y="361" width="41" height="12"/>
-				<textElement textAlignment="Center">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{desviacionAlineamiento3}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="14" y="349" width="41" height="12"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{desviacionAlineamiento2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="14" y="337" width="41" height="12"/>
+				<reportElement x="16" y="337" width="39" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{desviacionAlineamiento1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="385" width="36" height="12"/>
+				<reportElement x="16" y="350" width="39" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoAlineamiento5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{desviacionAlineamiento2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="373" width="36" height="12"/>
+				<reportElement x="16" y="362" width="39" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoAlineamiento4}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{desviacionAlineamiento3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="361" width="36" height="12"/>
+				<reportElement x="16" y="373" width="39" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoAlineamiento3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{desviacionAlineamiento4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="349" width="36" height="12"/>
+				<reportElement x="16" y="385" width="39" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoAlineamiento2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{desviacionAlineamiento5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="337" width="36" height="12"/>
+				<reportElement x="54" y="337" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoAlineamiento1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="348" y="337" width="35" height="12"/>
+				<reportElement x="54" y="349" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoTipoLuz1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoAlineamiento2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="348" y="349" width="35" height="12"/>
+				<reportElement x="54" y="361" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoTipoLuz2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoAlineamiento3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="348" y="361" width="35" height="12"/>
+				<reportElement x="54" y="374" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoTipoLuz3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoAlineamiento4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="347" y="373" width="35" height="12"/>
+				<reportElement x="54" y="385" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoTipoLuz4}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoAlineamiento5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="337" width="58" height="12"/>
+				<reportElement x="90" y="337" width="57" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaObtenidaNeumatico1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="349" width="58" height="12"/>
+				<reportElement x="90" y="349" width="57" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaObtenidaNeumatico2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="361" width="58" height="12"/>
+				<reportElement x="90" y="361" width="57" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaObtenidaNeumatico3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="373" width="58" height="12"/>
+				<reportElement x="90" y="373" width="57" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaObtenidaNeumatico4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="385" width="58" height="12"/>
+				<reportElement x="90" y="385" width="57" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaObtenidaNeumatico5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="244" y="337" width="31" height="12"/>
+				<reportElement x="148" y="337" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoNeumatico1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="349" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoNeumatico2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="361" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoNeumatico3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="373" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoNeumatico4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="385" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoNeumatico5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="337" width="32" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaDerLuz1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="244" y="349" width="31" height="12"/>
+				<reportElement x="244" y="349" width="32" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaDerLuz2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="244" y="362" width="31" height="12"/>
+				<reportElement x="245" y="361" width="32" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaDerLuz3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="244" y="374" width="31" height="12"/>
+				<reportElement x="244" y="373" width="32" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaDerLuz4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="337" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medidaIzqLuz1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="349" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medidaIzqLuz2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="361" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medidaIzqLuz3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="373" width="32" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medidaIzqLuz4}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
