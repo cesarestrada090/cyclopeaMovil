@@ -36,6 +36,7 @@ public class TarjetaPropiedad {
     private String estado;
     private Date fecha;
     private int idMarcaCarroceria;
+    private double Kilometraje;
 
     public int getnRuedas() {
         return nRuedas;
@@ -63,7 +64,7 @@ public class TarjetaPropiedad {
         this.idMarcaCarroceria = idMarcaCarroceria;
     }
     
-    private double Kilometraje;
+    
 
     public double getKilometraje() {
         return Kilometraje;

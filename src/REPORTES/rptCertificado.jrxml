@@ -2,7 +2,264 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="679"/>
+	<property name="ireport.y" value="160"/>
+	<parameter name="idCertificado" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select cer.idcertificado,
+cer.fecinspeccion,'' as informeInspeccion, tp.razon1,tp.placa,tp.idclase,tp.idmarca,tp.idmodelo,tp.fabricacion,
+tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
+tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
+concat(concat(concat(concat(tp.longitud,'/'),tp.ancho),'/'),tp.altura) as concatamanios,
+ce.frenometronumero,ce.alineadornumero,ce.analizadornumero,ce.luxometronumero,ce.bancosuspension,
+
+(select pesoservicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as pesoServicio1,
+(select pesoservicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as pesoServicio2,
+(select pesoservicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as pesoServicio3,
+(select pesoservicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as pesoServicio4,
+(select pesoservicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as pesoServicio5,
+
+(select fuerzaDerServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaServicio1,
+(select fuerzaDerServicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaServicio2,
+(select fuerzaDerServicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaServicio3,
+(select fuerzaDerServicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaServicio4,
+(select fuerzaDerServicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaServicio5,
+
+(select fuerzaIzqServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaIzqServicio1,
+(select fuerzaIzqServicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaIzqServicio2,
+(select fuerzaIzqServicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaIzqServicio3,
+(select fuerzaIzqServicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaIzqServicio4,
+(select fuerzaIzqServicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaIzqServicio5,
+
+(select desequilibrioServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as desequilibrioServicio1,
+(select desequilibrioServicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as desequilibrioServicio2,
+(select desequilibrioServicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as desequilibrioServicio3,
+(select desequilibrioServicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as desequilibrioServicio4,
+(select desequilibrioServicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as desequilibrioServicio5,
+
+(select resultadoEjeServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoEjeServicio1,
+(select resultadoEjeServicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoEjeServicio2,
+(select resultadoEjeServicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoEjeServicio3,
+(select resultadoEjeServicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoEjeServicio4,
+(select resultadoEjeServicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoEjeServicio5,
+
+(select eficienciaServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaServicio1,
+(select eficienciaServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaServicio2,
+(select eficienciaServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaServicio3,
+(select eficienciaServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaServicio4,
+(select eficienciaServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaServicio5,
+
+(select resultadoServicio from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoServicio1,
+(select resultadoServicio from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoServicio2,
+(select resultadoServicio from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoServicio3,
+(select resultadoServicio from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoServicio4,
+(select resultadoServicio from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoServicio5,
+
+(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaDerEstacionamiento1,
+(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaDerEstacionamiento2,
+(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaDerEstacionamiento3,
+(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaDerEstacionamiento4,
+(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaDerEstacionamiento5,
+
+(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaIzqEstacionamiento1,
+(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaIzqEstacionamiento2,
+(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaIzqEstacionamiento3,
+(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaIzqEstacionamiento4,
+(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaIzqEstacionamiento5,
+
+(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as desequilibrioEstacionamiento1,
+(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as desequilibrioEstacionamiento2,
+(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as desequilibrioEstacionamiento3,
+(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as desequilibrioEstacionamiento4,
+(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as desequilibrioEstacionamiento5,
+
+(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoEjeEstacionamiento1,
+(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoEjeEstacionamiento2,
+(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoEjeEstacionamiento3,
+(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoEjeEstacionamiento4,
+(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoEjeEstacionamiento5,
+
+(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaEstacionamiento1,
+(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as eficienciaEstacionamiento2,
+(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as eficienciaEstacionamiento3,
+(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as eficienciaEstacionamiento4,
+(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as eficienciaEstacionamiento5,
+
+(select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoEstacionamiento1,
+(select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoEstacionamiento2,
+(select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoEstacionamiento3,
+(select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoEstacionamiento4,
+(select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoEstacionamiento5,
+
+(select fuerzaDerEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaDerEmergencia1,
+(select fuerzaDerEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaDerEmergencia2,
+(select fuerzaDerEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaDerEmergencia3,
+(select fuerzaDerEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaDerEmergencia4,
+(select fuerzaDerEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaDerEmergencia5,
+
+(select fuerzaIzqEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as fuerzaIzqEmergencia1,
+(select fuerzaIzqEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as fuerzaIzqEmergencia2,
+(select fuerzaIzqEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as fuerzaIzqEmergencia3,
+(select fuerzaIzqEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as fuerzaIzqEmergencia4,
+(select fuerzaIzqEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as fuerzaIzqEmergencia5,
+
+(select desequilibrioEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as desequilibrioEmergencia1,
+(select desequilibrioEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as desequilibrioEmergencia2,
+(select desequilibrioEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as desequilibrioEmergencia3,
+(select desequilibrioEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as desequilibrioEmergencia4,
+(select desequilibrioEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as desequilibrioEmergencia5,
+
+(select resultadoEjeEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoEjeEmergencia1,
+(select resultadoEjeEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoEjeEmergencia2,
+(select resultadoEjeEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoEjeEmergencia3,
+(select resultadoEjeEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoEjeEmergencia4,
+(select resultadoEjeEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoEjeEmergencia5,
+
+(select eficienciaEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as eficienciaEmergencia1,
+(select eficienciaEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as eficienciaEmergencia2,
+(select eficienciaEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as eficienciaEmergencia3,
+(select eficienciaEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as eficienciaEmergencia4,
+(select eficienciaEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as eficienciaEmergencia5,
+
+(select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=1) as resultadoEmergencia1,
+(select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=2) as resultadoEmergencia2,
+(select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=3) as resultadoEmergencia3,
+(select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=4) as resultadoEmergencia4,
+(select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado and idEje=5) as resultadoEmergencia5
+
+ from certificado cer left join certificadoequipo cequp on cer.idcertificado=cequp.idcertificado
+left join sonometro son on son.idCertificado=cer.idcertificado
+left join suspension susp on susp.idcertificado=cer.idcertificado
+left join tarjetapropiedad tp on tp.id_tarjeta=cer.idtarjeta
+left join certificadoequipo ce on ce.idcertificado=cer.idcertificado
+where cer.idcertificado=4]]>
+	</queryString>
+	<field name="idcertificado" class="java.lang.Long"/>
+	<field name="fecinspeccion" class="java.sql.Date"/>
+	<field name="informeInspeccion" class="java.lang.String"/>
+	<field name="razon1" class="java.lang.String"/>
+	<field name="placa" class="java.lang.String"/>
+	<field name="idclase" class="java.lang.String"/>
+	<field name="idmarca" class="java.lang.String"/>
+	<field name="idmodelo" class="java.lang.String"/>
+	<field name="fabricacion" class="java.lang.Integer"/>
+	<field name="kilometraje" class="java.lang.Double"/>
+	<field name="idcombustible" class="java.lang.String"/>
+	<field name="nserie" class="java.lang.String"/>
+	<field name="idcarroceria" class="java.lang.String"/>
+	<field name="ejes" class="java.lang.Integer"/>
+	<field name="ruedas" class="java.lang.Integer"/>
+	<field name="pasajeros" class="java.lang.Integer"/>
+	<field name="asientos" class="java.lang.Integer"/>
+	<field name="longitud" class="java.math.BigDecimal"/>
+	<field name="altura" class="java.math.BigDecimal"/>
+	<field name="ancho" class="java.math.BigDecimal"/>
+	<field name="colores" class="java.lang.String"/>
+	<field name="peso_seco" class="java.math.BigDecimal"/>
+	<field name="peso_bruto" class="java.math.BigDecimal"/>
+	<field name="carga_util" class="java.math.BigDecimal"/>
+	<field name="concatamanios" class="java.lang.String"/>
+	<field name="frenometronumero" class="java.lang.Long"/>
+	<field name="alineadornumero" class="java.lang.Long"/>
+	<field name="analizadornumero" class="java.lang.Long"/>
+	<field name="luxometronumero" class="java.lang.Long"/>
+	<field name="bancosuspension" class="java.lang.Long"/>
+	<field name="pesoServicio1" class="java.lang.Float"/>
+	<field name="pesoServicio2" class="java.lang.Float"/>
+	<field name="pesoServicio3" class="java.lang.Float"/>
+	<field name="pesoServicio4" class="java.lang.Float"/>
+	<field name="pesoServicio5" class="java.lang.Float"/>
+	<field name="fuerzaServicio1" class="java.lang.Float"/>
+	<field name="fuerzaServicio2" class="java.lang.Float"/>
+	<field name="fuerzaServicio3" class="java.lang.Float"/>
+	<field name="fuerzaServicio4" class="java.lang.Float"/>
+	<field name="fuerzaServicio5" class="java.lang.Float"/>
+	<field name="fuerzaIzqServicio1" class="java.lang.Float"/>
+	<field name="fuerzaIzqServicio2" class="java.lang.Float"/>
+	<field name="fuerzaIzqServicio3" class="java.lang.Float"/>
+	<field name="fuerzaIzqServicio4" class="java.lang.Float"/>
+	<field name="fuerzaIzqServicio5" class="java.lang.Float"/>
+	<field name="desequilibrioServicio1" class="java.lang.Float"/>
+	<field name="desequilibrioServicio2" class="java.lang.Float"/>
+	<field name="desequilibrioServicio3" class="java.lang.Float"/>
+	<field name="desequilibrioServicio4" class="java.lang.Float"/>
+	<field name="desequilibrioServicio5" class="java.lang.Float"/>
+	<field name="resultadoEjeServicio1" class="java.lang.String"/>
+	<field name="resultadoEjeServicio2" class="java.lang.String"/>
+	<field name="resultadoEjeServicio3" class="java.lang.String"/>
+	<field name="resultadoEjeServicio4" class="java.lang.String"/>
+	<field name="resultadoEjeServicio5" class="java.lang.String"/>
+	<field name="eficienciaServicio1" class="java.lang.Double"/>
+	<field name="eficienciaServicio2" class="java.lang.Double"/>
+	<field name="eficienciaServicio3" class="java.lang.Double"/>
+	<field name="eficienciaServicio4" class="java.lang.Double"/>
+	<field name="eficienciaServicio5" class="java.lang.Double"/>
+	<field name="resultadoServicio1" class="java.lang.String"/>
+	<field name="resultadoServicio2" class="java.lang.String"/>
+	<field name="resultadoServicio3" class="java.lang.String"/>
+	<field name="resultadoServicio4" class="java.lang.String"/>
+	<field name="resultadoServicio5" class="java.lang.String"/>
+	<field name="fuerzaDerEstacionamiento1" class="java.lang.Float"/>
+	<field name="fuerzaDerEstacionamiento2" class="java.lang.Float"/>
+	<field name="fuerzaDerEstacionamiento3" class="java.lang.Float"/>
+	<field name="fuerzaDerEstacionamiento4" class="java.lang.Float"/>
+	<field name="fuerzaDerEstacionamiento5" class="java.lang.Float"/>
+	<field name="fuerzaIzqEstacionamiento1" class="java.lang.Float"/>
+	<field name="fuerzaIzqEstacionamiento2" class="java.lang.Float"/>
+	<field name="fuerzaIzqEstacionamiento3" class="java.lang.Float"/>
+	<field name="fuerzaIzqEstacionamiento4" class="java.lang.Float"/>
+	<field name="fuerzaIzqEstacionamiento5" class="java.lang.Float"/>
+	<field name="desequilibrioEstacionamiento1" class="java.lang.Float"/>
+	<field name="desequilibrioEstacionamiento2" class="java.lang.Float"/>
+	<field name="desequilibrioEstacionamiento3" class="java.lang.Float"/>
+	<field name="desequilibrioEstacionamiento4" class="java.lang.Float"/>
+	<field name="desequilibrioEstacionamiento5" class="java.lang.Float"/>
+	<field name="resultadoEjeEstacionamiento1" class="java.lang.String"/>
+	<field name="resultadoEjeEstacionamiento2" class="java.lang.String"/>
+	<field name="resultadoEjeEstacionamiento3" class="java.lang.String"/>
+	<field name="resultadoEjeEstacionamiento4" class="java.lang.String"/>
+	<field name="resultadoEjeEstacionamiento5" class="java.lang.String"/>
+	<field name="eficienciaEstacionamiento1" class="java.lang.Float"/>
+	<field name="eficienciaEstacionamiento2" class="java.lang.Float"/>
+	<field name="eficienciaEstacionamiento3" class="java.lang.Float"/>
+	<field name="eficienciaEstacionamiento4" class="java.lang.Float"/>
+	<field name="eficienciaEstacionamiento5" class="java.lang.Float"/>
+	<field name="resultadoEstacionamiento1" class="java.lang.String"/>
+	<field name="resultadoEstacionamiento2" class="java.lang.String"/>
+	<field name="resultadoEstacionamiento3" class="java.lang.String"/>
+	<field name="resultadoEstacionamiento4" class="java.lang.String"/>
+	<field name="resultadoEstacionamiento5" class="java.lang.String"/>
+	<field name="fuerzaDerEmergencia1" class="java.lang.Float"/>
+	<field name="fuerzaDerEmergencia2" class="java.lang.Float"/>
+	<field name="fuerzaDerEmergencia3" class="java.lang.Float"/>
+	<field name="fuerzaDerEmergencia4" class="java.lang.Float"/>
+	<field name="fuerzaDerEmergencia5" class="java.lang.Float"/>
+	<field name="fuerzaIzqEmergencia1" class="java.lang.Float"/>
+	<field name="fuerzaIzqEmergencia2" class="java.lang.Float"/>
+	<field name="fuerzaIzqEmergencia3" class="java.lang.Float"/>
+	<field name="fuerzaIzqEmergencia4" class="java.lang.Float"/>
+	<field name="fuerzaIzqEmergencia5" class="java.lang.Float"/>
+	<field name="desequilibrioEmergencia1" class="java.lang.Float"/>
+	<field name="desequilibrioEmergencia2" class="java.lang.Float"/>
+	<field name="desequilibrioEmergencia3" class="java.lang.Float"/>
+	<field name="desequilibrioEmergencia4" class="java.lang.Float"/>
+	<field name="desequilibrioEmergencia5" class="java.lang.Float"/>
+	<field name="resultadoEjeEmergencia1" class="java.lang.String"/>
+	<field name="resultadoEjeEmergencia2" class="java.lang.String"/>
+	<field name="resultadoEjeEmergencia3" class="java.lang.String"/>
+	<field name="resultadoEjeEmergencia4" class="java.lang.String"/>
+	<field name="resultadoEjeEmergencia5" class="java.lang.String"/>
+	<field name="eficienciaEmergencia1" class="java.lang.Float"/>
+	<field name="eficienciaEmergencia2" class="java.lang.Float"/>
+	<field name="eficienciaEmergencia3" class="java.lang.Float"/>
+	<field name="eficienciaEmergencia4" class="java.lang.Float"/>
+	<field name="eficienciaEmergencia5" class="java.lang.Float"/>
+	<field name="resultadoEmergencia1" class="java.lang.String"/>
+	<field name="resultadoEmergencia2" class="java.lang.String"/>
+	<field name="resultadoEmergencia3" class="java.lang.String"/>
+	<field name="resultadoEmergencia4" class="java.lang.String"/>
+	<field name="resultadoEmergencia5" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -107,10 +364,91 @@ Inspección:]]></text>
 				</textElement>
 				<text><![CDATA[Informe de Inspección N°:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoEjeServicio1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoEjeServicio2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoEjeServicio3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoEjeServicio4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoEjeServicio5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[eficienciaServicio1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[eficienciaServicio3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[eficienciaServicio2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[eficienciaServicio4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[eficienciaServicio5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoServicio1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoServicio2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoServicio3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoServicio4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[resultadoServicio5]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="615" splitType="Stretch">
+			<rectangle>
+				<reportElement x="67" y="248" width="31" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
 			<rectangle>
 				<reportElement x="445" y="421" width="110" height="12"/>
 				<graphicElement>
@@ -1800,12 +2138,6 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="236" width="20" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
 				<reportElement x="15" y="248" width="20" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
@@ -1836,19 +2168,7 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="35" y="248" width="32" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
 				<reportElement x="35" y="260" width="32" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="35" y="272" width="32" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -1861,18 +2181,6 @@ NEUMÁTICOS]]></text>
 			</rectangle>
 			<rectangle>
 				<reportElement x="67" y="236" width="31" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="67" y="248" width="31" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="67" y="260" width="31" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -3219,6 +3527,431 @@ NEUMÁTICOS]]></text>
 				</textElement>
 				<text><![CDATA[Firma del Ing. Supervisor]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="84" y="27" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="41" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idclase}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="56" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idmarca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="73" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idmodelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="89" width="100" height="13"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fabricacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="102" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kilometraje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="27" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idcombustible}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="42" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nserie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="72" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idcarroceria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="87" width="88" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idmarca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="101" width="14" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ejes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="102" width="10" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="101" width="11" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruedas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="56" width="76" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{colores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="102" width="76" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carga_util}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="72" width="78" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peso_seco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="87" width="74" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peso_bruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="42" width="78" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concatamanios}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="130" width="99" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[01 CYCLOPEA MOVIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="143" width="99" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[MIXTA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="181" y="144" width="37" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frenometronumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="144" width="36" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alineadornumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="143" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{analizadornumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="144" width="46" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{luxometronumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="517" y="144" width="34" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bancosuspension}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="236" width="20" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="247" width="21" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="260" width="20" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="272" width="19" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="283" width="19" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="236" width="32" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="247" width="33" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="260" width="33" height="12"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="260" width="33" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="272" width="31" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="284" width="31" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="273" width="33" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="284" width="33" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="236" width="31" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaIzqServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="247" width="32" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaIzqServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="260" width="30" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuerzaServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="236" width="30" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desequilibrioServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="247" width="30" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desequilibrioServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="261" width="28" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desequilibrioServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="272" width="31" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desequilibrioServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="284" width="30" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desequilibrioServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="237" width="19" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoEjeServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="248" width="21" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoEjeServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="261" width="21" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoEjeServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="272" width="21" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoEjeServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="283" width="21" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoEjeServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="235" width="35" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eficienciaServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="260" width="36" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eficienciaServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="248" width="35" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eficienciaServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="272" width="36" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eficienciaServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="283" width="36" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eficienciaServicio5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="237" width="22" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoServicio1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="248" width="22" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoServicio2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="260" width="22" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoServicio3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="272" width="21" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoServicio4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="284" width="22" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultadoServicio5}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
