@@ -36,8 +36,8 @@ public class FrenometroDAL {
                     + "eficienciaServicio,resultadoServicio,fuerzaDerEstacionamiento," //3
                     + "fuerzaIzqEstacionamiento,desequilibrioEstacionamiento,resultadoEjeEstacionamiento," //3
                     + "eficienciaEstacionamiento,resultadoEstacionamiento,fuerzaDerEmergencia,fuerzaIzqEmergencia,desequilibrioEmergencia," //5
-                    + "resultadoEjeEmergencia,eficienciaEmergencia,resultadoEmergencia)"//3
-                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "resultadoEjeEmergencia,eficienciaEmergencia,resultadoEmergencia,idCertificado)"//3
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1, v.getnEjes());
             ps.setDouble(2, v.getPesoServicio());
@@ -63,6 +63,7 @@ public class FrenometroDAL {
             ps.setString(18, v.getResultadoEjeEmergencia());
             ps.setDouble(19, v.getEficienciaEmergencia());
             ps.setString(20, v.getResultadoGlobalEmergencia());
+            ps.setInt(21, v.getIdCerticado());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
