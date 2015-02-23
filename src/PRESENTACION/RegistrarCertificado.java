@@ -2835,7 +2835,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro1.setnEjes(1);
             objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro1.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
-            objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField49.getText()));
+            objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
             objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
             objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));

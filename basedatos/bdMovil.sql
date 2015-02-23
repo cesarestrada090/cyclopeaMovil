@@ -51,26 +51,29 @@ CREATE TABLE `alineador` (
 DROP TABLE IF EXISTS `certificado`;
 CREATE TABLE `certificado` (
   `idCertificado` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `tipoDocTransp` varchar(20) NOT NULL,
-  `numDocTransp` varchar(45) NOT NULL,
-  `tipoDocEvaluar` varchar(45) NOT NULL,
-  `numDocEvaluar` varchar(45) NOT NULL,
-  `claseAutorizacion` varchar(45) NOT NULL,
-  `resultado` int(10) unsigned NOT NULL,
-  `vigencia` varchar(45) NOT NULL,
-  `fecInspeccion` date NOT NULL,
-  `fecVencimiento` date NOT NULL,
-  `cIdentidadCert` varchar(45) NOT NULL,
-  `codLocal` varchar(45) NOT NULL,
-  `ubigeo` varchar(45) NOT NULL,
+  `tipoDocTransp` varchar(20) DEFAULT NULL,
+  `numDocTransp` varchar(45) DEFAULT NULL,
+  `tipoDocEvaluar` varchar(45) DEFAULT NULL,
+  `numDocEvaluar` varchar(45) DEFAULT NULL,
+  `claseAutorizacion` varchar(45) DEFAULT NULL,
+  `resultado` int(10) unsigned DEFAULT NULL,
+  `vigencia` varchar(45) DEFAULT NULL,
+  `fecInspeccion` date DEFAULT NULL,
+  `fecVencimiento` date DEFAULT NULL,
+  `cIdentidadCert` varchar(45) DEFAULT NULL,
+  `codLocal` varchar(45) DEFAULT NULL,
+  `ubigeo` varchar(45) DEFAULT NULL,
+  `idTarjeta` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`idCertificado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `certificado`
 --
 
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
+INSERT INTO `certificado` (`idCertificado`,`tipoDocTransp`,`numDocTransp`,`tipoDocEvaluar`,`numDocEvaluar`,`claseAutorizacion`,`resultado`,`vigencia`,`fecInspeccion`,`fecVencimiento`,`cIdentidadCert`,`codLocal`,`ubigeo`,`idTarjeta`) VALUES 
+ (1,NULL,NULL,NULL,NULL,NULL,0,'','2015-02-03',NULL,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 
@@ -81,11 +84,12 @@ CREATE TABLE `certificado` (
 DROP TABLE IF EXISTS `certificadoequipo`;
 CREATE TABLE `certificadoequipo` (
   `idCertificado` int(10) unsigned NOT NULL,
-  `frenometroNumero` int(10) unsigned NOT NULL,
-  `alineadorNumero` int(10) unsigned NOT NULL,
-  `analizadorNumero` int(10) unsigned NOT NULL,
-  `luxometroNumero` int(10) unsigned NOT NULL,
-  `bancoSuspension` int(10) unsigned NOT NULL
+  `frenometroNumero` int(10) unsigned DEFAULT NULL,
+  `alineadorNumero` int(10) unsigned DEFAULT NULL,
+  `analizadorNumero` int(10) unsigned DEFAULT NULL,
+  `luxometroNumero` int(10) unsigned DEFAULT NULL,
+  `bancoSuspension` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`idCertificado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -16741,25 +16745,25 @@ DROP TABLE IF EXISTS `frenometro`;
 CREATE TABLE `frenometro` (
   `idCertificado` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idEje` int(10) unsigned NOT NULL,
-  `pesoServicio` float NOT NULL,
-  `fuerzaDerServicio` float NOT NULL,
-  `fuertaIzqServicio` float NOT NULL,
-  `desequilibrioServicio` float NOT NULL,
-  `resultadoEjeServicio` varchar(20) NOT NULL,
-  `eficienciaServicio` double NOT NULL,
-  `resultadoServicio` varchar(45) NOT NULL,
-  `fuerzaDerEstacionamiento` float NOT NULL,
-  `fuerzaIzqEstacionamiento` float NOT NULL,
-  `desequilibrioEstacionamiento` float NOT NULL,
-  `resultadoEjeEstacionamiento` varchar(20) NOT NULL,
-  `eficienciaEstacionamiento` float NOT NULL,
-  `resultadoEstacionamiento` varchar(38) NOT NULL,
-  `fuerzaDerEmergencia` float NOT NULL,
-  `fuerzaIzqEmergencia` float NOT NULL,
-  `desequilibrioEmergencia` float NOT NULL,
-  `resultadoEjeEmergencia` varchar(20) NOT NULL,
-  `eficienciaEmergencia` float NOT NULL,
-  `resultadoEmergencia` varchar(39) NOT NULL,
+  `pesoServicio` float DEFAULT NULL,
+  `fuerzaDerServicio` float DEFAULT NULL,
+  `fuerzaIzqServicio` float DEFAULT NULL,
+  `desequilibrioServicio` float DEFAULT NULL,
+  `resultadoEjeServicio` varchar(20) DEFAULT NULL,
+  `eficienciaServicio` double DEFAULT NULL,
+  `resultadoServicio` varchar(45) DEFAULT NULL,
+  `fuerzaDerEstacionamiento` float DEFAULT NULL,
+  `fuerzaIzqEstacionamiento` float DEFAULT NULL,
+  `desequilibrioEstacionamiento` float DEFAULT NULL,
+  `resultadoEjeEstacionamiento` varchar(20) DEFAULT NULL,
+  `eficienciaEstacionamiento` float DEFAULT NULL,
+  `resultadoEstacionamiento` varchar(38) DEFAULT NULL,
+  `fuerzaDerEmergencia` float DEFAULT NULL,
+  `fuerzaIzqEmergencia` float DEFAULT NULL,
+  `desequilibrioEmergencia` float DEFAULT NULL,
+  `resultadoEjeEmergencia` varchar(20) DEFAULT NULL,
+  `eficienciaEmergencia` float DEFAULT NULL,
+  `resultadoEmergencia` varchar(39) DEFAULT NULL,
   PRIMARY KEY (`idCertificado`,`idEje`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -16769,6 +16773,36 @@ CREATE TABLE `frenometro` (
 
 /*!40000 ALTER TABLE `frenometro` DISABLE KEYS */;
 /*!40000 ALTER TABLE `frenometro` ENABLE KEYS */;
+
+
+--
+-- Definition of table `gasometro`
+--
+
+DROP TABLE IF EXISTS `gasometro`;
+CREATE TABLE `gasometro` (
+  `idCertificado` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tAceite` double NOT NULL,
+  `rpm` double NOT NULL,
+  `opacidad` double NOT NULL,
+  `coRalent` double NOT NULL,
+  `coco2Ralenti` double NOT NULL,
+  `hcRalentippm` double NOT NULL,
+  `coAcel` double NOT NULL,
+  `coCo2Acel` double NOT NULL,
+  `HCAcel` double NOT NULL,
+  `Resultado` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCertificado`)
+) ENGINE=InnoDB AUTO_INCREMENT=443 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gasometro`
+--
+
+/*!40000 ALTER TABLE `gasometro` DISABLE KEYS */;
+INSERT INTO `gasometro` (`idCertificado`,`tAceite`,`rpm`,`opacidad`,`coRalent`,`coco2Ralenti`,`hcRalentippm`,`coAcel`,`coCo2Acel`,`HCAcel`,`Resultado`) VALUES 
+ (442,33.2,56,3,45,54,3455,32,322,23,'Aprobado');
+/*!40000 ALTER TABLE `gasometro` ENABLE KEYS */;
 
 
 --
@@ -16795,6 +16829,27 @@ CREATE TABLE `luxometro` (
 
 
 --
+-- Definition of table `observacion`
+--
+
+DROP TABLE IF EXISTS `observacion`;
+CREATE TABLE `observacion` (
+  `idCertificado` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `codigoObservacion` varchar(45) NOT NULL,
+  `interpretacion` varchar(45) NOT NULL,
+  `calificacion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCertificado`,`codigoObservacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `observacion`
+--
+
+/*!40000 ALTER TABLE `observacion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `observacion` ENABLE KEYS */;
+
+
+--
 -- Definition of table `persona`
 --
 
@@ -16817,6 +16872,26 @@ CREATE TABLE `persona` (
 
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
+
+
+--
+-- Definition of table `sonometro`
+--
+
+DROP TABLE IF EXISTS `sonometro`;
+CREATE TABLE `sonometro` (
+  `idCertificado` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sonometroValor` double NOT NULL,
+  `resultado` varchar(30) NOT NULL,
+  PRIMARY KEY (`idCertificado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sonometro`
+--
+
+/*!40000 ALTER TABLE `sonometro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sonometro` ENABLE KEYS */;
 
 
 --
@@ -16883,15 +16958,18 @@ CREATE TABLE `tarjetapropiedad` (
   `estado` char(1) DEFAULT '1',
   `fecha` datetime DEFAULT NULL,
   `nruedas` int(10) unsigned DEFAULT NULL,
+  `kilometraje` double DEFAULT NULL,
   PRIMARY KEY (`id_tarjeta`),
   KEY `ix_TarjetaPropiedad_autoinc` (`id_tarjeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=87158 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tarjetapropiedad`
 --
 
 /*!40000 ALTER TABLE `tarjetapropiedad` DISABLE KEYS */;
+INSERT INTO `tarjetapropiedad` (`id_tarjeta`,`placa`,`ntarjeta`,`razon1`,`domicilio`,`idclase`,`idmarca`,`fabricacion`,`idmodelo`,`version`,`idcombustible`,`idcarroceria`,`ejes`,`colores`,`nmotor`,`cilindros`,`nserie`,`vin`,`ruedas`,`pasajeros`,`asientos`,`peso_seco`,`peso_bruto`,`longitud`,`altura`,`ancho`,`carga_util`,`estado`,`fecha`,`nruedas`,`kilometraje`) VALUES 
+ (1,'sd299','232323232','Cesar Luis estrada Yglesias',NULL,'','0',2015,'0',NULL,'Item 1','Item 1',4,'verde','33',0,'3123',NULL,0,0,2,'20.000','223.300','22.000','22.300','22.000','23.000',NULL,NULL,3,2332);
 /*!40000 ALTER TABLE `tarjetapropiedad` ENABLE KEYS */;
 
 
