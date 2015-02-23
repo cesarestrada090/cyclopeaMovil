@@ -2852,11 +2852,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
             objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
             objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
+            objFrenometro1.setIdCerticado(idCertificado);
 
             FrenometroBL objFrenometroBL = new FrenometroBL();
             objFrenometroBL.registrarFrenometro(objFrenometro1);
 
             Frenometro objFrenometro2 = new Frenometro();
+            objFrenometro2.setIdCerticado(idCertificado);
             objFrenometro2.setnEjes(2);
             objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
@@ -2881,6 +2883,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometroBL.registrarFrenometro(objFrenometro2);
 
             Frenometro objFrenometro3 = new Frenometro();
+            objFrenometro3.setIdCerticado(idCertificado);
             objFrenometro3.setnEjes(3);
             objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
@@ -2905,6 +2908,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objFrenometroBL.registrarFrenometro(objFrenometro3);
 
             Frenometro objFrenometro4 = new Frenometro();
+            objFrenometro4.setIdCerticado(idCertificado);
             objFrenometro4.setnEjes(4);
             objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
@@ -2930,6 +2934,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             Frenometro objFrenometro5 = new Frenometro();
             objFrenometro5.setnEjes(5);
+            objFrenometro5.setIdCerticado(idCertificado);
             objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
             objFrenometro5.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
             objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
@@ -2954,6 +2959,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             // DATOS DE LOS EQUIPOS
             EquipoCertificado objEquipos = new EquipoCertificado();
+            objEquipos.setIdCertificado(idCertificado);
             objEquipos.setNumAlineador(jComboBox15.getSelectedIndex());
             objEquipos.setNumAnalizador(jComboBox16.getSelectedIndex());
             objEquipos.setNumBancoSuspension(jComboBox17.getSelectedIndex());
@@ -2965,6 +2971,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             // RESULTADOS - PRUEBA DE ALINEAMIENTO
             Alineador objAlineador1 = new Alineador();
+            objAlineador1.setIdCertificado(idCertificado);
             objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField5.getText()));
             objAlineador1.setEje(1);
             objAlineador1.setMedidaejeneumatico(Double.parseDouble(jTextField16.getText()));
@@ -2975,6 +2982,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlinBL.registrarAlineador(objAlineador1);
 
             Alineador objAlineador2 = new Alineador();
+            objAlineador2.setIdCertificado(idCertificado);
             objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
             objAlineador2.setEje(2);
             objAlineador2.setMedidaejeneumatico(Double.parseDouble(jTextField17.getText()));
@@ -2984,6 +2992,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlinBL.registrarAlineador(objAlineador2);
 
             Alineador objAlineador3 = new Alineador();
+            objAlineador3.setIdCertificado(idCertificado);
             objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
             objAlineador3.setEje(3);
             objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
@@ -2993,6 +3002,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlinBL.registrarAlineador(objAlineador3);
 
             Alineador objAlineador4 = new Alineador();
+            objAlineador4.setIdCertificado(idCertificado);
             objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
             objAlineador4.setEje(4);
             objAlineador4.setMedidaejeneumatico(Double.parseDouble(jTextField19.getText()));
@@ -3002,6 +3012,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objAlinBL.registrarAlineador(objAlineador4);
 
             Alineador objAlineador5 = new Alineador();
+            objAlineador5.setIdCertificado(idCertificado);
             objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
             objAlineador5.setEje(5);
             objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
@@ -3012,6 +3023,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             //// PRUEBA DE LUCES
             Luxometro objLuzBaja = new Luxometro();
+            objLuzBaja.setIdCertificado(idCertificado);
             objLuzBaja.setTipoLuz(1);
             objLuzBaja.setMedidaDerLuz(Double.parseDouble(jTextField159.getText()));
             objLuzBaja.setMedidaIzqLuz(Double.parseDouble(jTextField163.getText()));
@@ -3023,6 +3035,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             Luxometro objLuzAlta = new Luxometro();
             objLuzAlta.setTipoLuz(2);
+            objLuzAlta.setIdCertificado(idCertificado);
             objLuzAlta.setMedidaDerLuz(Double.parseDouble(jTextField160.getText()));
             objLuzAlta.setMedidaIzqLuz(Double.parseDouble(jTextField168.getText()));
             objLuzAlta.setAlineamientoLuz(jTextField164.getText());
@@ -3032,6 +3045,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             Luxometro objLuzAltaAd = new Luxometro();
             objLuzAltaAd.setTipoLuz(3);
+            objLuzAltaAd.setIdCertificado(idCertificado);
             objLuzAltaAd.setMedidaDerLuz(Double.parseDouble(jTextField161.getText()));
             objLuzAltaAd.setMedidaIzqLuz(Double.parseDouble(jTextField165.getText()));
             objLuzAltaAd.setAlineamientoLuz(jTextField169.getText());
@@ -3041,6 +3055,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             Luxometro objLuzNeblineras = new Luxometro();
             objLuzNeblineras.setTipoLuz(4);
+            objLuzNeblineras.setIdCertificado(idCertificado);
             objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
             objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
             objLuzNeblineras.setAlineamientoLuz(jTextField169.getText());
@@ -3050,6 +3065,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             //// PRUEBA DE SUSPENSIÓN
             Suspension objSuspension = new Suspension();
+            objSuspension.setIdCertificado(idCertificado);
             objSuspension.setDelanteraIzq(Double.parseDouble(jTextField177.getText()));
             objSuspension.setDelanteraDer(Double.parseDouble(jTextField178.getText()));
             objSuspension.setDelanteraDesv(Double.parseDouble(jTextField179.getText()));
@@ -3065,66 +3081,48 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objSusBL.registrarSuspension(objSuspension);
 
             ////EMISIÓN DE GASES
-            double tAceite = Double.parseDouble(jTextField181.getText());
-            double Rpm = Double.parseDouble(jTextField181.getText());
-            double Opacidad = Double.parseDouble(jTextField181.getText());
+            Gasometro e= new Gasometro();
+            
+            double tAceite = Double.parseDouble(jTextField185.getText());
+            double Rpm = Double.parseDouble(jTextField186.getText());
+            double Opacidad = Double.parseDouble(jTextField187.getText());
 
-            double CO = Double.parseDouble(jTextField181.getText());
-            double COCO2 = Double.parseDouble(jTextField181.getText());
-            double HC = Double.parseDouble(jTextField181.getText());
+            double COralenti = Double.parseDouble(jTextField188.getText());
+            double COCO2ralenti = Double.parseDouble(jTextField189.getText());
+            double HCralenti = Double.parseDouble(jTextField190.getText());
 
             double COAcel = Double.parseDouble(jTextField181.getText());
             double COCO2Acel = Double.parseDouble(jTextField181.getText());
             double HCAcel = Double.parseDouble(jTextField181.getText());
 
-            int EmiGResultFinal = jComboBox1.getSelectedIndex();
-
+            Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
+            e.settAceite(tAceite);
+            e.setRpm(Rpm);
+            e.setOpacidad(Opacidad);
+            e.setCoRalent(COralenti);
+            e.setCoco2Ralenti(COCO2ralenti);
+            e.setHcRalentippm(HCralenti);
+            e.setCoAcel(COAcel);
+            e.setCoCo2Acel(COCO2Acel);
+            e.setHcAcel(HCAcel);
+            e.setResultado(EmiGResultFinal.toString());
+            GasometroDL g = new GasometroDL();
+            g.registrarGasometro(e);
+            
             ////EMISIONES SONORAS
+            Sonometro s = new Sonometro();
+           
             double Sonometro = Double.parseDouble(jTextField194.getText());
-            int EmiSResultado = jComboBox2.getSelectedIndex();
-            String limite = jTextField195.getText();
+            Integer EmiSResultado = jComboBox2.getSelectedIndex();
+          
+            s.setIdCertificado(idCertificado);
+            s.setSonometroValor(Sonometro);
+            s.setResultado(EmiSResultado.toString());
+            SonometroBL sb = new SonometroBL();
+            sb.registrarSonometro(s);
 
             ////OBSERVACIONES DETECTADAS
-            String codigo1 = jTextField195.getText();
-            String interp1 = jTextField195.getText();
-            String calificacion1 = jTextField195.getText();
-
-            String codigo2 = jTextField195.getText();
-            String interp2 = jTextField195.getText();
-            String calificacion2 = jTextField195.getText();
-
-            String codigo3 = jTextField195.getText();
-            String interp3 = jTextField195.getText();
-            String calificacion3 = jTextField195.getText();
-
-            String codigo4 = jTextField195.getText();
-            String interp4 = jTextField195.getText();
-            String calificacion4 = jTextField195.getText();
-
-            String codigo5 = jTextField195.getText();
-            String interp5 = jTextField195.getText();
-            String calificacion5 = jTextField195.getText();
-
-            String codigo6 = jTextField195.getText();
-            String interp6 = jTextField195.getText();
-            String calificacion6 = jTextField195.getText();
-
-            String codigo7 = jTextField195.getText();
-            String interp7 = jTextField195.getText();
-            String calificacion7 = jTextField195.getText();
-
-            String codigo8 = jTextField195.getText();
-            String interp8 = jTextField195.getText();
-            String calificacion8 = jTextField195.getText();
-
-            String codigo9 = jTextField195.getText();
-            String interp9 = jTextField195.getText();
-            String calificacion9 = jTextField195.getText();
-
-            String codigo10 = jTextField195.getText();
-            String interp10 = jTextField195.getText();
-            String calificacion10 = jTextField195.getText();
-
+            
             ///RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR
             //int ResultInsp=jComboBox3.getSelectedIndex();     
             //String Vigencia=jTextField195.getText();
