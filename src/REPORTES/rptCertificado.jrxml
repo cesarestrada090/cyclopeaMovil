@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
-<<<<<<< HEAD
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="23"/>
 	<parameter name="idCertificado" class="java.lang.Integer">
@@ -261,28 +260,6 @@ where cer.idcertificado=4]]>
 	<field name="resultadoEmergencia3" class="java.lang.String"/>
 	<field name="resultadoEmergencia4" class="java.lang.String"/>
 	<field name="resultadoEmergencia5" class="java.lang.String"/>
-=======
-	<property name="ireport.x" value="25"/>
-	<property name="ireport.y" value="56"/>
-	<queryString>
-		<![CDATA[SELECT placa, ntarjeta, razon1, fabricacion, ejes, colores, nmotor,
-       nserie, ruedas, pasajeros, asientos, peso_seco, peso_bruto
-FROM tarjetapropiedad t;]]>
-	</queryString>
-	<field name="placa" class="java.lang.String"/>
-	<field name="ntarjeta" class="java.lang.String"/>
-	<field name="razon1" class="java.lang.String"/>
-	<field name="fabricacion" class="java.lang.Integer"/>
-	<field name="ejes" class="java.lang.Integer"/>
-	<field name="colores" class="java.lang.String"/>
-	<field name="nmotor" class="java.lang.String"/>
-	<field name="nserie" class="java.lang.String"/>
-	<field name="ruedas" class="java.lang.Integer"/>
-	<field name="pasajeros" class="java.lang.Integer"/>
-	<field name="asientos" class="java.lang.Integer"/>
-	<field name="peso_seco" class="java.math.BigDecimal"/>
-	<field name="peso_bruto" class="java.math.BigDecimal"/>
->>>>>>> 01f3348477d6b9387865f9a49421763fdfa84999
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -381,36 +358,12 @@ Inspección:]]></text>
 				</textElement>
 				<text><![CDATA[Informe de Inspección N°:]]></text>
 			</staticText>
-<<<<<<< HEAD
 			<rectangle>
 				<reportElement x="417" y="2" width="138" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
-=======
-			<textField>
-				<reportElement x="423" y="18" width="130" height="14"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="423" y="33" width="130" height="13"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="423" y="2" width="128" height="14"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
->>>>>>> 01f3348477d6b9387865f9a49421763fdfa84999
 		</band>
 	</columnHeader>
 	<detail>
@@ -813,6 +766,12 @@ Inspección:]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
+				<reportElement x="38" y="129" width="100" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
 				<reportElement x="138" y="129" width="82" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
@@ -1099,6 +1058,12 @@ Inspección:]]></text>
 			</rectangle>
 			<rectangle>
 				<reportElement x="281" y="27" width="90" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="281" y="42" width="90" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -3488,7 +3453,6 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Firma del Ing. Supervisor]]></text>
 			</staticText>
 			<textField>
-<<<<<<< HEAD
 				<reportElement x="84" y="27" width="100" height="15"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="7"/>
@@ -4147,216 +4111,6 @@ NEUMÁTICOS]]></text>
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoEjeEstacionamiento5}]]></textFieldExpression>
-=======
-				<reportElement x="184" y="12" width="371" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{razon1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="27" width="95" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="42" width="95" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="58" width="95" height="14"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="72" width="95" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="87" width="95" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="84" y="102" width="95" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="285" y="27" width="86" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="286" y="42" width="85" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="286" y="58" width="85" height="14"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="285" y="72" width="86" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="286" y="87" width="85" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="286" y="102" width="85" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="478" y="27" width="27" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="517" y="27" width="36" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}$F{pasajeros}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="505" y="27" width="12" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[/]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="492" y="42" width="12" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[/]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="521" y="42" width="12" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[/]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="475" y="42" width="17" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="503" y="42" width="18" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="533" y="42" width="21" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="477" y="57" width="76" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="478" y="72" width="77" height="15"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="478" y="87" width="76" height="15"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="478" y="102" width="76" height="15"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="183" y="145" width="37" height="13"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="267" y="145" width="34" height="13"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="349" y="144" width="35" height="14"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="429" y="145" width="46" height="13"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="521" y="145" width="34" height="13"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{field}]]></textFieldExpression>
->>>>>>> 01f3348477d6b9387865f9a49421763fdfa84999
 			</textField>
 		</band>
 	</detail>
