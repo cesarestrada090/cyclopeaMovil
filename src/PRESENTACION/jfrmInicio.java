@@ -104,6 +104,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
         jMenuItem2.getAccessibleContext().setAccessibleName("");
 
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/lista.png"))); // NOI18N
         jMenuItem5.setText("Listar Usuarios");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +114,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/delete user.png"))); // NOI18N
         jMenuItem6.setText("Eliminar Usuario");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +129,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/funciones.png"))); // NOI18N
         jMenu3.setText("Operaciones");
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Botones/icononuevo.png"))); // NOI18N
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/nuevo registro.png"))); // NOI18N
         jMenuItem4.setText("Registrar Certificado");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +145,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenu4.setMnemonic('R');
         jMenu4.setText("Reportes");
 
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/lista.png"))); // NOI18N
         jMenuItem7.setText("Certificados");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
