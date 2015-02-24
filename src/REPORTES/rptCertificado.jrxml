@@ -4888,7 +4888,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="9" y="457" width="200" height="100"/>
+				<reportElement x="0" y="457" width="555" height="119"/>
 				<subreportParameter name="parasubreport">
 					<subreportParameterExpression><![CDATA[$P{idCertificado}]]></subreportParameterExpression>
 				</subreportParameter>
