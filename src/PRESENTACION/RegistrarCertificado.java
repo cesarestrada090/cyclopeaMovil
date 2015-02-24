@@ -48,6 +48,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private boolean suspensionCompleto;
     private boolean gasometroCompleto;
     private boolean sonometroCompleto;
+    private boolean luxometroCompleto;
+    private boolean alineadorCompleto;
 
     public void limpiarUsuarios() {
         jTextField4.setText("");
@@ -2148,9 +2150,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField171, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField160, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel27)
+                                .addComponent(jTextField160, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextField164, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField168, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField172, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2776,7 +2779,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("jfrmRegistrarUsuario");
@@ -3381,6 +3384,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             frenoEmergenciaCompleto = true;
         }
 
+        
 
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
@@ -3403,13 +3407,76 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (jTextField194.getText().trim().equals("")) {
             sonometroCompleto = true;
         }
+        
+        
+        
+        
+        /* Luces Bajas */
+        if (!jTextField159.getText().trim().equals("") && !jTextField163.getText().trim().equals("")
+                && !jTextField167.getText().trim().equals("") && !jTextField71.getText().trim().equals("")) {
+            luxometroCompleto = true;
+        }
+
+        /* Luces Altas */
+        if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
+                && !jTextField164.getText().trim().equals("") && !jTextField172.getText().trim().equals("")) {
+            luxometroCompleto = true;
+        }
+        
+        /* Luces Altas Adicionales */
+        if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
+                && !jTextField164.getText().trim().equals("") && !jTextField172.getText().trim().equals("")) {
+            luxometroCompleto = true;
+        }
+        
+        /* Luces Neblineras */
+        if (!jTextField162.getText().trim().equals("") && !jTextField166.getText().trim().equals("")
+                && !jTextField170.getText().trim().equals("") && !jTextField174.getText().trim().equals("")) {
+            luxometroCompleto = true;
+        }
+
+        /* Alineamiento primer eje */
+        if (!jTextField5.getText().trim().equals("") && !jTextField10.getText().trim().equals("")
+                && !jTextField16.getText().trim().equals("") && !jTextField21.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+
+        /* Alineamiento Segundo eje */
+        if (!jTextField6.getText().trim().equals("") && !jTextField11.getText().trim().equals("")
+                && !jTextField17.getText().trim().equals("") && !jTextField22.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+
+        /* Alineamiento Tercer eje */
+        if (!jTextField7.getText().trim().equals("") && !jTextField13.getText().trim().equals("")
+                && !jTextField18.getText().trim().equals("") && !jTextField23.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+        
+        /* Alineamiento Cuarto eje */
+        if (!jTextField8.getText().trim().equals("") && !jTextField14.getText().trim().equals("")
+                && !jTextField19.getText().trim().equals("") && !jTextField24.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+        
+        /* Alineamiento Quinto eje */
+        if (!jTextField9.getText().trim().equals("") && !jTextField15.getText().trim().equals("")
+                && !jTextField20.getText().trim().equals("") && !jTextField25.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+        
+        
 
         if (frenoServicioCompleto 
                 && frenoEstacionamientoCompleto 
                 && sonometroCompleto 
                 && gasometroCompleto 
                 && suspensionCompleto 
-                && frenoEmergenciaCompleto) {
+                && frenoEmergenciaCompleto
+                && alineadorCompleto
+                && luxometroCompleto
+                
+                ) {
             return true;
         } else {
             if (!frenoServicioCompleto) {
@@ -3437,6 +3504,15 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             
             if (!gasometroCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de Emisión de Gases", "CAMPOS VACÍOS", 0);
+
+            }
+            if (!alineadorCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Alineamiento", "CAMPOS VACÍOS", 0);
+
+            }
+            
+            if (!luxometroCompleto) {
+                JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Luces", "CAMPOS VACÍOS", 0);
 
             }
             
