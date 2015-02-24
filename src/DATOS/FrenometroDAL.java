@@ -32,7 +32,7 @@ public class FrenometroDAL {
 
             String sentencia =
                     "insert into frenometro("
-                    + "idEje,pesoServicio,fuerzaDerServicio,fuertaIzqServicio,desequilibrioServicio,resultadoEjeServicio," //6
+                    + "idEje,pesoServicio,fuerzaDerServicio,fuerzaIzqServicio,desequilibrioServicio,resultadoEjeServicio," //6
                     + "eficienciaServicio,resultadoServicio,fuerzaDerEstacionamiento," //3
                     + "fuerzaIzqEstacionamiento,desequilibrioEstacionamiento,resultadoEjeEstacionamiento," //3
                     + "eficienciaEstacionamiento,resultadoEstacionamiento,fuerzaDerEmergencia,fuerzaIzqEmergencia,desequilibrioEmergencia," //5
