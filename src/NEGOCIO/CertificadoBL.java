@@ -6,6 +6,7 @@
 package NEGOCIO;
 
 import DATOS.CertificadoDAL;
+import DATOS.UsuarioDAL;
 import DATOS.VehiculoDAL;
 import ENTIDADES.Certificado;
 import ENTIDADES.Vehiculo;
@@ -28,5 +29,11 @@ public class CertificadoBL {
          return new CertificadoDAL().obtenerNumeroRegistroCertificado();
           
     }
+    
+    public Object[][] listarCertificados(String placa)
+    {
+        return new CertificadoDAL().listarCertificados(placa);
+    }
+
 
 }
