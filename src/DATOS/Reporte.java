@@ -45,7 +45,8 @@ public class Reporte {
                     System.exit(3);
             }
             Map parametro=new HashMap();
-            parametro.put("fecha", fecha);
+            int idCertificado=Integer.parseInt(fecha);
+            parametro.put("idCertificado", idCertificado);
             JasperPrint jasperPrint=JasperFillManager.fillReport(jasperReport, parametro,cnn);
             JasperViewer jasperViewer=new JasperViewer(jasperPrint,false);
             jasperViewer.setTitle("Certificado de Inspección Técnica Vehicular");

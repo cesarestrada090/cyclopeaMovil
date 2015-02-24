@@ -499,7 +499,7 @@ where cer.idcertificado=$P{idCertificado}]]>
 	<pageHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="122" y="0" width="301" height="20"/>
+				<reportElement x="124" y="0" width="301" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
