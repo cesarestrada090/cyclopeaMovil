@@ -369,8 +369,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField182 = new javax.swing.JTextField();
         jTextField183 = new javax.swing.JTextField();
         jTextField184 = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox();
         jComboBox8 = new javax.swing.JComboBox();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jComboBox7 = new javax.swing.JComboBox();
         jPanel6 = new javax.swing.JPanel();
         jLabel130 = new javax.swing.JLabel();
         jLabel131 = new javax.swing.JLabel();
@@ -1102,14 +1103,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         });
 
         jTextField45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField45.setEnabled(false);
 
         jTextField46.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField46.setEnabled(false);
 
         jTextField47.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField47.setEnabled(false);
 
         jTextField48.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField48.setEnabled(false);
 
         jTextField49.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField49.setEnabled(false);
 
         jTextField50.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField50.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1250,6 +1256,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField76.setEnabled(false);
+
+        jTextField77.setEnabled(false);
+
+        jTextField78.setEnabled(false);
+
+        jTextField79.setEnabled(false);
+
+        jTextField80.setEnabled(false);
+
         jTextField85.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1387,6 +1403,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel79.setText("Resultado");
         jLabel79.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField107.setEnabled(false);
+
+        jTextField108.setEnabled(false);
+
+        jTextField109.setEnabled(false);
+
+        jTextField110.setEnabled(false);
+
+        jTextField111.setEnabled(false);
 
         jTextField116.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -2347,6 +2373,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField180.setEnabled(false);
         jTextField180.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -2373,17 +2400,20 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField184.setEnabled(false);
         jTextField184.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
             }
         });
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
-        jComboBox7.setEnabled(false);
-
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox8.setEnabled(false);
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
+        jComboBox7.setEnabled(false);
+        jComboBox7.setBounds(0, 0, 100, 20);
+        jDesktopPane1.add(jComboBox7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2394,24 +2424,27 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel124, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel123)
-                                    .addComponent(jLabel122)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel39))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField179)
-                                    .addComponent(jTextField180, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                    .addComponent(jTextField178)))
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField177, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox7, 0, 197, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel124, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel123)
+                                            .addComponent(jLabel122)
+                                            .addComponent(jLabel40)
+                                            .addComponent(jLabel39))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField179)
+                                            .addComponent(jTextField180, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                            .addComponent(jTextField178)))
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField177, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jDesktopPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2468,9 +2501,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel124)
                     .addComponent(jLabel129))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -2864,8 +2897,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objTarjetaP.setIdCarroceria(String.valueOf(jComboBox12.getSelectedItem()));
             objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
             objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
-            objTarjetaP.setIdCombustible(String.valueOf(jComboBox12.getSelectedItem()));
-            objTarjetaP.setIdMarca(String.valueOf(jComboBox9.getSelectedIndex()));
+            objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
+            objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
             objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
             objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
             objTarjetaP.setNombrePropietario(jTextField82.getText());
@@ -3335,104 +3368,104 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!jTextField2.getText().trim().equals("")
                 && !jTextField30.getText().trim().equals("") && !jTextField31.getText().trim().equals("")
                 && !jTextField40.getText().trim().equals("") && !jTextField50.getText().trim().equals("")
-                && !jTextField45.getText().trim().equals("")) {
+                && !jTextField40.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* Segundo Freno Servicio */
         if (!jTextField3.getText().trim().equals("") && !jTextField32.getText().trim().equals("")
                 && !jTextField36.getText().trim().equals("") && !jTextField41.getText().trim().equals("")
-                && !jTextField46.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
+                && !jTextField36.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* Tercer Freno Servicio */
         if (!jTextField4.getText().trim().equals("") && !jTextField33.getText().trim().equals("")
                 && !jTextField37.getText().trim().equals("") && !jTextField42.getText().trim().equals("")
-                && !jTextField47.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
+                && !jTextField37.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* Cuarto Freno Servicio */
         if (!jTextField1.getText().trim().equals("") && !jTextField34.getText().trim().equals("")
                 && !jTextField38.getText().trim().equals("") && !jTextField43.getText().trim().equals("")
-                && !jTextField48.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
+                && !jTextField38.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* Quinto Freno Servicio */
         if (!jTextField12.getText().trim().equals("") && !jTextField35.getText().trim().equals("")
                 && !jTextField39.getText().trim().equals("") && !jTextField44.getText().trim().equals("")
-                && !jTextField49.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
+                && !jTextField39.getText().trim().equals("") && !jTextField50.getText().trim().equals("")) {
             frenoServicioCompleto = true;
         }
 
         /* primer freno Estacionamiento */
         if (!jTextField65.getText().trim().equals("") && !jTextField66.getText().trim().equals("")
-                && !jTextField75.getText().trim().equals("") && !jTextField76.getText().trim().equals("")
+                && !jTextField75.getText().trim().equals("") && !jTextField66.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
         /* Segundo freno Estacionamiento */
         if (!jTextField64.getText().trim().equals("") && !jTextField67.getText().trim().equals("")
-                && !jTextField74.getText().trim().equals("") && !jTextField77.getText().trim().equals("")
+                && !jTextField74.getText().trim().equals("") && !jTextField67.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
         /* Tercer freno Estacionamiento */
         if (!jTextField63.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
-                && !jTextField73.getText().trim().equals("") && !jTextField78.getText().trim().equals("")
+                && !jTextField73.getText().trim().equals("") && !jTextField68.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
         /* Cuarto freno Estacionamiento */
         if (!jTextField62.getText().trim().equals("") && !jTextField69.getText().trim().equals("")
-                && !jTextField72.getText().trim().equals("") && !jTextField79.getText().trim().equals("")
+                && !jTextField72.getText().trim().equals("") && !jTextField69.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
         /* Quinto freno Estacionamiento */
         if (!jTextField61.getText().trim().equals("") && !jTextField70.getText().trim().equals("")
-                && !jTextField71.getText().trim().equals("") && !jTextField80.getText().trim().equals("")
+                && !jTextField71.getText().trim().equals("") && !jTextField70.getText().trim().equals("")
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
 
         /* primer freno Emergencia */
         if (!jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
-                && !jTextField102.getText().trim().equals("") && !jTextField107.getText().trim().equals("")
+                && !jTextField102.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
         /* Segundo freno Emergencia */
         if (!jTextField93.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
-                && !jTextField103.getText().trim().equals("") && !jTextField108.getText().trim().equals("")
+                && !jTextField103.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
         /* Tercer freno Emergencia */
         if (!jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
-                && !jTextField104.getText().trim().equals("") && !jTextField109.getText().trim().equals("")
+                && !jTextField104.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
         /* Cuarto freno Emergencia */
         if (!jTextField100.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
-                && !jTextField105.getText().trim().equals("") && !jTextField110.getText().trim().equals("")
+                && !jTextField105.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
 
         /* Quinto freno Emergencia */
         if (!jTextField99.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
-                && !jTextField106.getText().trim().equals("") && !jTextField111.getText().trim().equals("")
+                && !jTextField106.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
                 && !jTextField116.getText().trim().equals("")) {
             frenoEmergenciaCompleto = true;
         }
@@ -3442,8 +3475,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
                 && !jTextField179.getText().trim().equals("") && !jTextField181.getText().trim().equals("")
-                && !jTextField182.getText().trim().equals("") && !jTextField183.getText().trim().equals("")
-                && !jTextField184.getText().trim().equals("")) {
+                && !jTextField182.getText().trim().equals("") && !jTextField183.getText().trim().equals("")) {
             suspensionCompleto = true;
         }
 
@@ -3466,55 +3498,55 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         
         /* Luces Bajas */
         if (!jTextField159.getText().trim().equals("") && !jTextField163.getText().trim().equals("")
-                && !jTextField167.getText().trim().equals("") && !jTextField71.getText().trim().equals("")) {
+                && !jTextField167.getText().trim().equals("") && !jTextField163.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
         /* Luces Altas */
         if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-                && !jTextField164.getText().trim().equals("") && !jTextField172.getText().trim().equals("")) {
+                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
         
         /* Luces Altas Adicionales */
         if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-                && !jTextField164.getText().trim().equals("") && !jTextField172.getText().trim().equals("")) {
+                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
         
         /* Luces Neblineras */
         if (!jTextField162.getText().trim().equals("") && !jTextField166.getText().trim().equals("")
-                && !jTextField170.getText().trim().equals("") && !jTextField174.getText().trim().equals("")) {
+                && !jTextField170.getText().trim().equals("") && !jTextField166.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
         /* Alineamiento primer eje */
         if (!jTextField5.getText().trim().equals("") && !jTextField10.getText().trim().equals("")
-                && !jTextField16.getText().trim().equals("") && !jTextField21.getText().trim().equals("")) {
+                && !jTextField16.getText().trim().equals("") && !jTextField10.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Segundo eje */
         if (!jTextField6.getText().trim().equals("") && !jTextField11.getText().trim().equals("")
-                && !jTextField17.getText().trim().equals("") && !jTextField22.getText().trim().equals("")) {
+                && !jTextField17.getText().trim().equals("") && !jTextField11.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Tercer eje */
         if (!jTextField7.getText().trim().equals("") && !jTextField13.getText().trim().equals("")
-                && !jTextField18.getText().trim().equals("") && !jTextField23.getText().trim().equals("")) {
+                && !jTextField18.getText().trim().equals("") && !jTextField13.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
         
         /* Alineamiento Cuarto eje */
         if (!jTextField8.getText().trim().equals("") && !jTextField14.getText().trim().equals("")
-                && !jTextField19.getText().trim().equals("") && !jTextField24.getText().trim().equals("")) {
+                && !jTextField19.getText().trim().equals("") && !jTextField14.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
         
         /* Alineamiento Quinto eje */
         if (!jTextField9.getText().trim().equals("") && !jTextField15.getText().trim().equals("")
-                && !jTextField20.getText().trim().equals("") && !jTextField25.getText().trim().equals("")) {
+                && !jTextField20.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
         
@@ -3777,6 +3809,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
