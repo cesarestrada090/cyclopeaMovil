@@ -38,7 +38,7 @@ public class TarjetaPropiedadDAL {
             ps.setString(2, v.getnTarjeta());
             ps.setString(3, v.getNombrePropietario());
             ps.setString(4, v.getDomicilio());
-            ps.setString(5, "");
+            ps.setString(5, v.getIdCategoria());
             ps.setString(6, v.getIdMarca());
             ps.setInt(7, v.getFabricacion());
             ps.setString(8, v.getIdModelo());
