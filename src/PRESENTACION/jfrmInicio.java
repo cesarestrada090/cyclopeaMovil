@@ -10,11 +10,26 @@
  */
 package PRESENTACION;
 
+import NEGOCIO.CertificadoBL;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.*;
+
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+/*Librerías para trabajar con archivos excel*/
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 /**
  *
@@ -43,6 +58,7 @@ public class jfrmInicio extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -77,6 +93,16 @@ public class jfrmInicio extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/archive.png"))); // NOI18N
         jMenu1.setText("Archivo");
+
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/bd import.png"))); // NOI18N
+        jMenuItem8.setText("Exportar Data");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/clos.png"))); // NOI18N
@@ -368,6 +394,162 @@ public class jfrmInicio extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        FileOutputStream archivo = null;
+        try {
+            // TODO add your handling code here:
+            java.util.Date fecha = new Date();
+            String rutaArchivo = System.getProperty("user.home")+"/CertificadosEmitidos.xls";
+            /*Se crea el objeto de tipo File con la ruta del archivo*/
+            File archivoXLS = new File(rutaArchivo);
+            /*Si el archivo existe se elimina*/
+            if(archivoXLS.exists()) archivoXLS.delete();
+            /*Se crea el archivo*/
+            archivoXLS.createNewFile();
+            /*Se crea el libro de excel usando el objeto de tipo Workbook*/
+            Workbook libro = new HSSFWorkbook();
+            archivo = new FileOutputStream(archivoXLS);
+            /*Utilizamos la clase Sheet para crear una nueva hoja de trabajo dentro del libro que creamos anteriormente*/
+            Sheet hoja = libro.createSheet("Mi hoja de trabajo 1");
+            
+            
+            
+            /*Obtener listado de Certificados de la base de datos*/
+            
+            
+            Object listaCertificados[][]= new CertificadoBL().listarAllCertificados();
+            
+            Row filaEncabezado = hoja.createRow(0);
+            Cell celdaEncabezado=filaEncabezado.createCell(0);
+            celdaEncabezado.setCellValue("idcertificado");
+            celdaEncabezado=filaEncabezado.createCell(1);
+            celdaEncabezado.setCellValue("tipoDocTransp");
+            celdaEncabezado=filaEncabezado.createCell(2);
+            celdaEncabezado.setCellValue("numDocEvaluar");
+            celdaEncabezado=filaEncabezado.createCell(3);
+            celdaEncabezado.setCellValue("claseAutorizacion");
+            celdaEncabezado=filaEncabezado.createCell(4);
+            celdaEncabezado.setCellValue("resultado");
+            celdaEncabezado=filaEncabezado.createCell(5);
+            celdaEncabezado.setCellValue("vigencia");
+            celdaEncabezado=filaEncabezado.createCell(6);
+            celdaEncabezado.setCellValue("fecInspeccion");
+            celdaEncabezado=filaEncabezado.createCell(7);
+            celdaEncabezado.setCellValue("fecVencimiento");
+            celdaEncabezado=filaEncabezado.createCell(8);
+            celdaEncabezado.setCellValue("cIdentidadCert");
+            celdaEncabezado=filaEncabezado.createCell(9);
+            celdaEncabezado.setCellValue("codLocal");
+            celdaEncabezado=filaEncabezado.createCell(10);
+            celdaEncabezado.setCellValue("ubigeo");
+            celdaEncabezado=filaEncabezado.createCell(11);
+            celdaEncabezado.setCellValue("idTarjeta");
+            celdaEncabezado=filaEncabezado.createCell(12);
+            celdaEncabezado.setCellValue("placa");
+            celdaEncabezado=filaEncabezado.createCell(13);
+            celdaEncabezado.setCellValue("ntarjeta");
+            celdaEncabezado=filaEncabezado.createCell(14);
+            celdaEncabezado.setCellValue("RazonSocial");
+            celdaEncabezado=filaEncabezado.createCell(15);
+            celdaEncabezado.setCellValue("domicilio");
+            celdaEncabezado=filaEncabezado.createCell(16);
+            celdaEncabezado.setCellValue("idclase");
+            celdaEncabezado=filaEncabezado.createCell(17);
+            celdaEncabezado.setCellValue("idmarca");
+            celdaEncabezado=filaEncabezado.createCell(18);
+            celdaEncabezado.setCellValue("fabricacion");
+            celdaEncabezado=filaEncabezado.createCell(19);
+            celdaEncabezado.setCellValue("idmodelo");
+            celdaEncabezado=filaEncabezado.createCell(20);
+            celdaEncabezado.setCellValue("version");
+            celdaEncabezado=filaEncabezado.createCell(21);
+            celdaEncabezado.setCellValue("idcombustible");
+            celdaEncabezado=filaEncabezado.createCell(22);
+            celdaEncabezado.setCellValue("idcarroceria");
+            celdaEncabezado=filaEncabezado.createCell(23);
+            celdaEncabezado.setCellValue("ejes");
+            celdaEncabezado=filaEncabezado.createCell(24);
+            celdaEncabezado.setCellValue("colores");
+            celdaEncabezado=filaEncabezado.createCell(25);
+            celdaEncabezado.setCellValue("nmotor");
+            celdaEncabezado=filaEncabezado.createCell(26);
+            celdaEncabezado.setCellValue("cilindros");
+            celdaEncabezado=filaEncabezado.createCell(27);
+            celdaEncabezado.setCellValue("nserie");
+            celdaEncabezado=filaEncabezado.createCell(28);
+            celdaEncabezado.setCellValue("vin");
+            celdaEncabezado=filaEncabezado.createCell(29);
+            celdaEncabezado.setCellValue("ruedas");
+            celdaEncabezado=filaEncabezado.createCell(30);
+            celdaEncabezado.setCellValue("pasajeros");
+            celdaEncabezado=filaEncabezado.createCell(31);
+            celdaEncabezado.setCellValue("asientos");
+            celdaEncabezado=filaEncabezado.createCell(32);
+            celdaEncabezado.setCellValue("peso_seco");
+            celdaEncabezado=filaEncabezado.createCell(33);
+            celdaEncabezado.setCellValue("peso_bruto");
+            celdaEncabezado=filaEncabezado.createCell(34);
+            celdaEncabezado.setCellValue("longitud");
+            celdaEncabezado=filaEncabezado.createCell(35);
+            celdaEncabezado.setCellValue("altura");
+            celdaEncabezado=filaEncabezado.createCell(36);
+            celdaEncabezado.setCellValue("ancho");
+            celdaEncabezado=filaEncabezado.createCell(37);
+            celdaEncabezado.setCellValue("carga_util");
+            celdaEncabezado=filaEncabezado.createCell(38);
+            celdaEncabezado.setCellValue("estado");
+            celdaEncabezado=filaEncabezado.createCell(39);
+            celdaEncabezado.setCellValue("fecha");
+            celdaEncabezado=filaEncabezado.createCell(40);
+            celdaEncabezado.setCellValue("nruedas");
+            celdaEncabezado=filaEncabezado.createCell(41);
+            celdaEncabezado.setCellValue("kilometraje");            
+            celdaEncabezado=filaEncabezado.createCell(42);
+            celdaEncabezado.setCellValue("resultadoServicio");
+            celdaEncabezado=filaEncabezado.createCell(43);
+            celdaEncabezado.setCellValue("resultadoEstacionamiento");
+            celdaEncabezado=filaEncabezado.createCell(44);
+            celdaEncabezado.setCellValue("resultadoEmergencia");
+            celdaEncabezado=filaEncabezado.createCell(45);
+            celdaEncabezado.setCellValue("resultFinalAlineamiento");
+            celdaEncabezado=filaEncabezado.createCell(46);
+            celdaEncabezado.setCellValue("resultFinalNeumaticos");
+            celdaEncabezado=filaEncabezado.createCell(47);
+            celdaEncabezado.setCellValue("resultFinalSuspension");
+            celdaEncabezado=filaEncabezado.createCell(48);
+            celdaEncabezado.setCellValue("resultadoESonoras");
+            celdaEncabezado=filaEncabezado.createCell(49);
+            celdaEncabezado.setCellValue("resultadoGas");
+            
+            /*Hacemos un ciclo para inicializar los valores de 10 filas de celdas*/
+            for(int f=1;f<=listaCertificados.length;f++){
+                /*La clase Row nos permitirá crear las filas*/
+                Row fila = hoja.createRow(f);
+                
+                /*Cada fila tendrá 50 celdas de datos*/
+                for(int c=0;c<50;c++){
+                    Cell celda = fila.createCell(c);
+                        celda.setCellValue(listaCertificados[f-1][c].toString());
+//                    }
+                }
+            }   /*Escribimos en el libro*/ libro.write(archivo);
+            /*Cerramos el flujo de datos*/
+        archivo.close();
+            /*Y abrimos el archivo con la clase Desktop*/
+            Desktop.getDesktop().open(archivoXLS);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(jfrmInicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(jfrmInicio.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                archivo.close();
+            } catch (IOException ex) {
+                Logger.getLogger(jfrmInicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -398,6 +580,7 @@ public class jfrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 
 }
