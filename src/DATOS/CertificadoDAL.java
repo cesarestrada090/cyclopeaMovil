@@ -8,6 +8,8 @@ import ENTIDADES.Certificado;
 import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -132,6 +134,144 @@ public class CertificadoDAL {
         }
         return null;
     }
+   
+    
+     public List obtenerListaModelo()
+    {
+        
+        List valoresCombo= new ArrayList<String>();
+        
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select distinct nombre from codigos where tipo='MKC' and nombre!='' order by nombre ;");
+            int i=0;
+            while (rs.next()) {
+                valoresCombo.add(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return valoresCombo;
+    }
+    public List obtenerListaMarca()
+    {
+        
+        List valoresCombo= new ArrayList<String>();
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select distinct nombre from codigos where tipo='MKA' order by nombre;");
+            int i=0;
+            while (rs.next()) {
+                valoresCombo.add(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return valoresCombo;
+    }
+    
+    public List obtenerListaCombustible()
+    {
+        
+        List valoresCombo= new ArrayList<String>();
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select distinct nombre from codigos where tipo='COM' order by nombre ;");
+            int i=0;
+            while (rs.next()) {
+                valoresCombo.add(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return valoresCombo;
+    }
+    
+    public List obtenerListaCarroceria()
+    {
+        
+        List valoresCombo= new ArrayList<String>();
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select distinct nombre from codigos where tipo='CAR' order by nombre;");
+
+            while (rs.next()) {
+                valoresCombo.add(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return valoresCombo;
+    }
+    
+    public List obtenerListaCategorias()
+    {
+        
+        List valoresCombo= new ArrayList<String>();
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("select distinct nombre from codigos where tipo='CAT' order by nombre;");
+
+            while (rs.next()) {
+                valoresCombo.add(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return valoresCombo;
+    }
+    
+
     
 }
 /*

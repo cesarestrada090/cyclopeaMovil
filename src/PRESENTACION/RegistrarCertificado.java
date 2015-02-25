@@ -16,11 +16,11 @@ package PRESENTACION;
 import ENTIDADES.*;
 import NEGOCIO.*;
 import java.awt.Dimension;
-import java.awt.List;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -38,6 +38,44 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     public RegistrarCertificado() {
         initComponents();
         jTextField40.getDocument().addDocumentListener(new MyDocumentListener());
+        
+        
+        CertificadoBL b= new CertificadoBL();
+        int size;
+        List listaModelos=b.obtenerListaModelo();
+        for (int i = 0; i < listaModelos.size(); i++) {
+            jComboBox10.addItem((String)listaModelos.get(i));
+        }
+        
+        List listaCombustibles=b.obtenerListaCombustible();
+        size=listaCombustibles.size();
+        for (int i = 0; i < size; i++) {
+            jComboBox13.addItem((String)listaCombustibles.get(i));
+        }
+        
+        List listaCarrocerias=b.obtenerListaCarroceria();
+        size=listaCarrocerias.size();
+        for (int i = 0; i < size; i++) {
+            jComboBox12.addItem((String)listaCarrocerias.get(i));
+        }
+        
+        List listaMarcas=b.obtenerListaMarca();
+        size=listaMarcas.size();
+        for (int i = 0; i < size; i++) {
+            jComboBox9.addItem((String)listaMarcas.get(i));
+        }
+        
+        List listaCategorias=b.obtenerListaCategoria();
+        size=listaCategorias.size();
+        for (int i = 0; i < size; i++) {
+            jComboBox14.addItem((String)listaCategorias.get(i));
+        }
+        
+        
+        
+        
+        
+        
     }
     // public int permiso1;
     public String strMensajeValidacion;
@@ -54,6 +92,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     public void limpiarUsuarios() {
         jTextField4.setText("");
 //        jPasswordField1.setText("");
+        
     }
 
     public void habilitarUsuarios(boolean b) {
@@ -395,10 +434,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -517,10 +556,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jLabel116.setText("Banco de Suspensión N°");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HYUNDAI", "KIA", "TOYOTA" }));
-
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HYUNDAI ELANTRA", "HYUNDAI TUCSON", "HYUNDAI SANTAFE", "KIA RIO", "KIA CERATTO", "KIA SPORTAGE", "TOYOTA COROLLA" }));
-
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983" }));
 
         jLabel146.setText("01 CYCLOPEA MÓVIL");
@@ -550,13 +585,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel149.setText("Nro de Tarjeta de Propiedad");
-
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03" }));
 
@@ -1031,10 +1060,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2648,6 +2677,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel145.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
+        jComboBox2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -2707,8 +2737,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel22.setText("Fecha de la próxima inspección");
         jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jTextField157.setText("12");
+
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox3.setEnabled(false);
+
+        jDateChooser2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2798,7 +2832,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("jfrmRegistrarUsuario");
