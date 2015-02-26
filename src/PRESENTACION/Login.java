@@ -53,6 +53,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/loginuser.png"))); // NOI18N
 
+        jTextField1.setText("movil01");
+        jTextField1.setToolTipText("");
+
         jLabel1.setText("Usuario:");
 
         jLabel3.setText("Contraseña:");
@@ -63,6 +66,8 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jPasswordField1.setText("123321");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

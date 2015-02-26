@@ -34,13 +34,17 @@ CREATE TABLE `alineador` (
   `medidaObtenidaNeumatico` float NOT NULL,
   `resultadoNeumatico` varchar(45) NOT NULL,
   PRIMARY KEY (`idCertificado`,`nEje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `alineador`
 --
 
 /*!40000 ALTER TABLE `alineador` DISABLE KEYS */;
+INSERT INTO `alineador` (`idCertificado`,`nEje`,`desviacionAlineamiento`,`resultadoAlineamiento`,`medidaObtenidaNeumatico`,`resultadoNeumatico`) VALUES 
+ (1,'1',5,'4',3,'5'),
+ (1,'3',6,'5',37,'8'),
+ (2,'1',232,'2',3,'');
 /*!40000 ALTER TABLE `alineador` ENABLE KEYS */;
 
 
@@ -65,7 +69,7 @@ CREATE TABLE `certificado` (
   `ubigeo` varchar(45) DEFAULT NULL,
   `idTarjeta` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`idCertificado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `certificado`
@@ -73,7 +77,8 @@ CREATE TABLE `certificado` (
 
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
 INSERT INTO `certificado` (`idCertificado`,`tipoDocTransp`,`numDocTransp`,`tipoDocEvaluar`,`numDocEvaluar`,`claseAutorizacion`,`resultado`,`vigencia`,`fecInspeccion`,`fecVencimiento`,`cIdentidadCert`,`codLocal`,`ubigeo`,`idTarjeta`) VALUES 
- (1,NULL,NULL,NULL,NULL,NULL,0,'','2015-02-03',NULL,NULL,NULL,NULL,1);
+ (1,NULL,NULL,NULL,NULL,NULL,0,'12','2015-02-11',NULL,NULL,NULL,NULL,4),
+ (2,NULL,NULL,NULL,NULL,NULL,0,'12',NULL,NULL,NULL,NULL,NULL,5);
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 
 
@@ -97,6 +102,9 @@ CREATE TABLE `certificadoequipo` (
 --
 
 /*!40000 ALTER TABLE `certificadoequipo` DISABLE KEYS */;
+INSERT INTO `certificadoequipo` (`idCertificado`,`frenometroNumero`,`alineadorNumero`,`analizadorNumero`,`luxometroNumero`,`bancoSuspension`) VALUES 
+ (1,0,0,0,0,0),
+ (2,0,0,0,0,0);
 /*!40000 ALTER TABLE `certificadoequipo` ENABLE KEYS */;
 
 
@@ -16765,13 +16773,16 @@ CREATE TABLE `frenometro` (
   `eficienciaEmergencia` float DEFAULT NULL,
   `resultadoEmergencia` varchar(39) DEFAULT NULL,
   PRIMARY KEY (`idCertificado`,`idEje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `frenometro`
 --
 
 /*!40000 ALTER TABLE `frenometro` DISABLE KEYS */;
+INSERT INTO `frenometro` (`idCertificado`,`idEje`,`pesoServicio`,`fuerzaDerServicio`,`fuerzaIzqServicio`,`desequilibrioServicio`,`resultadoEjeServicio`,`eficienciaServicio`,`resultadoServicio`,`fuerzaDerEstacionamiento`,`fuerzaIzqEstacionamiento`,`desequilibrioEstacionamiento`,`resultadoEjeEstacionamiento`,`eficienciaEstacionamiento`,`resultadoEstacionamiento`,`fuerzaDerEmergencia`,`fuerzaIzqEmergencia`,`desequilibrioEmergencia`,`resultadoEjeEmergencia`,`eficienciaEmergencia`,`resultadoEmergencia`) VALUES 
+ (1,1,1,2,3,4,'5',6,'APROBADO',5,4,3,'3',67,'APROBADO',4,5,7,'5',4,'APROBADO'),
+ (2,1,1,1,1,1,'',132,'APROBADO',2,222,3,'',4,'APROBADO',32,1,32,'',32,'APROBADO');
 /*!40000 ALTER TABLE `frenometro` ENABLE KEYS */;
 
 
@@ -16793,7 +16804,7 @@ CREATE TABLE `gasometro` (
   `HCAcel` double NOT NULL,
   `Resultado` varchar(45) NOT NULL,
   PRIMARY KEY (`idCertificado`)
-) ENGINE=InnoDB AUTO_INCREMENT=443 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gasometro`
@@ -16801,7 +16812,8 @@ CREATE TABLE `gasometro` (
 
 /*!40000 ALTER TABLE `gasometro` DISABLE KEYS */;
 INSERT INTO `gasometro` (`idCertificado`,`tAceite`,`rpm`,`opacidad`,`coRalent`,`coco2Ralenti`,`hcRalentippm`,`coAcel`,`coCo2Acel`,`HCAcel`,`Resultado`) VALUES 
- (442,33.2,56,3,45,54,3455,32,322,23,'Aprobado');
+ (1,9,6,5,8,4,67,8,8,8,'0'),
+ (2,8,5,6,7,6,5,8,8,8,'0');
 /*!40000 ALTER TABLE `gasometro` ENABLE KEYS */;
 
 
@@ -16818,13 +16830,19 @@ CREATE TABLE `luxometro` (
   `alineamiento` varchar(80) NOT NULL,
   `resultadoTipoLuz` varchar(15) NOT NULL,
   PRIMARY KEY (`idCertificado`,`tipoLuz`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `luxometro`
 --
 
 /*!40000 ALTER TABLE `luxometro` DISABLE KEYS */;
+INSERT INTO `luxometro` (`idCertificado`,`tipoLuz`,`medidaDerLuz`,`medidaIzqLuz`,`alineamiento`,`resultadoTipoLuz`) VALUES 
+ (1,1,7,8,'4','3'),
+ (1,2,9,8,'9','8'),
+ (1,3,2,6,'5','4'),
+ (1,4,1,8,'5','7'),
+ (2,1,3,2,'1','');
 /*!40000 ALTER TABLE `luxometro` ENABLE KEYS */;
 
 
@@ -16875,6 +16893,34 @@ CREATE TABLE `persona` (
 
 
 --
+-- Definition of table `resultados`
+--
+
+DROP TABLE IF EXISTS `resultados`;
+CREATE TABLE `resultados` (
+  `IDCERTIFICADO` int(10) unsigned NOT NULL,
+  `PRUEALI` int(10) unsigned NOT NULL,
+  `PROFNEUMA` int(10) unsigned NOT NULL,
+  `PRUEBLUCES` int(10) unsigned NOT NULL,
+  `SUSPENSION` int(10) unsigned NOT NULL,
+  `EMIGASES` int(10) unsigned NOT NULL,
+  `FRESERV` int(10) unsigned NOT NULL,
+  `FREESTAC` int(10) unsigned NOT NULL,
+  `FREEMER` int(10) unsigned NOT NULL,
+  `DISEJES` float NOT NULL,
+  `PISOS` int(10) unsigned NOT NULL,
+  `OBSERVACIONES` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `resultados`
+--
+
+/*!40000 ALTER TABLE `resultados` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resultados` ENABLE KEYS */;
+
+
+--
 -- Definition of table `sonometro`
 --
 
@@ -16884,13 +16930,16 @@ CREATE TABLE `sonometro` (
   `sonometroValor` double NOT NULL,
   `resultado` varchar(30) NOT NULL,
   PRIMARY KEY (`idCertificado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sonometro`
 --
 
 /*!40000 ALTER TABLE `sonometro` DISABLE KEYS */;
+INSERT INTO `sonometro` (`idCertificado`,`sonometroValor`,`resultado`) VALUES 
+ (1,87,'0'),
+ (2,23,'0');
 /*!40000 ALTER TABLE `sonometro` ENABLE KEYS */;
 
 
@@ -16912,13 +16961,16 @@ CREATE TABLE `suspension` (
   `resultadoPosterior` varchar(10) NOT NULL,
   `resultadoFinalPosterior` varchar(45) NOT NULL,
   PRIMARY KEY (`idCertificado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `suspension`
 --
 
 /*!40000 ALTER TABLE `suspension` DISABLE KEYS */;
+INSERT INTO `suspension` (`idCertificado`,`delanteraIzq`,`delanteraDer`,`delanteraDesv`,`resultadoDelantera`,`resultadoFinalDelantera`,`posteriorIzq`,`posteriorDer`,`posteriorDesv`,`resultadoPosterior`,`resultadoFinalPosterior`) VALUES 
+ (1,9,7,7,'5','APROBADO',8,6,8,'4','APROBADO'),
+ (2,7,9,8,'','APROBADO',8,6,9,'','APROBADO');
 /*!40000 ALTER TABLE `suspension` ENABLE KEYS */;
 
 
@@ -16933,15 +16985,15 @@ CREATE TABLE `tarjetapropiedad` (
   `ntarjeta` varchar(12) DEFAULT NULL,
   `razon1` varchar(120) DEFAULT NULL,
   `domicilio` varchar(120) DEFAULT NULL,
-  `idclase` varchar(15) DEFAULT NULL,
-  `idmarca` varchar(15) DEFAULT NULL,
+  `idclase` varchar(90) DEFAULT NULL,
+  `idmarca` varchar(90) DEFAULT NULL,
   `fabricacion` smallint(6) DEFAULT NULL,
-  `idmodelo` varchar(15) DEFAULT NULL,
+  `idmodelo` varchar(90) DEFAULT NULL,
   `version` varchar(35) DEFAULT NULL,
-  `idcombustible` varchar(15) DEFAULT NULL,
-  `idcarroceria` varchar(15) DEFAULT NULL,
+  `idcombustible` varchar(90) DEFAULT NULL,
+  `idcarroceria` varchar(90) DEFAULT NULL,
   `ejes` smallint(6) DEFAULT NULL,
-  `colores` varchar(60) DEFAULT NULL,
+  `colores` varchar(90) DEFAULT NULL,
   `nmotor` varchar(60) DEFAULT NULL,
   `cilindros` smallint(6) DEFAULT NULL,
   `nserie` varchar(25) DEFAULT NULL,
@@ -16961,7 +17013,7 @@ CREATE TABLE `tarjetapropiedad` (
   `kilometraje` double DEFAULT NULL,
   PRIMARY KEY (`id_tarjeta`),
   KEY `ix_TarjetaPropiedad_autoinc` (`id_tarjeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tarjetapropiedad`
@@ -16969,7 +17021,11 @@ CREATE TABLE `tarjetapropiedad` (
 
 /*!40000 ALTER TABLE `tarjetapropiedad` DISABLE KEYS */;
 INSERT INTO `tarjetapropiedad` (`id_tarjeta`,`placa`,`ntarjeta`,`razon1`,`domicilio`,`idclase`,`idmarca`,`fabricacion`,`idmodelo`,`version`,`idcombustible`,`idcarroceria`,`ejes`,`colores`,`nmotor`,`cilindros`,`nserie`,`vin`,`ruedas`,`pasajeros`,`asientos`,`peso_seco`,`peso_bruto`,`longitud`,`altura`,`ancho`,`carga_util`,`estado`,`fecha`,`nruedas`,`kilometraje`) VALUES 
- (1,'sd299','232323232','Cesar Luis estrada Yglesias',NULL,'','0',2015,'0',NULL,'Item 1','Item 1',4,'verde','33',0,'3123',NULL,0,0,2,'20.000','223.300','22.000','22.300','22.000','23.000',NULL,NULL,3,2332);
+ (1,'as22','aaq','Cesar Estrada',NULL,'','0',2014,'0',NULL,'Item 1','Item 1',2,'2','3',0,'q',NULL,0,0,3,'2.000','2.000','2.000','7.000','5.000','2.000',NULL,NULL,2,2),
+ (2,'as22','aaq','Cesar Estrada',NULL,'','0',2014,'0',NULL,'Item 1','Item 1',2,'2','3',0,'q',NULL,0,0,3,'2.000','2.000','2.000','7.000','5.000','2.000',NULL,NULL,2,2),
+ (3,'kmasdmka','4','asddsass',NULL,'','0',2015,'0',NULL,'Item 1','Item 1',8,'9','9',0,'8',NULL,0,0,8,'0.000','9.000','8.000','8.000','8.000','9.000',NULL,NULL,12,8),
+ (4,'kmasdmka','4','asddsass',NULL,'','0',2015,'0',NULL,'Item 1','Item 1',8,'9','9',0,'8',NULL,0,0,8,'0.000','9.000','8.000','8.000','8.000','9.000',NULL,NULL,12,8),
+ (5,'dsok2','12326','Cesar Estrada',NULL,'',' SIN MARCA',2015,'0',NULL,' NINGUNO','***',6,'6','3126',0,'22266',NULL,0,0,6,'32.000','6.000','26.000','63.000','662.000','6.000',NULL,NULL,6,6);
 /*!40000 ALTER TABLE `tarjetapropiedad` ENABLE KEYS */;
 
 
@@ -17035,6 +17091,103 @@ set pass=concat(pass);
 
   select us.Tip_TipoId as Tipo from usuario us
   where us.Usu_Id like usuario and us.Usu_Password like pass;
+
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `listarAllCertificados`
+--
+
+DROP PROCEDURE IF EXISTS `listarAllCertificados`;
+
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listarAllCertificados`()
+BEGIN
+select
+       /*CERTIFICADO*/
+       IFNULL(cer.idcertificado,'-') AS idcertificado,
+       IFNULL(cer.tipoDocTransp,'-') AS tipoDocTransp,
+       IFNULL(cer.numDocEvaluar,'-') AS numDocEvaluar,
+       IFNULL(cer.claseAutorizacion,'-') AS claseAutorizacion,
+       IFNULL(cer.resultado,'-') AS resultado,
+       IFNULL(cer.vigencia,'-') AS vigencia,
+       IFNULL(cer.fecInspeccion,'-') AS fecInspeccion,
+       IFNULL(cer.fecVencimiento,'-') AS fecVencimiento,
+       IFNULL(cer.cIdentidadCert,'-') AS cIdentidadCert,
+       IFNULL(cer.codLocal,'-') AS codLocal,
+       IFNULL(cer.ubigeo,'-') AS ubigeo,
+       IFNULL(cer.idTarjeta,'-') AS idTarjeta,
+       /*TARJETA DE PROPIEDAD*/
+       IFNULL(tp.placa,'-') as placa,
+       IFNULL(tp.ntarjeta,'-') as ntarjeta,
+       IFNULL(tp.razon1,'-') as razon1,
+       IFNULL(tp.domicilio,'-') as domicilio,
+       IFNULL(tp.idclase,'-') as idclase,
+       IFNULL(tp.idmarca,'-') as idmarca,
+       IFNULL(tp.fabricacion,'-') as fabricacion,
+       IFNULL(tp.idmodelo,'-') as idmodelo,
+       IFNULL(tp.version,'-') as version,
+       IFNULL(tp.idcombustible,'-') as idcombustible,
+       IFNULL(tp.idcarroceria,'-') as idcarroceria,
+       IFNULL(tp.ejes,'-') as ejes,
+       IFNULL(tp.colores,'-') as colores,
+       IFNULL(tp.nmotor,'-') as nmotor,
+       IFNULL(tp.cilindros,'-') as cilindros,
+       IFNULL(tp.nserie,'-') as nserie,
+       IFNULL(tp.vin,'-') as vin,
+       IFNULL(tp.ruedas,'-') as ruedas,
+       IFNULL(tp.pasajeros,'-') as pasajeros,
+       IFNULL(tp.asientos,'-') as asientos,
+       IFNULL(tp.peso_seco,'-') as peso_seco,
+       IFNULL(tp.peso_bruto,'-') as peso_bruto,
+       IFNULL(tp.longitud,'-') as longitud,
+       IFNULL(tp.altura,'-') as altura,
+       IFNULL(tp.ancho,'-') as ancho,
+       IFNULL(tp.carga_util,'-') as carga_util,
+       IFNULL(tp.estado,'-') as estado,
+       IFNULL(tp.fecha,'-') as fecha,
+       IFNULL(tp.nruedas,'-') as nruedas,
+       IFNULL(tp.kilometraje,'-') as kilometraje,
+       IFNULL(CAST((select resultadoServicio from frenometro where idCertificado=cer.idCertificado  limit 1) AS CHAR),'-') as resultadoServicio,
+       IFNULL(CAST((select resultadoEstacionamiento from frenometro where idCertificado=cer.idCertificado   limit 1) AS CHAR),'-') as resultadoEstacionamiento,
+       IFNULL(CAST((select resultadoEmergencia from frenometro where idCertificado=cer.idCertificado   limit 1) AS CHAR),'-') as resultadoEmergencia,
+       '-' as resultFinalAlineamiento,
+       '-' as resultFinalNeumaticos,
+       '-' as resultFinalSuspension,
+       IFNULL(son.resultado,'-') as resultadoESonoras,
+       IFNULL(son.resultado,'-') as resultadoGas
+
+from certificado cer
+left join sonometro son on son.idCertificado=cer.idcertificado
+left join suspension susp on susp.idcertificado=cer.idcertificado
+left join gasometro gas on gas.idCertificado=cer.idcertificado
+left join tarjetapropiedad tp on tp.id_tarjeta=cer.idtarjeta;
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `listarCerticados`
+--
+
+DROP PROCEDURE IF EXISTS `listarCerticados`;
+
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listarCerticados`(in placa varchar(20))
+BEGIN
+set placa=concat(placa);
+
+SELECT t.placa as placa, t.razon1 as titular, c.fecInspeccion, c.fecVencimiento ,c.idCertificado
+FROM certificado c
+INNER JOIN tarjetapropiedad t on t.id_tarjeta=c.idtarjeta where t.placa=placa;
 
 END $$
 /*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
