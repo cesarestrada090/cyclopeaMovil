@@ -37,6 +37,10 @@ public class CertificadoBL {
     public Object[][] listarAllCertificados() {
         return new CertificadoDAL().listarAllCertificados();
     }
+    
+    public Object[][] listarAllObservaciones() {
+        return new CertificadoDAL().listarAllObservaciones();
+    }
 
     public List obtenerListaModelo() {
         return new CertificadoDAL().obtenerListaModelo();

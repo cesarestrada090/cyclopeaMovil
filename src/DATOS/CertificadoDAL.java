@@ -282,7 +282,7 @@ public Object[][] listarAllCertificados()
             int count=rs.getRow(); rs.beforeFirst();
             rs.relative(current);
             
-            Certificados= new Object[count][50];
+            Certificados= new Object[count][52];
             int i=0;
             while(rs.next()){
 
@@ -336,7 +336,8 @@ public Object[][] listarAllCertificados()
                 Certificados[i][47]=rs.getString(48);
                 Certificados[i][48]=rs.getString(49);
                 Certificados[i][49]=rs.getString(50);
-                
+                Certificados[i][50]=rs.getString(51);
+                Certificados[i][51]=rs.getString(52);
                 i++;
             }
             return Certificados;
@@ -354,21 +355,41 @@ public Object[][] listarAllCertificados()
         }
         return null;
     }
-    
+
+    public Object[][] listarAllObservaciones()
+    {        Object[][] Certificados=null;
+        try {
+            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cs=cn.prepareCall("{CALL listarObservaciones()}");
+            rs=cs.executeQuery();
+
+            int current=rs.getRow(); rs.last();
+            int count=rs.getRow(); rs.beforeFirst();
+            rs.relative(current);
+            
+            Certificados= new Object[count][4];
+            int i=0;
+            while(rs.next()){
+
+                Certificados[i][0]=rs.getString(1);
+                Certificados[i][1]=rs.getString(2);
+                Certificados[i][2]=rs.getString(3);
+                Certificados[i][3]=rs.getString(4);                
+                i++;
+            }
+            return Certificados;
+        } catch (Exception ex) {
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();                
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
 }
-/*
- *
- * DELIMITER $$
-
- DROP PROCEDURE IF EXISTS `BusquedaPlaca` $$
- CREATE DEFINER=`root`@`localhost` PROCEDURE `BusquedaPlaca`(in placa varchar(8))
- BEGIN
- set placa=concat(placa);
-
- select c.Call_Id as placa from callcenter c
- where c.Call_Id like placa;
-
- END $$
-
- DELIMITER ;
- */
