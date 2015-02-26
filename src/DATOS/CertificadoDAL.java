@@ -271,7 +271,89 @@ public class CertificadoDAL {
         return valoresCombo;
     }
     
+public Object[][] listarAllCertificados()
+    {        Object[][] Certificados=null;
+        try {
+            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cs=cn.prepareCall("{CALL listarAllCertificados()}");
+            rs=cs.executeQuery();
 
+            int current=rs.getRow(); rs.last();
+            int count=rs.getRow(); rs.beforeFirst();
+            rs.relative(current);
+            
+            Certificados= new Object[count][50];
+            int i=0;
+            while(rs.next()){
+
+                Certificados[i][0]=rs.getString(1);
+                Certificados[i][1]=rs.getString(2);
+                Certificados[i][2]=rs.getString(3);
+                Certificados[i][3]=rs.getString(4);
+                Certificados[i][4]=rs.getString(5);
+                Certificados[i][5]=rs.getString(6);
+                Certificados[i][6]=rs.getString(7);
+                Certificados[i][7]=rs.getString(8);
+                Certificados[i][8]=rs.getString(9);
+                Certificados[i][9]=rs.getString(10);
+                Certificados[i][10]=rs.getString(11);
+                Certificados[i][11]=rs.getString(12);
+                Certificados[i][12]=rs.getString(13);
+                Certificados[i][13]=rs.getString(14);
+                Certificados[i][14]=rs.getString(15);
+                Certificados[i][15]=rs.getString(16);
+                Certificados[i][16]=rs.getString(17);
+                Certificados[i][17]=rs.getString(18);
+                Certificados[i][18]=rs.getString(19);
+                Certificados[i][19]=rs.getString(20);
+                Certificados[i][20]=rs.getString(21);
+                Certificados[i][21]=rs.getString(22);
+                Certificados[i][22]=rs.getString(23);
+                Certificados[i][23]=rs.getString(24);
+                Certificados[i][24]=rs.getString(25);
+                Certificados[i][25]=rs.getString(26);
+                Certificados[i][26]=rs.getString(27);
+                Certificados[i][27]=rs.getString(28);
+                Certificados[i][28]=rs.getString(29);
+                Certificados[i][29]=rs.getString(30);
+                Certificados[i][30]=rs.getString(31);
+                Certificados[i][31]=rs.getString(32);
+                Certificados[i][32]=rs.getString(33);
+                Certificados[i][33]=rs.getString(34);
+                Certificados[i][34]=rs.getString(35);
+                Certificados[i][35]=rs.getString(36);
+                Certificados[i][36]=rs.getString(37);
+                Certificados[i][37]=rs.getString(38);
+                Certificados[i][38]=rs.getString(39);
+                Certificados[i][39]=rs.getString(40);
+                Certificados[i][40]=rs.getString(41);
+                Certificados[i][41]=rs.getString(42);                
+                Certificados[i][42]=rs.getString(43);
+                Certificados[i][43]=rs.getString(44);
+                Certificados[i][44]=rs.getString(45);
+                Certificados[i][45]=rs.getString(46);
+                Certificados[i][46]=rs.getString(47);
+                Certificados[i][47]=rs.getString(48);
+                Certificados[i][48]=rs.getString(49);
+                Certificados[i][49]=rs.getString(50);
+                
+                i++;
+            }
+            return Certificados;
+        } catch (Exception ex) {
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();                
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
     
 }
 /*

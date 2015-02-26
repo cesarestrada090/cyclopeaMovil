@@ -33,6 +33,10 @@ public class CertificadoBL {
     public Object[][] listarCertificados(String placa) {
         return new CertificadoDAL().listarCertificados(placa);
     }
+    
+    public Object[][] listarAllCertificados() {
+        return new CertificadoDAL().listarAllCertificados();
+    }
 
     public List obtenerListaModelo() {
         return new CertificadoDAL().obtenerListaModelo();
