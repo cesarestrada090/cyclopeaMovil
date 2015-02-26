@@ -50,6 +50,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField42.getDocument().addDocumentListener(new TercerEjeFrenometro());
         jTextField43.getDocument().addDocumentListener(new CuartoEjeFrenometro());
         jTextField44.getDocument().addDocumentListener(new QuintoEjeFrenometro());
+        
+        jTextField5.getDocument().addDocumentListener(new AlineamientoDesviacionEje1());
+        jTextField6.getDocument().addDocumentListener(new AlineamientoDesviacionEje2());
+        jTextField7.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
+        jTextField8.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
+        jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
 
 
         CertificadoBL b = new CertificadoBL();
@@ -3391,6 +3397,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
+        if (jTextField54.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        if (jTextField28.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        
         if (jTextField122.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el/los color(es) del vehículo", "CAMPOS VACÍOS", 0);
@@ -4062,23 +4079,23 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }
 
-    class AlineamientoResultado implements DocumentListener {
+    class AlineamientoDesviacionEje1 implements DocumentListener {
 
         String newline = "\n";
 
         public void insertUpdate(DocumentEvent e) {
-            String x = jTextField43.getText();
+            String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 20) {
-                    jTextField48.setText("A");
+                if (valor <= 10 && valor>=8) {
+                    jTextField10.setText("A");
                 }
-                if (valor >= 21 && valor <= 30) {
-                    jTextField48.setText("D");
+                if (valor > 10 && valor <=12) {
+                    jTextField10.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >= 31) {
-                    jTextField48.setText("D");
+                if (valor >=12) {
+                    jTextField10.setText("D");
                     // MUY GRAVE 1.8
                 }
             }
@@ -4086,18 +4103,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         public void removeUpdate(DocumentEvent e) {
-            String x = jTextField43.getText();
+            String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 20) {
-                    jTextField48.setText("A");
+                if (valor <= 10 && valor>=8) {
+                    jTextField10.setText("A");
                 }
-                if (valor >= 21 && valor <= 30) {
-                    jTextField48.setText("D");
+                if (valor > 10 && valor <=12) {
+                    jTextField10.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >= 31) {
-                    jTextField48.setText("D");
+                if (valor >=12) {
+                    jTextField10.setText("D");
                     // MUY GRAVE 1.8
                 }
             }
@@ -4107,6 +4124,185 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }
 
+    class AlineamientoDesviacionEje2 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField6.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField11.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField11.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField11.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField6.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField11.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField11.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField11.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class AlineamientoDesviacionEje3 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField7.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField13.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField13.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField13.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField7.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField13.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField13.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField13.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    class AlineamientoDesviacionEje4 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField8.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField14.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField14.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField14.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField8.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField14.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField14.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField14.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    class AlineamientoDesviacionEje5 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField9.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField15.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField15.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField15.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField9.getText();
+            if (!x.equals("")) {
+                int valor = Integer.parseInt(x);
+                if (valor <= 10 && valor>=8) {
+                    jTextField15.setText("A");
+                }
+                if (valor > 10 && valor <=12) {
+                    jTextField15.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >=12) {
+                    jTextField15.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
     private void jTextField40FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40FocusGained
