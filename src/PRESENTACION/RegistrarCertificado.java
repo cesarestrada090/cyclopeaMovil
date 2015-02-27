@@ -56,6 +56,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField7.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
         jTextField8.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
         jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
+        
+        jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
+        jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
+        jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
+        jTextField19.getDocument().addDocumentListener(new ProfNeumaticos4());
+        jTextField20.getDocument().addDocumentListener(new ProfNeumaticos5());
 
 
         CertificadoBL b = new CertificadoBL();
@@ -792,13 +798,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                         .addComponent(jLabel149)
                         .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel93)
-                    .addComponent(jTextField82)
-                    .addComponent(jComboBox22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel55)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel93)
+                        .addComponent(jTextField82)
+                        .addComponent(jComboBox22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel55)
+                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -814,10 +821,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel89)
                             .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel90)
-                            .addComponent(jTextField121, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField121, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel90)
+                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel91)
@@ -862,11 +870,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel107)
                             .addComponent(jTextField119, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField115, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel102)
-                            .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel108))))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel102)
+                                .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel108)))))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel109)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1965,6 +1974,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel12.setText("Resultado");
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jTextField10.setEnabled(false);
+
+        jTextField11.setEnabled(false);
+
+        jTextField13.setEnabled(false);
+
+        jTextField14.setEnabled(false);
+
+        jTextField15.setEnabled(false);
+
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Medida Obtenida (mm)");
         jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2459,7 +2478,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox7.setEnabled(false);
-        jComboBox7.setBounds(0, 0, 100, 20);
+        jComboBox7.setBounds(0, 0, 200, 20);
         jDesktopPane1.add(jComboBox7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -2472,26 +2491,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel124, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel123)
-                                            .addComponent(jLabel122)
-                                            .addComponent(jLabel40)
-                                            .addComponent(jLabel39))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField179)
-                                            .addComponent(jTextField180, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                            .addComponent(jTextField178)))
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField177, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jDesktopPane1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel124, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel123)
+                                        .addComponent(jLabel122)
+                                        .addComponent(jLabel40)
+                                        .addComponent(jLabel39))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField179)
+                                        .addComponent(jTextField180, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                        .addComponent(jTextField178)))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField177, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2548,9 +2565,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addComponent(jLabel124)
                     .addComponent(jLabel129))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox8)
+                    .addComponent(jDesktopPane1))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -2912,7 +2929,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("jfrmRegistrarUsuario");
@@ -4087,7 +4104,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField10.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4106,7 +4123,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField10.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4132,7 +4149,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField6.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField11.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4151,7 +4168,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField6.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField11.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4177,7 +4194,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField7.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField13.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4196,7 +4213,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField7.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField13.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4222,7 +4239,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField8.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField14.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4241,7 +4258,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField8.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField14.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4267,7 +4284,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField9.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField15.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4286,7 +4303,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField9.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=8) {
+                if (valor <= 10 && valor>=0) {
                     jTextField15.setText("A");
                 }
                 if (valor > 10 && valor <=12) {
@@ -4296,6 +4313,137 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor >=12) {
                     jTextField15.setText("D");
                     // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    class ProfNeumaticos1 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField16.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField21.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField16.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField21.setText("D");
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    class ProfNeumaticos2 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField17.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField22.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField17.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField22.setText("D");
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    class ProfNeumaticos3 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField18.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField23.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField18.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField23.setText("D");
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    class ProfNeumaticos4 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField19.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField24.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField19.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField24.setText("D");
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    class ProfNeumaticos5 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField20.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField25.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField20.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField25.setText("D");
                 }
             }
         }

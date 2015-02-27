@@ -5,7 +5,7 @@
 package DATOS;
 
 import ENTIDADES.Certificado;
-import ENTIDADES.Resultado;
+import ENTIDADES.Resultados;
 import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
@@ -25,26 +25,28 @@ public class ResultadoDAL {
     ResultSet rs = null;
     CallableStatement cs = null;
 
-    public boolean registrarDatosResultado(Resultado v) {
+    public boolean registrarDatosResultado(Resultados v) {
         try {
             cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             //cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia = "insert into resultados(INT_PRUEALI,INT_PROFNEUMA,INT_PRUEBLUCES,INT_SUSPENSION,INT_EMIGASES,INT_FRESERV,INT_FREESTAC,INT_FREEMER,NUM_DISEJES,"
-                    + "NUM_PISOS,STR_OBSERVACIONES)"
+
+            String sentencia = "insert into resultados(IDCERTIFICADO,PRUEALI,PROFNEUMA,PRUEBLUCES,SUSPENSION,EMIGASES,FRESERV,FREESTAC,FREEMER,"
+                    + "DISEJES,PISOS,OBSERVACIONES)"
                     + ""
                     + " values(?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setInt(1, v.getPruebaAli());
-            ps.setInt(2, v.getProfNeuma());
-            ps.setInt(3, v.getPruebaLuces());
-            ps.setInt(4, v.getSuspension());
-            ps.setInt(5, v.getEmiGases());
-            ps.setInt(6, v.getFrenoServicioM());
-            ps.setInt(7, v.getFrenoEstacion());
-            ps.setInt(8, v.getFrenoEmergencia());
-            ps.setDouble(9, v.getDistanciaEjes());
-            ps.setInt(10, v.getNumPisos());
-            ps.setString(11, v.getObservaciones());
+            ps.setInt(1, v.getIdCertificado());
+            ps.setInt(2, v.getPruebaAli());
+            ps.setInt(3, v.getProfNeuma());
+            ps.setInt(4, v.getPruebLuces());
+            ps.setInt(5, v.getSuspension());
+            ps.setInt(6, v.getEmigases());
+            ps.setInt(7, v.getFreServ());
+            ps.setInt(8, v.getFreeEstac());
+            ps.setInt(9, v.getFreeEmer());
+            ps.setDouble(10, v.getDisEjes());
+            ps.setInt(11, v.getPisos());
+            ps.setString(12, v.getObservacion());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
