@@ -11,7 +11,7 @@ import DATOS.ResultadoDAL;
 import DATOS.VehiculoDAL;
 import ENTIDADES.Certificado;
 import ENTIDADES.Observacion;
-import ENTIDADES.Resultado;
+import ENTIDADES.Resultados;
 import ENTIDADES.Vehiculo;
 
 /**
@@ -20,7 +20,7 @@ import ENTIDADES.Vehiculo;
  */
 public class ResultadoBL {
   
-    public boolean registrarResultado(Resultado v)
+    public boolean registrarResultado(Resultados v)
     {
           if(new ResultadoDAL().registrarDatosResultado(v))
               return true;

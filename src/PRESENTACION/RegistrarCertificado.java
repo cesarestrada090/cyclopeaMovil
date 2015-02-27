@@ -36,6 +36,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     List arrayObservaciones = new ArrayList<String>();
     boolean eficienciaServicio;
     boolean eficienciaEstacionamiento;
+    boolean suspensionIzqDel=true;
+    boolean suspensionDerDel=true;
+    boolean suspensionDesvDel=true;
 
     /**
      * Creates new form RegistrarUsuario
@@ -2421,6 +2424,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel129.setText("Resultado Final");
         jLabel129.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jTextField177.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField177ActionPerformed(evt);
+            }
+        });
         jTextField177.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -4451,6 +4459,39 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+    
+    class SuspensionDelanteraIzq implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField77.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor>=0) {
+                    jTextField25.setText("D");
+                }
+                if (valor <= 40 && valor>=30) {
+                    jTextField25.setText("D");
+                }
+                if (valor <= 50 && valor>=41) {
+                    jTextField25.setText("D");
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField20.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 1.9 && valor>=0) {
+                    jTextField25.setText("D");
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
     private void jTextField40FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40FocusGained
@@ -4563,6 +4604,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField55KeyTyped
+
+    private void jTextField177ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField177ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField177ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;
