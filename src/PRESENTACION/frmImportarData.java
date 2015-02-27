@@ -10,10 +10,7 @@
  */
 package PRESENTACION;
 
-import ENTIDADES.Certificado;
-import ENTIDADES.Observacion;
-import ENTIDADES.Persona;
-import ENTIDADES.TarjetaPropiedad;
+import ENTIDADES.*;
 import NEGOCIO.PersonaBL;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
@@ -172,10 +169,12 @@ public class frmImportarData extends javax.swing.JInternalFrame {
 
                 List lstCertificados = new ArrayList<Certificado>();
                 List lstTarjetasP = new ArrayList<TarjetaPropiedad>();
+                List lstResultados=new ArrayList<Resultado>(); 
                 List lstObservaciones = new ArrayList<Observacion>();
                 
                 Certificado objCertificado = new Certificado();
                 TarjetaPropiedad objTarjetaP =new TarjetaPropiedad();
+                Resultado objResultado = new Resultado();
                 
                 while (rowIterator.hasNext()) {
                     HSSFRow hssfRow = (HSSFRow) rowIterator.next();
@@ -257,6 +256,19 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                     objTarjetaP.setKilometraje(Double.parseDouble(cellTempList.get(i+40).toString()));
                     
                     lstTarjetasP.add(objTarjetaP);
+                    
+                    objResultado.setPruebaAli(Integer.parseInt(cellTempList.get(i+41).toString()));
+                    objResultado.setProfNeuma(Integer.parseInt(cellTempList.get(i+42).toString()));
+                    objResultado.setPruebaLuces(Integer.parseInt(cellTempList.get(i+43).toString()));
+                    objResultado.setSuspension(Integer.parseInt(cellTempList.get(i+44).toString()));
+                    objResultado.setEmiGases(Integer.parseInt(cellTempList.get(i+45).toString()));
+                    objResultado.setFrenoServicioM(Integer.parseInt(cellTempList.get(i+46).toString()));
+                    objResultado.setFrenoEstacion(Integer.parseInt(cellTempList.get(i+47).toString()));
+                    objResultado.setFrenoEmergencia(Integer.parseInt(cellTempList.get(i+48).toString()));
+                    objResultado.setDistanciaEjes(Double.parseDouble(cellTempList.get(i+49).toString()));
+                    objResultado.setNumPisos(Integer.parseInt(cellTempList.get(i+50).toString()));
+                    
+                    lstResultados.add(objResultado);
                 }
 
                 HSSFRow row1 = worksheet.getRow(1);
