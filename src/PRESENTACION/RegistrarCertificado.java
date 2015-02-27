@@ -42,6 +42,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     boolean suspensionIzqPost = true;
     boolean suspensionDerPost = true;
     boolean suspensionDesvPost = true;
+    boolean sonometroResult = true;
 
     /**
      * Creates new form RegistrarUsuario
@@ -76,7 +77,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
-
+        
+        jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
         List listaModelos = b.obtenerListaModelo();
@@ -476,10 +478,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1129,10 +1131,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2496,8 +2498,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox7.setEnabled(false);
+        jDesktopPane1.add(jComboBox7);
         jComboBox7.setBounds(0, 0, 200, 20);
-        jDesktopPane1.add(jComboBox7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3461,6 +3463,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (jTextField120.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese la carga útil del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        
+        if (jTextField194.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Complete los campos en emisiones sonoras", "CAMPOS VACÍOS", 0);
             return resultado;
         }
 
@@ -4852,6 +4860,46 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 } else {
                     jComboBox8.setSelectedIndex(1);
                     jTextField184.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    class SonometroResultado implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField194.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 90 && valor >= 70) {
+                    sonometroResult = true;
+                    jComboBox2.setSelectedIndex(0);
+
+                }
+                else{
+                    jComboBox2.setSelectedIndex(1);
+                    sonometroResult = false;
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField194.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 90 && valor >= 70) {
+                    sonometroResult = true;
+                    jComboBox2.setSelectedIndex(0);
+
+                }
+                else{
+                    sonometroResult = false;
+                    jComboBox2.setSelectedIndex(1);
                 }
 
             }
