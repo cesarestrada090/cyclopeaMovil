@@ -63,19 +63,3 @@ public class ResultadoDAL {
         }
     }
 }
-/*
- *
- * DELIMITER $$
-
- DROP PROCEDURE IF EXISTS `BusquedaPlaca` $$
- CREATE DEFINER=`root`@`localhost` PROCEDURE `BusquedaPlaca`(in placa varchar(8))
- BEGIN
- set placa=concat(placa);
-
- select c.Call_Id as placa from callcenter c
- where c.Call_Id like placa;
-
- END $$
-
- DELIMITER ;
- */
