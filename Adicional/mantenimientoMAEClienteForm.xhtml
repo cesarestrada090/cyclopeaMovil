@@ -1,0 +1,1492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ssicc="http://java.sun.com/jsf/composite/componentes/ssicc">
+
+<body>
+	<ui:composition template="/templates/templateMantenimientoSearch.xhtml">
+		<ui:param name="mAlias" value="#{mantenimientoMAEClienteSearchAction}" />
+
+		<ui:define name="titulo_Pantalla">
+			<h:outputText value="#{i18n['mantenimientoMAEClienteForm.title']}"
+				styleClass="clsEncabezadoPantalla" />
+		</ui:define>
+
+
+		<ui:define name="body_busqueda_popup">
+
+
+
+
+			<ssicc:linkPopupCrearAjax id="buscarHIPDatosCliente"
+				managePopup="#{mAlias.busquedaConsultorasAction}"
+				accionAceptar="#{mantenimientoMAEClienteSearchAction.aceptarPopup}"
+				accionSalir="#{mantenimientoMAEClienteSearchAction.salirPopup}"
+				parametroAccion="SCLIENTES" visible="#{mAlias.mostrarPopupCliente}"
+				paginaxhtml="/pages/popup/popupBusquedaConsultoras.xhtml"
+				update=":principalForm:panelTerri"
+				title="#{i18n['busquedaHIPClienteSearchForm.heading']}" />
+
+
+		</ui:define>
+
+		<ui:define name="body_criterio_busqueda">
+
+			<h:panelGrid columns="6">
+				<f:facet name="header">
+					<h:outputText value="DATOS GENERALES" />
+				</f:facet>
+				<!-- *******************     Fecha       ************** -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.fechaIngreso']}"
+					required="true" />
+				<ssicc:calendar id="fechaIngreso" manage="#{mAlias}" required="true"
+					value="#{mAlias.formBusqueda.fechaIngresoD}" />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- *******************     Subtipo       ************** -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.subTipoCliente']}"
+					required="false" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.subTipoCliente}"
+					required="false">
+					<f:selectItems value="#{mAlias.siccSubTipoClienteList}" var="lista"
+						itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<ssicc:linkAjax title="Añadir" id="addList"
+					icon="/resources/images/processs.gif"
+					accion="#{mantenimientoMAEClienteSearchAction.addDetalSubTipoCliente()}"
+					process="@this"
+					update=":principalForm:ObsDatatable :principalForm:ObsDatatable2 :principalForm:moduloClasificaciones" />
+
+				<ssicc:linkAjax title="Eliminar" id="deleteList"
+					icon="/resources/images/deletee.gif"
+					accion="#{mantenimientoMAEClienteSearchAction.deleteDetalSubTipoCliente()}"
+					process="@this"
+					update=":principalForm:ObsDatatable :principalForm:ObsDatatable2" />
+
+				<c:if test="#{mAlias.formBusqueda.indicadorSeccionOtros}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.indicadorCompromiso']}"
+						required="true" />
+					<ssicc:selectBooleanCheckbox
+						value="#{mAlias.formBusqueda.indicadorCompromiso}"
+						id="indicadorCompromiso" />
+				</c:if>
+				<c:if test="#{not mAlias.formBusqueda.indicadorSeccionOtros}">
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+				</c:if>
+
+			</h:panelGrid>
+			<c:if test="#{mAlias.formBusqueda.indicadorSeccionOtros}">
+				<h:panelGrid id="ObsDatatable" columns="3">
+
+					<p:dataTable var="varSubtipoCliente" id="dtFinal2"
+						value="#{mantenimientoMAEClienteSearchAction.maeClienteSubtipoList}"
+						selectionMode="single" rowIndexVar="rowIndex"
+						selection="#{mantenimientoMAEClienteSearchAction.beanRegistroTipoClienteSeleccionado}"
+						rowKey="#{varSubtipoCliente.descripcionSubTipoCliente}">
+
+						<p:column headerText="Tipo Cliente">
+							<h:outputText value="#{varSubtipoCliente.descripcionTipoCliente}" />
+						</p:column>
+
+						<p:column headerText="SubTipo Cliente">
+							<h:outputText
+								value="#{varSubtipoCliente.descripcionSubTipoCliente}" />
+						</p:column>
+					</p:dataTable>
+
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.motivo']}"
+						required="true" />
+					<ssicc:inputTextArea id="motivo" rows="3" cols="100"
+						value="#{mAlias.formBusqueda.motivo}" />
+
+				</h:panelGrid>
+			</c:if>
+			<h:panelGrid columns="6" id="panelTerri">
+
+
+				<c:if test="#{mAlias.formBusqueda.mostrarUnidadAdministrativa}">
+
+
+					<!--  *************  ZONA *********** -->
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoZona']}"
+						required="true" />
+					<ssicc:inputText value="#{mAlias.formBusqueda.codigoZona}"></ssicc:inputText>
+
+					<!--  *************  TERRITORIO *********** -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoTerritorio']}"
+						required="true" />
+					<h:panelGroup>
+						<ssicc:inputText value="#{mAlias.formBusqueda.codigoTerritorio}"></ssicc:inputText>
+						<ssicc:linkAjax title="Generar Domingos" id="generarDomingos"
+							icon="/resources/images/processs.gif"
+							accion="#{mantenimientoMAEClienteSearchAction.validarZonaTerritorio()}"
+							process="@this"
+							update=":principalForm:moduloReferencia1" />
+					</h:panelGroup>
+
+					<!--  *************  Campaña de Ingreso  *********** -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.oidPeriodo']}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.oidPeriodo}"
+						required="false">
+						<f:selectItems value="#{mAlias.siccPeriodoList}" var="lista"
+							itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+					<c:if test="#{mAlias.formBusqueda.mostrarIndicadorImpresionPaqDoc}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.indicadorImpresionPaqDoc']}" />
+						<ssicc:selectBooleanCheckbox
+							value="#{mAlias.formBusqueda.indicadorImpresionPaqDoc}"
+							id="indicadorImpresionPaqDoc" />
+					</c:if>
+					<c:if
+						test="#{not mAlias.formBusqueda.mostrarIndicadorImpresionPaqDoc}">
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+				</c:if>
+				<c:if test="#{not mAlias.formBusqueda.mostrarUnidadAdministrativa}">
+
+					<!--  *************  Campaña de Ingreso  *********** -->
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.oidPeriodo']}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.oidPeriodo}"
+						required="false">
+						<f:selectItems value="#{mAlias.siccPeriodoList}" var="lista"
+							itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+				</c:if>
+
+				<!--  *************  Codigo Consultora *********** -->
+
+				<c:if test="#{mAlias.formBusqueda.mostrarUnidadAdministrativa}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoConsultoraRecomendante']}"
+						required="true" />
+					<ssicc:inputText
+						value="#{mAlias.formBusqueda.codigoConsultoraRecomendante}"></ssicc:inputText>
+					<ssicc:linkPopupInvocarAjax
+						accion="#{mantenimientoMAEClienteSearchAction.invocarPopup}"
+						parametroAccion="POPUP_CLIENTE" update=":principalForm:panelTerri" />
+					<ssicc:inputText id="nombreConsultoraRecomendante"
+						value="#{mAlias.formBusqueda.nombreConsultoraRecomendante}"></ssicc:inputText>
+				</c:if>
+
+				<c:if
+					test="#{mAlias.formBusqueda.mostrarConsultoraLiderRecomendante}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoConsultoraLiderRecomendante']}"
+						required="true" />
+					<ssicc:inputText
+						value="#{mAlias.formBusqueda.codigoConsultoraLiderRecomendante}"></ssicc:inputText>
+					<ssicc:linkPopupInvocarAjax
+						accion="#{mantenimientoMAEClienteSearchAction.invocarPopup}"
+						parametroAccion="POPUP_CLIENTELIDER"
+						update=":principalForm:panelTerri" />
+					<ssicc:inputText id="nombreConsultoraLiderRecomendante"
+						value="#{mAlias.formBusqueda.nombreConsultoraLiderRecomendante}"></ssicc:inputText>
+				</c:if>
+			</h:panelGrid>
+
+			<p:separator />
+
+			<h:panelGrid columns="6" id="pnlDatosPersonales">
+				<f:facet name="header">
+					<h:outputText value="DATOS PERSONALES" />
+				</f:facet>
+
+				<!--  Apellido Paterno  -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellidoPaterno']}"
+					required="true" />
+				<ssicc:inputText id="apellidoPaterno" rows="3" cols="100"
+					value="#{mAlias.formBusqueda.apellidoPaterno}" />
+
+				<!--  Apellido Materno  -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellidoMaterno']}" />
+				<ssicc:inputText id="apellidoMaterno" rows="3" cols="100"
+					value="#{mAlias.formBusqueda.apellidoMaterno}" />
+
+				<!--  Apellido Casada  -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellidoCasada']}" />
+				<ssicc:inputText id="apellidoCasada" rows="3" cols="100"
+					value="#{mAlias.formBusqueda.apellidoCasada}" />
+
+				<!--  Primer Nombre  -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nombre1']}"
+					required="true" />
+				<ssicc:inputText id="nombre1" rows="3" cols="100"
+					value="#{mAlias.formBusqueda.nombre1}" />
+
+				<!--  Segundo Nombre  -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nombre2']}" />
+				<ssicc:inputText id="nombre2" rows="3" cols="100"
+					value="#{mAlias.formBusqueda.nombre2}" />
+
+				<!--  Nacionalidad -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nacionalidad']}"
+					required="true" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.nacionalidad}"
+					required="true">
+					<f:selectItems value="#{mAlias.maeClienteNacionalidadList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!--  Tipo Documento -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.tipoDocumentoIdentidad']}"
+					required="true" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.tipoDocumentoIdentidad}"
+					required="true">
+					<f:selectItems value="#{mAlias.siccTipoDocumentoList}" var="lista"
+						itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!--  Numero Documento  -->
+				<c:if test="#{mAlias.formBusqueda.mostrarNumeroIdentidad}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.numeroDocumentoIdentidad']}"
+						required="true" />
+					<h:panelGroup>
+						<ssicc:inputText id="numeroDocumentoIdentidad" required="true"
+							rows="3" cols="100"
+							value="#{mAlias.formBusqueda.numeroDocumentoIdentidad}" />
+						<c:if test="#{mAlias.validacionExiDoc}">
+							<ssicc:linkAjax title="validarCodigo" id="validarCodigos"
+								icon="/resources/images/processs.gif"
+								accion="#{mantenimientoMAEClienteSearchAction.validarDocumento()}"
+								process="@this" update=":principalForm:pnlDatosPersonales" />
+						</c:if>
+					</h:panelGroup>
+					<c:if
+						test="#{(mAlias.formBusqueda.mostrarSegundoDocumento and not mAlias.formBusqueda.esDuplaCyzone)}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.documentoPrincipal']}" />
+						<ssicc:labelBlank />
+					</c:if>
+
+					<c:if
+						test="#{not (mAlias.formBusqueda.mostrarSegundoDocumento and not mAlias.formBusqueda.esDuplaCyzone)}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.codigoAnterior']}" />
+						<ssicc:inputText id="codigoAnterior" rows="3" cols="100"
+							value="#{mAlias.formBusqueda.codigoAnterior}" />
+					</c:if>
+
+				</c:if>
+				<c:if test="#{not mAlias.formBusqueda.mostrarNumeroIdentidad}">
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoAnterior']}" />
+					<ssicc:inputText id="codigoAnterior" rows="3" cols="100"
+						value="#{mAlias.formBusqueda.codigoAnterior}" />
+				</c:if>
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.indicadorDocFiscal']}"
+					rendered="#{mAlias.mostrarDivIndicadorFiscal}" />
+				<ssicc:selectBooleanCheckbox
+					rendered="#{mAlias.mostrarDivIndicadorFiscal}"
+					value="#{mAlias.formBusqueda.indicadorDocFiscal}"
+					id="indicadorDocFiscal" />
+				<ssicc:labelBlank rendered="#{mAlias.mostrarDivIndicadorFiscal}" />
+				<ssicc:labelBlank rendered="#{mAlias.mostrarDivIndicadorFiscal}" />
+				<ssicc:labelBlank rendered="#{mAlias.mostrarDivIndicadorFiscal}" />
+				<ssicc:labelBlank rendered="#{mAlias.mostrarDivIndicadorFiscal}" />
+
+
+
+
+
+				<c:if
+					test="#{(mAlias.formBusqueda.mostrarSegundoDocumento and not mAlias.formBusqueda.esDuplaCyzone)}">
+
+					<!--  Tipo Documento  2-->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEModificacionClienteForm.tipoDocumentoIdentidadAux']}"
+						required="true" />
+					<ssicc:selectMenu
+						value="#{mAlias.formBusqueda.tipoDocumentoIdentidad2}"
+						required="true">
+						<f:selectItems value="#{mAlias.siccTipoDocumentoList}" var="lista"
+							itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+
+					<!--  Documento  Identidad 2-->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.numeroDocumentoIdentidadAux']}"
+						required="true" />
+					<ssicc:inputText id="numeroDocumentoIdentidad2" required="true"
+						value="#{mAlias.formBusqueda.numeroDocumentoIdentidad2}" />
+
+					<!-- Codigo Anterior-->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.numeroDocumentoIdentidadAux']}"
+						required="true" />
+					<ssicc:inputText id="codigoAnterior" required="true"
+						value="#{mAlias.formBusqueda.codigoAnterior}" />
+
+				</c:if>
+
+
+
+
+
+
+
+
+				<!-- *******************     Fecha  Nacimiento     ************** -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.fechaNacimiento']}"
+					required="true" />
+				<ssicc:calendar id="fechaNacimiento" manage="#{mAlias}"
+					required="true" value="#{mAlias.formBusqueda.fechaNacimientoD}" />
+
+				<!-- *******************     Edad LABEL   ************** -->
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.edad']}"
+					required="true" />
+				<ssicc:label value="#{mAlias.formBusqueda.edad}" required="true" />
+
+				<!--  Sexo -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.sexo']}"
+					required="true" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.sexo}"
+					required="true">
+					<f:selectItems value="#{mAlias.maeClienteSexoList}" var="lista"
+						itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!--  Estado Civil -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.estadoCivil']}"
+					required="true" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.estadoCivil}"
+					required="true">
+					<f:selectItems value="#{mAlias.maeClienteEstadoCivilList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!--  Grado Instruccion -->
+				<c:if
+					test="#{(mAlias.formBusqueda.indicadoObligatorioGradoInstruccion)}">
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.gradoInstruccion']}"
+						required="true" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.gradoInstruccion}"
+						required="true">
+						<f:selectItems value="#{mAlias.maeClienteNivelEstudioList}"
+							var="lista" itemLabel="#{lista.descripcion}"
+							itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+				</c:if>
+
+				<!--  Grado Instruccion -->
+				<c:if
+					test="#{(not mAlias.formBusqueda.indicadoObligatorioGradoInstruccion)}">
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.gradoInstruccion']}" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.gradoInstruccion}"
+						required="false">
+						<f:selectItems value="#{mAlias.maeClienteNivelEstudioList}"
+							var="lista" itemLabel="#{lista.descripcion}"
+							itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+				</c:if>
+
+
+				<!--  Tratamiento -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.tratamiento']}"
+					required="true" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.tratamiento}"
+					required="true">
+					<f:selectItems value="#{mAlias.maeClienteTratamientoList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+
+				<c:if test="#{(mAlias.formBusqueda.mostrarCodigoEmpleado)}">
+					<!--  codigoEmpleado -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoEmpleado']}"
+						required="true" />
+					<ssicc:inputText id="codigoEmpleado"
+						value="#{mAlias.formBusqueda.codigoEmpleado}" />
+
+					<!--  Tipo Cutis -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.tipoCutis']}" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.tipoCutis}"
+						required="false">
+						<f:selectItems value="#{mAlias.maeTipoCutisList}" var="lista"
+							itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+
+
+
+					<!--  Otras Marcas -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.otrasMarcas']}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.otrasMarcas}"
+						required="false">
+						<f:selectItems value="#{mAlias.maeOtrasMarcas}" var="lista"
+							itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+
+				</c:if>
+
+
+
+				<!--  Codigo Cub -->
+
+
+				<c:if test="#{(mAlias.formBusqueda.mostrarCodigoCUB)}">
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.codigoCUB']}" />
+					<ssicc:inputText id="codigoCUB"
+						value="#{mAlias.formBusqueda.codigoCUB}" />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+				</c:if>
+
+
+				<c:if test="#{(mAlias.formBusqueda.indicadorFactElect)}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.indicadorFactElect']}" />
+					<ssicc:selectBooleanCheckbox
+						value="#{mAlias.formBusqueda.booleanValorIndicadorFactElect}"
+						id="booleanValorIndicadorFactElect" />
+				</c:if>
+
+
+
+
+
+				<c:if test="#{(not mAlias.formBusqueda.mostrarDireccion)}">
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCasa']}"
+						required="true" />
+					<ssicc:inputText id="telefonoCasa"
+						value="#{mAlias.formBusqueda.telefonoCasa}" />
+
+					<!-- telefonoCelular -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCelular']}"
+						required="true" />
+					<ssicc:inputText id="telefonoCelular"
+						value="#{mAlias.formBusqueda.telefonoCelular}" />
+
+					<!-- telefono -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.telefono']}"
+						required="true" />
+					<ssicc:inputText id="telefono"
+						value="#{mAlias.formBusqueda.telefono}" />
+
+					<!-- mail -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.mail']}"
+						required="true" />
+					<ssicc:inputText id="mail" value="#{mAlias.formBusqueda.mail}" />
+
+				</c:if>
+			</h:panelGrid>
+
+			<!--  *****************    DIRECCION DOMICILIO    ******************** -->
+
+
+
+
+
+
+
+
+
+
+			<c:if test="#{(mAlias.formBusqueda.mostrarDireccion)}">
+				<p:separator />
+				<h:panelGrid columns="6" id="panelDirecc">
+					<f:facet name="header">
+						<h:outputText value="DIRECCION DOMICILIO" />
+					</f:facet>
+
+					<!--  DEPARTAMENTO  -->
+
+					<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel1}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel1}"
+						disabled="#{not mAlias.formBusqueda.permitirModificarUbigeo}"
+						accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel2Domicilio}"
+						update=":principalForm:nivel2:select" required="false">
+						<f:selectItems value="#{mAlias.maeClienteNivel1List}" var="lista"
+							itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+
+					<!--  Provincia  -->
+
+					<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel2}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel2}" id="nivel2"
+						accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel3Domicilio}"
+						disabled="#{not  mAlias.formBusqueda.permitirModificarUbigeo}"
+						required="false">
+						<f:selectItems value="#{mAlias.maeClienteNivel2List}" var="lista"
+							itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+
+
+
+					<c:if test="#{mAlias.formBusqueda.mostrarCiudad}">
+
+						<ssicc:label value="#{mAlias.formBusqueda.ciudad}"
+							required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.codigoCiudad}"
+							id="nivel3"
+							accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel4Domicilio}"
+							disabled="#{not mAlias.formBusqueda.permitirModificarUbigeo}"
+							required="false">
+							<f:selectItems value="#{mAlias.maeCiudadList}" var="lista"
+								itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+						</ssicc:selectMenu>
+					</c:if>
+
+					<c:if test="#{not mAlias.formBusqueda.mostrarCiudad}">
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+					<!--  GUIONES -->
+					<c:if test="${mAlias.formBusqueda.totalNiveles ge 3}">
+
+						<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel3}"
+							required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel3}"
+							id="nivel3" required="false">
+							<f:selectItems value="#{mAlias.maeClienteNivel3List}" var="lista"
+								itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+						</ssicc:selectMenu>
+
+
+
+						<c:if
+							test="#{mAlias.formBusqueda.totalNiveles eq '3' and not mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+						</c:if>
+
+
+						<!-- Segundo GUION -->
+
+
+						<c:if
+							test="#{mAlias.formBusqueda.totalNiveles eq '3' and mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel3}"
+								required="false" />
+							<ssicc:inputText id="villaPoblacion"
+								value="#{mAlias.formBusqueda.villaPoblacion}" />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+						</c:if>
+						<!-- TERCER GUION -->
+						<c:if test="#{mAlias.formBusqueda.totalNiveles ge '4'}">
+							<c:if test="#{not mAlias.formBusqueda.mostrarVillaPoblacion}">
+
+								<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel4}"
+									required="false" />
+								<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel4}"
+									id="nivel4" required="false">
+									<f:selectItems value="#{mAlias.maeClienteNivel4List}"
+										var="lista" itemLabel="#{lista.label}"
+										itemValue="#{lista.value}" />
+								</ssicc:selectMenu>
+								<ssicc:labelBlank />
+								<ssicc:labelBlank />
+							</c:if>
+							<!-- Cuarto GUION -->
+							<c:if test="#{mAlias.formBusqueda.mostrarVillaPoblacion}">
+
+								<ssicc:label
+									key="#{i18n['mantenimientoMAEClienteForm.descripcionNivel4']}"
+									required="false" />
+
+								<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel4}"
+									id="nivel4" required="false">
+									<f:selectItems value="#{mAlias.maeClienteNivel4List}"
+										var="lista" itemLabel="#{lista.label}"
+										itemValue="#{lista.value}" />
+								</ssicc:selectMenu>
+
+								<ssicc:label
+									key="#{i18n['mantenimientoMAEClienteForm.villaPoblacion']}"
+									required="false" />
+								<ssicc:inputText id="villaPoblacion"
+									value="#{mAlias.formBusqueda.villaPoblacion}" />
+							</c:if>
+						</c:if>
+
+					</c:if>
+
+
+
+
+
+					<c:if test="#{mAlias.formBusqueda.mostrarTipoVia}">
+						<!--  Tipo de Vía -->
+						<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.tipoVia']}"
+							rendered="#{mAlias.formBusqueda.mostrarTipoVia}" required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.tipoVia}"
+							required="false">
+							<f:selectItems value="#{mAlias.maeClienteTipoViaList}"
+								var="lista" itemLabel="#{lista.descripcion}"
+								itemValue="#{lista.codigo}" />
+						</ssicc:selectMenu>
+					</c:if>
+
+
+
+					<c:if test="#{not mAlias.formBusqueda.mostrarTipoVia}">
+						<!--  Tipo de Vía -->
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+					<!-- SEXTA LINEA -->
+
+					<!--  Nro Principal -->
+
+					<c:if test="#{mAlias.formBusqueda.mostrarNumeroPrincipal}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.numeroPrincipal']}"
+							required="true" />
+						<ssicc:inputText id="numeroPrincipal"
+							value="#{mAlias.formBusqueda.numeroPrincipal}" />
+					</c:if>
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoPostal']}"
+						required="true" />
+					<ssicc:inputText id="codigoPostal"
+						value="#{mAlias.formBusqueda.codigoPostal}" />
+
+
+
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+
+					<!-- Dirección -->
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nombreVia']}"
+						required="true" />
+					<ssicc:inputText id="nombreVia" size="70" maxlength="70"
+						value="#{mAlias.formBusqueda.nombreVia}" />
+
+					<c:if test="#{mAlias.formBusqueda.mostrarBarrio}">
+						<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.barrio']}"
+							required="true" />
+						<ssicc:inputText id="nombreVia" size="70" maxlength="70"
+							value="#{mAlias.formBusqueda.barrio}" />
+					</c:if>
+
+					<!-- Referencia -->
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.observacionDireccion']}"
+						required="true" />
+					<ssicc:inputText id="observacionDireccion" size="70" maxlength="70"
+						value="#{mAlias.formBusqueda.observacionDireccion}" />
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="8" id="aquitoy">
+
+					<!-- telefonoCasa -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCasa']}"
+						required="true" />
+					<ssicc:inputText id="telefonoCasa"
+						value="#{mAlias.formBusqueda.telefonoCasa}" />
+
+					<!-- telefonoCelular -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCelular']}"
+						required="true" />
+					<ssicc:inputText id="telefonoCelular"
+						value="#{mAlias.formBusqueda.telefonoCelular}" />
+
+					<!-- telefono -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.telefono']}"
+						required="true" />
+					<ssicc:inputText id="telefono"
+						value="#{mAlias.formBusqueda.telefono}" />
+
+					<!-- mail -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.mail']}"
+						required="true" />
+					<ssicc:inputText id="mail" value="#{mAlias.formBusqueda.mail}" />
+
+					<!-- Teléfono referencia -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoReferencia']}"
+						required="true" />
+					<ssicc:inputText id="telefonoReferencia"
+						value="#{mAlias.formBusqueda.telefonoReferencia}" />
+
+					<!-- Teléfono Adicional -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoAdicional']}"
+						required="true" />
+					<ssicc:inputText id="telefonoAdicional"
+						value="#{mAlias.formBusqueda.telefonoAdicional}" />
+
+				</h:panelGrid>
+				<p:separator />
+				<h:panelGrid columns="2" id="chkDireccion">
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.leyendaDireccionCentroTrabajo']}"
+						required="true" />
+					<ssicc:selectBooleanCheckbox
+						value="#{mAlias.mostrarDireccionEnvioChk}" id="habilitaUbigeo"
+						accionListener="#{mantenimientoMAEClienteSearchAction.activarModuloDireccion()}"
+						update=":principalForm:moduloDireccionEnvio :principalForm:moduloDireccionEnvio2 :principalForm:panelCriterioBusqueda" />
+
+
+				</h:panelGrid>
+				<p:separator />
+				<h:panelGrid columns="6" id="moduloDireccionEnvio"
+					rendered="#{mAlias.mostrarDireccionEnvioChk}">
+
+					<!-- Tipo direccion -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.tipoDireccion']}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.tipoDireccion}"
+						required="false">
+						<f:selectItems value="#{mAlias.maeClienteTipoDireccionList}"
+							var="lista" itemLabel="#{lista.descripcion}"
+							itemValue="#{lista.codigo}" />
+					</ssicc:selectMenu>
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+					<ssicc:labelBlank />
+
+
+					<!--  DEPARTAMENTO  -->
+
+					<ssicc:label value="#{mAlias.formBusqueda.descripcionNivel1}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel1CT}"
+						accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel2CTDomicilio}"
+						update=":principalForm:nivel2CT:select :principalForm:nivel3CT:select :principalForm:nivel4CT:select"
+						required="false">
+						<f:selectItems value="#{mAlias.maeClienteNivel1List}" var="lista"
+							itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+
+					<!--  Provincia  -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nivel2']}"
+						required="false" />
+					<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel2CT}"
+						id="nivel2CT"
+						accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel3CTDomicilio}"
+						update=":principalForm:nivel3CT:select :principalForm:nivel4CT:select"
+						required="false">
+						<f:selectItems value="#{mAlias.maeClienteNivel2CTList}"
+							var="lista" itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+					</ssicc:selectMenu>
+
+
+
+					<!--  Ciudad true  -->
+					<c:if test="#{mAlias.formBusqueda.mostrarCiudad}">
+						<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.ciudad']}"
+							required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.codigoCiudadCT}"
+							id="codigoCiudadCT"
+							accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel4CTDomicilio}"
+							update=":principalForm:nivel4CT:select" required="false">
+							<f:selectItems value="#{mAlias.maeCiudadList}" var="lista"
+								itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+						</ssicc:selectMenu>
+					</c:if>
+					<!--  Ciudad false-->
+					<c:if test="#{not mAlias.formBusqueda.mostrarCiudad}">
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+					<!--  GUION 7 -->
+
+					<c:if test="#{mAlias.formBusqueda.totalNiveles ge '3'}">
+						<ssicc:label key="#{mAlias.formBusqueda.descripcionNivel3}"
+							required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel3CT}"
+							id="nivel3CT"
+							accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel4CTDomicilio}"
+							update=":principalForm:nivel4CT:select" required="false">
+							<f:selectItems value="#{mAlias.maeClienteNivel3CTList}"
+								var="lista" itemLabel="#{lista.label}"
+								itemValue="#{lista.value}" />
+						</ssicc:selectMenu>
+						<c:if
+							test="#{mAlias.formBusqueda.totalNiveles eq '3' and not mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+						</c:if>
+
+						<c:if
+							test="#{mAlias.formBusqueda.totalNiveles eq '3' and mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:label
+								key="#{i18n['mantenimientoMAEClienteForm.villaPoblacion']}"
+								required="true" />
+							<ssicc:inputText id="villaPoblacionCT"
+								value="#{mAlias.formBusqueda.villaPoblacionCT}" />
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+						</c:if>
+					</c:if>
+
+					<!--  GUION 8  -->
+
+
+					<!--  CENTRO POBLADO  -->
+					<c:if test="#{mAlias.formBusqueda.totalNiveles ge '4'}">
+						<c:if test="#{not mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:label key="#{mAlias.formBusqueda.descripcionNivel4}"
+								required="false" />
+							<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel4CT}"
+								id="nivel4CT" required="false">
+								<f:selectItems value="#{mAlias.maeClienteNivel4CTList}"
+									var="lista" itemLabel="#{lista.label}"
+									itemValue="#{lista.value}" />
+							</ssicc:selectMenu>
+							<ssicc:labelBlank />
+							<ssicc:labelBlank />
+						</c:if>
+
+						<c:if test="#{mAlias.formBusqueda.mostrarVillaPoblacion}">
+							<ssicc:label key="#{mAlias.formBusqueda.descripcionNivel4}"
+								required="false" />
+							<ssicc:selectMenu value="#{mAlias.formBusqueda.nivel4CT}"
+								id="nivel4CT" required="false">
+								<f:selectItems value="#{mAlias.maeClienteNivel4CTList}"
+									var="lista" itemLabel="#{lista.label}"
+									itemValue="#{lista.value}" />
+							</ssicc:selectMenu>
+							<ssicc:label
+								key="#{i18n['mantenimientoMAEClienteForm.villaPoblacion']}"
+								required="true" />
+							<ssicc:inputText id="villaPoblacionCT"
+								value="#{mAlias.formBusqueda.villaPoblacionCT}" />
+						</c:if>
+
+					</c:if>
+
+					<!--  Tipo Via GUION 10 -->
+
+					<c:if test="#{mAlias.formBusqueda.mostrarTipoVia}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.tipoViaCT']}"
+							required="false" />
+						<ssicc:selectMenu value="#{mAlias.formBusqueda.tipoViaCT}"
+							required="false">
+							<f:selectItems value="#{mAlias.maeClienteTipoViaList}"
+								var="lista" itemLabel="#{lista.descripcion}"
+								itemValue="#{lista.codigo}" />
+						</ssicc:selectMenu>
+					</c:if>
+					<c:if test="#{not mAlias.formBusqueda.mostrarTipoVia}">
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+
+
+					<!-- Nro Principal-->
+					<c:if test="#{mAlias.formBusqueda.mostrarNumeroPrincipal}">
+						<ssicc:label
+							key="#{i18n['mantenimientoMAEClienteForm.numeroPrincipalCT']}"
+							required="true" />
+						<ssicc:inputText id="numeroPrincipalCT"
+							value="#{mAlias.formBusqueda.numeroPrincipalCT}" />
+					</c:if>
+					<c:if test="#{not mAlias.formBusqueda.mostrarNumeroPrincipal}">
+						<ssicc:labelBlank />
+						<ssicc:labelBlank />
+					</c:if>
+
+					<!-- Codigo Postal -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.codigoPostal']}"
+						required="true" />
+					<ssicc:inputText id="codigoPostalCT"
+						value="#{mAlias.formBusqueda.codigoPostalCT}" />
+
+
+				</h:panelGrid>
+				<h:panelGrid columns="2" id="moduloDireccionEnvio2"
+					rendered="#{mAlias.mostrarDireccionEnvioChk}">
+
+					<!-- Direccion -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.nombreViaCT']}"
+						required="true" />
+					<ssicc:inputText id="nombreViaCT" size="70" maxlength="70"
+						value="#{mAlias.formBusqueda.nombreViaCT}" />
+
+					<!-- Barrio -->
+
+					<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.barrioCT']}"
+						rendered="false" required="true" />
+					<ssicc:inputText id="barrioCT" size="70" maxlength="70"
+						rendered="false" value="#{mAlias.formBusqueda.barrioCT}" />
+
+					<!-- Referencia -->
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.observacionDireccionCT']}"
+						required="true" />
+					<ssicc:inputText id="observacionDireccionCT" size="70"
+						maxlength="70"
+						value="#{mAlias.formBusqueda.observacionDireccionCT}" />
+
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCasaDireccionEntrega']}"
+						rendered="false" required="true" />
+					<ssicc:inputText id="telefonoCasaDireccionEntrega" rendered="false"
+						value="#{mAlias.formBusqueda.telefonoCasaDireccionEntrega}" />
+
+					<ssicc:label
+						key="#{i18n['mantenimientoMAEClienteForm.telefonoCelularDireccionEntrega']}"
+						rendered="false" required="true" />
+					<ssicc:inputText id="telefonoCelularDireccionEntrega"
+						rendered="false"
+						value="#{mAlias.formBusqueda.telefonoCelularDireccionEntrega}" />
+
+				</h:panelGrid>
+
+
+			</c:if>
+
+
+			<p:separator />
+			<h:panelGrid columns="2" id="chkReferencias" >
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.leyendaReferencias']}"
+					required="true" />
+				<ssicc:selectBooleanCheckbox value="#{mAlias.mostrarReferenciasChk}"
+					id="mostrarReferenciasChk"
+					accionListener="#{mantenimientoMAEClienteSearchAction.activarModuloDireccion()}"
+					update=":principalForm:moduloReferencia1 :principalForm:panelCriterioBusqueda" />
+
+
+			</h:panelGrid>
+			<p:separator />
+			<h:panelGrid columns="6" id="moduloReferencia1"
+				rendered="#{mAlias.mostrarReferenciasChk}">
+
+
+				<!--  ***************************REFERENCIA FAMILIAR************************************* -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.leyendaReferenciaFamiliar']}"
+					required="true" />
+
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Primer Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido1RefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="apellido1RefFamiliar"
+					value="#{mAlias.formBusqueda.apellido1RefFamiliar}" />
+
+				<!-- Segundo Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido2RefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="apellido2RefFamiliar"
+					value="#{mAlias.formBusqueda.apellido2RefFamiliar}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+
+				<!-- Primer Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre1RefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="nombre1RefFamiliar"
+					value="#{mAlias.formBusqueda.nombre1RefFamiliar}" />
+
+				<!-- Segundo Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre2RefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="nombre2RefFamiliar"
+					value="#{mAlias.formBusqueda.nombre2RefFamiliar}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Direccion -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.direccionRefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="direccionRefFamiliar" maxlength="40"
+					value="#{mAlias.formBusqueda.direccionRefFamiliar}" />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Teléfono Casa-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCasaRefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="telefonoCasaRefFamiliar"
+					value="#{mAlias.formBusqueda.telefonoCasaRefFamiliar}" />
+
+				<!-- Teléfono Celular-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCelRefFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="telefonoCelRefFamiliar"
+					value="#{mAlias.formBusqueda.telefonoCelRefFamiliar}" />
+
+				<!-- Tipo Vinculo -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.codigoTipoVinculoRefFamiliar']}"
+					required="false" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.codigoTipoVinculoRefFamiliar}"
+					required="false">
+					<f:selectItems value="#{mAlias.maeClienteTipoVinculoList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+				<!--  ***************************REFERENCIA NO FAMILIAR************************************* -->
+
+
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.leyendaReferenciaNoFamiliar']}"
+					required="true" />
+
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Primer Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido1RefNoFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="apellido1RefNoFamiliar"
+					value="#{mAlias.formBusqueda.apellido1RefNoFamiliar}" />
+
+				<!-- Segundo Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido2RefNoFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="apellido2RefNoFamiliar"
+					value="#{mAlias.formBusqueda.apellido2RefNoFamiliar}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+
+				<!-- Primer Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre1RefNoFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="nombre1RefNoFamiliar"
+					value="#{mAlias.formBusqueda.nombre1RefNoFamiliar}" />
+
+				<!-- Segundo Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre2RefNoFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="nombre2RefNoFamiliar"
+					value="#{mAlias.formBusqueda.nombre2RefNoFamiliar}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Direccion -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.direccionRefNoFamiliar']}"
+					required="true" />
+				<ssicc:inputText id="direccionRefNoFamiliar" maxlength="40"
+					value="#{mAlias.formBusqueda.direccionRefNoFamiliar}" />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Teléfono Casa-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCasaRefNoFamiliar']}" />
+				<ssicc:inputText id="telefonoCasaRefNoFamiliar"
+					value="#{mAlias.formBusqueda.telefonoCasaRefNoFamiliar}" />
+
+				<!-- Teléfono Celular-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCelRefNoFamiliar']}" />
+				<ssicc:inputText id="telefonoCelRefNoFamiliar"
+					value="#{mAlias.formBusqueda.telefonoCelRefNoFamiliar}" />
+
+				<!-- Tipo Vinculo -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.codigoTipoVinculoRefNoFamiliar']}"
+					required="false" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.codigoTipoVinculoRefNoFamiliar}"
+					required="false">
+					<f:selectItems value="#{mAlias.maeClienteTipoVinculoList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+
+				<!--  *************************** DATOS DEL FIADOR AVAL  ************************************* -->
+
+
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.leyendaReferenciaAval']}"
+					required="true" />
+
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Primer Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido1Aval']}"
+					required="true" />
+				<ssicc:inputText id="apellido1Aval"
+					value="#{mAlias.formBusqueda.apellido1Aval}" />
+
+				<!-- Segundo Apellido -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.apellido2Aval']}"
+					required="true" />
+				<ssicc:inputText id="apellido2Aval"
+					value="#{mAlias.formBusqueda.apellido2Aval}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+
+				<!-- Primer Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre1Aval']}"
+					required="true" />
+				<ssicc:inputText id="nombre1Aval"
+					value="#{mAlias.formBusqueda.nombre1Aval}" />
+
+				<!-- Segundo Nombre -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.nombre2Aval']}"
+					required="true" />
+				<ssicc:inputText id="nombre2Aval"
+					value="#{mAlias.formBusqueda.nombre2Aval}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+
+				<!--  Tipo Documento -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.oidTipoDocumentoAval']}"
+					required="false" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.oidTipoDocumentoAval}"
+					required="false">
+					<f:selectItems value="#{mAlias.siccTipoDocumentoList}" var="lista"
+						itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!-- Numero Documento -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.numeroDocumentoAval']}"
+					required="true" />
+				<ssicc:inputText id="numeroDocumentoAval"
+					value="#{mAlias.formBusqueda.numeroDocumentoAval}" />
+
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!--  Departamento -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nivel1']}"
+					required="false" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.codigoDepartamentoAval}"
+					accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel2AvalDomicilio}"
+					update=":principalForm:nivel2Aval:select :principalForm:nivel3Aval:select"
+					required="false">
+					<f:selectItems value="#{mAlias.maeClienteNivel1List}" var="lista"
+						itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+				</ssicc:selectMenu>
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!--  Privincia -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nivel2']}"
+					required="false" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.codigoProvinciaAval}"
+					id="nivel2Aval"
+					accionListener="#{mantenimientoMAEClienteSearchAction.buscarNivel3AvalDomicilio}"
+					update=":principalForm:nivel3Aval:select" required="false">
+					<f:selectItems value="#{mAlias.maeClienteNivel2VACList}"
+						var="lista" itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+				</ssicc:selectMenu>
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!--  Distrito -->
+
+				<ssicc:label key="#{i18n['mantenimientoMAEClienteForm.nivel3']}"
+					required="false" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.codigoDistritoAval}"
+					id="nivel3Aval" required="false">
+					<f:selectItems value="#{mAlias.maeClienteNivel3VACList}"
+						var="lista" itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+				</ssicc:selectMenu>
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Direccion -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.direccionAval']}"
+					required="true" />
+				<ssicc:inputText id="direccionAval" maxlength="40"
+					value="#{mAlias.formBusqueda.direccionAval}" />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+				<ssicc:labelBlank />
+
+				<!-- Teléfono Casa-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCasaAval']}" />
+				<ssicc:inputText id="telefonoCasaAval"
+					value="#{mAlias.formBusqueda.telefonoCasaAval}" />
+
+				<!-- Teléfono Celular-->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.telefonoCelAval']}" />
+				<ssicc:inputText id="telefonoCelAval"
+					value="#{mAlias.formBusqueda.telefonoCelAval}" />
+
+				<!-- Tipo Vinculo -->
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.codigoTipoVinculoAval']}"
+					required="false" />
+				<ssicc:selectMenu
+					value="#{mAlias.formBusqueda.codigoTipoVinculoAval}"
+					required="false">
+					<f:selectItems value="#{mAlias.maeClienteTipoVinculoList}"
+						var="lista" itemLabel="#{lista.descripcion}"
+						itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+			</h:panelGrid>
+			<p:separator />
+			<h:panelGrid columns="2" id="chkClasificaciones">
+
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.leyendaClasificaciones']}" />
+				<ssicc:selectBooleanCheckbox
+					value="#{mAlias.mostrarClasificacionesChk}"
+					id="mostrarClasificacionesChk"
+					accionListener="#{mantenimientoMAEClienteSearchAction.activarModuloDireccion()}"
+					update=":principalForm:moduloClasificaciones :principalForm:panelCriterioBusqueda :principalForm:ObsDatatable2" />
+
+
+			</h:panelGrid>
+			<p:separator />
+
+			<h:panelGrid columns="6" id="moduloClasificaciones"
+				rendered="#{mAlias.mostrarClasificacionesChk}">
+
+
+
+				<!-- *******************     Subtipo       ************** -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.tipoClasificacion']}"
+					required="false" />
+				<ssicc:selectMenu value="#{mAlias.formBusqueda.tipoClasificacion}"
+					accionListener="#{mantenimientoMAEClienteSearchAction.buscarClasificacionesPorTipo}"
+					update=":principalForm:cboClasificacion:select" required="false">
+					<f:selectItems value="#{mAlias.siccTipoClasificacion}" var="lista"
+						itemLabel="#{lista.descripcion}" itemValue="#{lista.codigo}" />
+				</ssicc:selectMenu>
+
+				<!-- *******************     Clasificacion       ************** -->
+				<ssicc:label
+					key="#{i18n['mantenimientoMAEClienteForm.clasificacion']}"
+					required="false" />
+				<ssicc:selectMenu id="cboClasificacion"
+					value="#{mAlias.formBusqueda.clasificacion}" required="false">
+					<f:selectItems value="#{mAlias.siccClasificacion}" var="lista"
+						itemLabel="#{lista.label}" itemValue="#{lista.value}" />
+				</ssicc:selectMenu>
+
+				<ssicc:linkAjax title="Añadir" id="addList2"
+					icon="/resources/images/processs.gif"
+					accion="#{mantenimientoMAEClienteSearchAction.addDetalClasificacion()}"
+					process="@this" update=":principalForm:ObsDatatable2" />
+
+				<ssicc:linkAjax title="Eliminar" id="deleteList2"
+					icon="/resources/images/deletee.gif"
+					accion="#{mantenimientoMAEClienteSearchAction.deleteDetalClasificacionCliente()}"
+					process="@this" update=":principalForm:ObsDatatable2" />
+
+
+
+
+
+			</h:panelGrid>
+			<h:panelGrid id="ObsDatatable2" columns="3"
+				rendered="#{mAlias.mostrarClasificacionesChk}">
+
+				<p:dataTable var="varSubtipoCliente" id="dtFinal"
+					value="#{mantenimientoMAEClienteSearchAction.maeClienteClasificacionList}"
+					selectionMode="single" rowIndexVar="rowIndex"
+					selection="#{mantenimientoMAEClienteSearchAction.beanRegistroTipoClienteSeleccionado}"
+					rowKey="#{varSubtipoCliente.descripcionTipoClasificacion}">
+
+					<p:column headerText="Tipo Cliente">
+						<h:outputText
+							value="#{varSubtipoCliente.descripcionTipoClasificacion}" />
+					</p:column>
+
+					<p:column headerText="SubTipo Cliente">
+						<h:outputText
+							value="#{varSubtipoCliente.descripcionClasificacion}" />
+					</p:column>
+				</p:dataTable>
+
+
+
+
+			</h:panelGrid>
+
+
+		</ui:define>
+
+
+
+
+
+	</ui:composition>
+</body>
+</html>

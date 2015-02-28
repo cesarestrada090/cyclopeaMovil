@@ -36,6 +36,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     List arrayObservaciones = new ArrayList<String>();
     boolean eficienciaServicio;
     boolean eficienciaEstacionamiento;
+    boolean suspensionIzqDel = true;
+    boolean suspensionDerDel = true;
+    boolean suspensionDesvDel = true;
+    boolean suspensionIzqPost = true;
+    boolean suspensionDerPost = true;
+    boolean suspensionDesvPost = true;
+    boolean sonometroResult = true;
 
     /**
      * Creates new form RegistrarUsuario
@@ -50,20 +57,28 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField42.getDocument().addDocumentListener(new TercerEjeFrenometro());
         jTextField43.getDocument().addDocumentListener(new CuartoEjeFrenometro());
         jTextField44.getDocument().addDocumentListener(new QuintoEjeFrenometro());
-        
+
         jTextField5.getDocument().addDocumentListener(new AlineamientoDesviacionEje1());
         jTextField6.getDocument().addDocumentListener(new AlineamientoDesviacionEje2());
         jTextField7.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
         jTextField8.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
         jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
-        
+
         jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
         jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
         jTextField19.getDocument().addDocumentListener(new ProfNeumaticos4());
         jTextField20.getDocument().addDocumentListener(new ProfNeumaticos5());
 
-
+        jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
+        jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
+        jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
+        
+        jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
+        jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
+        jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
+        
+        jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
         List listaModelos = b.obtenerListaModelo();
@@ -463,10 +478,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1116,10 +1131,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2421,6 +2436,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel129.setText("Resultado Final");
         jLabel129.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jTextField177.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField177ActionPerformed(evt);
+            }
+        });
         jTextField177.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -2478,8 +2498,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox7.setEnabled(false);
+        jDesktopPane1.add(jComboBox7);
         jComboBox7.setBounds(0, 0, 200, 20);
-        jDesktopPane1.add(jComboBox7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2980,12 +3000,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objCertificado.setNumDocEvaluar(jTextField55.getText());
             objCertificado.setTipoDocEvaluar("1");
             objCertificado.setNumDocTransp(jTextField28.getText());
-            objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex()+1));
+            objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
             objCertificado.setCodLocal("Desconocido");
             objCertificado.setFecInspeccion(jDateChooser1.getDate());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
-            calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()) );  // numero de días a añadir, o restar en caso de días<0
+            calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
             objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
             objCertificado.setResultado(jComboBox3.getSelectedIndex());
             objCertificado.setVigencia(jTextField157.getText());
@@ -3424,7 +3444,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        
+
         if (jTextField122.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el/los color(es) del vehículo", "CAMPOS VACÍOS", 0);
@@ -3443,6 +3463,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (jTextField120.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese la carga útil del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        
+        if (jTextField194.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Complete los campos en emisiones sonoras", "CAMPOS VACÍOS", 0);
             return resultado;
         }
 
@@ -4104,14 +4130,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField10.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField10.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4123,14 +4149,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField5.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField10.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField10.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4149,14 +4175,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField6.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField11.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField11.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4168,14 +4194,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField6.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField11.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField11.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4194,14 +4220,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField7.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField13.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField13.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4213,14 +4239,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField7.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField13.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField13.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4230,7 +4256,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
-    
+
     class AlineamientoDesviacionEje4 implements DocumentListener {
 
         String newline = "\n";
@@ -4239,14 +4265,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField8.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField14.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField14.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4258,14 +4284,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField8.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField14.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField14.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4275,7 +4301,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
-    
+
     class AlineamientoDesviacionEje5 implements DocumentListener {
 
         String newline = "\n";
@@ -4284,14 +4310,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField9.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField15.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField15.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4303,14 +4329,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField9.getText();
             if (!x.equals("")) {
                 int valor = Integer.parseInt(x);
-                if (valor <= 10 && valor>=0) {
+                if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }
-                if (valor > 10 && valor <=12) {
+                if (valor > 10 && valor <= 12) {
                     jTextField15.setText("D");
                     //GRAVE 1.9
                 }
-                if (valor >=12) {
+                if (valor >= 12) {
                     jTextField15.setText("D");
                     // MUY GRAVE 1.8
                 }
@@ -4320,14 +4346,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
-    
+
     class ProfNeumaticos1 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField16.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField21.setText("D");
                 }
             }
@@ -4338,7 +4364,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField16.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField21.setText("D");
                 }
             }
@@ -4347,13 +4373,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class ProfNeumaticos2 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField17.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 }
             }
@@ -4364,7 +4391,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField17.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 }
             }
@@ -4373,13 +4400,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class ProfNeumaticos3 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField18.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 }
             }
@@ -4390,7 +4418,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField18.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 }
             }
@@ -4399,13 +4427,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class ProfNeumaticos4 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField19.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 }
             }
@@ -4416,7 +4445,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField19.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 }
             }
@@ -4425,13 +4454,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class ProfNeumaticos5 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField20.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 }
             }
@@ -4442,7 +4472,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String x = jTextField20.getText();
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
-                if (valor <= 1.9 && valor>=0) {
+                if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 }
             }
@@ -4451,6 +4481,436 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
+    class SuspensionDelanteraIzq implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField177.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionIzqDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionIzqDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionIzqDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField177.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionIzqDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionIzqDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionIzqDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class SuspensionDelanteraDer implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField178.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDerDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDerDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDerDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField178.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDerDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDerDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDerDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class SuspensionDelanteraDesv implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField179.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDesvDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDesvDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDesvDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField179.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDesvDel = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDesvDel = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDesvDel = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox7.setSelectedIndex(0);
+                    jTextField180.setText("A");
+
+                } else {
+                    jComboBox7.setSelectedIndex(1);
+                    jTextField180.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    class SuspensionPosteriorIzq implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField181.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionIzqPost=false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionIzqPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionIzqPost = true;
+
+                }
+
+                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField181.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionIzqPost=false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionIzqPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionIzqPost = true;
+
+                }
+
+                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class SuspensionPosteriorDer implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField182.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDerPost=false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDerPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDerPost = true;
+
+                }
+
+                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField182.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDerPost=false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDerPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDerPost = true;
+
+                }
+
+                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class SuspensionPosteriorDesv implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField183.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDesvPost=false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDesvPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDesvPost = true;
+
+                }
+
+                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField183.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 29 && valor >= 0) {
+                    suspensionDesvPost = false;
+
+                }
+                if (valor <= 40 && valor >= 30) {
+                    suspensionDesvPost = false;
+
+                }
+                if (valor >= 41) {
+                    suspensionDesvPost = true;
+
+                }
+
+                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                    jComboBox8.setSelectedIndex(0);
+                    jTextField184.setText("A");
+
+                } else {
+                    jComboBox8.setSelectedIndex(1);
+                    jTextField184.setText("D");
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    class SonometroResultado implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField194.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 90 && valor >= 70) {
+                    sonometroResult = true;
+                    jComboBox2.setSelectedIndex(0);
+
+                }
+                else{
+                    jComboBox2.setSelectedIndex(1);
+                    sonometroResult = false;
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField194.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 90 && valor >= 70) {
+                    sonometroResult = true;
+                    jComboBox2.setSelectedIndex(0);
+
+                }
+                else{
+                    sonometroResult = false;
+                    jComboBox2.setSelectedIndex(1);
+                }
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    
+    
+    
     private void jTextField40FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40FocusGained
@@ -4538,8 +4998,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField84ActionPerformed
 
-    
-    
     //CAMPO NOMBRE DEL TITULAR
     private void jTextField82KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField82KeyTyped
         // TODO add your handling code here:
@@ -4564,6 +5022,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextField55KeyTyped
 
+    private void jTextField177ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField177ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField177ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;

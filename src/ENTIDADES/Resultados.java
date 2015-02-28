@@ -19,7 +19,7 @@ public class Resultados {
     private int freServ;
     private int freeEstac;
     private int freeEmer;
-    private int disEjes;
+    private double disEjes;
     private int pisos;
     private String observacion;
 
@@ -95,14 +95,15 @@ public class Resultados {
         this.freeEmer = freeEmer;
     }
 
-    public int getDisEjes() {
+    public double getDisEjes() {
         return disEjes;
     }
 
-    public void setDisEjes(int disEjes) {
+    public void setDisEjes(double disEjes) {
         this.disEjes = disEjes;
     }
 
+   
     public int getPisos() {
         return pisos;
     }
