@@ -38,6 +38,10 @@ public class WServiceBL {
               return false;
     }
     
-    
+     public int existeCertificado(int intIdCertificado)
+    {
+         return new webServiceDAL().existeCertificado(intIdCertificado);
+          
+    }
     
 }

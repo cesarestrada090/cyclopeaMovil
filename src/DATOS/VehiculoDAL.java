@@ -29,35 +29,43 @@ public class VehiculoDAL {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","restfullcyclopea","root","123456");
+//            String sentencia="insert into vehiculo("
+//                    + "STR_PLACA,STR_CATEGORIA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
+//                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETO,NUM_CUTIL,NUM_PBRUTO,NUM_PUERTAS,"
+//                    + "NUM_SALIDAS,NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA)"
+//                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
             String sentencia="insert into vehiculo("
-                    + "STR_PLACA,STR_CATEGORIA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
-                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETO,NUM_CUTIL,NUM_PBRUTO,NUM_PUERTAS,"
-                    + "NUM_SALIDAS,NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA)"
+                    + "STR_PLACA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
+                    + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETO,NUM_CUTIL,NUM_PBRUTO,"
+                    + "NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA, INT_IDCERTIFICADO)"
                     + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setString(1,v.getPlaca());
-            ps.setString(2,v.getCategoria());
-            ps.setString(3,v.getMotor());
-            ps.setString(4,v.getSerie());
-            ps.setInt(5,v.getAnio());
-            ps.setInt(6,v.getnEjes());
-            ps.setInt(7,v.getNumRuedas());
-            ps.setInt(8,v.getNumAsientos());
-            ps.setInt(9,v.getNumPasajeros());
-            ps.setDouble(10,v.getLargo());
-            ps.setDouble(11,v.getAncho());
-            ps.setDouble(12,v.getAlto());
-            ps.setDouble(13,v.getPesoNeto());
-            ps.setDouble(14,v.getCargaUtil());
-            ps.setDouble(15,v.getPesoBruto());
-            ps.setInt(16,v.getNumPuertas());
-            ps.setInt(17,v.getNumSalidas());
-            ps.setInt(18,v.getNumCilindros());
-            ps.setString(19,v.getColor());
-            ps.setString(20,v.getIdCombustible());
-            ps.setString(21,v.getIdMarca());
-            ps.setString(22,v.getIdModelo());
-            ps.setString(23,v.getIdCarroceria());
+//            ps.setString(2,v.getCategoria());
+            ps.setString(2,v.getMotor());
+            ps.setString(3,v.getSerie());
+            ps.setInt(4,v.getAnio());
+            ps.setInt(5,v.getnEjes());
+            ps.setInt(6,v.getNumRuedas());
+            ps.setInt(7,v.getNumAsientos());
+            ps.setInt(8,v.getNumPasajeros());
+            ps.setDouble(9,v.getLargo());
+            ps.setDouble(10,v.getAncho());
+            ps.setDouble(11,v.getAlto());
+            ps.setDouble(12,v.getPesoNeto());
+            ps.setDouble(13,v.getCargaUtil());
+            ps.setDouble(14,v.getPesoBruto());
+////            ps.setInt(16,v.getNumPuertas());
+////            ps.setInt(17,v.getNumSalidas());
+            ps.setInt(15,v.getNumCilindros());
+            ps.setString(16,v.getColor());
+            ps.setString(17,v.getIdCombustible());
+            ps.setString(18,v.getIdMarca());
+            ps.setString(19,v.getIdModelo());
+            ps.setString(20,v.getIdCarroceria());
+            ps.setInt(21,v.getIdCertificado());
             
             ps.executeUpdate();
             return true;

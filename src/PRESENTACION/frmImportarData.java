@@ -58,9 +58,6 @@ public class frmImportarData extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setFrameIcon(null);
@@ -73,72 +70,21 @@ public class frmImportarData extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "DNI", "RUC", "Nombre", "Teléfono", "Placa", "Marca", "AnioFabricacion", "Modelo", "TipoServicio", "FechaVencimiento"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton2.setText("GUARDAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(406, 406, 406)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(91, 91, 91)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,14 +115,14 @@ public class frmImportarData extends javax.swing.JInternalFrame {
 
                 List lstCertificados = new ArrayList<Certificado>();
                 List lstVehiculos = new ArrayList<Vehiculo>();
-                List lstResultados=new ArrayList<Resultados>(); 
+                List lstResultados = new ArrayList<Resultados>();
                 List lstObservaciones = new ArrayList<Observacion>();
-                
+
                 Certificado objCertificado = new Certificado();
-                Vehiculo objVehiculos =new Vehiculo();
+                Vehiculo objVehiculos = new Vehiculo();
                 Resultados objResultado = new Resultados();
                 Observacion objObservacion = new Observacion();
-                
+
                 while (rowIterator.hasNext()) {
                     HSSFRow hssfRow = (HSSFRow) rowIterator.next();
                     Iterator iterator = hssfRow.cellIterator();
@@ -186,102 +132,92 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                         cellTempList.add(hssfCell);
                     }
                     int cont = cellTempList.size();
-                    
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");                    
+
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 
                     int i = 0;
-                    objCertificado.setIdCertificado(Integer.parseInt(cellTempList.get(i+1).toString()));
-                    objCertificado.setTipoDocTransp(cellTempList.get(i+2).toString());
-                    objCertificado.setNumDocEvaluar(cellTempList.get(i+3).toString());
-                    objCertificado.setClaseAutorizacion(cellTempList.get(i+4).toString());
-                    objCertificado.setResultado(Integer.parseInt(cellTempList.get(i+5).toString()));
-                    objCertificado.setVigencia(cellTempList.get(i+6).toString());
+                    objCertificado.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
+                    objCertificado.setTipoDocTransp(cellTempList.get(i + 2).toString());
+                    objCertificado.setNumDocEvaluar(cellTempList.get(i + 3).toString());
+                    objCertificado.setClaseAutorizacion(cellTempList.get(i + 4).toString());
+                    objCertificado.setResultado(Integer.parseInt(cellTempList.get(i + 5).toString()));
+                    objCertificado.setVigencia(cellTempList.get(i + 6).toString());
                     try {
-                        if (cellTempList.get(i+7).toString().equals("-")){
+                        if (cellTempList.get(i + 7).toString().equals("-")) {
                             objCertificado.setFecInspeccion(formatter.parse("00/00/0000"));
-                        }else{
-                            objCertificado.setFecInspeccion(formatter.parse(cellTempList.get(i+7).toString()));
+                        } else {
+                            objCertificado.setFecInspeccion(formatter.parse(cellTempList.get(i + 7).toString()));
                         }
-                        if (cellTempList.get(i+8).toString().equals("-")){
+                        if (cellTempList.get(i + 8).toString().equals("-")) {
                             objCertificado.setFecVencimiento(formatter.parse("00/00/0000"));
-                        }else{
-                            objCertificado.setFecVencimiento(formatter.parse(cellTempList.get(i+8).toString()));
+                        } else {
+                            objCertificado.setFecVencimiento(formatter.parse(cellTempList.get(i + 8).toString()));
                         }
                     } catch (ParseException ex) {
                         Logger.getLogger(frmImportarData.class.getName()).log(Level.SEVERE, null, ex);
-                    }                    
-                    objCertificado.setcIdentidadCert(cellTempList.get(i+9).toString());
-                    objCertificado.setCodLocal(cellTempList.get(i+10).toString());                    
-                    objCertificado.setUbigeo(cellTempList.get(i+11).toString());
-                    objCertificado.setIdTarjeta(Integer.parseInt(cellTempList.get(i+12).toString()));                    
+                    }
+                    objCertificado.setcIdentidadCert(cellTempList.get(i + 9).toString());
+                    objCertificado.setCodLocal(cellTempList.get(i + 10).toString());
+                    objCertificado.setUbigeo(cellTempList.get(i + 11).toString());
+                    objCertificado.setIdTarjeta(Integer.parseInt(cellTempList.get(i + 12).toString()));
 
                     lstCertificados.add(objCertificado);
-                    
+
                     //objVehiculos.setIdTarjeta(cellTempList.get(i+12).toString());
-                    objVehiculos.setPlaca(cellTempList.get(i+13).toString());
+                    objVehiculos.setPlaca(cellTempList.get(i + 13).toString());
+                    objVehiculos.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
                     //objVehiculos.setnTarjeta(cellTempList.get(i+14).toString());
                     //objVehiculos.setNombrePropietario(cellTempList.get(i+15).toString());
                     //objVehiculos.setDomicilio(cellTempList.get(i+16).toString());
                     //objVehiculos.setVersion(cellTempList.get(i+17).toString()); //Clase
-                    objVehiculos.setIdMarca(cellTempList.get(i+18).toString());
-                    objVehiculos.setAnio(Integer.parseInt(cellTempList.get(i+19).toString()));
-                    objVehiculos.setIdModelo(cellTempList.get(i+20).toString());
+                    objVehiculos.setIdMarca(cellTempList.get(i + 18).toString());
+                    objVehiculos.setAnio(Integer.parseInt(cellTempList.get(i + 19).toString()));
+                    objVehiculos.setIdModelo(cellTempList.get(i + 20).toString());
                     //objVehiculos.setVersion(cellTempList.get(i+21).toString());
-                    objVehiculos.setIdCombustible(cellTempList.get(i+22).toString());
-                    objVehiculos.setIdCarroceria(cellTempList.get(i+23).toString());
-                    objVehiculos.setnEjes(Integer.parseInt(cellTempList.get(i+24).toString()));
-                    objVehiculos.setColor(cellTempList.get(i+25).toString());
-                    objVehiculos.setMotor(cellTempList.get(i+26).toString());
-                    objVehiculos.setNumCilindros(Integer.parseInt(cellTempList.get(i+27).toString()));
-                    objVehiculos.setSerie(cellTempList.get(i+28).toString());
+                    objVehiculos.setIdCombustible(cellTempList.get(i + 22).toString());
+                    objVehiculos.setIdCarroceria(cellTempList.get(i + 23).toString());
+                    objVehiculos.setnEjes(Integer.parseInt(cellTempList.get(i + 24).toString()));
+                    objVehiculos.setColor(cellTempList.get(i + 25).toString());
+                    objVehiculos.setMotor(cellTempList.get(i + 26).toString());
+                    objVehiculos.setNumCilindros(Integer.parseInt(cellTempList.get(i + 27).toString()));
+                    objVehiculos.setSerie(cellTempList.get(i + 28).toString());
                     //objVehiculos.setVin(cellTempList.get(i+29).toString());
-                    objVehiculos.setNumRuedas(Integer.parseInt(cellTempList.get(i+30).toString()));
-                    objVehiculos.setNumPasajeros(Integer.parseInt(cellTempList.get(i+31).toString()));
-                    objVehiculos.setNumAsientos(Integer.parseInt(cellTempList.get(i+32).toString()));
-                    objVehiculos.setPesoNeto(Double.parseDouble(cellTempList.get(i+33).toString()));
-                    objVehiculos.setPesoBruto(Double.parseDouble(cellTempList.get(i+34).toString()));
-                    objVehiculos.setLargo(Double.parseDouble(cellTempList.get(i+35).toString()));
-                    objVehiculos.setAlto(Double.parseDouble(cellTempList.get(i+36).toString()));
-                    objVehiculos.setAncho(Double.parseDouble(cellTempList.get(i+37).toString()));
-                    objVehiculos.setCargaUtil(Double.parseDouble(cellTempList.get(i+38).toString()));
+                    objVehiculos.setNumRuedas(Integer.parseInt(cellTempList.get(i + 30).toString()));
+                    objVehiculos.setNumPasajeros(Integer.parseInt(cellTempList.get(i + 31).toString()));
+                    objVehiculos.setNumAsientos(Integer.parseInt(cellTempList.get(i + 32).toString()));
+                    objVehiculos.setPesoNeto(Double.parseDouble(cellTempList.get(i + 33).toString()));
+                    objVehiculos.setPesoBruto(Double.parseDouble(cellTempList.get(i + 34).toString()));
+                    objVehiculos.setLargo(Double.parseDouble(cellTempList.get(i + 35).toString()));
+                    objVehiculos.setAlto(Double.parseDouble(cellTempList.get(i + 36).toString()));
+                    objVehiculos.setAncho(Double.parseDouble(cellTempList.get(i + 37).toString()));
+                    objVehiculos.setCargaUtil(Double.parseDouble(cellTempList.get(i + 38).toString()));
                     //objVehiculos.setEstado(cellTempList.get(i+38).toString());
-                    
+
                     //Falta categoría
                     //Num Puertas
                     //Num Salidas
                     
-//                    try {
-//                        if (cellTempList.get(i+39).toString().equals("-")){
-//                            objTarjetaP.setFecha(formatter.parse("00/00/0000"));
-//                        }else{
-//                            objTarjetaP.setFecha(formatter.parse(cellTempList.get(i+39).toString()));
-//                        }
-//                    } catch (ParseException ex) {
-//                        Logger.getLogger(frmImportarData.class.getName()).log(Level.SEVERE, null, ex);
-//                    }                         
-//                    objTarjetaP.setRuedas(Integer.parseInt(cellTempList.get(i+40).toString()));
-//                    objTarjetaP.setKilometraje(Double.parseDouble(cellTempList.get(i+40).toString()));
-                    
                     lstVehiculos.add(objVehiculos);
                     
-                    objResultado.setPruebaAli(Integer.parseInt(cellTempList.get(i+41).toString()));
-                    objResultado.setProfNeuma(Integer.parseInt(cellTempList.get(i+42).toString()));
-                    objResultado.setPruebLuces(Integer.parseInt(cellTempList.get(i+43).toString()));
-                    objResultado.setSuspension(Integer.parseInt(cellTempList.get(i+44).toString()));
-                    objResultado.setEmigases(Integer.parseInt(cellTempList.get(i+45).toString()));
-                    objResultado.setFreServ(Integer.parseInt(cellTempList.get(i+46).toString()));
-                    objResultado.setFreeEstac(Integer.parseInt(cellTempList.get(i+47).toString()));
-                    objResultado.setFreeEmer(Integer.parseInt(cellTempList.get(i+48).toString()));
-                    objResultado.setDisEjes(Integer.parseInt(cellTempList.get(i+49).toString()));
-                    objResultado.setPisos(Integer.parseInt(cellTempList.get(i+50).toString()));
-                    
+                    objResultado.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
+                    objResultado.setPruebaAli(Integer.parseInt(cellTempList.get(i + 41).toString()));
+                    objResultado.setProfNeuma(Integer.parseInt(cellTempList.get(i + 42).toString()));
+                    objResultado.setPruebLuces(Integer.parseInt(cellTempList.get(i + 43).toString()));
+                    objResultado.setSuspension(Integer.parseInt(cellTempList.get(i + 44).toString()));
+                    objResultado.setEmigases(Integer.parseInt(cellTempList.get(i + 45).toString()));
+                    objResultado.setFreServ(Integer.parseInt(cellTempList.get(i + 46).toString()));
+                    objResultado.setFreeEstac(Integer.parseInt(cellTempList.get(i + 47).toString()));
+                    objResultado.setFreeEmer(Integer.parseInt(cellTempList.get(i + 48).toString()));
+                    objResultado.setDisEjes(Integer.parseInt(cellTempList.get(i + 49).toString()));
+                    objResultado.setPisos(Integer.parseInt(cellTempList.get(i + 50).toString()));
+
                     lstResultados.add(objResultado);
                 }
 
                 HSSFSheet worksheet2 = workbook.getSheet("Observaciones");
 
                 Iterator rowIterator2 = worksheet.rowIterator();
-                
+
                 while (rowIterator2.hasNext()) {
                     HSSFRow hssfRow = (HSSFRow) rowIterator2.next();
                     Iterator iterator = hssfRow.cellIterator();
@@ -292,40 +228,62 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                     }
                     int cont = cellTempList.size();
                     int i = 0;
-                    
+
                     objObservacion.setIdCertificado(Integer.parseInt(cellTempList.get(i).toString()));
-                    objObservacion.setCodigoObservacion(cellTempList.get(i+1).toString());
-                    objObservacion.setInterpretacion(cellTempList.get(i+2).toString());
-                    objObservacion.setCalificacion(cellTempList.get(i+3).toString());
-                    
-                    lstObservaciones.add(objObservacion);                    
+                    objObservacion.setCodigoObservacion(cellTempList.get(i + 1).toString());
+                    objObservacion.setInterpretacion(cellTempList.get(i + 2).toString());
+                    objObservacion.setCalificacion(cellTempList.get(i + 3).toString());
+
+                    lstObservaciones.add(objObservacion);
                 }
-                
+
+                //Verificar Si existe ese número de certificado
+                WServiceBL objWServCBL = new WServiceBL();
+
                 //Grabando los vehiculos leidos del excel                
-                VehiculoBL objVehiculoBL=new VehiculoBL();
-                for (int i=0; i<lstVehiculos.size();i++){
-                    objVehiculoBL.registrarVehiculo((Vehiculo) lstVehiculos.get(i));
+                VehiculoBL objVehiculoBL = new VehiculoBL();
+                for (int i = 0; i < lstVehiculos.size(); i++) {
+                    Vehiculo objV = new Vehiculo();
+                    objV = (Vehiculo) lstVehiculos.get(i);
+                    int resultado = objWServCBL.existeCertificado(objV.getIdCertificado());
+
+                    if (resultado == 0) {
+                        objVehiculoBL.registrarVehiculo(objV);
+                    }
                 }
-                
+
                 //Grabando los resultado leidos del excel                
-                WServiceBL objWServBL=new WServiceBL();
-                for (int i=0; i<lstResultados.size();i++){
-                    objWServBL.registrarResultado((Resultados) lstResultados.get(i));
+                WServiceBL objWServBL = new WServiceBL();
+                for (int i = 0; i < lstResultados.size(); i++) {
+                    Resultados objR = new Resultados();
+                    objR = (Resultados) lstResultados.get(i);
+                    int resultado = objWServCBL.existeCertificado(objR.getIdCertificado());
+                    if (resultado == 0) {
+                        objWServBL.registrarResultado(objR);
+                    }
                 }
-                
+
                 //Grabando los certificados leidos del excel                
-                WServiceBL objWServiceBL=new WServiceBL();
-                for (int i=0; i<lstCertificados.size();i++){
-                    objWServiceBL.registrarCertificado((Certificado) lstCertificados.get(i));
+                WServiceBL objWServiceBL = new WServiceBL();
+                for (int i = 0; i < lstCertificados.size(); i++) {
+                    Certificado objR = new Certificado();
+                    objR = (Certificado) lstCertificados.get(i);
+                    int resultado = objWServCBL.existeCertificado(objR.getIdCertificado());
+                    if (resultado == 0) {
+                        objWServiceBL.registrarCertificado(objR);
+                    }
                 }
-                
+
                 //Grabando las observaciones leidos del excel   
-                WServiceBL objObservacionesBL=new WServiceBL();
-                for (int i=0; i<lstObservaciones.size();i++){
-                    objObservacionesBL.registrarObservacion((Observacion)lstObservaciones.get(i));
+                WServiceBL objObservacionesBL = new WServiceBL();
+                for (int i = 0; i < lstObservaciones.size(); i++) {
+                    Observacion objO = new Observacion();
+                    objO = (Observacion) lstObservaciones.get(i);
+                    int resultado = objWServCBL.existeCertificado(objO.getIdCertificado());
+                    if (resultado == 0) {
+                        objObservacionesBL.registrarObservacion(objO);
+                    }
                 }
-                
-                
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -338,87 +296,8 @@ public class frmImportarData extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        int filas = dtm.getRowCount();
-        JOptionPane.showMessageDialog(null, "Numero de Registros: " + filas);
-        String nombre = "";
-        String a[];
-
-        a = new String[10];
-
-        // Recorrer la tabla y Guardar cada fila en un arreglo
-        for (int i = 0; i < filas; i++) {
-
-            for (int j = 0; j < 10; j++) {
-                nombre = jTable1.getValueAt(i, j).toString();
-                a[j] = nombre;
-            }
-
-            boolean x = (a[2].contains("'"));
-
-            int idPersona;
-
-            //if(a[2].compareTo("REPRESENTACIONES LARRY'S EIRL")==0 || a[2].compareTo("ABCD'NEGOCIOS S.A.C.")==0 || a[2].compareTo("CONSTRUCTOR'S HOME S.A.C.")==0 || a[2].compareTo("D'ANGELO PARDO JOSE CARLOS")==0 || a[2].compareTo("D'ANGLES HURTADO LUCIO WILMER")==0 || a[2].compareTo("AGRICOLA E INVERSIONES 'L & F' S.A.C.")==0 || a[2].compareTo("D'ANGELO DE YTZKOVICH GLORIA")==0 || a[2].compareTo("D'BALL EIRL")==0 || a[2].compareTo("D'ICLASSIC SRL.")==0 || a[2].compareTo("D'MIX CAR SERVICE SOCIEDAD COMERCIAL DE RESPONSABILIDAD LIMITADA")==0 || a[2].compareTo("D'IONS SRLTDA")==0 || a[2].compareTo("EMPRESA DE TRANSPORTES ROYAL PALACE'S SA")==0)
-            if (x) {
-                idPersona = 0;
-            } else {
-                idPersona = new PersonaBL().listarBusqueda(a[2]);
-            }
-
-            //JOptionPane.showMessageDialog(null, "idPersona: "+idPersona);
-            if (idPersona == 0) {
-                idPersona = new PersonaBL().obtenerNumeroRegistro();
-                if (new PersonaBL().registrarPersona(new Persona(idPersona, a[0], a[1], a[2], "", a[3], "", ""))) {
-                    jButton2.setEnabled(false);
-                }
-            } else {
-                new PersonaBL().ActualizarDatos(a[3], idPersona);
-            }
-
-//           int idVehiculo=new VehiculoBL().listarBusquedaPlaca(a[4]);
-            //JOptionPane.showMessageDialog(null, "idVehiculo: "+idVehiculo);
-//           if(idVehiculo==0)
-//           {
-//                idVehiculo=new VehiculoBL().obtenerNumeroRegistro();
-//                if(new VehiculoBL().registrarVehiculo(new Vehiculo(idVehiculo,a[4], a[6], a[5], a[7], a[8], idPersona, 0)))
-//                {
-//                    jButton2.setEnabled(false);
-//                }
-//           }
-            String n = a[9].substring(0, 10);
-            //JOptionPane.showMessageDialog(null, n);
-            String dia = n.substring(0, 2);
-            //JOptionPane.showMessageDialog(null, dia);
-            String mes = n.substring(3, 5);
-            //JOptionPane.showMessageDialog(null, mes);
-            String anio = n.substring(6, 10);
-            //JOptionPane.showMessageDialog(null, anio);
-            String fecha = anio + "-" + mes + "-" + dia;
-            //JOptionPane.showMessageDialog(null, fecha);
-
-            int idRevision = 0;//new RevisionBL().listarBusquedaFecha(fecha);
-
-            //JOptionPane.showMessageDialog(null, "idRevision: "+idRevision);
-            if (idRevision == 0) {
-//                idRevision=new RevisionBL().obtenerNumeroRegistro();
-//                if(new RevisionDAL().registrarDatosRevision(new Revision(idRevision, fecha, idVehiculo)))
-//            {
-//                jButton2.setEnabled(false);
-//            }
-            }
-
-        }
-        JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
 }

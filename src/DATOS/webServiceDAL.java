@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -38,7 +39,7 @@ public class webServiceDAL {
             String sentencia = "insert into resultados(IDCERTIFICADO,PRUEALI,PROFNEUMA,PRUEBLUCES,SUSPENSION,EMIGASES,FRESERV,FREESTAC,FREEMER,"
                     + "DISEJES,PISOS,OBSERVACIONES)"
                     + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1, v.getIdCertificado());
             ps.setInt(2, v.getPruebaAli());
@@ -73,12 +74,13 @@ public class webServiceDAL {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia="insert into observaciones(STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CDOBSDETEC,STR_DSOBSDETEC) values(?,?,?,?)";
+            String sentencia="insert into observaciones(STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CDOBSDETEC,STR_DSOBSDETEC, INT_IDCERTIFICADO) values(?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setInt(1,v.getIdCertificado());
+            ps.setInt(1,1);
+            ps.setString(2,"");
             ps.setString(2,v.getCodigoObservacion());
             ps.setString(3,v.getInterpretacion());
-            ps.setString(4,v.getCalificacion());
+            ps.setInt(5,v.getIdCertificado());
 
             ps.executeUpdate();
             return true;
@@ -103,7 +105,7 @@ public class webServiceDAL {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia="insert into certificado(STR_TPDCOTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA, DTE_FECINSPECCION,DTE_FECVENCIMIENTO,STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO) values(?,?,?,?)";
+            String sentencia="insert into certificado(STR_TPDCOTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA, DTE_FECINSPECCION,DTE_FECVENCIMIENTO,STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO,INT_IDCERTIFICADO) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,v.getIdCertificado());
             ps.setString(2,v.getTipoDocTransp());
@@ -119,6 +121,7 @@ public class webServiceDAL {
             ps.setString(12,v.getcIdentidadCert());
             ps.setString(13,v.getCodLocal());
             ps.setString(13,v.getUbigeo());
+            ps.setInt(14,v.getIdCertificado());
 
             ps.executeUpdate();
             return true;
@@ -136,5 +139,30 @@ public class webServiceDAL {
                 Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+     
+     public int existeCertificado(int intIdCertificado) 
+    {
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("SELECT COUNT(*) CONTADOR FROM certificado WHERE INT_IDCERTIFICADO="+intIdCertificado+";");
+            if (rs.next()) {
+                Integer numero= rs.getInt(1);
+                    return numero;
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
     }
 }
