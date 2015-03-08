@@ -43,5 +43,11 @@ public class WServiceBL {
          return new webServiceDAL().existeCertificado(intIdCertificado);
           
     }
+     
+      public int existeVehiculo(int intIdCertificado)
+    {
+         return new webServiceDAL().existeVehiculo(intIdCertificado);
+          
+    }
     
 }

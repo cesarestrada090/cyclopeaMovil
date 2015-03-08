@@ -118,123 +118,164 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                 List lstResultados = new ArrayList<Resultados>();
                 List lstObservaciones = new ArrayList<Observacion>();
 
-                Certificado objCertificado = new Certificado();
-                Vehiculo objVehiculos = new Vehiculo();
-                Resultados objResultado = new Resultados();
-                Observacion objObservacion = new Observacion();
+                boolean rpta = true;
+
+                int i = 0;
 
                 while (rowIterator.hasNext()) {
                     HSSFRow hssfRow = (HSSFRow) rowIterator.next();
                     Iterator iterator = hssfRow.cellIterator();
                     List cellTempList = new ArrayList();
+                    Certificado objCertificado = new Certificado();
+                    Vehiculo objVehiculos = new Vehiculo();
+                    Resultados objResultado = new Resultados();
                     while (iterator.hasNext()) {
                         HSSFCell hssfCell = (HSSFCell) iterator.next();
                         cellTempList.add(hssfCell);
                     }
                     int cont = cellTempList.size();
 
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                    if (i > 0) {
 
-                    int i = 0;
-                    objCertificado.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
-                    objCertificado.setTipoDocTransp(cellTempList.get(i + 2).toString());
-                    objCertificado.setNumDocEvaluar(cellTempList.get(i + 3).toString());
-                    objCertificado.setClaseAutorizacion(cellTempList.get(i + 4).toString());
-                    objCertificado.setResultado(Integer.parseInt(cellTempList.get(i + 5).toString()));
-                    objCertificado.setVigencia(cellTempList.get(i + 6).toString());
-                    try {
-                        if (cellTempList.get(i + 7).toString().equals("-")) {
-                            objCertificado.setFecInspeccion(formatter.parse("00/00/0000"));
+                        objCertificado.setIdCertificado(Integer.parseInt(cellTempList.get(0).toString()));
+                        objCertificado.setTipoDocTransp(cellTempList.get(1).toString());
+                        objCertificado.setNumDocEvaluar(cellTempList.get(2).toString());
+                        objCertificado.setClaseAutorizacion(cellTempList.get(3).toString());
+                        objCertificado.setResultado(Integer.parseInt(cellTempList.get(4).toString()));
+                        objCertificado.setVigencia(cellTempList.get(5).toString());
+
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        String dateInString6 = cellTempList.get(6).toString();
+                        String dateInString7 = cellTempList.get(7).toString();
+                        if (dateInString6.equals("-")) {
+                            Date d1 = formatter.parse("2100-12-31");
+                            objCertificado.setFecInspeccion1(d1);
                         } else {
-                            objCertificado.setFecInspeccion(formatter.parse(cellTempList.get(i + 7).toString()));
+                            Date date6 = null;
+                            try {
+                                date6 = formatter.parse(dateInString6);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            objCertificado.setFecInspeccion1(date6);//cellTempList.get(6).toString()));
                         }
-                        if (cellTempList.get(i + 8).toString().equals("-")) {
-                            objCertificado.setFecVencimiento(formatter.parse("00/00/0000"));
+
+                        if (dateInString7.equals("-")) {
+                            Date d2 = formatter.parse("2100-12-31");
+                            objCertificado.setFecVencimiento1(d2);
                         } else {
-                            objCertificado.setFecVencimiento(formatter.parse(cellTempList.get(i + 8).toString()));
+                            Date date7 = null;
+                            try {
+                                date7 = formatter.parse(dateInString7);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            objCertificado.setFecVencimiento1(date7);//cellTempList.get(6).toString()));
                         }
-                    } catch (ParseException ex) {
-                        Logger.getLogger(frmImportarData.class.getName()).log(Level.SEVERE, null, ex);
+                        objCertificado.setcIdentidadCert(cellTempList.get(8).toString());
+                        objCertificado.setCodLocal(cellTempList.get(9).toString());
+                        objCertificado.setUbigeo(cellTempList.get(10).toString());
+                        objCertificado.setIdTarjeta(Integer.parseInt(cellTempList.get(11).toString()));
+
+                        lstCertificados.add(objCertificado);
+
+                        //objVehiculos.setIdTarjeta(cellTempList.get(i+12).toString());
+                        objVehiculos.setPlaca(cellTempList.get(12).toString());
+                        objVehiculos.setIdCertificado(Integer.parseInt(cellTempList.get(0).toString()));
+                        //objVehiculos.setnTarjeta(cellTempList.get(i+14).toString());
+                        //objVehiculos.setNombrePropietario(cellTempList.get(i+15).toString());
+                        //objVehiculos.setDomicilio(cellTempList.get(i+16).toString());
+                        //objVehiculos.setVersion(cellTempList.get(i+17).toString()); //Clase
+                        objVehiculos.setIdMarca(cellTempList.get(17).toString());
+                        objVehiculos.setAnio(0);//(Integer.parseInt(cellTempList.get(18).toString()));  VERIFICAR EL AÑO DE FABRICACIÓN
+                        objVehiculos.setIdModelo(cellTempList.get(19).toString());
+                        //objVehiculos.setVersion(cellTempList.get(i+21).toString());
+                        objVehiculos.setIdCombustible(cellTempList.get(21).toString());
+                        objVehiculos.setIdCarroceria(cellTempList.get(22).toString());
+                        objVehiculos.setnEjes(4);//(Integer.parseInt(cellTempList.get(23).toString())); // VERIFICAR EL NÚMERO DE EJES
+                        objVehiculos.setColor(cellTempList.get(24).toString());
+                        objVehiculos.setMotor(cellTempList.get(25).toString());
+                        objVehiculos.setNumCilindros(5);//(Integer.parseInt(cellTempList.get(26).toString())); // VERIFICAR EL NÚMERO DE CILINDROS
+                        objVehiculos.setSerie(cellTempList.get(27).toString());
+                        //objVehiculos.setVin(cellTempList.get(i+29).toString());
+                        objVehiculos.setNumRuedas(1);//(Integer.parseInt(cellTempList.get(29).toString()));
+                        objVehiculos.setNumPasajeros(1);//(Integer.parseInt(cellTempList.get(30).toString()));
+                        objVehiculos.setNumAsientos(1);//(Integer.parseInt(cellTempList.get(31).toString()));
+                        objVehiculos.setPesoNeto(1);//(Double.parseDouble(cellTempList.get(32).toString()));
+                        objVehiculos.setPesoBruto(1);//(Double.parseDouble(cellTempList.get(33).toString()));
+                        objVehiculos.setLargo(1);//(Double.parseDouble(cellTempList.get(34).toString()));
+                        objVehiculos.setAlto(1);//(Double.parseDouble(cellTempList.get(35).toString()));
+                        objVehiculos.setAncho(1);//(Double.parseDouble(cellTempList.get(36).toString()));
+                        objVehiculos.setCargaUtil(1);//(Double.parseDouble(cellTempList.get(37).toString()));
+                        //objVehiculos.setEstado(cellTempList.get(i+38).toString());
+
+                        //Falta categoría
+                        //Num Puertas
+                        //Num Salidas
+                        lstVehiculos.add(objVehiculos);
+
+                        objResultado.setIdCertificado(Integer.parseInt(cellTempList.get(0).toString()));
+                        objResultado.setPruebaAli(0);//(Integer.parseInt(cellTempList.get(45).toString()));                        
+                        objResultado.setProfNeuma(0);//(Integer.parseInt(cellTempList.get(46).toString()));
+
+                        objResultado.setPruebLuces(0);//(Integer.parseInt(cellTempList.get(48).toString()));
+                        objResultado.setSuspension(0);//(Integer.parseInt(cellTempList.get(47).toString()));
+                        objResultado.setEmigases(0);//(Integer.parseInt(cellTempList.get(49).toString()));
+                        if ("APROBADO".equals(cellTempList.get(42).toString())) {
+                            objResultado.setFreServ(1);
+                        } else {
+                            objResultado.setFreServ(0);
+                        }
+                        if ("APROBADO".equals(cellTempList.get(43).toString())) {
+                            objResultado.setFreeEstac(1);
+                        } else {
+                            objResultado.setFreeEstac(0);
+                        }
+                        if ("APROBADO".equals(cellTempList.get(44).toString())) {
+                            objResultado.setFreeEmer(1);
+                        } else {
+                            objResultado.setFreeEmer(0);
+                        }
+
+                        objResultado.setDisEjes(0);//(Integer.parseInt(cellTempList.get(48).toString()));
+                        objResultado.setPisos(0);//(Integer.parseInt(cellTempList.get(48).toString()));
+
+                        lstResultados.add(objResultado);
+
                     }
-                    objCertificado.setcIdentidadCert(cellTempList.get(i + 9).toString());
-                    objCertificado.setCodLocal(cellTempList.get(i + 10).toString());
-                    objCertificado.setUbigeo(cellTempList.get(i + 11).toString());
-                    objCertificado.setIdTarjeta(Integer.parseInt(cellTempList.get(i + 12).toString()));
 
-                    lstCertificados.add(objCertificado);
+                    i = i + 1;
 
-                    //objVehiculos.setIdTarjeta(cellTempList.get(i+12).toString());
-                    objVehiculos.setPlaca(cellTempList.get(i + 13).toString());
-                    objVehiculos.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
-                    //objVehiculos.setnTarjeta(cellTempList.get(i+14).toString());
-                    //objVehiculos.setNombrePropietario(cellTempList.get(i+15).toString());
-                    //objVehiculos.setDomicilio(cellTempList.get(i+16).toString());
-                    //objVehiculos.setVersion(cellTempList.get(i+17).toString()); //Clase
-                    objVehiculos.setIdMarca(cellTempList.get(i + 18).toString());
-                    objVehiculos.setAnio(Integer.parseInt(cellTempList.get(i + 19).toString()));
-                    objVehiculos.setIdModelo(cellTempList.get(i + 20).toString());
-                    //objVehiculos.setVersion(cellTempList.get(i+21).toString());
-                    objVehiculos.setIdCombustible(cellTempList.get(i + 22).toString());
-                    objVehiculos.setIdCarroceria(cellTempList.get(i + 23).toString());
-                    objVehiculos.setnEjes(Integer.parseInt(cellTempList.get(i + 24).toString()));
-                    objVehiculos.setColor(cellTempList.get(i + 25).toString());
-                    objVehiculos.setMotor(cellTempList.get(i + 26).toString());
-                    objVehiculos.setNumCilindros(Integer.parseInt(cellTempList.get(i + 27).toString()));
-                    objVehiculos.setSerie(cellTempList.get(i + 28).toString());
-                    //objVehiculos.setVin(cellTempList.get(i+29).toString());
-                    objVehiculos.setNumRuedas(Integer.parseInt(cellTempList.get(i + 30).toString()));
-                    objVehiculos.setNumPasajeros(Integer.parseInt(cellTempList.get(i + 31).toString()));
-                    objVehiculos.setNumAsientos(Integer.parseInt(cellTempList.get(i + 32).toString()));
-                    objVehiculos.setPesoNeto(Double.parseDouble(cellTempList.get(i + 33).toString()));
-                    objVehiculos.setPesoBruto(Double.parseDouble(cellTempList.get(i + 34).toString()));
-                    objVehiculos.setLargo(Double.parseDouble(cellTempList.get(i + 35).toString()));
-                    objVehiculos.setAlto(Double.parseDouble(cellTempList.get(i + 36).toString()));
-                    objVehiculos.setAncho(Double.parseDouble(cellTempList.get(i + 37).toString()));
-                    objVehiculos.setCargaUtil(Double.parseDouble(cellTempList.get(i + 38).toString()));
-                    //objVehiculos.setEstado(cellTempList.get(i+38).toString());
-
-                    //Falta categoría
-                    //Num Puertas
-                    //Num Salidas
-                    
-                    lstVehiculos.add(objVehiculos);
-                    
-                    objResultado.setIdCertificado(Integer.parseInt(cellTempList.get(i + 1).toString()));
-                    objResultado.setPruebaAli(Integer.parseInt(cellTempList.get(i + 41).toString()));
-                    objResultado.setProfNeuma(Integer.parseInt(cellTempList.get(i + 42).toString()));
-                    objResultado.setPruebLuces(Integer.parseInt(cellTempList.get(i + 43).toString()));
-                    objResultado.setSuspension(Integer.parseInt(cellTempList.get(i + 44).toString()));
-                    objResultado.setEmigases(Integer.parseInt(cellTempList.get(i + 45).toString()));
-                    objResultado.setFreServ(Integer.parseInt(cellTempList.get(i + 46).toString()));
-                    objResultado.setFreeEstac(Integer.parseInt(cellTempList.get(i + 47).toString()));
-                    objResultado.setFreeEmer(Integer.parseInt(cellTempList.get(i + 48).toString()));
-                    objResultado.setDisEjes(Integer.parseInt(cellTempList.get(i + 49).toString()));
-                    objResultado.setPisos(Integer.parseInt(cellTempList.get(i + 50).toString()));
-
-                    lstResultados.add(objResultado);
                 }
 
                 HSSFSheet worksheet2 = workbook.getSheet("Observaciones");
 
-                Iterator rowIterator2 = worksheet.rowIterator();
+                Iterator rowIterator2 = worksheet2.rowIterator();
+
+                i = 0;
 
                 while (rowIterator2.hasNext()) {
-                    HSSFRow hssfRow = (HSSFRow) rowIterator2.next();
-                    Iterator iterator = hssfRow.cellIterator();
-                    List cellTempList = new ArrayList();
-                    while (iterator.hasNext()) {
-                        HSSFCell hssfCell = (HSSFCell) iterator.next();
-                        cellTempList.add(hssfCell);
+                    HSSFRow hssfRow2 = (HSSFRow) rowIterator2.next();
+                    Iterator iterator2 = hssfRow2.cellIterator();
+                    List cellTempList2 = new ArrayList();
+                    Observacion objObs = new Observacion();
+                    while (iterator2.hasNext()) {
+                        HSSFCell hssfCell2 = (HSSFCell) iterator2.next();
+                        cellTempList2.add(hssfCell2);
                     }
-                    int cont = cellTempList.size();
-                    int i = 0;
+                    int cont = cellTempList2.size();
 
-                    objObservacion.setIdCertificado(Integer.parseInt(cellTempList.get(i).toString()));
-                    objObservacion.setCodigoObservacion(cellTempList.get(i + 1).toString());
-                    objObservacion.setInterpretacion(cellTempList.get(i + 2).toString());
-                    objObservacion.setCalificacion(cellTempList.get(i + 3).toString());
+                    if (i > 0) {
+                        objObs.setIdCertificado(2); //(Integer.parseInt(cellTempList2.get(0).toString()));//(Integer.parseInt(cellTempList.get(i).toString()));
+                        objObs.setCodigoObservacion(cellTempList2.get(1).toString());
+                        objObs.setInterpretacion(cellTempList2.get(2).toString());
+                        objObs.setCalificacion(cellTempList2.get(3).toString());
 
-                    lstObservaciones.add(objObservacion);
+                        lstObservaciones.add(objObs);
+                    }
+
+                    i = i + 1;
+
                 }
 
                 //Verificar Si existe ese número de certificado
@@ -242,53 +283,61 @@ public class frmImportarData extends javax.swing.JInternalFrame {
 
                 //Grabando los vehiculos leidos del excel                
                 VehiculoBL objVehiculoBL = new VehiculoBL();
-                for (int i = 0; i < lstVehiculos.size(); i++) {
+                for (int j = 0; j < lstVehiculos.size(); j++) {
                     Vehiculo objV = new Vehiculo();
-                    objV = (Vehiculo) lstVehiculos.get(i);
-                    int resultado = objWServCBL.existeCertificado(objV.getIdCertificado());
+                    objV = (Vehiculo) lstVehiculos.get(j);
+                    int resultado = objWServCBL.existeVehiculo(objV.getIdCertificado());
 
                     if (resultado == 0) {
-                        objVehiculoBL.registrarVehiculo(objV);
+                        rpta = objVehiculoBL.registrarVehiculo(objV);
                     }
                 }
 
                 //Grabando los resultado leidos del excel                
                 WServiceBL objWServBL = new WServiceBL();
-                for (int i = 0; i < lstResultados.size(); i++) {
+                for (int j = 0; j < lstResultados.size(); j++) {
                     Resultados objR = new Resultados();
-                    objR = (Resultados) lstResultados.get(i);
-                    int resultado = objWServCBL.existeCertificado(objR.getIdCertificado());
+                    objR = (Resultados) lstResultados.get(j);
+                    int resultado = 0; //objWServCBL.existeCertificado(objR.getIdCertificado());
                     if (resultado == 0) {
-                        objWServBL.registrarResultado(objR);
+                        rpta = objWServBL.registrarResultado(objR);
                     }
                 }
 
                 //Grabando los certificados leidos del excel                
                 WServiceBL objWServiceBL = new WServiceBL();
-                for (int i = 0; i < lstCertificados.size(); i++) {
+                for (int j = 0; j < lstCertificados.size(); j++) {
                     Certificado objR = new Certificado();
-                    objR = (Certificado) lstCertificados.get(i);
-                    int resultado = objWServCBL.existeCertificado(objR.getIdCertificado());
+                    objR = (Certificado) lstCertificados.get(j);
+                    int resultado = 0; //objWServCBL.existeCertificado(objR.getIdCertificado());
                     if (resultado == 0) {
-                        objWServiceBL.registrarCertificado(objR);
+                        rpta = objWServiceBL.registrarCertificado(objR);
                     }
                 }
 
                 //Grabando las observaciones leidos del excel   
                 WServiceBL objObservacionesBL = new WServiceBL();
-                for (int i = 0; i < lstObservaciones.size(); i++) {
+                for (int j = 0; j < lstObservaciones.size(); j++) {
                     Observacion objO = new Observacion();
-                    objO = (Observacion) lstObservaciones.get(i);
-                    int resultado = objWServCBL.existeCertificado(objO.getIdCertificado());
+                    objO = (Observacion) lstObservaciones.get(j);
+                    int resultado = 0; //objWServCBL.existeCertificado(objO.getIdCertificado());
                     if (resultado == 0) {
-                        objObservacionesBL.registrarObservacion(objO);
+                        rpta = objObservacionesBL.registrarObservacion(objO);
                     }
+                }
+
+                if (rpta == true) {
+                    JOptionPane.showMessageDialog(null, "Base de datos actualizada correctamente", "", 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ocurrió un error al procesar la información. Póngase en contacto con el administrador", "", 0);
                 }
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (ParseException ex) {
+                Logger.getLogger(frmImportarData.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         } else if (status == JFileChooser.CANCEL_OPTION) {

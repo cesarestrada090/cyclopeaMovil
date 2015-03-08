@@ -39,7 +39,7 @@ public class VehiculoDAL {
                     + "STR_PLACA,STR_MOTOR,STR_SERIE,NUM_ANIO,NUM_EJES,NUM_RUEDAS,NUM_ASIENTOS,NUM_PSJR,"
                     + "NUM_LARGO,NUM_ANCHO,NUM_ALTO,NUM_PNETO,NUM_CUTIL,NUM_PBRUTO,"
                     + "NUM_CILINDROS,STR_COLOR,STR_ID_COMBUSTIBLE,STR_ID_MARCA,STR_ID_MODELO,STR_ID_CARROCERIA, INT_IDCERTIFICADO)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setString(1,v.getPlaca());
@@ -57,6 +57,7 @@ public class VehiculoDAL {
             ps.setDouble(12,v.getPesoNeto());
             ps.setDouble(13,v.getCargaUtil());
             ps.setDouble(14,v.getPesoBruto());
+            //ps.setDouble(14,4); //NRO DE PUERTAS
 ////            ps.setInt(16,v.getNumPuertas());
 ////            ps.setInt(17,v.getNumSalidas());
             ps.setInt(15,v.getNumCilindros());

@@ -37,8 +37,7 @@ public class webServiceDAL {
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
 
             String sentencia = "insert into resultados(IDCERTIFICADO,PRUEALI,PROFNEUMA,PRUEBLUCES,SUSPENSION,EMIGASES,FRESERV,FREESTAC,FREEMER,"
-                    + "DISEJES,PISOS,OBSERVACIONES)"
-                    + ""
+                    + "DISEJES,PISOS,OBSERVACIONES) "
                     + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1, v.getIdCertificado());
@@ -78,8 +77,8 @@ public class webServiceDAL {
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,1);
             ps.setString(2,"");
-            ps.setString(2,v.getCodigoObservacion());
-            ps.setString(3,v.getInterpretacion());
+            ps.setString(3,v.getCodigoObservacion());
+            ps.setString(4,v.getInterpretacion());
             ps.setInt(5,v.getIdCertificado());
 
             ps.executeUpdate();
@@ -105,23 +104,29 @@ public class webServiceDAL {
         try {
             //cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
-            String sentencia="insert into certificado(STR_TPDCOTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA, DTE_FECINSPECCION,DTE_FECVENCIMIENTO,STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO,INT_IDCERTIFICADO) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//            String sentencia="insert into certificado(STR_TPDCOTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,"
+//                                                    + "STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA, DTE_FECINSPECCION,DTE_FECVENCIMIENTO,"
+//                                                    + "STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO,INT_IDCERTIFICADO) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sentencia="insert into certificado(STR_TPDOCTRANSP,STR_NUMDOCTRANSP,STR_RZTRANSP,STR_TPDOCEVAL,STR_NUMDOCEVAL,"
+                                                    + "STR_CLASAUTOR,INT_RESULTADO,STR_VIGENCIA,"
+                                                    + "STR_CDENTIDADCERT,STR_CDLOCAL,STR_UBIGEO,INT_IDCERTIFICADO) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setInt(1,v.getIdCertificado());
-            ps.setString(2,v.getTipoDocTransp());
-            ps.setString(3,v.getNumDocTransp());
-            ps.setString(4,v.getRazonTransp());
-            ps.setString(5,v.getTipoDocEvaluar());
-            ps.setString(6,v.getNumDocEvaluar());
-            ps.setString(7,v.getClaseAutorizacion());
-            ps.setInt(8,v.getResultado());
-            ps.setString(9,v.getVigencia());
-            ps.setDate(10, (Date) v.getFecInspeccion());
-            ps.setDate(11, (Date) v.getFecVencimiento());
-            ps.setString(12,v.getcIdentidadCert());
-            ps.setString(13,v.getCodLocal());
-            ps.setString(13,v.getUbigeo());
-            ps.setInt(14,v.getIdCertificado());
+            
+            ps.setString(1,v.getTipoDocTransp());
+            ps.setString(2,v.getNumDocTransp());
+            ps.setString(3,v.getRazonTransp());
+            ps.setString(4,v.getTipoDocEvaluar());
+            ps.setString(5,v.getNumDocEvaluar());
+            ps.setString(6,v.getClaseAutorizacion());
+            ps.setInt(7,v.getResultado());
+            ps.setString(8,v.getVigencia());
+//            ps.setDate(9, (Date) v.getFecInspeccion1());
+//            ps.setDate(10,(Date) v.getFecVencimiento1());
+            ps.setString(9,v.getcIdentidadCert());
+            ps.setString(10,v.getCodLocal());
+            ps.setString(11,v.getUbigeo());
+            ps.setInt(12,v.getIdCertificado());
 
             ps.executeUpdate();
             return true;
@@ -147,6 +152,31 @@ public class webServiceDAL {
             cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
             st=cn.createStatement();
             rs=st.executeQuery("SELECT COUNT(*) CONTADOR FROM certificado WHERE INT_IDCERTIFICADO="+intIdCertificado+";");
+            if (rs.next()) {
+                Integer numero= rs.getInt(1);
+                    return numero;
+            }
+        }catch(SQLException ex){
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
+    }
+     
+     public int existeVehiculo(int intIdCertificado) 
+    {
+        try{
+            cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "restfullcyclopea", "root", "123456");
+            st=cn.createStatement();
+            rs=st.executeQuery("SELECT COUNT(*) CONTADOR FROM vehiculo WHERE INT_IDCERTIFICADO="+intIdCertificado+";");
             if (rs.next()) {
                 Integer numero= rs.getInt(1);
                     return numero;

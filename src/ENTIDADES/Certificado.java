@@ -14,12 +14,30 @@ public class Certificado {
     private String claseAutorizacion;
     private int resultado;
     private String vigencia;
-    private Date fecInspeccion;
-    private Date fecVencimiento;
+    private Object fecInspeccion;
+    private Object fecVencimiento;
     private String cIdentidadCert;
     private String codLocal;
     private String ubigeo;
+    private Date fecInspeccion1;
+    private Date fecVencimiento1;
 
+    public Date getFecInspeccion1() {
+        return fecInspeccion1;
+    }
+
+    public void setFecInspeccion1(Date fecInspeccion1) {
+        this.fecInspeccion1 = fecInspeccion1;
+    }
+
+    public Date getFecVencimiento1() {
+        return fecVencimiento1;
+    }
+
+    public void setFecVencimiento1(Date fecVencimiento1) {
+        this.fecVencimiento1 = fecVencimiento1;
+    }
+    
     public int getIdTarjeta() {
         return idTarjeta;
     }
@@ -103,17 +121,23 @@ public class Certificado {
         this.vigencia = vigencia;
     }
 
-    public Date getFecInspeccion() {
+    public Object getFecInspeccion() {
         return fecInspeccion;
     }
 
-    public void setFecInspeccion(Date fecInspeccion) {
+    public void setFecInspeccion(Object fecInspeccion) {
         this.fecInspeccion = fecInspeccion;
     }
 
-    public Date getFecVencimiento() {
+    public Object getFecVencimiento() {
         return fecVencimiento;
     }
+
+    public void setFecVencimiento(Object fecVencimiento) {
+        this.fecVencimiento = fecVencimiento;
+    }
+
+  
 
     public void setFecVencimiento(Date fecVencimiento) {
         this.fecVencimiento = fecVencimiento;
