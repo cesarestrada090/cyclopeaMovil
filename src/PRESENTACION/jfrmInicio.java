@@ -228,6 +228,7 @@ public class jfrmInicio extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+                
         frmInicio inicio = new frmInicio();
         inicio.setLocationRelativeTo(null);
         inicio.setVisible(true);
@@ -242,7 +243,7 @@ public class jfrmInicio extends javax.swing.JFrame {
 
     private void jMenuBar1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jMenuBar1AncestorAdded
         // TODO add your handling code here:
-
+        
 //        if(password==2)
 //        {
 //            jMenuItem12.setVisible(false);

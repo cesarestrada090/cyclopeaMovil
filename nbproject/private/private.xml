@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/cyclopeaMovil/src/NEGOCIO/TarjetaPropiedadBL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/DATOS/TarjetaPropiedadDAL.java</file>
+            <file>file:/C:/cyclopeaMovil/src/NEGOCIO/VehiculoBL.java</file>
+            <file>file:/C:/cyclopeaMovil/src/ENTIDADES/Certificado.java</file>
+            <file>file:/C:/cyclopeaMovil/src/DATOS/Conexion.java</file>
+            <file>file:/C:/cyclopeaMovil/src/PRESENTACION/RegistrarCertificado.java</file>
             <file>file:/C:/cyclopeaMovil/src/NEGOCIO/WServiceBL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/DATOS/webServiceDAL.java</file>
             <file>file:/C:/cyclopeaMovil/src/PRESENTACION/frmImportarData.java</file>
+            <file>file:/C:/cyclopeaMovil/src/DATOS/webServiceDAL.java</file>
         </group>
     </open-files>
 </project-private>

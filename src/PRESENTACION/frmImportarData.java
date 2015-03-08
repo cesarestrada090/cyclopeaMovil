@@ -179,35 +179,27 @@ public class frmImportarData extends javax.swing.JInternalFrame {
 
                         lstCertificados.add(objCertificado);
 
-                        //objVehiculos.setIdTarjeta(cellTempList.get(i+12).toString());
                         objVehiculos.setPlaca(cellTempList.get(12).toString());
                         objVehiculos.setIdCertificado(Integer.parseInt(cellTempList.get(0).toString()));
-                        //objVehiculos.setnTarjeta(cellTempList.get(i+14).toString());
-                        //objVehiculos.setNombrePropietario(cellTempList.get(i+15).toString());
-                        //objVehiculos.setDomicilio(cellTempList.get(i+16).toString());
-                        //objVehiculos.setVersion(cellTempList.get(i+17).toString()); //Clase
                         objVehiculos.setIdMarca(cellTempList.get(17).toString());
-                        objVehiculos.setAnio(0);//(Integer.parseInt(cellTempList.get(18).toString()));  VERIFICAR EL AÑO DE FABRICACIÓN
+                        objVehiculos.setAnio(Integer.parseInt(cellTempList.get(18).toString()));  //VERIFICAR EL AÑO DE FABRICACIÓN
                         objVehiculos.setIdModelo(cellTempList.get(19).toString());
-                        //objVehiculos.setVersion(cellTempList.get(i+21).toString());
                         objVehiculos.setIdCombustible(cellTempList.get(21).toString());
                         objVehiculos.setIdCarroceria(cellTempList.get(22).toString());
-                        objVehiculos.setnEjes(4);//(Integer.parseInt(cellTempList.get(23).toString())); // VERIFICAR EL NÚMERO DE EJES
+                        objVehiculos.setnEjes(Integer.parseInt(cellTempList.get(23).toString())); // VERIFICAR EL NÚMERO DE EJES
                         objVehiculos.setColor(cellTempList.get(24).toString());
                         objVehiculos.setMotor(cellTempList.get(25).toString());
-                        objVehiculos.setNumCilindros(5);//(Integer.parseInt(cellTempList.get(26).toString())); // VERIFICAR EL NÚMERO DE CILINDROS
+                        objVehiculos.setNumCilindros(Integer.parseInt(cellTempList.get(26).toString())); // VERIFICAR EL NÚMERO DE CILINDROS
                         objVehiculos.setSerie(cellTempList.get(27).toString());
-                        //objVehiculos.setVin(cellTempList.get(i+29).toString());
-                        objVehiculos.setNumRuedas(1);//(Integer.parseInt(cellTempList.get(29).toString()));
-                        objVehiculos.setNumPasajeros(1);//(Integer.parseInt(cellTempList.get(30).toString()));
-                        objVehiculos.setNumAsientos(1);//(Integer.parseInt(cellTempList.get(31).toString()));
-                        objVehiculos.setPesoNeto(1);//(Double.parseDouble(cellTempList.get(32).toString()));
-                        objVehiculos.setPesoBruto(1);//(Double.parseDouble(cellTempList.get(33).toString()));
-                        objVehiculos.setLargo(1);//(Double.parseDouble(cellTempList.get(34).toString()));
-                        objVehiculos.setAlto(1);//(Double.parseDouble(cellTempList.get(35).toString()));
-                        objVehiculos.setAncho(1);//(Double.parseDouble(cellTempList.get(36).toString()));
-                        objVehiculos.setCargaUtil(1);//(Double.parseDouble(cellTempList.get(37).toString()));
-                        //objVehiculos.setEstado(cellTempList.get(i+38).toString());
+                        objVehiculos.setNumRuedas(Integer.parseInt(cellTempList.get(29).toString()));
+                        objVehiculos.setNumPasajeros(Integer.parseInt(cellTempList.get(30).toString()));
+                        objVehiculos.setNumAsientos(Integer.parseInt(cellTempList.get(31).toString()));
+                        objVehiculos.setPesoNeto(Double.parseDouble(cellTempList.get(32).toString()));
+                        objVehiculos.setPesoBruto(Double.parseDouble(cellTempList.get(33).toString()));
+                        objVehiculos.setLargo(Double.parseDouble(cellTempList.get(34).toString()));
+                        objVehiculos.setAlto(Double.parseDouble(cellTempList.get(35).toString()));
+                        objVehiculos.setAncho(Double.parseDouble(cellTempList.get(36).toString()));
+                        objVehiculos.setCargaUtil(Double.parseDouble(cellTempList.get(37).toString()));
 
                         //Falta categoría
                         //Num Puertas
@@ -215,12 +207,12 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                         lstVehiculos.add(objVehiculos);
 
                         objResultado.setIdCertificado(Integer.parseInt(cellTempList.get(0).toString()));
-                        objResultado.setPruebaAli(0);//(Integer.parseInt(cellTempList.get(45).toString()));                        
-                        objResultado.setProfNeuma(0);//(Integer.parseInt(cellTempList.get(46).toString()));
+                        objResultado.setPruebaAli(Integer.parseInt(cellTempList.get(45).toString()));                        
+                        objResultado.setProfNeuma(Integer.parseInt(cellTempList.get(46).toString()));
 
-                        objResultado.setPruebLuces(0);//(Integer.parseInt(cellTempList.get(48).toString()));
-                        objResultado.setSuspension(0);//(Integer.parseInt(cellTempList.get(47).toString()));
-                        objResultado.setEmigases(0);//(Integer.parseInt(cellTempList.get(49).toString()));
+                        objResultado.setPruebLuces(Integer.parseInt(cellTempList.get(48).toString()));
+                        objResultado.setSuspension(Integer.parseInt(cellTempList.get(47).toString()));
+                        objResultado.setEmigases(Integer.parseInt(cellTempList.get(49).toString()));
                         if ("APROBADO".equals(cellTempList.get(42).toString())) {
                             objResultado.setFreServ(1);
                         } else {
@@ -237,8 +229,8 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                             objResultado.setFreeEmer(0);
                         }
 
-                        objResultado.setDisEjes(0);//(Integer.parseInt(cellTempList.get(48).toString()));
-                        objResultado.setPisos(0);//(Integer.parseInt(cellTempList.get(48).toString()));
+                        objResultado.setDisEjes(Integer.parseInt(cellTempList.get(48).toString()));
+                        objResultado.setPisos(Integer.parseInt(cellTempList.get(48).toString()));
 
                         lstResultados.add(objResultado);
 
@@ -266,7 +258,7 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                     int cont = cellTempList2.size();
 
                     if (i > 0) {
-                        objObs.setIdCertificado(2); //(Integer.parseInt(cellTempList2.get(0).toString()));//(Integer.parseInt(cellTempList.get(i).toString()));
+                        objObs.setIdCertificado(Integer.parseInt(cellTempList2.get(0).toString()));//(Integer.parseInt(cellTempList.get(i).toString()));
                         objObs.setCodigoObservacion(cellTempList2.get(1).toString());
                         objObs.setInterpretacion(cellTempList2.get(2).toString());
                         objObs.setCalificacion(cellTempList2.get(3).toString());
