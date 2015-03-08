@@ -43,6 +43,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     boolean suspensionDerPost = true;
     boolean suspensionDesvPost = true;
     boolean sonometroResult = true;
+    
+    TarjetaPropiedad objTarjetaP;
 
     /**
      * Creates new form RegistrarUsuario

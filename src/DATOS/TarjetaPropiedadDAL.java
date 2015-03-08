@@ -108,6 +108,120 @@ public class TarjetaPropiedadDAL {
         }
         return 0;
     }
+    
+    
+    public Object[][] listarTarjetas()
+    {        Object[][] Certificados=null;
+        try {
+            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cs=cn.prepareCall("{CALL listarTarjetas()}");
+            rs=cs.executeQuery();
+
+            int current=rs.getRow(); rs.last();
+            int count=rs.getRow(); rs.beforeFirst();
+            rs.relative(current);
+            
+            Certificados= new Object[count][52];
+            int i=0;
+            while(rs.next()){
+
+                Certificados[i][0]=rs.getString(1);
+                Certificados[i][1]=rs.getString(2);
+                Certificados[i][2]=rs.getString(3);
+                Certificados[i][3]=rs.getString(4);
+                Certificados[i][4]=rs.getString(5);                
+                i++;
+            }
+            return Certificados;
+        } catch (Exception ex) {
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();                
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+    
+    public TarjetaPropiedad obtenerTarjetaP(int idTarjeta) {
+    {        TarjetaPropiedad tarjeta=null;
+        try {
+            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cs=cn.prepareCall("{CALL listarTarjetas()}");
+            rs=cs.executeQuery();
+
+            int current=rs.getRow(); rs.last();
+            int count=rs.getRow(); rs.beforeFirst();
+            rs.relative(current);
+            
+            while(rs.next()){
+                tarjeta.setIdTarjeta(rs.getString(1));
+                tarjeta.setPlaca(rs.getString(2));
+                tarjeta.setnTarjeta(rs.getString(3));
+                tarjeta.setFabricacion(Integer.parseInt(rs.getString(4)));
+                tarjeta.setIdMarca(rs.getString(5));
+            }
+            
+            return tarjeta;
+            
+        } catch (Exception ex) {
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();                
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+    }
+
+    public Object[][] listarAllObservaciones()
+    {        Object[][] Certificados=null;
+        try {
+            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cs=cn.prepareCall("{CALL listarObservaciones()}");
+            rs=cs.executeQuery();
+
+            int current=rs.getRow(); rs.last();
+            int count=rs.getRow(); rs.beforeFirst();
+            rs.relative(current);
+            
+            Certificados= new Object[count][4];
+            int i=0;
+            while(rs.next()){
+
+                Certificados[i][0]=rs.getString(1);
+                Certificados[i][1]=rs.getString(2);
+                Certificados[i][2]=rs.getString(3);
+                Certificados[i][3]=rs.getString(4);                
+                i++;
+            }
+            return Certificados;
+        } catch (Exception ex) {
+            showMessageDialog(null,ex.getMessage(),"Error",0);
+        }
+        finally{
+            try {
+                cn.close();                
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+    
 }
 /*
  *

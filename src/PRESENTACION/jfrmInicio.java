@@ -65,6 +65,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -174,6 +176,22 @@ public class jfrmInicio extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem4);
+
+        jMenuItem10.setText("Registrar Tarjeta de Propiedad");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
+
+        jMenuItem11.setText("Tarjetas Preregistradas");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem11);
 
         jMenuBar1.add(jMenu3);
 
@@ -616,6 +634,56 @@ public class jfrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        RegistrarTarjeta vv = new RegistrarTarjeta();
+
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension jInternalFrameSize = vv.getSize();
+
+        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+
+        boolean mostrar = true;
+        for (int a = 0; a < jDesktopPane1.getComponentCount(); a++) {
+            if (vv.getClass().isInstance(jDesktopPane1.getComponent(a))) {
+                mostrar = true;
+            } else {
+                mostrar = false;
+            }
+        }
+        if (mostrar) {
+            jDesktopPane1.add(vv);
+            vv.setLocation(width, height);
+            vv.show();
+        }
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        ListarTarjetasPreregistradas vv = new ListarTarjetasPreregistradas();
+
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension jInternalFrameSize = vv.getSize();
+
+        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+
+        boolean mostrar = true;
+        for (int a = 0; a < jDesktopPane1.getComponentCount(); a++) {
+            if (vv.getClass().isInstance(jDesktopPane1.getComponent(a))) {
+                mostrar = true;
+            } else {
+                mostrar = false;
+            }
+        }
+        if (mostrar) {
+            jDesktopPane1.add(vv);
+            vv.setLocation(width, height);
+            vv.show();
+        }
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -640,6 +708,8 @@ public class jfrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     public final javax.swing.JMenuItem jMenuItem2 = new javax.swing.JMenuItem();
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

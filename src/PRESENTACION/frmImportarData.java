@@ -301,7 +301,7 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                 for (int j = 0; j < lstCertificados.size(); j++) {
                     Certificado objR = new Certificado();
                     objR = (Certificado) lstCertificados.get(j);
-                    int resultado = 0; //objWServCBL.existeCertificado(objR.getIdCertificado());
+                    int resultado = objWServCBL.existeCertificado(objR.getIdCertificado());
                     if (resultado == 0) {
                         rpta = objWServiceBL.registrarCertificado(objR);
                     }

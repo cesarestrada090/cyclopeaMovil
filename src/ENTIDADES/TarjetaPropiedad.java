@@ -37,6 +37,7 @@ public class TarjetaPropiedad {
     private Date fecha;
     private int idMarcaCarroceria;
     private double Kilometraje;
+    
 
     public int getnRuedas() {
         return nRuedas;

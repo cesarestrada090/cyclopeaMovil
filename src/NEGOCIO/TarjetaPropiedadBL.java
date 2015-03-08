@@ -28,8 +28,15 @@ public class TarjetaPropiedadBL {
     
     public int obtenerTarjetaPropiedad()
     {
-         return new TarjetaPropiedadDAL().obtenerNumeroRegistroTarjeta();
-          
+         return new TarjetaPropiedadDAL().obtenerNumeroRegistroTarjeta();          
+    }
+    
+    public Object[][] listarTarjetas() {
+        return new TarjetaPropiedadDAL().listarTarjetas();
+    }
+    
+    public TarjetaPropiedad obtenerTarjetaP(int idTarjeta) {
+        return new TarjetaPropiedadDAL().obtenerTarjetaP(idTarjeta);
     }
 
 }
