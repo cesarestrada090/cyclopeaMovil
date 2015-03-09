@@ -34,7 +34,7 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
     public void listarTarjetas() {
         String placa = jTextField1.getText();
         Object listaCertificados[][] = new TarjetaPropiedadBL().listarTarjetas();
-        String COLUMNAS[] = {"Cod. Tarjeta", "placa", "N° de Tarjeta", "Año de Fabricación", "Marca"};
+        String COLUMNAS[] = {"id_Tarjeta", "placa", "N° de Tarjeta", "Año de Fabricación", "Marca"};
         modeloDatos = new DefaultTableModel();
         modeloDatos.setDataVector(listaCertificados, COLUMNAS);
         jTable2.setModel(modeloDatos);
@@ -84,7 +84,7 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "Código de Certificado"
+                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "id_Tarjeta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -193,27 +193,26 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
         int idTarjeta = 0;
         if (!x.toString().equals("")) {
             idTarjeta = Integer.parseInt(x.toString());
-            
-            try {                 
-                    RegistrarCertificado ad=new RegistrarCertificado();
-                    Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
-                    Dimension jInternalFrameSize = ad.getSize();
-                    int width = (desktopSize.width - jInternalFrameSize.width) / 2;
-                    int height = (desktopSize.height - jInternalFrameSize.height) / 2;
-                    jfrmInicio.jDesktopPane1.add(ad);
-                    ad.setLocation(width, height);
-                    ad.toFront();
-                    
-                    TarjetaPropiedad objTarjetaPropiedad= new TarjetaPropiedadBL().obtenerTarjetaP(idTarjeta);
-                    
-                    ad.objTarjetaP= objTarjetaPropiedad;               
-                    ad.setVisible(true);
-                    dispose();                 
-                 
-            } catch(NullPointerException ex) {
-                 
+
+            try {
+                TarjetaPropiedad objTarjetaPropiedad = new TarjetaPropiedadBL().obtenerTarjetaP(idTarjeta);
+                RegistrarCertificado ad = new RegistrarCertificado();
+                ad.objTarjetaP = objTarjetaPropiedad;
+                Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
+                Dimension jInternalFrameSize = ad.getSize();
+                int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+                int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+                jfrmInicio.jDesktopPane1.add(ad);
+                ad.setLocation(width, height);
+                ad.toFront();
+                ad.intIdTarjeta=idTarjeta;
+                ad.setVisible(true);
+                dispose();
+
+            } catch (NullPointerException ex) {
+
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro para Mostrar el Certificado", "CAMPOS VACÍOS", 0);
         }
@@ -232,7 +231,7 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        int indX1 = sel.select("id_tarjeta", jTable2);
+        int indX1 = sel.select("id_Tarjeta", jTable2);
         if (indX1 < 0) {
             return;
         }

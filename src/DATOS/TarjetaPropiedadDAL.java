@@ -149,10 +149,10 @@ public class TarjetaPropiedadDAL {
     }
     
     public TarjetaPropiedad obtenerTarjetaP(int idTarjeta) {
-    {        TarjetaPropiedad tarjeta=null;
+    {        TarjetaPropiedad tarjeta=new TarjetaPropiedad();
         try {
             cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=cn.prepareCall("{CALL listarTarjetas()}");
+            cs=cn.prepareCall("{CALL obtenerTarjeta("+idTarjeta+")}");
             rs=cs.executeQuery();
 
             int current=rs.getRow(); rs.last();
@@ -163,8 +163,31 @@ public class TarjetaPropiedadDAL {
                 tarjeta.setIdTarjeta(rs.getString(1));
                 tarjeta.setPlaca(rs.getString(2));
                 tarjeta.setnTarjeta(rs.getString(3));
-                tarjeta.setFabricacion(Integer.parseInt(rs.getString(4)));
-                tarjeta.setIdMarca(rs.getString(5));
+                tarjeta.setNombrePropietario(rs.getString(4));
+                tarjeta.setIdCategoria(rs.getString(5));
+                tarjeta.setIdMarca(rs.getString(6));
+                tarjeta.setFabricacion(Integer.parseInt(rs.getString(7)));
+                tarjeta.setIdModelo(rs.getString(8));
+                tarjeta.setVersion(rs.getString(9));
+                tarjeta.setIdCombustible(rs.getString(10));
+                tarjeta.setIdCarroceria(rs.getString(11));
+                tarjeta.setEjes(Integer.parseInt(rs.getString(12)));
+                tarjeta.setColores(rs.getString(13));
+                tarjeta.setnMotor(rs.getString(14));
+                tarjeta.setCilindros(Integer.parseInt(rs.getString(15)));                
+                tarjeta.setnSerie(rs.getString(16));
+                tarjeta.setVin(rs.getString(17));
+                tarjeta.setRuedas(Integer.parseInt(rs.getString(18)));
+                tarjeta.setPasajeros(Integer.parseInt(rs.getString(19)));
+                tarjeta.setAsientos(Integer.parseInt(rs.getString(20)));
+                tarjeta.setPesoSeco(Double.parseDouble(rs.getString(21)));
+                tarjeta.setPesoBruto(Double.parseDouble(rs.getString(22)));
+                tarjeta.setLongitud(Double.parseDouble(rs.getString(23)));                
+                tarjeta.setAltura(Double.parseDouble(rs.getString(24)));
+                tarjeta.setAncho(Double.parseDouble(rs.getString(25)));
+                tarjeta.setCargaUtil(rs.getDouble(26));
+                tarjeta.setnRuedas(rs.getInt(27));
+                tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
             }
             
             return tarjeta;

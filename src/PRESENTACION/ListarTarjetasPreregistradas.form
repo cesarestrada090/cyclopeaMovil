@@ -88,7 +88,7 @@
                 <Column editable="false" title="Titular" type="java.lang.Object"/>
                 <Column editable="false" title="Fecha de Inspecci&#xf3;n" type="java.lang.Object"/>
                 <Column editable="false" title="Fecha de Vencimiento" type="java.lang.Object"/>
-                <Column editable="false" title="C&#xf3;digo de Certificado" type="java.lang.Object"/>
+                <Column editable="false" title="id_Tarjeta" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
