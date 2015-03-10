@@ -22,30 +22,6 @@ CREATE DATABASE IF NOT EXISTS restfullcyclopea;
 USE restfullcyclopea;
 
 --
--- Definition of table `books`
---
-
-DROP TABLE IF EXISTS `books`;
-CREATE TABLE `books` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `author` varchar(45) NOT NULL,
-  `title` varchar(45) NOT NULL,
-  `isbn` varchar(45) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `books`
---
-
-/*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` (`id`,`author`,`title`,`isbn`,`created_at`) VALUES 
- (1,'Cesar','Estrada','12221','2010-10-10 00:00:00');
-/*!40000 ALTER TABLE `books` ENABLE KEYS */;
-
-
---
 -- Definition of table `certificado`
 --
 
