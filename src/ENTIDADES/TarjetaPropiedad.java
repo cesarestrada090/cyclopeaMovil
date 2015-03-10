@@ -37,7 +37,15 @@ public class TarjetaPropiedad {
     private Date fecha;
     private int idMarcaCarroceria;
     private double Kilometraje;
-    
+    private String tipoServicio;
+
+    public String getTipoServicio() {
+        return tipoServicio;
+    }
+
+    public void setTipoServicio(String tipoServicio) {
+        this.tipoServicio = tipoServicio;
+    }   
 
     public int getnRuedas() {
         return nRuedas;

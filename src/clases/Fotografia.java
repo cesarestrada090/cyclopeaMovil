@@ -20,7 +20,6 @@ public class Fotografia {
 	private boolean leasing;
 	
 	
-	
 	public String getIdExpediente() {
 		return idExpediente;
 	}

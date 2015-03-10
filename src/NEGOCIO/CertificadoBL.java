@@ -5,10 +5,7 @@
 package NEGOCIO;
 
 import DATOS.CertificadoDAL;
-import DATOS.UsuarioDAL;
-import DATOS.VehiculoDAL;
-import ENTIDADES.Certificado;
-import ENTIDADES.Vehiculo;
+import ENTIDADES.*;
 import java.util.List;
 
 /**
@@ -19,6 +16,14 @@ public class CertificadoBL {
 
     public boolean registrarCertificado(Certificado v) {
         if (new CertificadoDAL().registrarDatosCertificado(v)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean registrarFotografia(Fotografias v) {
+        if (new CertificadoDAL().grabarFotografias(v)) {
             return true;
         } else {
             return false;

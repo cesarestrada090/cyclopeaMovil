@@ -630,9 +630,6 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(501, 501, 501)
-                                .addComponent(jButton4))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(436, 436, 436)
                                 .addComponent(jLabel4))
                             .addGroup(layout.createSequentialGroup()
@@ -645,6 +642,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jTabbedPane3)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(541, 541, 541)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -700,6 +701,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
             objTarjetaP.setnTarjeta(jTextField55.getText());
             objTarjetaP.setEstado("2"); //Estado 2 significa que se encuentra preregistrado
+            objTarjetaP.setTipoServicio(String.valueOf(jComboBox1.getSelectedIndex()));
 
             int idTarjeta;
             TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();

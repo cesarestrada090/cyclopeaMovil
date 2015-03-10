@@ -16,15 +16,26 @@ package PRESENTACION;
 import ENTIDADES.*;
 import NEGOCIO.*;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Document;
 
 /**
@@ -47,11 +58,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     public TarjetaPropiedad objTarjetaP; // = new TarjetaPropiedad();
     public int intIdTarjeta;
 
+    private FileInputStream fisfoto1;
+    private int longitudBytes1;
+    private FileInputStream fisfoto2;
+    private int longitudBytes2;
+    private FileInputStream fisfoto3;
+    private int longitudBytes3;
+
     /**
      * Creates new form RegistrarUsuario
      */
     public RegistrarCertificado() {
-        initComponents();        
+        initComponents();
 
 //        jTextField82.setText(objTarjetaP.getNombrePropietario()); //
 //        jTextField82.setText(objTarjetaP.getNombrePropietario()); //
@@ -453,6 +471,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jComboBox3 = new javax.swing.JComboBox();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jTextField26 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField29 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -590,6 +618,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField122.setEnabled(false);
+
         jTextField123.setEnabled(false);
         jTextField123.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -636,8 +666,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel147.setText("MIXTA");
 
         jLabel148.setText("Fecha de Inspección");
-
-        jDateChooser1.setEnabled(false);
 
         jTextField52.setEnabled(false);
         jTextField52.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -706,11 +734,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel20.setText("Tipo Documento");
 
         jComboBox22.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--", "RUC", "DNI", "C.E" }));
-        jComboBox22.setEnabled(false);
 
         jLabel55.setText("Numero Documento");
-
-        jTextField28.setEnabled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -774,18 +799,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel97)
                                             .addComponent(jLabel102))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField112, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField113, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jTextField114, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                                    .addComponent(jTextField115, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jComboBox13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField112)
+                                            .addComponent(jTextField113)
+                                            .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField114)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jTextField115, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jComboBox22, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel108)
@@ -2919,8 +2943,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox3.setEnabled(false);
 
-        jDateChooser2.setEnabled(false);
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -2974,6 +2996,85 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTabbedPane3.addTab("IV. OBSERVACIONES DETECTADAS", jPanel4);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setText("Frénometro 1");
+
+        jLabel19.setText("Frenómetro 2");
+
+        jLabel68.setText("Frenómetro 3");
+        jLabel68.setToolTipText("");
+
+        jButton1.setText("...");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("...");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("...");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel68)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField27))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField26)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(595, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68)
+                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("V. FOTOGRAFÍAS", jPanel9);
+
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 51));
         jLabel4.setText("INSPECCIÓN TÉCNICA VEHICULAR");
@@ -3024,40 +3125,40 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        resultado = validarVacios();
+        resultado = true;//validarVacios();
         if (resultado) {
 
             // CARACTERÍSTICAS DEL VEHÍCULO 
-            TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
-            objTarjetaP.setIdTarjeta(jTextField55.getText());
-            objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
-            objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
-            objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
-            objTarjetaP.setAsientos(Integer.parseInt(jTextField124.getText()));
-            objTarjetaP.setCargaUtil(Double.parseDouble(jTextField120.getText()));
-            objTarjetaP.setIdCategoria(String.valueOf(jComboBox14.getSelectedItem()));
-            objTarjetaP.setColores(jTextField122.getText());
-            objTarjetaP.setPlaca(jTextField83.getText());
-            objTarjetaP.setEjes(Integer.parseInt(jTextField115.getText()));
-            objTarjetaP.setnSerie(jTextField112.getText());
-            objTarjetaP.setFabricacion(Integer.parseInt(String.valueOf(jComboBox11.getSelectedItem())));
-            objTarjetaP.setnMotor(jTextField113.getText());
-            objTarjetaP.setIdCarroceria(String.valueOf(jComboBox12.getSelectedItem()));
-            objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
-            objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
-            objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
-            objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
-            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
-            objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
-            objTarjetaP.setNombrePropietario(jTextField82.getText());
-            objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
-            objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
-            objTarjetaP.setnTarjeta(jTextField55.getText());
+//            TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
+//            objTarjetaP.setIdTarjeta(jTextField55.getText());
+//            objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
+//            objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
+//            objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
+//            objTarjetaP.setAsientos(Integer.parseInt(jTextField124.getText()));
+//            objTarjetaP.setCargaUtil(Double.parseDouble(jTextField120.getText()));
+//            objTarjetaP.setIdCategoria(String.valueOf(jComboBox14.getSelectedItem()));
+//            objTarjetaP.setColores(jTextField122.getText());
+//            objTarjetaP.setPlaca(jTextField83.getText());
+//            objTarjetaP.setEjes(Integer.parseInt(jTextField115.getText()));
+//            objTarjetaP.setnSerie(jTextField112.getText());
+//            objTarjetaP.setFabricacion(Integer.parseInt(String.valueOf(jComboBox11.getSelectedItem())));
+//            objTarjetaP.setnMotor(jTextField113.getText());
+//            objTarjetaP.setIdCarroceria(String.valueOf(jComboBox12.getSelectedItem()));
+//            objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
+//            objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
+//            objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
+//            objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
+//            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
+//            objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
+//            objTarjetaP.setNombrePropietario(jTextField82.getText());
+//            objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
+//            objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
+//            objTarjetaP.setnTarjeta(jTextField55.getText());
 
-            int idTarjeta;
-            TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
-            objTPBL.registrarTarjetaPropiedad(objTarjetaP);
-            idTarjeta = objTPBL.obtenerTarjetaPropiedad();
+            int idTarjeta=intIdTarjeta;
+//            TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
+//            objTPBL.registrarTarjetaPropiedad(objTarjetaP);
+//            idTarjeta = objTPBL.obtenerTarjetaPropiedad();
 
             //CERTIFICADO
             Certificado objCertificado = new Certificado();
@@ -3079,6 +3180,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             CertificadoBL objCertBL = new CertificadoBL();
             objCertBL.registrarCertificado(objCertificado);
             idCertificado = objCertBL.obtenerIdCertificado();
+            
+            //GRABAR FOTOGRAFÍAS
+            Fotografias objFoto=new Fotografias();
+            objFoto.setNumDocEval(idCertificado);
+            objFoto.setTipoDocEval(1);
+            objFoto.setFoto1(fisfoto1);
+            objFoto.setFoto2(fisfoto2);
+            objFoto.setFoto3(fisfoto3);
+            
+            objCertBL.registrarFotografia(objFoto);
 
             //RESULTADOS - PRUEBA DE FRENOS
             Frenometro objFrenometro1 = new Frenometro();
@@ -5078,16 +5189,96 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (objTarjetaP != null) {
             jTextField82.setText(objTarjetaP.getNombrePropietario()); //
             jTextField83.setText(objTarjetaP.getPlaca()); // placa
-//            jTextField84.setText(objTarjetaP.getKilometraje()); //kilometraje
+            jTextField84.setText(String.valueOf(objTarjetaP.getKilometraje())); //kilometraje
             jTextField112.setText(objTarjetaP.getnSerie()); //nserie
             jTextField114.setText(objTarjetaP.getIdCategoria()); //Marca Carroceria
-//            jTextField115.setText(objTarjetaP.getEjes()); //Nro Ejes
-//            jTextField51.setText(objTarjetaP.getnRuedas()); //Nro Ruedas
+            jTextField115.setText(String.valueOf(objTarjetaP.getEjes())); //Nro Ejes
+            jTextField51.setText(String.valueOf(objTarjetaP.getnRuedas())); //Nro Ruedas
+            jTextField55.setText(objTarjetaP.getnTarjeta());
+            //jTextField28.setText(String.valueOf(objTarjetaP.get));
+            jTextField124.setText(String.valueOf(objTarjetaP.getnRuedas()));
         }
-        
+
     }//GEN-LAST:event_formAncestorAdded
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto1 = new FileInputStream(se.getSelectedFile());
+                
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField26.setText(PATH);
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes1 = (int) se.getSelectedFile().length();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto2 = new FileInputStream(se.getSelectedFile());
+                
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField27.setText(PATH);
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes2 = (int) se.getSelectedFile().length();
+        }
+//        JFileChooser fileChooser = new JFileChooser();
+//        fileChooser.setApproveButtonText("Guardar Backup de la Base de datos");
+//        FileNameExtensionFilter filter =  new FileNameExtensionFilter("*.jpg", "*.jpg");
+//        fileChooser.addChoosableFileFilter(filter);
+//        fileChooser.showSaveDialog(null);
+//        File fileDB = fileChooser.getSelectedFile();
+//        String PATH = fileDB.getAbsolutePath();
+//        jTextField27.setText(PATH);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto3 = new FileInputStream(se.getSelectedFile());
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField29.setText(PATH);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes3 = (int) se.getSelectedFile().length();
+        }
+//        JFileChooser fileChooser = new JFileChooser();
+//        fileChooser.setApproveButtonText("Guardar Backup de la Base de datos");
+//        FileNameExtensionFilter filter =  new FileNameExtensionFilter("*.jpg", "*.jpg");
+//        fileChooser.addChoosableFileFilter(filter);
+//        fileChooser.showSaveDialog(null);
+//        File fileDB = fileChooser.getSelectedFile();
+//        String PATH = fileDB.getAbsolutePath();
+//        jTextField29.setText(PATH);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox10;
@@ -5166,6 +5357,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -5219,6 +5412,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
@@ -5249,6 +5443,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField1;
@@ -5327,7 +5522,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
