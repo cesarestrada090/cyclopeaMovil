@@ -11,32 +11,21 @@
  */
 package PRESENTACION;
 
-//import ENTIDADES.Usuario;
-//import NEGOCIO.UsuarioBL;
 import ENTIDADES.*;
 import NEGOCIO.*;
-import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.Document;
 
 /**
  *
@@ -70,10 +59,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
      */
     public RegistrarCertificado() {
         initComponents();
-
-//        jTextField82.setText(objTarjetaP.getNombrePropietario()); //
-//        jTextField82.setText(objTarjetaP.getNombrePropietario()); //
-//        jTextField82.setText(objTarjetaP.getNombrePropietario()); //
         // **************************** PRIMER EJE FRENO SERVICIO
         jTextField40.getDocument().addDocumentListener(new PrimerEjeFrenometro());
         jTextField41.getDocument().addDocumentListener(new SegundoEjeFrenometro());
@@ -146,19 +131,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private boolean luxometroCompleto;
     private boolean alineadorCompleto;
 
-    public void limpiarUsuarios() {
-        jTextField4.setText("");
-//        jPasswordField1.setText("");
-
-    }
-
-    public void habilitarUsuarios(boolean b) {
-        jTextField4.setEnabled(b);
-//        jPasswordField1.setEnabled(b);
-//        jButton2.setEnabled(true);
-//        jButton1.setEnabled(false);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,6 +140,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
@@ -481,8 +454,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jComboBox20 = new javax.swing.JComboBox();
+        jLabel69 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("CYCLOPEA | CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR");
@@ -498,6 +472,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel4.setText("INSPECCIÓN TÉCNICA VEHICULAR");
 
         jTabbedPane3.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -707,19 +685,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jComboBox14.setEnabled(false);
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox15.setEnabled(false);
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox16.setEnabled(false);
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox17.setEnabled(false);
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox18.setEnabled(false);
 
         jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        jComboBox19.setEnabled(false);
 
         jTextField51.setEnabled(false);
         jTextField51.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -811,15 +784,15 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                                 .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jComboBox22, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel108)
-                                            .addComponent(jLabel107)
+                                            .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel106)
                                             .addComponent(jLabel105)
                                             .addComponent(jLabel104)
                                             .addComponent(jLabel103)
-                                            .addComponent(jLabel149, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel55))))
+                                            .addComponent(jLabel55)
+                                            .addComponent(jLabel149, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(187, 187, 187)
@@ -1568,6 +1541,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField111.setEnabled(false);
 
+        jTextField116.setEnabled(false);
         jTextField116.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -3075,10 +3049,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTabbedPane3.addTab("V. FOTOGRAFÍAS", jPanel9);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel4.setText("INSPECCIÓN TÉCNICA VEHICULAR");
-
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/saveas.png"))); // NOI18N
         jButton4.setText("GUARDAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -3087,10 +3057,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi" }));
+        jComboBox20.setEnabled(false);
+
+        jLabel69.setText("Tipo de Servicio:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(568, 568, 568))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -3098,23 +3077,28 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(jLabel69)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(572, 572, 572))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel69)
+                    .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addComponent(jButton4)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("jfrmRegistrarUsuario");
@@ -3125,40 +3109,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        resultado = true;//validarVacios();
+        resultado = validarVacios();
         if (resultado) {
-
-            // CARACTERÍSTICAS DEL VEHÍCULO 
-//            TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
-//            objTarjetaP.setIdTarjeta(jTextField55.getText());
-//            objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
-//            objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
-//            objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
-//            objTarjetaP.setAsientos(Integer.parseInt(jTextField124.getText()));
-//            objTarjetaP.setCargaUtil(Double.parseDouble(jTextField120.getText()));
-//            objTarjetaP.setIdCategoria(String.valueOf(jComboBox14.getSelectedItem()));
-//            objTarjetaP.setColores(jTextField122.getText());
-//            objTarjetaP.setPlaca(jTextField83.getText());
-//            objTarjetaP.setEjes(Integer.parseInt(jTextField115.getText()));
-//            objTarjetaP.setnSerie(jTextField112.getText());
-//            objTarjetaP.setFabricacion(Integer.parseInt(String.valueOf(jComboBox11.getSelectedItem())));
-//            objTarjetaP.setnMotor(jTextField113.getText());
-//            objTarjetaP.setIdCarroceria(String.valueOf(jComboBox12.getSelectedItem()));
-//            objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
-//            objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
-//            objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
-//            objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
-//            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
-//            objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
-//            objTarjetaP.setNombrePropietario(jTextField82.getText());
-//            objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
-//            objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
-//            objTarjetaP.setnTarjeta(jTextField55.getText());
-
             int idTarjeta=intIdTarjeta;
-//            TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
-//            objTPBL.registrarTarjetaPropiedad(objTarjetaP);
-//            idTarjeta = objTPBL.obtenerTarjetaPropiedad();
 
             //CERTIFICADO
             Certificado objCertificado = new Certificado();
@@ -3180,7 +3133,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             CertificadoBL objCertBL = new CertificadoBL();
             objCertBL.registrarCertificado(objCertificado);
             idCertificado = objCertBL.obtenerIdCertificado();
-            
+                        
             //GRABAR FOTOGRAFÍAS
             Fotografias objFoto=new Fotografias();
             objFoto.setNumDocEval(idCertificado);
@@ -3196,24 +3149,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             objFrenometro1.setnEjes(1);
             objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-            objFrenometro1.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
+//            objFrenometro1.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
             objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
             objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
             objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
             objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
-            objFrenometro1.setFuerzaEmerDer(Double.parseDouble(jTextField94.getText()));
-            objFrenometro1.setFuerzaEmerIzq(Double.parseDouble(jTextField92.getText()));
+//            objFrenometro1.setFuerzaEmerDer(Double.parseDouble(jTextField94.getText()));
+//            objFrenometro1.setFuerzaEmerIzq(Double.parseDouble(jTextField92.getText()));
             objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
             objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
-            objFrenometro1.setResultadoEjeEmergencia(jTextField76.getText());
+//            objFrenometro1.setResultadoEjeEmergencia(jTextField76.getText());
             objFrenometro1.setResultadoEjeEstacionamiento(jTextField107.getText());
-            objFrenometro1.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
+//            objFrenometro1.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
             objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
             objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
             objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
             objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
-            objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
+//            objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
             objFrenometro1.setIdCerticado(idCertificado);
 
             FrenometroBL objFrenometroBL = new FrenometroBL();
@@ -3224,24 +3177,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro2.setIdCerticado(idCertificado);
                 objFrenometro2.setnEjes(2);
                 objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-                objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
+//                objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
                 objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
                 objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
                 objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
-                objFrenometro2.setFuerzaEmerDer(Double.parseDouble(jTextField93.getText()));
-                objFrenometro2.setFuerzaEmerIzq(Double.parseDouble(jTextField95.getText()));
+//                objFrenometro2.setFuerzaEmerDer(Double.parseDouble(jTextField93.getText()));
+//                objFrenometro2.setFuerzaEmerIzq(Double.parseDouble(jTextField95.getText()));
                 objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
-                objFrenometro2.setResultadoEjeEmergencia(jTextField77.getText());
+//                objFrenometro2.setResultadoEjeEmergencia(jTextField77.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField108.getText());
                 objFrenometro2.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
                 objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
-                objFrenometro2.setDesequilibrioEmergencia(Double.parseDouble(jTextField103.getText()));
+//                objFrenometro2.setDesequilibrioEmergencia(Double.parseDouble(jTextField103.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
             } catch (NumberFormatException e) {
@@ -3252,24 +3205,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro3.setIdCerticado(idCertificado);
                 objFrenometro3.setnEjes(3);
                 objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-                objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
+//                objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
                 objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
                 objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
                 objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
-                objFrenometro3.setFuerzaEmerDer(Double.parseDouble(jTextField101.getText()));
-                objFrenometro3.setFuerzaEmerIzq(Double.parseDouble(jTextField96.getText()));
+//                objFrenometro3.setFuerzaEmerDer(Double.parseDouble(jTextField101.getText()));
+//                objFrenometro3.setFuerzaEmerIzq(Double.parseDouble(jTextField96.getText()));
                 objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
-                objFrenometro3.setResultadoEjeEmergencia(jTextField78.getText());
+//                objFrenometro3.setResultadoEjeEmergencia(jTextField78.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField109.getText());
                 objFrenometro3.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
                 objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
-                objFrenometro3.setDesequilibrioEmergencia(Double.parseDouble(jTextField104.getText()));
+//                objFrenometro3.setDesequilibrioEmergencia(Double.parseDouble(jTextField104.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
             } catch (NumberFormatException e) {
@@ -3279,24 +3232,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro4.setIdCerticado(idCertificado);
                 objFrenometro4.setnEjes(4);
                 objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-                objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
+//                objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
                 objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
                 objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
                 objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
-                objFrenometro4.setFuerzaEmerDer(Double.parseDouble(jTextField100.getText()));
-                objFrenometro4.setFuerzaEmerIzq(Double.parseDouble(jTextField97.getText()));
+//                objFrenometro4.setFuerzaEmerDer(Double.parseDouble(jTextField100.getText()));
+//                objFrenometro4.setFuerzaEmerIzq(Double.parseDouble(jTextField97.getText()));
                 objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
                 objFrenometro4.setResultadoEjeServicio(jTextField48.getText());
-                objFrenometro4.setResultadoEjeEmergencia(jTextField79.getText());
+//                objFrenometro4.setResultadoEjeEmergencia(jTextField79.getText());
                 objFrenometro4.setResultadoEjeEstacionamiento(jTextField110.getText());
-                objFrenometro4.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
+//                objFrenometro4.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
                 objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
-                objFrenometro4.setDesequilibrioEmergencia(Double.parseDouble(jTextField105.getText()));
+//                objFrenometro4.setDesequilibrioEmergencia(Double.parseDouble(jTextField105.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro4);
             } catch (NumberFormatException e) {
@@ -3307,24 +3260,24 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro5.setnEjes(5);
                 objFrenometro5.setIdCerticado(idCertificado);
                 objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-                objFrenometro5.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
+//                objFrenometro5.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
                 objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
                 objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
                 objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
-                objFrenometro5.setFuerzaEmerDer(Double.parseDouble(jTextField99.getText()));
-                objFrenometro5.setFuerzaEmerIzq(Double.parseDouble(jTextField98.getText()));
+//                objFrenometro5.setFuerzaEmerDer(Double.parseDouble(jTextField99.getText()));
+//                objFrenometro5.setFuerzaEmerIzq(Double.parseDouble(jTextField98.getText()));
                 objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
-                objFrenometro5.setResultadoEjeEmergencia(jTextField80.getText());
+//                objFrenometro5.setResultadoEjeEmergencia(jTextField80.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField111.getText());
-                objFrenometro5.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
+//                objFrenometro5.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
                 objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
-                objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));
+//                objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
             } catch (NumberFormatException e) {
@@ -3538,115 +3491,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
     public boolean validarVacios() {
 
-        //Tarjeta de Propiedad
-        if (jTextField55.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de tarjeta", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField82.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el nombre del titular", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField83.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese la placa del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField84.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField112.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de Serie", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField113.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de motor", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField55.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese la carrocería del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField115.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de ejes", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField51.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de ruedas", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField124.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de asientos", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField124.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el número de pasajeros", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField123.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el largo del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField53.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el ancho del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField54.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField54.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField28.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el alto del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-
-        if (jTextField122.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el/los color(es) del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField121.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el peso neto del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField119.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese el peso bruto del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-        if (jTextField120.getText().trim().equals("")) {
-            resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese la carga útil del vehículo", "CAMPOS VACÍOS", 0);
-            return resultado;
-        }
-
         if (jTextField194.getText().trim().equals("")) {
             resultado = false;
-            JOptionPane.showMessageDialog(null, "Complete los campos en emisiones sonoras", "CAMPOS VACÍOS", 0);
+            JOptionPane.showMessageDialog(null, "Complete los datos de emisiones sonoras", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-
 
         /* primer freno servicio */
         if (!jTextField2.getText().trim().equals("")
@@ -3719,40 +3568,40 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             frenoEstacionamientoCompleto = true;
         }
 
-        /* primer freno Emergencia */
-        if (!jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
-                && !jTextField102.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("")) {
-            frenoEmergenciaCompleto = true;
-        }
-
-        /* Segundo freno Emergencia */
-        if (!jTextField93.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
-                && !jTextField103.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("")) {
-            frenoEmergenciaCompleto = true;
-        }
-
-        /* Tercer freno Emergencia */
-        if (!jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
-                && !jTextField104.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("")) {
-            frenoEmergenciaCompleto = true;
-        }
-
-        /* Cuarto freno Emergencia */
-        if (!jTextField100.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
-                && !jTextField105.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("")) {
-            frenoEmergenciaCompleto = true;
-        }
-
-        /* Quinto freno Emergencia */
-        if (!jTextField99.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
-                && !jTextField106.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
-                && !jTextField116.getText().trim().equals("")) {
-            frenoEmergenciaCompleto = true;
-        }
+//        /* primer freno Emergencia */
+//        if (!jTextField94.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
+//                && !jTextField102.getText().trim().equals("") && !jTextField92.getText().trim().equals("")
+//                && !jTextField116.getText().trim().equals("")) {
+//            frenoEmergenciaCompleto = true;
+//        }
+//
+//        /* Segundo freno Emergencia */
+//        if (!jTextField93.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
+//                && !jTextField103.getText().trim().equals("") && !jTextField95.getText().trim().equals("")
+//                && !jTextField116.getText().trim().equals("")) {
+//            frenoEmergenciaCompleto = true;
+//        }
+//
+//        /* Tercer freno Emergencia */
+//        if (!jTextField101.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
+//                && !jTextField104.getText().trim().equals("") && !jTextField96.getText().trim().equals("")
+//                && !jTextField116.getText().trim().equals("")) {
+//            frenoEmergenciaCompleto = true;
+//        }
+//
+//        /* Cuarto freno Emergencia */
+//        if (!jTextField100.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
+//                && !jTextField105.getText().trim().equals("") && !jTextField97.getText().trim().equals("")
+//                && !jTextField116.getText().trim().equals("")) {
+//            frenoEmergenciaCompleto = true;
+//        }
+//
+//        /* Quinto freno Emergencia */
+//        if (!jTextField99.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
+//                && !jTextField106.getText().trim().equals("") && !jTextField98.getText().trim().equals("")
+//                && !jTextField116.getText().trim().equals("")) {
+//            frenoEmergenciaCompleto = true;
+//        }
 
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
@@ -3834,7 +3683,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 && sonometroCompleto
                 && gasometroCompleto
                 && suspensionCompleto
-                && frenoEmergenciaCompleto
                 && alineadorCompleto
                 && luxometroCompleto) {
             return true;
@@ -3847,15 +3695,15 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Complete frenos de Estacionamiento", "CAMPOS VACÍOS", 0);
 
             }
-            if (!frenoEmergenciaCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete frenos de Emergencia", "CAMPOS VACÍOS", 0);
+////            if (!frenoEmergenciaCompleto) {
+////                JOptionPane.showMessageDialog(null, "Complete frenos de Emergencia", "CAMPOS VACÍOS", 0);
+////
+////            }
 
-            }
-
-            if (!sonometroCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de Emisión Sonora", "CAMPOS VACÍOS", 0);
-
-            }
+//            if (!sonometroCompleto) {
+//                JOptionPane.showMessageDialog(null, "Complete campos de Emisión Sonora", "CAMPOS VACÍOS", 0);
+//
+//            }
 
             if (!suspensionCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de Suspensión", "CAMPOS VACÍOS", 0);
@@ -5191,16 +5039,26 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField83.setText(objTarjetaP.getPlaca()); // placa
             jTextField84.setText(String.valueOf(objTarjetaP.getKilometraje())); //kilometraje
             jTextField112.setText(objTarjetaP.getnSerie()); //nserie
-            jTextField114.setText(objTarjetaP.getIdCategoria()); //Marca Carroceria
+            jTextField113.setText(objTarjetaP.getnMotor()); //nmotor
+            jTextField114.setText(objTarjetaP.getIdMarca()); //Marca Carroceria
             jTextField115.setText(String.valueOf(objTarjetaP.getEjes())); //Nro Ejes
             jTextField51.setText(String.valueOf(objTarjetaP.getnRuedas())); //Nro Ruedas
             jTextField55.setText(objTarjetaP.getnTarjeta());
-            //jTextField28.setText(String.valueOf(objTarjetaP.get));
-            jTextField124.setText(String.valueOf(objTarjetaP.getnRuedas()));
+            jTextField52.setText(String.valueOf(objTarjetaP.getPasajeros()));
+            jTextField124.setText(String.valueOf(objTarjetaP.getAsientos()));
+            jTextField123.setText(String.valueOf(objTarjetaP.getLongitud()));
+            jTextField53.setText(String.valueOf(objTarjetaP.getAncho()));
+            jTextField54.setText(String.valueOf(objTarjetaP.getAltura()));
+            jTextField122.setText(String.valueOf(objTarjetaP.getColores()));
+            jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
+            jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
+            jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
+//            jComboBox14.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdCategoria()));
         }
 
     }//GEN-LAST:event_formAncestorAdded
 
+    //ADJUNTAR IMÁGENES
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFileChooser se = new JFileChooser();
@@ -5239,14 +5097,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
             this.longitudBytes2 = (int) se.getSelectedFile().length();
         }
-//        JFileChooser fileChooser = new JFileChooser();
-//        fileChooser.setApproveButtonText("Guardar Backup de la Base de datos");
-//        FileNameExtensionFilter filter =  new FileNameExtensionFilter("*.jpg", "*.jpg");
-//        fileChooser.addChoosableFileFilter(filter);
-//        fileChooser.showSaveDialog(null);
-//        File fileDB = fileChooser.getSelectedFile();
-//        String PATH = fileDB.getAbsolutePath();
-//        jTextField27.setText(PATH);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -5265,14 +5115,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
             this.longitudBytes3 = (int) se.getSelectedFile().length();
         }
-//        JFileChooser fileChooser = new JFileChooser();
-//        fileChooser.setApproveButtonText("Guardar Backup de la Base de datos");
-//        FileNameExtensionFilter filter =  new FileNameExtensionFilter("*.jpg", "*.jpg");
-//        fileChooser.addChoosableFileFilter(filter);
-//        fileChooser.showSaveDialog(null);
-//        File fileDB = fileChooser.getSelectedFile();
-//        String PATH = fileDB.getAbsolutePath();
-//        jTextField29.setText(PATH);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -5292,6 +5134,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox18;
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox20;
     private javax.swing.JComboBox jComboBox22;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
@@ -5413,6 +5256,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;

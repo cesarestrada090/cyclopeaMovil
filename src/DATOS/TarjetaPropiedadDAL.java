@@ -64,7 +64,7 @@ public class TarjetaPropiedadDAL {
             ps.setObject(28, v.getFecha());
             ps.setInt(29, v.getnRuedas());
             ps.setDouble(30, v.getKilometraje());
-            ps.setString(30, v.getTipoServicio());
+            ps.setString(31, v.getTipoServicio());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"

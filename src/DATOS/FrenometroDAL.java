@@ -4,9 +4,7 @@
  */
 package DATOS;
 
-import ENTIDADES.Certificado;
 import ENTIDADES.Frenometro;
-import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
 import java.util.logging.Level;
@@ -35,9 +33,9 @@ public class FrenometroDAL {
                     + "idEje,pesoServicio,fuerzaDerServicio,fuerzaIzqServicio,desequilibrioServicio,resultadoEjeServicio," //6
                     + "eficienciaServicio,resultadoServicio,fuerzaDerEstacionamiento," //3
                     + "fuerzaIzqEstacionamiento,desequilibrioEstacionamiento,resultadoEjeEstacionamiento," //3
-                    + "eficienciaEstacionamiento,resultadoEstacionamiento,fuerzaDerEmergencia,fuerzaIzqEmergencia,desequilibrioEmergencia," //5
-                    + "resultadoEjeEmergencia,eficienciaEmergencia,resultadoEmergencia,idCertificado)"//3
-                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "eficienciaEstacionamiento,resultadoEstacionamiento," //2
+                    + "idCertificado)"//1
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1, v.getnEjes());
             ps.setDouble(2, v.getPesoServicio());
@@ -45,25 +43,15 @@ public class FrenometroDAL {
             ps.setDouble(4, v.getFuerzaServicioIzq());
             ps.setDouble(5, v.getDesequilibrioServicio());
             ps.setString(6, v.getResultadoEjeServicio());
-
             ps.setDouble(7, v.getEficienciaServicio());
             ps.setString(8, v.getResultadoGlobalServicio());
-            ps.setDouble(9, v.getFuerzaEstDer());
-            
+            ps.setDouble(9, v.getFuerzaEstDer());            
             ps.setDouble(10, v.getFuerzaEstIzq());
             ps.setDouble(11, v.getDesequilibrioEstacionamiento());
-            ps.setString(12, v.getResultadoEjeEstacionamiento());
-            
+            ps.setString(12, v.getResultadoEjeEstacionamiento());            
             ps.setDouble(13, v.getEficienciaEst());
             ps.setString(14, v.getResultadoGlobalEstacionamiento());
-            ps.setDouble(15, v.getFuerzaEmerDer());
-            ps.setDouble(16, v.getFuerzaEmerIzq());
-            ps.setDouble(17, v.getDesequilibrioEmergencia());
-            
-            ps.setString(18, v.getResultadoEjeEmergencia());
-            ps.setDouble(19, v.getEficienciaEmergencia());
-            ps.setString(20, v.getResultadoGlobalEmergencia());
-            ps.setInt(21, v.getIdCerticado());
+            ps.setInt(15, v.getIdCerticado());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
