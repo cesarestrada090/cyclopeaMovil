@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package PRESENTACION;
 
 import DATOS.Reporte;
@@ -23,25 +22,24 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
      * Creates new form ListarCertificados
      */
     public int idCertificado;
-    seleccion sel=new seleccion();
-    
+    seleccion sel = new seleccion();
+
     public ListarCertificados() {
         initComponents();
     }
-    
-    DefaultTableModel modeloDatos=new DefaultTableModel();
-     
-    public void listarCertificados()
-    {
+
+    DefaultTableModel modeloDatos = new DefaultTableModel();
+
+    public void listarCertificados() {
         String placa = jTextField1.getText();
-        Object listaCertificados[][]= new CertificadoBL().listarCertificados(placa);
-        String COLUMNAS[]={"Placa","Titular","Fecha de Inspección", "Fecha de Vencimiento","IdCertificado"};
-        modeloDatos=new DefaultTableModel();
-        modeloDatos.setDataVector(listaCertificados,COLUMNAS);
+        Object listaCertificados[][] = new CertificadoBL().listarCertificados(placa);
+        String COLUMNAS[] = {"Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdCertificado"};
+        modeloDatos = new DefaultTableModel();
+        modeloDatos.setDataVector(listaCertificados, COLUMNAS);
         jTable2.setModel(modeloDatos);
-        
-        int[] anchos = {10,70,10,10,0};
-        for(int i = 0; i < jTable2.getColumnCount(); i++) {
+
+        int[] anchos = {10, 70, 10, 10, 0};
+        for (int i = 0; i < jTable2.getColumnCount(); i++) {
             jTable2.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
         }
     }
@@ -85,7 +83,7 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "Código de Certificado"
+                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdCertificado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -190,22 +188,24 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-         Integer x=idCertificado;
-         String idproducto="";
-         if(! x.toString().equals(""))
-        {                   
-                    idproducto=   x.toString(); 
-             Reporte r=new Reporte();
-        r.mostrarReporteProductoPorCodigo(idproducto);
-        }else{
-        JOptionPane.showMessageDialog(null, "Seleccione un registro para Mostrar el Certificado", "CAMPOS VACÍOS", 0);
+        Integer x = idCertificado;
+        String idproducto = "";
+        if (!x.toString().equals("")) {
+            idproducto = x.toString();
+            Reporte r = new Reporte();
+            r.mostrarReporteProductoPorCodigo(idproducto);
+            Reporte ri = new Reporte();
+            ri.mostrarInformeTecnico(idproducto);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro", "CAMPOS VACÍOS", 0);
         }
-        
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formAncestorAdded
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -219,7 +219,7 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
         if (indX1 < 0) {
             return;
         }
-        idCertificado=Integer.parseInt(jTable2.getValueAt(jTable2.getSelectedRow(), indX1).toString());
+        idCertificado = Integer.parseInt(jTable2.getValueAt(jTable2.getSelectedRow(), indX1).toString());
         jButton2.setEnabled(true);
     }//GEN-LAST:event_jTable2MouseClicked
 

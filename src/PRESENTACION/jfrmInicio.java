@@ -64,7 +64,6 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -167,16 +166,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/funciones.png"))); // NOI18N
         jMenu3.setText("Operaciones");
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/nuevo registro.png"))); // NOI18N
-        jMenuItem4.setText("Registrar Certificado");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem4);
-
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/nuevo registro.png"))); // NOI18N
         jMenuItem10.setText("Registrar Tarjeta de Propiedad");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +176,8 @@ public class jfrmInicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem10);
 
+        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/duplicados.png"))); // NOI18N
         jMenuItem11.setText("Tarjetas Preregistradas");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,34 +302,6 @@ public class jfrmInicio extends javax.swing.JFrame {
             ru.show();
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    // REGISTRO DE CERTIFICADO
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-
-        RegistrarCertificado ru = new RegistrarCertificado();
-
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension jInternalFrameSize = ru.getSize();
-
-        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
-        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
-
-        boolean mostrar = true;
-        for (int a = 0; a < jDesktopPane1.getComponentCount(); a++) {
-            if (ru.getClass().isInstance(jDesktopPane1.getComponent(a))) {
-                mostrar = true;
-            } else {
-                mostrar = false;
-            }
-        }
-        if (mostrar) {
-            jDesktopPane1.add(ru);
-            ru.setLocation(width, height);
-            ru.show();
-        }
-
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:}
@@ -712,7 +677,6 @@ public class jfrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem11;
     public final javax.swing.JMenuItem jMenuItem2 = new javax.swing.JMenuItem();
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

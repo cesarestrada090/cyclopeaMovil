@@ -29,22 +29,22 @@
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="81" height="12"/>
-					<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<reportElement style="Detail" positionType="Float" x="3" y="0" width="69" height="12"/>
+					<textElement verticalAlignment="Middle">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{codigoObservacion}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="92" y="0" width="374" height="12"/>
+					<reportElement style="Detail" positionType="Float" x="73" y="0" width="407" height="12"/>
 					<textElement textAlignment="Justified" verticalAlignment="Middle">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interpretacion}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="480" y="1" width="75" height="12"/>
-					<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<reportElement style="Detail" positionType="Float" x="480" y="0" width="75" height="12"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="SansSerif" size="7"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{calificacion}]]></textFieldExpression>
