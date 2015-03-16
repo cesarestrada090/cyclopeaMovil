@@ -32,7 +32,7 @@ public class CertificadoDAL {
         try {
             cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
             
-            String sentencia = "insert into certificado(idCertificado" //1
+            String sentencia = "insert into certificado(idCertificado," //1
                     + "tipoDocTransp,numDocTransp,tipoDocEvaluar,numDocEvaluar,"  //4
                     + "claseAutorizacion,resultado,vigencia,fecInspeccion,fecVencimiento," //5
                     + "cIdentidadCert,codLocal,ubigeo,idTarjeta," //4
