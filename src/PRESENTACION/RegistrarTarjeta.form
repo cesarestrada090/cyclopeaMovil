@@ -261,8 +261,8 @@
                               <Group type="102" attributes="0">
                                   <Component id="jTextField123" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField53" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextField53" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jTextField54" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jTextField122" max="32767" attributes="0"/>

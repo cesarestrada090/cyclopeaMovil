@@ -31,28 +31,37 @@ public class CertificadoDAL {
     public boolean registrarDatosCertificado(Certificado v) {
         try {
             cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
-            //cn = (Connection) Conexion.obtenerConexionMySQL("Localhost", "bdnuevamovil", "root", "123456");
-
-            String sentencia = "insert into certificado("
-                    + "tipoDocTransp,numDocTransp,tipoDocEvaluar,numDocEvaluar,"
-                    + "claseAutorizacion,resultado,vigencia,fecInspeccion,fecVencimiento,"
-                    + "cIdentidadCert,codLocal,ubigeo,idTarjeta)"
-                    + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
+            String sentencia = "insert into certificado(idCertificado" //1
+                    + "tipoDocTransp,numDocTransp,tipoDocEvaluar,numDocEvaluar,"  //4
+                    + "claseAutorizacion,resultado,vigencia,fecInspeccion,fecVencimiento," //5
+                    + "cIdentidadCert,codLocal,ubigeo,idTarjeta," //4
+                    + "texto,titulo,claseAut,idInforme,idExpediente,numCertificado,numInforme,numExpediente)" //8
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setString(1, v.getTipoDocTransp());
-            ps.setString(2, v.getNumDocTransp());
-            ps.setString(3, v.getTipoDocEvaluar());
-            ps.setString(4, v.getNumDocEvaluar());
-            ps.setString(5, v.getClaseAutorizacion());
-            ps.setInt(6, v.getResultado());
-            ps.setString(7, v.getVigencia());
-            ps.setObject(8, v.getFecInspeccion());
-            ps.setObject(9, v.getFecVencimiento());
-            ps.setString(10, v.getcIdentidadCert());
-            ps.setString(11, v.getCodLocal());
-            ps.setString(12, v.getUbigeo());
-            ps.setInt(13, v.getIdTarjeta());
+            ps.setInt(1, v.getIdCertificado());
+            ps.setString(2, v.getTipoDocTransp());
+            ps.setString(3, v.getNumDocTransp());
+            ps.setString(4, v.getTipoDocEvaluar());
+            ps.setString(5, v.getNumDocEvaluar());
+            ps.setString(6, v.getClaseAutorizacion());
+            ps.setInt(7, v.getResultado());
+            ps.setString(8, v.getVigencia());
+            ps.setObject(9, v.getFecInspeccion());
+            ps.setObject(10, v.getFecVencimiento());
+            ps.setString(11, v.getcIdentidadCert());
+            ps.setString(12, v.getCodLocal());
+            ps.setString(13, v.getUbigeo());
+            ps.setInt(14, v.getIdTarjeta());
+            ps.setString(15, v.getTexto());
+            ps.setString(16, v.getTitulo());
+            ps.setString(17, v.getClaseAut());
+            ps.setInt(18, v.getIdInforme());
+            ps.setInt(19, v.getIdExpediente());
+            ps.setString(20, v.getNumCertificado());
+            ps.setString(21, v.getNumInforme());
+            ps.setString(22, v.getNumExpediente());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
@@ -420,6 +429,41 @@ public class CertificadoDAL {
             }
         }
 
+    }
+    
+    public Certificado obtenerIds() {
+
+        Certificado objCertificado = null;
+        try {
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            cs = cn.prepareCall("{CALL ObtenerIds()}");
+            rs = cs.executeQuery();
+
+            int current = rs.getRow();
+            rs.last();
+            rs.beforeFirst();
+            rs.relative(current);
+
+
+            while (rs.next()) {
+                objCertificado.setIdCertificado(rs.getInt(1));
+                objCertificado.setIdInforme(rs.getInt(2));
+                objCertificado.setIdExpediente(rs.getInt(3));
+            }
+            return objCertificado;
+            
+        } catch (SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                cn.close();
+                rs.close();
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
     }
 
 }

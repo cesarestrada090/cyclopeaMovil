@@ -5,6 +5,9 @@ import java.util.Date;
 public class Certificado {
 
     private int idCertificado;
+    private int idInforme;
+    private int idExpediente;
+    
     private int idTarjeta;
     private String tipoDocTransp;
     private String numDocTransp;
@@ -20,7 +23,78 @@ public class Certificado {
     private String codLocal;
     private String ubigeo;
     private Date fecInspeccion1;
-    private Date fecVencimiento1;
+    private Date fecVencimiento1;    
+    private String texto;
+    private String titulo;
+    private String claseAut;
+    
+    private String numCertificado;
+    private String numInforme;
+    private String numExpediente;
+
+    public int getIdInforme() {
+        return idInforme;
+    }
+
+    public void setIdInforme(int idInforme) {
+        this.idInforme = idInforme;
+    }
+
+    public int getIdExpediente() {
+        return idExpediente;
+    }
+
+    public void setIdExpediente(int idExpediente) {
+        this.idExpediente = idExpediente;
+    }    
+    
+    public String getNumCertificado() {
+        return numCertificado;
+    }
+
+    public void setNumCertificado(String numCertificado) {
+        this.numCertificado = numCertificado;
+    }
+
+    public String getNumInforme() {
+        return numInforme;
+    }
+
+    public void setNumInforme(String numInforme) {
+        this.numInforme = numInforme;
+    }
+
+    public String getNumExpediente() {
+        return numExpediente;
+    }
+
+    public void setNumExpediente(String numExpediente) {
+        this.numExpediente = numExpediente;
+    }   
+    
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getClaseAut() {
+        return claseAut;
+    }
+
+    public void setClaseAut(String claseAut) {
+        this.claseAut = claseAut;
+    }
 
     public Date getFecInspeccion1() {
         return fecInspeccion1;

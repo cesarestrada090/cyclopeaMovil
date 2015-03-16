@@ -65,4 +65,7 @@ public class CertificadoBL {
     public List obtenerListaCategoria() {
         return new CertificadoDAL().obtenerListaCategorias();
     }
+    public Certificado obtenerIds() {
+        return new CertificadoDAL().obtenerIds();
+    }
 }
