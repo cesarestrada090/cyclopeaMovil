@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -4012,6 +4013,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Complete Numero de Documento", "CAMPOS VACÍOS", 0);
             return false;
         }
+        
+        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
+        if (s.trim().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
+            return false;
+        }
+        
 
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto

@@ -19,6 +19,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
 import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
@@ -691,6 +692,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTPBL.registrarTarjetaPropiedad(objTarjetaP);
             
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO DE TARJETA DE PROPIEDAD", 1);
+            dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -825,8 +827,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        
-        if (jDateChooser1.getDate().toString().trim().equals("")) {
+        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
+        if (s.equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese la fecha de Inspeccion", "CAMPOS VACÍOS", 0);
             return resultado;
