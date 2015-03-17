@@ -658,7 +658,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
             // CARACTERÍSTICAS DEL VEHÍCULO 
             TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
-            objTarjetaP.setIdTarjeta(jTextField55.getText());
+            
             objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
             objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
             objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
@@ -825,6 +825,13 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
+        
+        if (jDateChooser1.getDate().toString().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese la fecha de Inspeccion", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        
         if (jTextField112.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el número de Serie", "CAMPOS VACÍOS", 0);

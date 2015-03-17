@@ -405,13 +405,22 @@ public class CertificadoDAL {
             ps.setInt(2, v.getNumDocEval());
             if (v.getFoto1() != null) {
                 ps.setBinaryStream(3, v.getFoto1());
+            }else{
+                ps.setBinaryStream(3, null);
             }
             if (v.getFoto2() != null) {
                 ps.setBinaryStream(4, v.getFoto2());
             }
+            else{
+                ps.setBinaryStream(4, null);
+            }
             if (v.getFoto3() != null) {
                 ps.setBinaryStream(5, v.getFoto3());
             }
+            else{
+                 ps.setBinaryStream(5, null);
+            }
+            
             ps.executeUpdate();
             
             return true;
@@ -433,7 +442,7 @@ public class CertificadoDAL {
     
     public Certificado obtenerIds() {
 
-        Certificado objCertificado = null;
+        Certificado objCertificado = new Certificado();
         try {
             cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
             cs = cn.prepareCall("{CALL ObtenerIds()}");

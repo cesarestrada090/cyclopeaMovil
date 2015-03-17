@@ -466,10 +466,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -650,6 +650,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField52.setEnabled(false);
+        jTextField52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField52ActionPerformed(evt);
+            }
+        });
         jTextField52.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField52KeyPressed(evt);
@@ -3847,15 +3852,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 sb.registrarSonometro(s);
             } catch (NumberFormatException e) {
             }
-            ////OBSERVACIONES DETECTADAS
-
-            ///RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR
-            //int ResultInsp=jComboBox3.getSelectedIndex();     
-            //String Vigencia=jTextField195.getText();
-            //String fechaVig=jTextField195.getText();                    
-//            JOptionPane.showMessageDialog(null, modelo, "CAMPOS VACÍOS", 0);
-//        }else{
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 0);
+            //objTarjetaP.equals(c)
+            new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
+            dispose(); 
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -4006,6 +4006,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!jTextField9.getText().trim().equals("") && !jTextField15.getText().trim().equals("")
                 && !jTextField20.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
             alineadorCompleto = true;
+        }
+        
+        if (jTextField28.getText().trim().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Complete Numero de Documento", "CAMPOS VACÍOS", 0);
+            return false;
         }
 
         if (frenoServicioCompleto
@@ -5438,6 +5443,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             this.longitudBytes3 = (int) se.getSelectedFile().length();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField52ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
