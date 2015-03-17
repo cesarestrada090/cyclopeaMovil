@@ -5386,7 +5386,15 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
             jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
             jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
-//            jComboBox14.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdCategoria()));
+            
+            jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
+            jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
+            jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
+            jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
+            jComboBox11.setSelectedItem(objTarjetaP.getFabricacion());            
+            jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
+            jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
+            
         }
 
         ObtenerIds();
