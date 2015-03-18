@@ -3885,7 +3885,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 sb.registrarSonometro(s);
             } catch (NumberFormatException e) {
             }
-            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 0);
+            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
             dispose();
@@ -4160,7 +4160,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField40.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField45.setText("A");
                 }
@@ -4184,7 +4184,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             String x = jTextField40.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField45.setText("A");
                 }
@@ -4213,7 +4213,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField41.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField46.setText("A");
                 }
@@ -4237,7 +4237,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField41.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField46.setText("A");
                 }
@@ -4266,7 +4266,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField42.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField47.setText("A");
                 }
@@ -4285,7 +4285,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField42.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField47.setText("A");
                 }
@@ -4311,7 +4311,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField43.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField48.setText("A");
                 }
@@ -4330,7 +4330,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField43.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField48.setText("A");
                 }
@@ -4356,7 +4356,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField44.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField49.setText("A");
 
@@ -4379,7 +4379,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField44.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
 
                 if (valor <= 20) {
                     jTextField49.setText("A");
@@ -4406,7 +4406,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField50.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor < 20) {
                     eficienciaServicio = false;
                     //Muy Grave 1.4
@@ -4430,7 +4430,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField50.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor < 20) {
                     eficienciaServicio = false;
                     //Muy Grave 1.4
@@ -4461,7 +4461,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField85.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor >= 15) {
                     eficienciaEstacionamiento = true;
                     //Muy Grave 1.4
@@ -4481,7 +4481,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField85.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor >= 15) {
                     eficienciaEstacionamiento = true;
                     //Muy Grave 1.4
@@ -4508,7 +4508,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField5.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
@@ -4527,7 +4527,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField5.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
@@ -4553,7 +4553,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField6.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
@@ -4572,7 +4572,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField6.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
@@ -4598,7 +4598,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField7.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
@@ -4617,7 +4617,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField7.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
@@ -4643,7 +4643,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField8.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
@@ -4662,7 +4662,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField8.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
@@ -4688,7 +4688,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField9.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }
@@ -4707,7 +4707,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField9.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }

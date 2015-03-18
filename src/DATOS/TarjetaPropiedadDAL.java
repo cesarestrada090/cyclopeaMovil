@@ -218,6 +218,7 @@ public class TarjetaPropiedadDAL {
                 tarjeta.setnRuedas(rs.getInt(27));
                 tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
                 tarjeta.setTipoServicio(rs.getString(29));
+                tarjeta.setFecha(rs.getDate(30));
             }
             
             return tarjeta;
