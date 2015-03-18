@@ -17,7 +17,6 @@ import ENTIDADES.*;
 import NEGOCIO.*;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import java.util.Calendar;
 import java.util.List;
 import javax.swing.JTextField;
 
@@ -40,11 +39,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             jComboBox10.addItem((String) listaModelos.get(i));
         }
 
-        List listaCombustibles = b.obtenerListaCombustible();
-        size = listaCombustibles.size();
-        for (int i = 0; i < size; i++) {
-            jComboBox13.addItem((String) listaCombustibles.get(i));
-        }
+//        List listaCombustibles = b.obtenerListaCombustible();
+//        size = listaCombustibles.size();
+//        for (int i = 0; i < size; i++) {
+//            jComboBox13.addItem((String) listaCombustibles.get(i));
+//        }
 
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
@@ -169,10 +168,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -319,6 +318,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                 jTextField119KeyTyped(evt);
             }
         });
+
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "Gasolina" }));
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 
