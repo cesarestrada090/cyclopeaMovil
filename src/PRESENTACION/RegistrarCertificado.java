@@ -5003,7 +5003,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf(resultado));
+                jTextField75.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5018,7 +5018,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf(resultado));
+                jTextField75.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5038,7 +5038,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf(resultado));
+                jTextField74.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5053,7 +5053,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf(resultado));
+                jTextField74.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5073,7 +5073,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf(resultado));
+                jTextField73.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5088,7 +5088,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf(resultado));
+                jTextField73.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5108,7 +5108,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf(resultado));
+                jTextField72.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5123,7 +5123,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf(resultado));
+                jTextField72.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5143,7 +5143,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf(resultado));
+                jTextField71.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5158,7 +5158,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf(resultado));
+                jTextField71.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5178,7 +5178,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf(resultado));
+                jTextField40.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5193,7 +5193,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf(resultado));
+                jTextField40.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5213,7 +5213,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf(resultado));
+                jTextField41.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5228,7 +5228,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf(resultado));
+                jTextField41.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5248,7 +5248,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf(resultado));
+                jTextField42.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5263,7 +5263,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf(resultado));
+                jTextField42.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5283,7 +5283,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf(resultado));
+                jTextField43.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5298,7 +5298,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf(resultado));
+                jTextField43.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
@@ -5318,7 +5318,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf(resultado));
+                jTextField44.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
 
@@ -5333,7 +5333,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf(resultado));
+                jTextField44.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
 
             }
         }
