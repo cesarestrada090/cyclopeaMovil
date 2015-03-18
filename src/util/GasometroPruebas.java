@@ -5,9 +5,7 @@
 package util;
 
 import DATOS.GasometroDAL;
-import DATOS.ObservacionDAL;
 import ENTIDADES.Gasometro;
-import ENTIDADES.Observacion;
 
 /**
  *
@@ -30,6 +28,6 @@ public class GasometroPruebas {
         c.settAceite(33.2);
         
         GasometroDAL data= new GasometroDAL();
-        System.out.print(data.registrarDatosGasometro(c)) ;
+        System.out.print(data.registrarDatosGasometroDiesel(c)) ;
     }
 }

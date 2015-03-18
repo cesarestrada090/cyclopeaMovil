@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="10"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,7 +99,7 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idcertificado,
-cer.fecinspeccion,'' as informeInspeccion, tp.razon1,tp.placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
+cer.fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
 tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
 
@@ -113,7 +113,7 @@ IFNULL(CAST(ce.bancosuspension AS CHAR),'-') AS bancosuspension,
 
 IFNULL(CAST(susp.delanteraIzq AS CHAR),'-') as delanteraIzq, 
 IFNULL(CAST(susp.delanteraDer AS CHAR),'-') as delanteraDer, 
-IFNULL(CAST(susp.delanteraDesv AS CHAR),'-') as delanteraDesv, 
+IFNULL(CAST(susp.delanteraDesv AS CHAR),'-') as delanteraDesv,
 susp.resultadoDelantera, 
 susp.resultadoFinalDelantera,
 IFNULL(CAST(susp.posteriorDer AS CHAR),'-') as posteriorDer, 
@@ -296,10 +296,10 @@ IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=ce
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idCertificado and nEje=4) AS CHAR),'-') as desviacionAlineamiento4,
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idCertificado and nEje=5) AS CHAR),'-') as desviacionAlineamiento5,
 
-f.BIN_FOTOGRAFIA,
-cer.texto,
-cer.titulo,
-cer.claseAut
+cer.numCertificado,
+cer.numInforme,
+cer.numExpediente,
+if(cer.resultado=1,'APROBADO','DESAPROBADO') as resultadoDesc
 
  from certificado cer left join certificadoequipo cequp on cer.idcertificado=cequp.idcertificado
 left join sonometro son on son.idCertificado=cer.idcertificado
@@ -496,10 +496,10 @@ where cer.idcertificado=$P{idCertificado}]]>
 	<field name="desviacionAlineamiento3" class="java.lang.String"/>
 	<field name="desviacionAlineamiento4" class="java.lang.String"/>
 	<field name="desviacionAlineamiento5" class="java.lang.String"/>
-	<field name="BIN_FOTOGRAFIA" class="java.awt.Image"/>
-	<field name="texto" class="java.lang.String"/>
-	<field name="titulo" class="java.lang.String"/>
-	<field name="claseAut" class="java.lang.String"/>
+	<field name="numCertificado" class="java.lang.String"/>
+	<field name="numInforme" class="java.lang.String"/>
+	<field name="numExpediente" class="java.lang.String"/>
+	<field name="resultadoDesc" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -510,7 +510,7 @@ where cer.idcertificado=$P{idCertificado}]]>
 		<band height="27" splitType="Stretch">
 			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
 			<staticText>
-				<reportElement x="128" y="0" width="261" height="20"/>
+				<reportElement x="136" y="0" width="261" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="11" isBold="true"/>
 				</textElement>
@@ -548,21 +548,21 @@ where cer.idcertificado=$P{idCertificado}]]>
 			<staticText>
 				<reportElement x="231" y="17" width="50" height="15"/>
 				<textElement>
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Resultado:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="383" y="16" width="91" height="15"/>
 				<textElement verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Fecha de Inspección:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="7" y="18" width="110" height="13"/>
+				<reportElement x="7" y="17" width="110" height="13"/>
 				<textElement verticalAlignment="Middle">
-					<font size="9"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Informe de Inspección N°:]]></text>
 			</staticText>
@@ -586,18 +586,18 @@ where cer.idcertificado=$P{idCertificado}]]>
 				<textFieldExpression><![CDATA[$F{fecinspeccion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="16" width="94" height="14"/>
+				<reportElement x="124" y="16" width="94" height="14"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{informeInspeccion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numInforme}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="284" y="18" width="87" height="12"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="284" y="16" width="87" height="14"/>
+				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoDesc}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
