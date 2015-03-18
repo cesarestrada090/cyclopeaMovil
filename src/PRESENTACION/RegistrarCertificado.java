@@ -87,6 +87,40 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
 
+        // FUERZA DE FRENADO ESTACIONAMIENTO
+        //EJE 1  
+        jTextField65.getDocument().addDocumentListener(new Frenado01());
+        jTextField66.getDocument().addDocumentListener(new Frenado01());
+        //EJE 2
+        jTextField64.getDocument().addDocumentListener(new Frenado02());
+        jTextField67.getDocument().addDocumentListener(new Frenado02());
+        //EJE 3
+        jTextField63.getDocument().addDocumentListener(new Frenado03());
+        jTextField68.getDocument().addDocumentListener(new Frenado03());
+        //EJE 4
+        jTextField62.getDocument().addDocumentListener(new Frenado04());
+        jTextField69.getDocument().addDocumentListener(new Frenado04());
+        //EJE 5
+        jTextField61.getDocument().addDocumentListener(new Frenado05());
+        jTextField70.getDocument().addDocumentListener(new Frenado05());
+
+        // FUERZA DE FRENADO SERVICIO
+        //EJE 1  
+        jTextField30.getDocument().addDocumentListener(new FrenadoServicio01());
+        jTextField31.getDocument().addDocumentListener(new FrenadoServicio01());
+        //EJE 2
+        jTextField32.getDocument().addDocumentListener(new FrenadoServicio02());
+        jTextField36.getDocument().addDocumentListener(new FrenadoServicio02());
+        //EJE 3
+        jTextField33.getDocument().addDocumentListener(new FrenadoServicio03());
+        jTextField37.getDocument().addDocumentListener(new FrenadoServicio03());
+        //EJE 4
+        jTextField34.getDocument().addDocumentListener(new FrenadoServicio04());
+        jTextField38.getDocument().addDocumentListener(new FrenadoServicio04());
+        //EJE 5
+        jTextField35.getDocument().addDocumentListener(new FrenadoServicio05());
+        jTextField39.getDocument().addDocumentListener(new FrenadoServicio05());
+
         jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
@@ -100,7 +134,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 //        for (int i = 0; i < size; i++) {
 //            jComboBox13.addItem((String) listaCombustibles.get(i));
 //        }
-
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
         for (int i = 0; i < size; i++) {
@@ -1371,6 +1404,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField71.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField71.setText("10");
         jTextField71.setToolTipText("");
+        jTextField71.setEnabled(false);
         jTextField71.setName("d20"); // NOI18N
         jTextField71.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1380,6 +1414,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField72.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField72.setText("10");
+        jTextField72.setEnabled(false);
         jTextField72.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1388,6 +1423,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField73.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField73.setText("10");
+        jTextField73.setEnabled(false);
         jTextField73.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1396,6 +1432,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField74.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField74.setText("10");
+        jTextField74.setEnabled(false);
         jTextField74.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1404,6 +1441,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField75.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField75.setText("10");
+        jTextField75.setEnabled(false);
+        jTextField75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField75ActionPerformed(evt);
+            }
+        });
         jTextField75.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -3365,134 +3408,136 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         return numExpediente;
     }
 
-    private Certificado ObtenerCertificado(){
+    private Certificado ObtenerCertificado() {
         //CERTIFICADO
-            Certificado objCertificado = new Certificado();
-            objCertificado.setNumDocEvaluar(jTextField55.getText());
-            objCertificado.setTipoDocEvaluar("1");
-            objCertificado.setNumDocTransp(jTextField28.getText());
-            objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
-            objCertificado.setCodLocal("Desconocido");
-            objCertificado.setFecInspeccion(objTarjetaP.getFecha());
-           Calendar calendar = Calendar.getInstance();
+        Certificado objCertificado = new Certificado();
+        objCertificado.setNumDocEvaluar(jTextField55.getText());
+        objCertificado.setTipoDocEvaluar("1");
+        objCertificado.setNumDocTransp(jTextField28.getText());
+        objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
+        objCertificado.setCodLocal("Desconocido");
+        objCertificado.setFecInspeccion(objTarjetaP.getFecha());
+        Calendar calendar = Calendar.getInstance();
 //            calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
-            calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
-            objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
-            objCertificado.setResultado(jComboBox3.getSelectedIndex());
-            objCertificado.setVigencia(jTextField157.getText());
-            objCertificado.setIdTarjeta(intIdTarjeta);
-            objCertificado.setIdCertificado(idCertificado);
-            objCertificado.setIdInforme(idInforme);
-            objCertificado.setIdExpediente(idExpediente);
-            objCertificado.setNumCertificado(generarCodigoCertificado());
-            objCertificado.setNumInforme(generarCodigoInforme());
-            objCertificado.setNumExpediente(generarCodigoExpediente());
+        calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
+        objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
+        objCertificado.setResultado(jComboBox3.getSelectedIndex());
+        objCertificado.setVigencia(jTextField157.getText());
+        objCertificado.setIdTarjeta(intIdTarjeta);
+        objCertificado.setIdCertificado(idCertificado);
+        objCertificado.setIdInforme(idInforme);
+        objCertificado.setIdExpediente(idExpediente);
+        objCertificado.setNumCertificado(generarCodigoCertificado());
+        objCertificado.setNumInforme(generarCodigoInforme());
+        objCertificado.setNumExpediente(generarCodigoExpediente());
 
-            int tipoServicio = jComboBox20.getSelectedIndex();
-            if (tipoServicio == 0) { //Interprovincial turístico estudiantes
-                objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO NACIONAL");
-                objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
-                        + "TRANSPORTE ESPECIAL");
+        int tipoServicio = jComboBox20.getSelectedIndex();
+
+        if (tipoServicio == 0) { //Interprovincial turístico estudiantes
+            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO NACIONAL");
+            objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
+                    + "TRANSPORTE ESPECIAL");
+            objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
+                    + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO NACIONAL  ha aprobado la "
+                    + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
+                    + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
+                    + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
+                    + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                    + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
+                    + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+        } else {
+            if (tipoServicio == 1) { //Mercancías en general
+                objCertificado.setClaseAut("SERVICIO DE TRANSPORTE DE MERCANCIAS EN GENERAL DE AMBITO  NACIONAL");
+                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE MERCANCÍAS GENERALES O "
+                        + "ESPECIALES NO CONSIDERADAS COMO MATERIALES O RESIDUOS PELIGROSOS");
+
                 objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                        + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO NACIONAL  ha aprobado la "
-                        + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
-                        + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
-                        + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
-                        + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                        + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
-                        + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                        + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
+                        + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
+                        + "mecánicas de funcionamiento, que cumple con las condiciones y características ténicas establecidas en el Reglamento "
+                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
+                        + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
+                        + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
             } else {
-                if (tipoServicio == 1) { //Mercancías en general
-                    objCertificado.setClaseAut("SERVICIO DE TRANSPORTE DE MERCANCIAS EN GENERAL DE AMBITO  NACIONAL");
-                    objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE MERCANCÍAS GENERALES O "
-                            + "ESPECIALES NO CONSIDERADAS COMO MATERIALES O RESIDUOS PELIGROSOS");
-                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                            + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
-                            + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
-                            + "mecánicas de funcionamiento, que cumple con las condiciones y características ténicas establecidas en el Reglamento "
-                            + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
-                            + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
-                            + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                if (tipoServicio == 2) { //Mercancías peligrosas
+                    objCertificado.setClaseAut("");
+                    objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE DE MATERIALES Y RESIDUOS PELIGROSOS");
+                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio "
+                            + "de transporte de materiales y residuos peligrosos ha aprobado la Inspección Técnica Vehicular Complementaria al "
+                            + "haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento y cumple con las "
+                            + "condiciones y características técnicas establecidas en el artículo 19º del Reglamento Nacional de Vehículos aprobado "
+                            + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehícular NºNº " + objCertificado.getNumInforme()
+                            + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                 } else {
-                    if (tipoServicio == 2) { //Mercancías peligrosas
-                        objCertificado.setClaseAut("");
-                        objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE DE MATERIALES Y RESIDUOS PELIGROSOS");
-                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio "
-                                + "de transporte de materiales y residuos peligrosos ha aprobado la Inspección Técnica Vehicular Complementaria al "
-                                + "haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento y cumple con las "
-                                + "condiciones y características técnicas establecidas en el artículo 19º del Reglamento Nacional de Vehículos aprobado "
-                                + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehícular NºNº " + objCertificado.getNumInforme()
-                                + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                    if (tipoServicio == 3) { //Transporte de personal
+                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
+                        objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
+                                + "MODALIDAD DE TRANSPORTE ESPECIAL");
+                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
+                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
+                                + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
+                                + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
+                                + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
+                                + "aprobado por Decreto Supremo Nº017-2009-MTC y en la normatividad emitida por la Autoridad competente, según consta "
+                                + "en el Informe de Inspección Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno "
+                                + "Nº " + objCertificado.getNumExpediente() + ".");
                     } else {
-                        if (tipoServicio == 3) { //Transporte de personal
-                            objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
-                            objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
-                                    + "MODALIDAD DE TRANSPORTE ESPECIAL");
+                        if (tipoServicio == 4) { //Transporte público
+                            objCertificado.setClaseAut("ÁMBITO NACIONAL");
+                            objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
+                                    + "LA MODALIDAD DE TRANSPORTE REGULAR");
                             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                    + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
-                                    + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
-                                    + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
-                                    + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
-                                    + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
-                                    + "aprobado por Decreto Supremo Nº017-2009-MTC y en la normatividad emitida por la Autoridad competente, según consta "
-                                    + "en el Informe de Inspección Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno "
-                                    + "Nº " + objCertificado.getNumExpediente() + ".");
+                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
+                                    + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
+                                    + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
+                                    + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
+                                    + "Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y los artículos 19º , 20º "
+                                    + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y "
+                                    + "en la normatividad emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica "
+                                    + "Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                         } else {
-                            if (tipoServicio == 4) { //Transporte público
-                                objCertificado.setClaseAut("ÁMBITO NACIONAL");
-                                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
-                                        + "LA MODALIDAD DE TRANSPORTE REGULAR");
-                                objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                        + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
-                                        + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
-                                        + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
-                                        + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
-                                        + "Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y los artículos 19º , 20º "
-                                        + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y "
-                                        + "en la normatividad emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica "
-                                        + "Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                            if (tipoServicio == 5) { //Transporte privado de mercancías
+                                objCertificado.setClaseAut("TRANSPORTE PRIVADO DE MERCANCÍAS DE ÁMBITO NACIONAL");
+                                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PRIVADO DE MERCANCÍAS");
+                                objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado "
+                                        + "al servicio de transporte privado de mercancias, ha aprobado la Inspección Técnica Vehicular complementaria "
+                                        + "al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento, "
+                                        + "que cumple con las condiciones y características técnicas establecidas en el Reglamento nacional de "
+                                        + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 24º  del Reglamento "
+                                        + "Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y en la normatividad "
+                                        + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehícular Nº " + objCertificado.getNumInforme()
+                                        + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
-                                if (tipoServicio == 5) { //Transporte privado de mercancías
-                                    objCertificado.setClaseAut("TRANSPORTE PRIVADO DE MERCANCÍAS DE ÁMBITO NACIONAL");
-                                    objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PRIVADO DE MERCANCÍAS");
-                                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado "
-                                            + "al servicio de transporte privado de mercancias, ha aprobado la Inspección Técnica Vehicular complementaria "
-                                            + "al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento, "
-                                            + "que cumple con las condiciones y características técnicas establecidas en el Reglamento nacional de "
-                                            + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 24º  del Reglamento "
-                                            + "Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y en la normatividad "
-                                            + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehícular Nº " + objCertificado.getNumInforme()
-                                            + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-                                } else {
-                                    if (tipoServicio == 6) { //Taxi
-                                        objCertificado.setTitulo("SERVICIO DE TAXI");
-                                        objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
-                                                + "DE PERSONAS EN TAXI");
-                                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
-                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
-                                                + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
-                                                + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
-                                                + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
-                                                + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
-                                                + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                                                + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
-                                                + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-                                    }
+                                if (tipoServicio == 6) { //Taxi
+                                    objCertificado.setTitulo("SERVICIO DE TAXI");
+                                    objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
+                                            + "DE PERSONAS EN TAXI");
+                                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
+                                            + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                            + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                            + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
+                                            + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
+                                            + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
+                                            + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                                            + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
+                                            + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 }
                             }
                         }
                     }
                 }
             }
+        }
         return objCertificado;
     }
-    
+
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         resultado = validarVacios();
         if (resultado) {
-            
+
             //GRABAR CERTIFICADO
             Certificado objCertificado = ObtenerCertificado();
             CertificadoBL objCertBL = new CertificadoBL();
@@ -3843,7 +3888,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 0);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
-            dispose(); 
+            dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -3995,19 +4040,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 && !jTextField20.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
-        
-        if (jTextField28.getText().trim().equals("") ) {
+
+        if (jTextField28.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(null, "Complete Numero de Documento", "CAMPOS VACÍOS", 0);
             return false;
         }
-        
+
 //        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
 //        if (s.trim().equals("") ) {
 //            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
 //            return false;
 //        }
-        
-
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
                 && sonometroCompleto
@@ -4818,6 +4861,364 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }
 
+    private double calcularMayor(double a, double b) {
+        if (a > b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+
+    class Frenado01 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField65.getText();
+            String y = jTextField66.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField75.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField65.getText();
+            String y = jTextField66.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField75.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado02 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField64.getText();
+            String y = jTextField67.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField74.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField64.getText();
+            String y = jTextField67.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField74.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado03 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField63.getText();
+            String y = jTextField68.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField73.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField63.getText();
+            String y = jTextField68.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField73.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado04 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField62.getText();
+            String y = jTextField69.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField72.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField62.getText();
+            String y = jTextField69.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField72.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado05 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField61.getText();
+            String y = jTextField70.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField71.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField61.getText();
+            String y = jTextField70.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField71.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio01 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField30.getText();
+            String y = jTextField31.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField40.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField30.getText();
+            String y = jTextField31.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField40.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio02 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField32.getText();
+            String y = jTextField36.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField41.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField32.getText();
+            String y = jTextField36.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField41.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio03 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField33.getText();
+            String y = jTextField37.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField42.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField33.getText();
+            String y = jTextField37.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField42.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio04 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField34.getText();
+            String y = jTextField38.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField43.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField34.getText();
+            String y = jTextField38.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField43.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio05 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField35.getText();
+            String y = jTextField39.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField44.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField35.getText();
+            String y = jTextField39.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField44.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
     class SuspensionDelanteraIzq implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
@@ -5373,15 +5774,15 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
             jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
             jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
-            
+
             jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
             jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
             jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
             jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
-            jComboBox11.setSelectedItem(objTarjetaP.getFabricacion());            
+            jComboBox11.setSelectedItem(objTarjetaP.getFabricacion());
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
             jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
-            
+
         }
 
         ObtenerIds();
@@ -5450,6 +5851,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private void jTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField52ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField52ActionPerformed
+
+    private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField75ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
