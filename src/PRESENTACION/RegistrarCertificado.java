@@ -164,6 +164,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private boolean sonometroCompleto;
     private boolean luxometroCompleto;
     private boolean alineadorCompleto;
+    private boolean fotosCompleto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2728,11 +2729,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox8.setEnabled(false);
+        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox8ActionPerformed(evt);
+            }
+        });
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox7.setEnabled(false);
         jDesktopPane1.add(jComboBox7);
-        jComboBox7.setBounds(0, 0, 200, 20);
+        jComboBox7.setBounds(0, 0, 190, 20);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3415,13 +3421,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         objCertificado.setTipoDocEvaluar("1");
         objCertificado.setNumDocTransp(jTextField28.getText());
         objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
-        objCertificado.setCodLocal("Desconocido");
+        objCertificado.setCodLocal("00");
         objCertificado.setFecInspeccion(objTarjetaP.getFecha());
         Calendar calendar = Calendar.getInstance();
 //            calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
         calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
         objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
-        objCertificado.setResultado(jComboBox3.getSelectedIndex());
+
+        if (jComboBox3.getSelectedIndex() == 0) {
+            objCertificado.setResultado(1);
+        } else {
+            objCertificado.setResultado(0);
+        }
+
         objCertificado.setVigencia(jTextField157.getText());
         objCertificado.setIdTarjeta(intIdTarjeta);
         objCertificado.setIdCertificado(idCertificado);
@@ -3532,6 +3544,85 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         return objCertificado;
     }
 
+    private Resultados ObtenerResultado() {
+        Resultados objR = new Resultados();
+        objR.setIdCertificado(idCertificado);//
+
+        objR.setDisEjes(1);
+
+        if (jComboBox6.getSelectedIndex() == 0) {
+            objR.setFreServ(1);//
+        } else {
+            objR.setFreServ(0);//
+        }
+
+        if (jComboBox1.getSelectedIndex() == 0) {
+            objR.setEmigases(1);//
+        } else {
+            objR.setEmigases(0);//
+        }
+
+        if (jComboBox4.getSelectedIndex() == 0) {
+            objR.setFreeEmer(1);// 
+        } else {
+            objR.setFreeEmer(0);//
+        }
+
+        if (jComboBox5.getSelectedIndex() == 0) {
+            objR.setFreeEstac(1);// 
+        } else {
+            objR.setFreeEstac(0);// 
+        }
+
+        objR.setObservacion("");
+        objR.setPisos(0);
+
+        int neumaticos;
+        if (("A".equals(jTextField21.getText()) || "".equals(jTextField21.getText())) && ("A".equals(jTextField22.getText()) || "".equals(jTextField22.getText()))
+                && ("A".equals(jTextField23.getText()) || "".equals(jTextField23.getText())) && ("A".equals(jTextField24.getText()) || "".equals(jTextField24.getText()))
+                && ("A".equals(jTextField25.getText()) || "".equals(jTextField25.getText()))) {
+            neumaticos = 1;
+        } else {
+            neumaticos = 0;
+        }
+
+        objR.setProfNeuma(neumaticos);
+
+        int luces;
+        if (("A".equals(jTextField171.getText()) || "".equals(jTextField171.getText())) && ("A".equals(jTextField172.getText()) || "".equals(jTextField172.getText()))
+                && ("A".equals(jTextField173.getText()) || "".equals(jTextField173.getText())) && ("A".equals(jTextField174.getText()) || "".equals(jTextField174.getText()))) {
+            luces = 1;
+        } else {
+            luces = 0;
+        }
+
+        objR.setPruebLuces(luces);
+
+        int alineamiento;
+        if (("A".equals(jTextField10.getText()) || "".equals(jTextField10.getText())) && ("A".equals(jTextField11.getText()) || "".equals(jTextField11.getText()))
+                && ("A".equals(jTextField15.getText()) || "".equals(jTextField15.getText())) && ("A".equals(jTextField13.getText()) || "".equals(jTextField13.getText()))
+                && ("A".equals(jTextField14.getText()) || "".equals(jTextField14.getText()))) {
+            alineamiento = 1;
+        } else {
+            alineamiento = 0;
+        }
+
+        objR.setPruebaAli(alineamiento);
+
+        int susDel = jComboBox7.getSelectedIndex();
+        int susPos = jComboBox8.getSelectedIndex();
+        int Susp;
+        if (susDel == 0 & susPos == 0) {
+            Susp = 1;
+        } else {
+            Susp = 0;
+        }
+
+        objR.setSuspension(Susp);
+
+        return objR;
+    }
+
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -3544,14 +3635,20 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             objCertBL.registrarCertificado(objCertificado);
 
             //GRABAR FOTOGRAFÍAS
-            Fotografias objFoto = new Fotografias();
-            objFoto.setNumDocEval(idCertificado);
-            objFoto.setTipoDocEval(1);
-            objFoto.setFoto1(fisfoto1);
-            objFoto.setFoto2(fisfoto2);
-            objFoto.setFoto3(fisfoto3);
+            if (jComboBox20.getSelectedIndex() != 7) {
+                Fotografias objFoto = new Fotografias();
+                objFoto.setNumDocEval(idCertificado);
+                objFoto.setTipoDocEval(1);
+                objFoto.setFoto1(fisfoto1);
+                objFoto.setFoto2(fisfoto2);
+                objFoto.setFoto3(fisfoto3);
 
-            objCertBL.registrarFotografia(objFoto);
+                objCertBL.registrarFotografia(objFoto);
+            }
+
+            //GRABAR RESULTADOS GENERALES
+            ResultadoBL resultBL = new ResultadoBL();
+            resultBL.registrarResultado(ObtenerResultado());
 
             //RESULTADOS - PRUEBA DE FRENOS
             Frenometro objFrenometro1 = new Frenometro();
@@ -3845,32 +3942,46 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             ////EMISIÓN DE GASES
             try {
                 Gasometro e = new Gasometro();
+                e.setIdCertificado(idCertificado);
 
-                double tAceite = Double.parseDouble(jTextField185.getText());
-                double Rpm = Double.parseDouble(jTextField186.getText());
-                double Opacidad = Double.parseDouble(jTextField187.getText());
-
-                double COralenti = Double.parseDouble(jTextField188.getText());
-                double COCO2ralenti = Double.parseDouble(jTextField189.getText());
-                double HCralenti = Double.parseDouble(jTextField190.getText());
-
-                double COAcel = Double.parseDouble(jTextField181.getText());
-                double COCO2Acel = Double.parseDouble(jTextField181.getText());
-                double HCAcel = Double.parseDouble(jTextField181.getText());
+                if (jComboBox13.getSelectedIndex() == 0) {
+                    double tAceite = Double.parseDouble(jTextField185.getText());
+                    double Rpm = Double.parseDouble(jTextField186.getText());
+                    double Opacidad = Double.parseDouble(jTextField187.getText());
+                    e.settAceite(tAceite);
+                    e.setRpm(Rpm);
+                    e.setOpacidad(Opacidad);
+                } else {
+                    double COralenti = Double.parseDouble(jTextField188.getText());
+                    double COCO2ralenti = Double.parseDouble(jTextField189.getText());
+                    double HCralenti = Double.parseDouble(jTextField190.getText());
+                    double COAcel = Double.parseDouble(jTextField181.getText());
+                    double COCO2Acel = Double.parseDouble(jTextField181.getText());
+                    double HCAcel = Double.parseDouble(jTextField181.getText());
+                    e.setCoRalent(COralenti);
+                    e.setCoco2Ralenti(COCO2ralenti);
+                    e.setHcRalentippm(HCralenti);
+                    e.setCoAcel(COAcel);
+                    e.setCoCo2Acel(COCO2Acel);
+                    e.setHcAcel(HCAcel);
+                }
 
                 Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
-                e.settAceite(tAceite);
-                e.setRpm(Rpm);
-                e.setOpacidad(Opacidad);
-                e.setCoRalent(COralenti);
-                e.setCoco2Ralenti(COCO2ralenti);
-                e.setHcRalentippm(HCralenti);
-                e.setCoAcel(COAcel);
-                e.setCoCo2Acel(COCO2Acel);
-                e.setHcAcel(HCAcel);
-                e.setResultado(EmiGResultFinal.toString());
+                
+                if (EmiGResultFinal==0){
+                    e.setResultado("APROBADO");
+                }else{
+                    e.setResultado("DESAPROBADO");
+                }
+                        
+                
                 GasometroDL g = new GasometroDL();
-                g.registrarGasometro(e);
+
+                if (jComboBox13.getSelectedIndex() == 0) {
+                    g.registrarGasometroDiesel(e);
+                } else {
+                    g.registrarGasometroGasolina(e);
+                }
 
                 ////EMISIONES SONORAS
                 Sonometro s = new Sonometro();
@@ -4046,6 +4157,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             return false;
         }
 
+        if (jComboBox20.getSelectedIndex() != 7) {
+            if (!jTextField26.getText().trim().equals("") && !jTextField27.getText().trim().equals("")
+                    && !jTextField29.getText().trim().equals("")) {
+                fotosCompleto = true;
+            }
+        }
+
 //        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
 //        if (s.trim().equals("") ) {
 //            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
@@ -4057,7 +4175,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 && gasometroCompleto
                 && suspensionCompleto
                 && alineadorCompleto
-                && luxometroCompleto) {
+                && luxometroCompleto
+                && fotosCompleto) {
             resultado = true;
             return true;
         } else {
@@ -4083,6 +4202,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             if (!luxometroCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Luces", "CAMPOS VACÍOS", 0);
+            }
+
+            if (!fotosCompleto) {
+                JOptionPane.showMessageDialog(null, "Adjunte todas las fotos", "CAMPOS VACÍOS", 0);
             }
 
             resultado = false;
@@ -5787,6 +5910,20 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         ObtenerIds();
 
+        if (jComboBox13.getSelectedIndex() == 0) {
+            jTextField188.enable(false);
+            jTextField189.enable(false);
+            jTextField190.enable(false);
+            jTextField191.enable(false);
+            jTextField192.enable(false);
+            jTextField193.enable(false);
+        } else {
+            jTextField185.enable(false);
+            jTextField186.enable(false);
+            jTextField187.enable(false);
+        }
+
+
     }//GEN-LAST:event_formAncestorAdded
 
     //ADJUNTAR IMÁGENES
@@ -5855,6 +5992,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField75ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox8ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

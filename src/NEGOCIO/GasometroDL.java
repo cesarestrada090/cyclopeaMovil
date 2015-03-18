@@ -22,9 +22,17 @@ import ENTIDADES.Vehiculo;
  */
 public class GasometroDL {
   
-    public boolean registrarGasometro(Gasometro v)
+    public boolean registrarGasometroDiesel(Gasometro v)
     {
-          if(new GasometroDAL().registrarDatosGasometro(v))
+          if(new GasometroDAL().registrarDatosGasometroDiesel(v))
+              return true;
+          else
+              return false;
+    }
+    
+    public boolean registrarGasometroGasolina(Gasometro v)
+    {
+          if(new GasometroDAL().registrarDatosGasometroGasolina(v))
               return true;
           else
               return false;
