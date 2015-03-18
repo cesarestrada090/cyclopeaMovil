@@ -5,7 +5,7 @@ import java.util.Date;
 public class TarjetaPropiedad {
 
     private int idCertificado;
-    private String idTarjeta;
+    private int idTarjeta;
     private String placa;
     private String nTarjeta;
     private String NombrePropietario;
@@ -106,17 +106,17 @@ public class TarjetaPropiedad {
     public void setIdModelo(String idModelo) {
         this.idModelo = idModelo;
     }
-    
 
-  
-
-    public String getIdTarjeta() {
+    public int getIdTarjeta() {
         return idTarjeta;
     }
 
-    public void setIdTarjeta(String idTarjeta) {
+    public void setIdTarjeta(int idTarjeta) {
         this.idTarjeta = idTarjeta;
     }
+    
+
+ 
 
     public String getPlaca() {
         return placa;

@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -86,6 +87,40 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
 
+        // FUERZA DE FRENADO ESTACIONAMIENTO
+        //EJE 1  
+        jTextField65.getDocument().addDocumentListener(new Frenado01());
+        jTextField66.getDocument().addDocumentListener(new Frenado01());
+        //EJE 2
+        jTextField64.getDocument().addDocumentListener(new Frenado02());
+        jTextField67.getDocument().addDocumentListener(new Frenado02());
+        //EJE 3
+        jTextField63.getDocument().addDocumentListener(new Frenado03());
+        jTextField68.getDocument().addDocumentListener(new Frenado03());
+        //EJE 4
+        jTextField62.getDocument().addDocumentListener(new Frenado04());
+        jTextField69.getDocument().addDocumentListener(new Frenado04());
+        //EJE 5
+        jTextField61.getDocument().addDocumentListener(new Frenado05());
+        jTextField70.getDocument().addDocumentListener(new Frenado05());
+
+        // FUERZA DE FRENADO SERVICIO
+        //EJE 1  
+        jTextField30.getDocument().addDocumentListener(new FrenadoServicio01());
+        jTextField31.getDocument().addDocumentListener(new FrenadoServicio01());
+        //EJE 2
+        jTextField32.getDocument().addDocumentListener(new FrenadoServicio02());
+        jTextField36.getDocument().addDocumentListener(new FrenadoServicio02());
+        //EJE 3
+        jTextField33.getDocument().addDocumentListener(new FrenadoServicio03());
+        jTextField37.getDocument().addDocumentListener(new FrenadoServicio03());
+        //EJE 4
+        jTextField34.getDocument().addDocumentListener(new FrenadoServicio04());
+        jTextField38.getDocument().addDocumentListener(new FrenadoServicio04());
+        //EJE 5
+        jTextField35.getDocument().addDocumentListener(new FrenadoServicio05());
+        jTextField39.getDocument().addDocumentListener(new FrenadoServicio05());
+
         jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
@@ -94,12 +129,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jComboBox10.addItem((String) listaModelos.get(i));
         }
 
-        List listaCombustibles = b.obtenerListaCombustible();
-        size = listaCombustibles.size();
-        for (int i = 0; i < size; i++) {
-            jComboBox13.addItem((String) listaCombustibles.get(i));
-        }
-
+//        List listaCombustibles = b.obtenerListaCombustible();
+//        size = listaCombustibles.size();
+//        for (int i = 0; i < size; i++) {
+//            jComboBox13.addItem((String) listaCombustibles.get(i));
+//        }
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
         for (int i = 0; i < size; i++) {
@@ -130,6 +164,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private boolean sonometroCompleto;
     private boolean luxometroCompleto;
     private boolean alineadorCompleto;
+    private boolean fotosCompleto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,8 +225,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jComboBox11 = new javax.swing.JComboBox();
         jLabel146 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
-        jLabel148 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jTextField52 = new javax.swing.JTextField();
         jTextField53 = new javax.swing.JTextField();
         jTextField54 = new javax.swing.JTextField();
@@ -466,10 +499,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -646,10 +679,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jLabel147.setText("MIXTA");
 
-        jLabel148.setText("Fecha de Inspección");
-
         jTextField52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField52.setEnabled(false);
+        jTextField52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField52ActionPerformed(evt);
+            }
+        });
         jTextField52.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField52KeyPressed(evt);
@@ -677,6 +713,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox12.setEnabled(false);
 
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "Gasolina" }));
         jComboBox13.setEnabled(false);
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
@@ -737,81 +774,73 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                 .addGap(112, 112, 112)
                                 .addComponent(jLabel147)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addGap(154, 154, 154)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel112)
-                                            .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(35, 35, 35)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel113))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(29, 29, 29)
-                                                .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel114)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel115))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel112)
+                                    .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel113))
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField84)
-                                                .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jComboBox10, 0, 139, Short.MAX_VALUE)
-                                                .addComponent(jComboBox11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jTextField83, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(jTextField82, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel114)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel100)
-                                            .addComponent(jLabel101)
-                                            .addComponent(jLabel99)
-                                            .addComponent(jLabel98)
-                                            .addComponent(jLabel97)
-                                            .addComponent(jLabel102))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBox13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextField112)
-                                            .addComponent(jTextField113)
-                                            .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextField114)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jTextField115, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jComboBox22, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel108)
-                                            .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel106)
-                                            .addComponent(jLabel105)
-                                            .addComponent(jLabel104)
-                                            .addComponent(jLabel103)
-                                            .addComponent(jLabel55)
-                                            .addComponent(jLabel149, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(187, 187, 187)
-                                .addComponent(jLabel148)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jLabel115))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField84)
+                                        .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboBox10, 0, 139, Short.MAX_VALUE)
+                                        .addComponent(jComboBox11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField83, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                        .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jTextField82, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel100)
+                                    .addComponent(jLabel101)
+                                    .addComponent(jLabel99)
+                                    .addComponent(jLabel98)
+                                    .addComponent(jLabel97)
+                                    .addComponent(jLabel102))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField112)
+                                    .addComponent(jTextField113)
+                                    .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField114)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jTextField115, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBox22, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel108)
+                                    .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel106)
+                                    .addComponent(jLabel105)
+                                    .addComponent(jLabel104)
+                                    .addComponent(jLabel103)
+                                    .addComponent(jLabel55)
+                                    .addComponent(jLabel149, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel94)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel95)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel95, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -855,9 +884,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel94)
-                        .addComponent(jLabel95)
-                        .addComponent(jLabel148))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel95))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel149)
                         .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1378,6 +1405,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField71.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField71.setText("10");
         jTextField71.setToolTipText("");
+        jTextField71.setEnabled(false);
         jTextField71.setName("d20"); // NOI18N
         jTextField71.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1387,6 +1415,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField72.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField72.setText("10");
+        jTextField72.setEnabled(false);
         jTextField72.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1395,6 +1424,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField73.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField73.setText("10");
+        jTextField73.setEnabled(false);
         jTextField73.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1403,6 +1433,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField74.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField74.setText("10");
+        jTextField74.setEnabled(false);
         jTextField74.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -1411,6 +1442,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField75.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField75.setText("10");
+        jTextField75.setEnabled(false);
+        jTextField75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField75ActionPerformed(evt);
+            }
+        });
         jTextField75.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
@@ -2692,11 +2729,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox8.setEnabled(false);
+        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox8ActionPerformed(evt);
+            }
+        });
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADO", "DESAPROBADO" }));
         jComboBox7.setEnabled(false);
         jDesktopPane1.add(jComboBox7);
-        jComboBox7.setBounds(0, 0, 200, 20);
+        jComboBox7.setBounds(0, 0, 190, 20);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3372,148 +3414,241 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         return numExpediente;
     }
 
-    private Certificado ObtenerCertificado(){
+    private Certificado ObtenerCertificado() {
         //CERTIFICADO
-            Certificado objCertificado = new Certificado();
-            objCertificado.setNumDocEvaluar(jTextField55.getText());
-            objCertificado.setTipoDocEvaluar("1");
-            objCertificado.setNumDocTransp(jTextField28.getText());
-            objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
-            objCertificado.setCodLocal("Desconocido");
-            objCertificado.setFecInspeccion(jDateChooser1.getDate());
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
-            calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
-            objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
-            objCertificado.setResultado(jComboBox3.getSelectedIndex());
-            objCertificado.setVigencia(jTextField157.getText());
-            objCertificado.setIdTarjeta(intIdTarjeta);
-            objCertificado.setIdCertificado(idCertificado);
-            objCertificado.setIdInforme(idInforme);
-            objCertificado.setIdExpediente(idExpediente);
-            objCertificado.setNumCertificado(generarCodigoCertificado());
-            objCertificado.setNumInforme(generarCodigoInforme());
-            objCertificado.setNumExpediente(generarCodigoExpediente());
+        Certificado objCertificado = new Certificado();
+        objCertificado.setNumDocEvaluar(jTextField55.getText());
+        objCertificado.setTipoDocEvaluar("1");
+        objCertificado.setNumDocTransp(jTextField28.getText());
+        objCertificado.setTipoDocTransp(String.valueOf(jComboBox15.getSelectedIndex() + 1));
+        objCertificado.setCodLocal("00");
+        objCertificado.setFecInspeccion(objTarjetaP.getFecha());
+        Calendar calendar = Calendar.getInstance();
+//            calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
+        calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
+        objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
 
-            int tipoServicio = jComboBox20.getSelectedIndex();
-            if (tipoServicio == 0) { //Interprovincial turístico estudiantes
-                objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO NACIONAL");
-                objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
-                        + "TRANSPORTE ESPECIAL");
+        if (jComboBox3.getSelectedIndex() == 0) {
+            objCertificado.setResultado(1);
+        } else {
+            objCertificado.setResultado(0);
+        }
+
+        objCertificado.setVigencia(jTextField157.getText());
+        objCertificado.setIdTarjeta(intIdTarjeta);
+        objCertificado.setIdCertificado(idCertificado);
+        objCertificado.setIdInforme(idInforme);
+        objCertificado.setIdExpediente(idExpediente);
+        objCertificado.setNumCertificado(generarCodigoCertificado());
+        objCertificado.setNumInforme(generarCodigoInforme());
+        objCertificado.setNumExpediente(generarCodigoExpediente());
+
+        int tipoServicio = jComboBox20.getSelectedIndex();
+
+        if (tipoServicio == 0) { //Interprovincial turístico estudiantes
+            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO NACIONAL");
+            objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
+                    + "TRANSPORTE ESPECIAL");
+            objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
+                    + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO NACIONAL  ha aprobado la "
+                    + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
+                    + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
+                    + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
+                    + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                    + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
+                    + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+        } else {
+            if (tipoServicio == 1) { //Mercancías en general
+                objCertificado.setClaseAut("SERVICIO DE TRANSPORTE DE MERCANCIAS EN GENERAL DE AMBITO  NACIONAL");
+                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE MERCANCÍAS GENERALES O "
+                        + "ESPECIALES NO CONSIDERADAS COMO MATERIALES O RESIDUOS PELIGROSOS");
+
                 objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                        + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO NACIONAL  ha aprobado la "
-                        + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
-                        + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
-                        + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
-                        + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                        + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
-                        + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                        + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
+                        + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
+                        + "mecánicas de funcionamiento, que cumple con las condiciones y características ténicas establecidas en el Reglamento "
+                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
+                        + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
+                        + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
             } else {
-                if (tipoServicio == 1) { //Mercancías en general
-                    objCertificado.setClaseAut("SERVICIO DE TRANSPORTE DE MERCANCIAS EN GENERAL DE AMBITO  NACIONAL");
-                    objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE MERCANCÍAS GENERALES O "
-                            + "ESPECIALES NO CONSIDERADAS COMO MATERIALES O RESIDUOS PELIGROSOS");
-                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                            + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
-                            + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
-                            + "mecánicas de funcionamiento, que cumple con las condiciones y características ténicas establecidas en el Reglamento "
-                            + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
-                            + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
-                            + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                if (tipoServicio == 2) { //Mercancías peligrosas
+                    objCertificado.setClaseAut("");
+                    objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE DE MATERIALES Y RESIDUOS PELIGROSOS");
+                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio "
+                            + "de transporte de materiales y residuos peligrosos ha aprobado la Inspección Técnica Vehicular Complementaria al "
+                            + "haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento y cumple con las "
+                            + "condiciones y características técnicas establecidas en el artículo 19º del Reglamento Nacional de Vehículos aprobado "
+                            + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehícular NºNº " + objCertificado.getNumInforme()
+                            + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                 } else {
-                    if (tipoServicio == 2) { //Mercancías peligrosas
-                        objCertificado.setClaseAut("");
-                        objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE DE MATERIALES Y RESIDUOS PELIGROSOS");
-                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio "
-                                + "de transporte de materiales y residuos peligrosos ha aprobado la Inspección Técnica Vehicular Complementaria al "
-                                + "haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento y cumple con las "
-                                + "condiciones y características técnicas establecidas en el artículo 19º del Reglamento Nacional de Vehículos aprobado "
-                                + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehícular NºNº " + objCertificado.getNumInforme()
-                                + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                    if (tipoServicio == 3) { //Transporte de personal
+                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
+                        objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
+                                + "MODALIDAD DE TRANSPORTE ESPECIAL");
+                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
+                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
+                                + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
+                                + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
+                                + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
+                                + "aprobado por Decreto Supremo Nº017-2009-MTC y en la normatividad emitida por la Autoridad competente, según consta "
+                                + "en el Informe de Inspección Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno "
+                                + "Nº " + objCertificado.getNumExpediente() + ".");
                     } else {
-                        if (tipoServicio == 3) { //Transporte de personal
-                            objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
-                            objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
-                                    + "MODALIDAD DE TRANSPORTE ESPECIAL");
+                        if (tipoServicio == 4) { //Transporte público
+                            objCertificado.setClaseAut("ÁMBITO NACIONAL");
+                            objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
+                                    + "LA MODALIDAD DE TRANSPORTE REGULAR");
                             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                    + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
-                                    + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
-                                    + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
-                                    + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
-                                    + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
-                                    + "aprobado por Decreto Supremo Nº017-2009-MTC y en la normatividad emitida por la Autoridad competente, según consta "
-                                    + "en el Informe de Inspección Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno "
-                                    + "Nº " + objCertificado.getNumExpediente() + ".");
+                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
+                                    + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
+                                    + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
+                                    + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
+                                    + "Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y los artículos 19º , 20º "
+                                    + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y "
+                                    + "en la normatividad emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica "
+                                    + "Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                         } else {
-                            if (tipoServicio == 4) { //Transporte público
-                                objCertificado.setClaseAut("ÁMBITO NACIONAL");
-                                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
-                                        + "LA MODALIDAD DE TRANSPORTE REGULAR");
-                                objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                        + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
-                                        + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
-                                        + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
-                                        + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
-                                        + "Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y los artículos 19º , 20º "
-                                        + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y "
-                                        + "en la normatividad emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica "
-                                        + "Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                            if (tipoServicio == 5) { //Transporte privado de mercancías
+                                objCertificado.setClaseAut("TRANSPORTE PRIVADO DE MERCANCÍAS DE ÁMBITO NACIONAL");
+                                objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PRIVADO DE MERCANCÍAS");
+                                objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado "
+                                        + "al servicio de transporte privado de mercancias, ha aprobado la Inspección Técnica Vehicular complementaria "
+                                        + "al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento, "
+                                        + "que cumple con las condiciones y características técnicas establecidas en el Reglamento nacional de "
+                                        + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 24º  del Reglamento "
+                                        + "Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y en la normatividad "
+                                        + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehícular Nº " + objCertificado.getNumInforme()
+                                        + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
-                                if (tipoServicio == 5) { //Transporte privado de mercancías
-                                    objCertificado.setClaseAut("TRANSPORTE PRIVADO DE MERCANCÍAS DE ÁMBITO NACIONAL");
-                                    objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PRIVADO DE MERCANCÍAS");
-                                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado "
-                                            + "al servicio de transporte privado de mercancias, ha aprobado la Inspección Técnica Vehicular complementaria "
-                                            + "al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento, "
-                                            + "que cumple con las condiciones y características técnicas establecidas en el Reglamento nacional de "
-                                            + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 24º  del Reglamento "
-                                            + "Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y en la normatividad "
-                                            + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehícular Nº " + objCertificado.getNumInforme()
-                                            + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-                                } else {
-                                    if (tipoServicio == 6) { //Taxi
-                                        objCertificado.setTitulo("SERVICIO DE TAXI");
-                                        objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
-                                                + "DE PERSONAS EN TAXI");
-                                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
-                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
-                                                + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
-                                                + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
-                                                + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
-                                                + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
-                                                + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                                                + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
-                                                + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-                                    }
+                                if (tipoServicio == 6) { //Taxi
+                                    objCertificado.setTitulo("SERVICIO DE TAXI");
+                                    objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
+                                            + "DE PERSONAS EN TAXI");
+                                    objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
+                                            + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                            + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                            + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
+                                            + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
+                                            + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
+                                            + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                                            + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
+                                            + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 }
                             }
                         }
                     }
                 }
             }
+        }
         return objCertificado;
     }
-    
+
+    private Resultados ObtenerResultado() {
+        Resultados objR = new Resultados();
+        objR.setIdCertificado(idCertificado);//
+
+        objR.setDisEjes(1);
+
+        if (jComboBox6.getSelectedIndex() == 0) {
+            objR.setFreServ(1);//
+        } else {
+            objR.setFreServ(0);//
+        }
+
+        if (jComboBox1.getSelectedIndex() == 0) {
+            objR.setEmigases(1);//
+        } else {
+            objR.setEmigases(0);//
+        }
+
+        if (jComboBox4.getSelectedIndex() == 0) {
+            objR.setFreeEmer(1);// 
+        } else {
+            objR.setFreeEmer(0);//
+        }
+
+        if (jComboBox5.getSelectedIndex() == 0) {
+            objR.setFreeEstac(1);// 
+        } else {
+            objR.setFreeEstac(0);// 
+        }
+
+        objR.setObservacion("");
+        objR.setPisos(0);
+
+        int neumaticos;
+        if (("A".equals(jTextField21.getText()) || "".equals(jTextField21.getText())) && ("A".equals(jTextField22.getText()) || "".equals(jTextField22.getText()))
+                && ("A".equals(jTextField23.getText()) || "".equals(jTextField23.getText())) && ("A".equals(jTextField24.getText()) || "".equals(jTextField24.getText()))
+                && ("A".equals(jTextField25.getText()) || "".equals(jTextField25.getText()))) {
+            neumaticos = 1;
+        } else {
+            neumaticos = 0;
+        }
+
+        objR.setProfNeuma(neumaticos);
+
+        int luces;
+        if (("A".equals(jTextField171.getText()) || "".equals(jTextField171.getText())) && ("A".equals(jTextField172.getText()) || "".equals(jTextField172.getText()))
+                && ("A".equals(jTextField173.getText()) || "".equals(jTextField173.getText())) && ("A".equals(jTextField174.getText()) || "".equals(jTextField174.getText()))) {
+            luces = 1;
+        } else {
+            luces = 0;
+        }
+
+        objR.setPruebLuces(luces);
+
+        int alineamiento;
+        if (("A".equals(jTextField10.getText()) || "".equals(jTextField10.getText())) && ("A".equals(jTextField11.getText()) || "".equals(jTextField11.getText()))
+                && ("A".equals(jTextField15.getText()) || "".equals(jTextField15.getText())) && ("A".equals(jTextField13.getText()) || "".equals(jTextField13.getText()))
+                && ("A".equals(jTextField14.getText()) || "".equals(jTextField14.getText()))) {
+            alineamiento = 1;
+        } else {
+            alineamiento = 0;
+        }
+
+        objR.setPruebaAli(alineamiento);
+
+        int susDel = jComboBox7.getSelectedIndex();
+        int susPos = jComboBox8.getSelectedIndex();
+        int Susp;
+        if (susDel == 0 & susPos == 0) {
+            Susp = 1;
+        } else {
+            Susp = 0;
+        }
+
+        objR.setSuspension(Susp);
+
+        return objR;
+    }
+
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         resultado = validarVacios();
         if (resultado) {
-            
+
             //GRABAR CERTIFICADO
             Certificado objCertificado = ObtenerCertificado();
             CertificadoBL objCertBL = new CertificadoBL();
             objCertBL.registrarCertificado(objCertificado);
 
             //GRABAR FOTOGRAFÍAS
-            Fotografias objFoto = new Fotografias();
-            objFoto.setNumDocEval(idCertificado);
-            objFoto.setTipoDocEval(1);
-            objFoto.setFoto1(fisfoto1);
-            objFoto.setFoto2(fisfoto2);
-            objFoto.setFoto3(fisfoto3);
+            if (jComboBox20.getSelectedIndex() != 7) {
+                Fotografias objFoto = new Fotografias();
+                objFoto.setNumDocEval(idCertificado);
+                objFoto.setTipoDocEval(1);
+                objFoto.setFoto1(fisfoto1);
+                objFoto.setFoto2(fisfoto2);
+                objFoto.setFoto3(fisfoto3);
 
-            objCertBL.registrarFotografia(objFoto);
+                objCertBL.registrarFotografia(objFoto);
+            }
+
+            //GRABAR RESULTADOS GENERALES
+            ResultadoBL resultBL = new ResultadoBL();
+            resultBL.registrarResultado(ObtenerResultado());
 
             //RESULTADOS - PRUEBA DE FRENOS
             Frenometro objFrenometro1 = new Frenometro();
@@ -3807,32 +3942,46 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             ////EMISIÓN DE GASES
             try {
                 Gasometro e = new Gasometro();
+                e.setIdCertificado(idCertificado);
 
-                double tAceite = Double.parseDouble(jTextField185.getText());
-                double Rpm = Double.parseDouble(jTextField186.getText());
-                double Opacidad = Double.parseDouble(jTextField187.getText());
-
-                double COralenti = Double.parseDouble(jTextField188.getText());
-                double COCO2ralenti = Double.parseDouble(jTextField189.getText());
-                double HCralenti = Double.parseDouble(jTextField190.getText());
-
-                double COAcel = Double.parseDouble(jTextField181.getText());
-                double COCO2Acel = Double.parseDouble(jTextField181.getText());
-                double HCAcel = Double.parseDouble(jTextField181.getText());
+                if (jComboBox13.getSelectedIndex() == 0) {
+                    double tAceite = Double.parseDouble(jTextField185.getText());
+                    double Rpm = Double.parseDouble(jTextField186.getText());
+                    double Opacidad = Double.parseDouble(jTextField187.getText());
+                    e.settAceite(tAceite);
+                    e.setRpm(Rpm);
+                    e.setOpacidad(Opacidad);
+                } else {
+                    double COralenti = Double.parseDouble(jTextField188.getText());
+                    double COCO2ralenti = Double.parseDouble(jTextField189.getText());
+                    double HCralenti = Double.parseDouble(jTextField190.getText());
+                    double COAcel = Double.parseDouble(jTextField181.getText());
+                    double COCO2Acel = Double.parseDouble(jTextField181.getText());
+                    double HCAcel = Double.parseDouble(jTextField181.getText());
+                    e.setCoRalent(COralenti);
+                    e.setCoco2Ralenti(COCO2ralenti);
+                    e.setHcRalentippm(HCralenti);
+                    e.setCoAcel(COAcel);
+                    e.setCoCo2Acel(COCO2Acel);
+                    e.setHcAcel(HCAcel);
+                }
 
                 Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
-                e.settAceite(tAceite);
-                e.setRpm(Rpm);
-                e.setOpacidad(Opacidad);
-                e.setCoRalent(COralenti);
-                e.setCoco2Ralenti(COCO2ralenti);
-                e.setHcRalentippm(HCralenti);
-                e.setCoAcel(COAcel);
-                e.setCoCo2Acel(COCO2Acel);
-                e.setHcAcel(HCAcel);
-                e.setResultado(EmiGResultFinal.toString());
+                
+                if (EmiGResultFinal==0){
+                    e.setResultado("APROBADO");
+                }else{
+                    e.setResultado("DESAPROBADO");
+                }
+                        
+                
                 GasometroDL g = new GasometroDL();
-                g.registrarGasometro(e);
+
+                if (jComboBox13.getSelectedIndex() == 0) {
+                    g.registrarGasometroDiesel(e);
+                } else {
+                    g.registrarGasometroGasolina(e);
+                }
 
                 ////EMISIONES SONORAS
                 Sonometro s = new Sonometro();
@@ -3847,15 +3996,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 sb.registrarSonometro(s);
             } catch (NumberFormatException e) {
             }
-            ////OBSERVACIONES DETECTADAS
-
-            ///RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR
-            //int ResultInsp=jComboBox3.getSelectedIndex();     
-            //String Vigencia=jTextField195.getText();
-            //String fechaVig=jTextField195.getText();                    
-//            JOptionPane.showMessageDialog(null, modelo, "CAMPOS VACÍOS", 0);
-//        }else{
-            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 0);
+            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
+            //objTarjetaP.equals(c)
+            new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
+            dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -4008,13 +4152,31 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             alineadorCompleto = true;
         }
 
+        if (jTextField28.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Complete Numero de Documento", "CAMPOS VACÍOS", 0);
+            return false;
+        }
+
+        if (jComboBox20.getSelectedIndex() != 7) {
+            if (!jTextField26.getText().trim().equals("") && !jTextField27.getText().trim().equals("")
+                    && !jTextField29.getText().trim().equals("")) {
+                fotosCompleto = true;
+            }
+        }
+
+//        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
+//        if (s.trim().equals("") ) {
+//            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
+//            return false;
+//        }
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
                 && sonometroCompleto
                 && gasometroCompleto
                 && suspensionCompleto
                 && alineadorCompleto
-                && luxometroCompleto) {
+                && luxometroCompleto
+                && fotosCompleto) {
             resultado = true;
             return true;
         } else {
@@ -4040,6 +4202,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             if (!luxometroCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Luces", "CAMPOS VACÍOS", 0);
+            }
+
+            if (!fotosCompleto) {
+                JOptionPane.showMessageDialog(null, "Adjunte todas las fotos", "CAMPOS VACÍOS", 0);
             }
 
             resultado = false;
@@ -4117,7 +4283,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField40.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField45.setText("A");
                 }
@@ -4141,7 +4307,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             String x = jTextField40.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField45.setText("A");
                 }
@@ -4170,7 +4336,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField41.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField46.setText("A");
                 }
@@ -4194,7 +4360,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField41.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 14) {
                     jTextField46.setText("A");
                 }
@@ -4223,7 +4389,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField42.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField47.setText("A");
                 }
@@ -4242,7 +4408,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField42.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField47.setText("A");
                 }
@@ -4268,7 +4434,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField43.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField48.setText("A");
                 }
@@ -4287,7 +4453,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField43.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField48.setText("A");
                 }
@@ -4313,7 +4479,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField44.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 20) {
                     jTextField49.setText("A");
 
@@ -4336,7 +4502,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField44.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
 
                 if (valor <= 20) {
                     jTextField49.setText("A");
@@ -4363,7 +4529,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField50.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor < 20) {
                     eficienciaServicio = false;
                     //Muy Grave 1.4
@@ -4387,7 +4553,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField50.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor < 20) {
                     eficienciaServicio = false;
                     //Muy Grave 1.4
@@ -4418,7 +4584,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField85.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor >= 15) {
                     eficienciaEstacionamiento = true;
                     //Muy Grave 1.4
@@ -4438,7 +4604,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField85.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor >= 15) {
                     eficienciaEstacionamiento = true;
                     //Muy Grave 1.4
@@ -4465,7 +4631,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField5.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
@@ -4484,7 +4650,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField5.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField10.setText("A");
                 }
@@ -4510,7 +4676,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField6.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
@@ -4529,7 +4695,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField6.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField11.setText("A");
                 }
@@ -4555,7 +4721,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField7.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
@@ -4574,7 +4740,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField7.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField13.setText("A");
                 }
@@ -4600,7 +4766,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField8.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
@@ -4619,7 +4785,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField8.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField14.setText("A");
                 }
@@ -4645,7 +4811,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField9.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }
@@ -4664,7 +4830,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String x = jTextField9.getText();
             if (!x.equals("")) {
-                int valor = Integer.parseInt(x);
+                double valor = Double.parseDouble(x);
                 if (valor <= 10 && valor >= 0) {
                     jTextField15.setText("A");
                 }
@@ -4811,6 +4977,364 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    private double calcularMayor(double a, double b) {
+        if (a > b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+
+    class Frenado01 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField65.getText();
+            String y = jTextField66.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField75.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField65.getText();
+            String y = jTextField66.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField75.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado02 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField64.getText();
+            String y = jTextField67.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField74.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField64.getText();
+            String y = jTextField67.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField74.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado03 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField63.getText();
+            String y = jTextField68.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField73.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField63.getText();
+            String y = jTextField68.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField73.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado04 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField62.getText();
+            String y = jTextField69.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField72.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField62.getText();
+            String y = jTextField69.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField72.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class Frenado05 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField61.getText();
+            String y = jTextField70.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField71.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField61.getText();
+            String y = jTextField70.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField71.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio01 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField30.getText();
+            String y = jTextField31.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField40.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField30.getText();
+            String y = jTextField31.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField40.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio02 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField32.getText();
+            String y = jTextField36.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField41.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField32.getText();
+            String y = jTextField36.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField41.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio03 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField33.getText();
+            String y = jTextField37.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField42.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField33.getText();
+            String y = jTextField37.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField42.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio04 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField34.getText();
+            String y = jTextField38.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField43.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField34.getText();
+            String y = jTextField38.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField43.setText(String.valueOf(resultado));
+
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class FrenadoServicio05 implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField35.getText();
+            String y = jTextField39.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField44.setText(String.valueOf(resultado));
+
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField35.getText();
+            String y = jTextField39.getText();
+            if (!x.equals("") && !y.equals("")) {
+                double xd = Double.parseDouble(x);
+                double yd = Double.parseDouble(y);
+
+                double resta = xd - yd;
+                double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
+                jTextField44.setText(String.valueOf(resultado));
+
             }
         }
 
@@ -5373,10 +5897,32 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
             jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
             jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
-//            jComboBox14.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdCategoria()));
+
+            jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
+            jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
+            jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
+            jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
+            jComboBox11.setSelectedItem(objTarjetaP.getFabricacion());
+            jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
+            jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
+
         }
 
         ObtenerIds();
+
+        if (jComboBox13.getSelectedIndex() == 0) {
+            jTextField188.enable(false);
+            jTextField189.enable(false);
+            jTextField190.enable(false);
+            jTextField191.enable(false);
+            jTextField192.enable(false);
+            jTextField193.enable(false);
+        } else {
+            jTextField185.enable(false);
+            jTextField186.enable(false);
+            jTextField187.enable(false);
+        }
+
 
     }//GEN-LAST:event_formAncestorAdded
 
@@ -5439,6 +5985,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField52ActionPerformed
+
+    private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField75ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -5465,7 +6023,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
@@ -5517,7 +6074,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel145;
     private javax.swing.JLabel jLabel146;
     private javax.swing.JLabel jLabel147;
-    private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

@@ -17,8 +17,8 @@ import ENTIDADES.*;
 import NEGOCIO.*;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import java.util.Calendar;
 import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
@@ -39,11 +39,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             jComboBox10.addItem((String) listaModelos.get(i));
         }
 
-        List listaCombustibles = b.obtenerListaCombustible();
-        size = listaCombustibles.size();
-        for (int i = 0; i < size; i++) {
-            jComboBox13.addItem((String) listaCombustibles.get(i));
-        }
+//        List listaCombustibles = b.obtenerListaCombustible();
+//        size = listaCombustibles.size();
+//        for (int i = 0; i < size; i++) {
+//            jComboBox13.addItem((String) listaCombustibles.get(i));
+//        }
 
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
@@ -168,10 +168,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -318,6 +318,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                 jTextField119KeyTyped(evt);
             }
         });
+
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "Gasolina" }));
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 
@@ -658,7 +660,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
             // CARACTERÍSTICAS DEL VEHÍCULO 
             TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
-            objTarjetaP.setIdTarjeta(jTextField55.getText());
+            
             objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
             objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
             objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
@@ -691,6 +693,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTPBL.registrarTarjetaPropiedad(objTarjetaP);
             
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO DE TARJETA DE PROPIEDAD", 1);
+            dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -825,6 +828,13 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
+        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
+        if (s.equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese la fecha de Inspeccion", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        
         if (jTextField112.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el número de Serie", "CAMPOS VACÍOS", 0);

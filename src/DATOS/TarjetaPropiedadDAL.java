@@ -81,6 +81,34 @@ public class TarjetaPropiedadDAL {
         }
     }
     
+    public boolean actualizarTarjetaPropiedad(int placa)
+    {
+        try {
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            String sentencia="update tarjetaPropiedad set estado='1'"
+                    + " where id_tarjeta=(?)";
+            ps=(PreparedStatement) cn.prepareStatement(sentencia);
+            ps.setInt(1,placa);
+
+
+            ps.executeUpdate();
+            return true;
+            //"Un usuario ya ha sido registrado con la ubicación seleccionada"
+        } catch (SQLException ex) {
+            return false;
+        }
+        finally{
+            try {
+                cn.close();
+                ps.close();
+            } catch (SQLException ex) {
+                System.out.print(ex.getMessage());
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public int obtenerNumeroRegistroTarjeta()
     {
         try{
@@ -161,7 +189,7 @@ public class TarjetaPropiedadDAL {
             rs.relative(current);
             
             while(rs.next()){
-                tarjeta.setIdTarjeta(rs.getString(1));
+                tarjeta.setIdTarjeta(rs.getInt(1));
                 tarjeta.setPlaca(rs.getString(2));
                 tarjeta.setnTarjeta(rs.getString(3));
                 tarjeta.setNombrePropietario(rs.getString(4));
@@ -189,6 +217,8 @@ public class TarjetaPropiedadDAL {
                 tarjeta.setCargaUtil(rs.getDouble(26));
                 tarjeta.setnRuedas(rs.getInt(27));
                 tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
+                tarjeta.setTipoServicio(rs.getString(29));
+                tarjeta.setFecha(rs.getDate(30));
             }
             
             return tarjeta;

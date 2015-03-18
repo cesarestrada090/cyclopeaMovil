@@ -38,5 +38,11 @@ public class TarjetaPropiedadBL {
     public TarjetaPropiedad obtenerTarjetaP(int idTarjeta) {
         return new TarjetaPropiedadDAL().obtenerTarjetaP(idTarjeta);
     }
+    
+    public boolean actualizarTarjetaPropiedad(int id) {
+        return new TarjetaPropiedadDAL().actualizarTarjetaPropiedad(id);
+    }
+    
+    
 
 }
