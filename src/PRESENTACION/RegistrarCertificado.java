@@ -3957,9 +3957,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             ///
                 //Agregando Observaciones
             //
-            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
-            //objTarjetaP.equals(c)
-            new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
+            
             calcularObservaciones();
             ObservacionBL b= new ObservacionBL();
             for(int i=0;i<arrayObservaciones.size();i++){
@@ -3967,6 +3965,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obsTemp.setIdCertificado(idCertificado);
                 b.registrarObservacion(obsTemp);
             }
+            
+            JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
+            //objTarjetaP.equals(c)
+            new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
+            
             dispose();
         }
 
