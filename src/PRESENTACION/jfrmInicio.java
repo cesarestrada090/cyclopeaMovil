@@ -512,6 +512,8 @@ public class jfrmInicio extends javax.swing.JFrame {
             celdaEncabezado.setCellValue("DISEJES");
             celdaEncabezado = filaEncabezado.createCell(51);
             celdaEncabezado.setCellValue("PISOS");
+//            celdaEncabezado = filaEncabezado.createCell(52);
+//            celdaEncabezado.setCellValue("FOTOGRAFIA");
 
             /*Hacemos un ciclo para inicializar los valores de 10 filas de celdas*/
             for (int f = 1; f <= listaCertificados.length; f++) {
