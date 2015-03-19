@@ -2640,6 +2640,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField179.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField179.setToolTipText("");
+        jTextField179.setEnabled(false);
         jTextField179.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -2673,6 +2674,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField183.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField183.setToolTipText("");
+        jTextField183.setEnabled(false);
         jTextField183.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -3877,12 +3879,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objSuspension.setIdCertificado(idCertificado);
                 objSuspension.setDelanteraIzq(Double.parseDouble(jTextField177.getText()));
                 objSuspension.setDelanteraDer(Double.parseDouble(jTextField178.getText()));
-                objSuspension.setDelanteraDesv(Double.parseDouble(jTextField179.getText()));
                 objSuspension.setDelanteraResult(jTextField180.getText());
                 objSuspension.setDelanteraResultFinal(String.valueOf(jComboBox7.getSelectedItem()));
                 objSuspension.setPosteriorIzq(Double.parseDouble(jTextField181.getText()));
                 objSuspension.setPosteriorDer(Double.parseDouble(jTextField182.getText()));
-                objSuspension.setPosteriorDesv(Double.parseDouble(jTextField183.getText()));
                 objSuspension.setPosteriorResult(jTextField184.getText());
                 objSuspension.setPosteriorResultFinal(String.valueOf(jComboBox8.getSelectedItem()));
 
@@ -4246,8 +4246,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
-                && !jTextField179.getText().trim().equals("") && !jTextField181.getText().trim().equals("")
-                && !jTextField182.getText().trim().equals("") && !jTextField183.getText().trim().equals("")) {
+                 && !jTextField181.getText().trim().equals("")
+                && !jTextField182.getText().trim().equals("") ) {
             suspensionCompleto = true;
         }
 
@@ -5210,7 +5210,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField22.setText("A");
                 }
             }
 
@@ -5223,7 +5223,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField22.setText("A");
                 }
             }
         }
@@ -5241,7 +5241,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField23.setText("A");
                 }
             }
 
@@ -5254,7 +5254,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField23.setText("A");
                 }
             }
         }
@@ -5272,7 +5272,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField24.setText("A");
                 }
             }
 
@@ -5285,7 +5285,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField24.setText("A");
                 }
             }
         }
@@ -5303,7 +5303,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField25.setText("A");
                 }
             }
 
@@ -5316,7 +5316,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField25.setText("A");
                 }
             }
         }
@@ -5702,7 +5702,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5731,7 +5731,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5765,7 +5765,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5794,7 +5794,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5828,7 +5828,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5857,7 +5857,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
 
@@ -5892,7 +5892,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5921,7 +5921,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5955,7 +5955,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5984,7 +5984,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -6018,7 +6018,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -6047,7 +6047,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
 
