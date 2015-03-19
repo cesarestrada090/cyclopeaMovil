@@ -31,7 +31,7 @@ public class GasometroDAL {
         try {
             cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
             //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
-            String sentencia="insert into gasometro(idCertificado,coRalent,coco2Ralenti,hcRalentippm,coAcel,coCo2Acel,HCAcel,Resultado) values(?,?,?,?,?,?,?,?)";
+            String sentencia="insert into gasometro(idCertificado,coRalent,coco2Ralenti,hcRalentippm,coAcel,coCo2Acel,HCAcel,Resultado,tAceite,rpm) values(?,?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,v.getIdCertificado());
 //            ps.setDouble(2,v.gettAceite());
@@ -44,6 +44,8 @@ public class GasometroDAL {
             ps.setDouble(6,v.getCoCo2Acel());
             ps.setDouble(7,v.getHcAcel());
             ps.setString(8,v.getResultado());
+            ps.setDouble(9,v.gettAceite());
+            ps.setDouble(10,v.getRpm());
 
             ps.executeUpdate();
             return true;

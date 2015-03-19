@@ -3909,12 +3909,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     double COAcel = Double.parseDouble(jTextField181.getText());
                     double COCO2Acel = Double.parseDouble(jTextField181.getText());
                     double HCAcel = Double.parseDouble(jTextField181.getText());
+                    double tAceite = Double.parseDouble(jTextField185.getText());
+                    double Rpm = Double.parseDouble(jTextField186.getText());
                     e.setCoRalent(COralenti);
                     e.setCoco2Ralenti(COCO2ralenti);
                     e.setHcRalentippm(HCralenti);
                     e.setCoAcel(COAcel);
                     e.setCoCo2Acel(COCO2Acel);
                     e.setHcAcel(HCAcel);
+                    e.settAceite(tAceite);
+                    e.setRpm(Rpm);
                 }
 
                 Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
@@ -6602,8 +6606,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField192.enable(false);
             jTextField193.enable(false);
         } else {
-            jTextField185.enable(false);
-            jTextField186.enable(false);
             jTextField187.enable(false);
         }
 
