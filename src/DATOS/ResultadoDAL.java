@@ -4,9 +4,7 @@
  */
 package DATOS;
 
-import ENTIDADES.Certificado;
 import ENTIDADES.Resultados;
-import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
 import java.util.logging.Level;
@@ -33,7 +31,7 @@ public class ResultadoDAL {
             String sentencia = "insert into resultados(IDCERTIFICADO,PRUEALI,PROFNEUMA,PRUEBLUCES,SUSPENSION,EMIGASES,FRESERV,FREESTAC,FREEMER,"
                     + "DISEJES,PISOS,OBSERVACIONES)"
                     + ""
-                    + " values(?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1, v.getIdCertificado());
             ps.setInt(2, v.getPruebaAli());
