@@ -34,7 +34,7 @@ import javax.swing.event.DocumentListener;
  */
 public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
-    List arrayObservaciones = new ArrayList<String>();
+    List arrayObservaciones = new ArrayList<Observacion>();
     boolean eficienciaServicio;
     boolean eficienciaEstacionamiento;
     boolean suspensionIzqDel = true;
@@ -78,25 +78,23 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
         jTextField19.getDocument().addDocumentListener(new ProfNeumaticos4());
         jTextField20.getDocument().addDocumentListener(new ProfNeumaticos5());
-        
-        
+
         //luces
-        
         //luces bajas
         jTextField159.getDocument().addDocumentListener(new validarLuxometroBajas());
         jTextField163.getDocument().addDocumentListener(new validarLuxometroBajas());
         jTextField167.getDocument().addDocumentListener(new validarLuxometroBajas());
-        
+
         //luces bajas
         jTextField160.getDocument().addDocumentListener(new validarLuxometroAltas());
         jTextField168.getDocument().addDocumentListener(new validarLuxometroAltas());
         jTextField164.getDocument().addDocumentListener(new validarLuxometroAltas());
-        
+
         //luces Altas Adicionales
         jTextField161.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
         jTextField165.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
         jTextField169.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
-          
+
         jTextField162.getDocument().addDocumentListener(new validarLuxometroNeblineras());
         jTextField166.getDocument().addDocumentListener(new validarLuxometroNeblineras());
         jTextField170.getDocument().addDocumentListener(new validarLuxometroNeblineras());
@@ -533,10 +531,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -1466,16 +1464,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField76.setEnabled(false);
-
-        jTextField77.setEnabled(false);
-
-        jTextField78.setEnabled(false);
-
-        jTextField79.setEnabled(false);
-
-        jTextField80.setEnabled(false);
-
         jTextField85.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField85.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -2090,7 +2078,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField74.getAccessibleContext().setAccessibleName("d17");
         jTextField75.getAccessibleContext().setAccessibleName("d16");
 
-        jTabbedPane1.addTab("PRUEBA DE FRENOS", jPanel1);
+        jTabbedPane1.addTab("dese", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2589,7 +2577,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("PRUEBA DE ALINEAMIENTO - PRUEBA DE LUCES", jPanel2);
+        jTabbedPane1.addTab("de Frenos", jPanel2);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -3965,13 +3953,216 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             } catch (NumberFormatException e) {
             }
+
+            ///
+                //Agregando Observaciones
+            //
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
+            calcularObservaciones();
+            ObservacionBL b= new ObservacionBL();
+            for(int i=0;i<arrayObservaciones.size();i++){
+                Observacion obsTemp= (Observacion)arrayObservaciones.get(i);
+                obsTemp.setIdCertificado(idCertificado);
+                b.registrarObservacion(obsTemp);
+            }
             dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void calcularObservaciones() {
+
+        //OBSERVACIONES FRENO DE SERVICIO
+        String eficienciaPrimerEjeServicio = jTextField40.getText();
+        String eficienciaSegundoEjeServicio = jTextField41.getText();
+        String eficienciaTercerEjeServicio = jTextField42.getText();
+        String eficienciaCuartoEjeServicio = jTextField43.getText();
+        String eficienciaQuintoEjeServicio = jTextField44.getText();
+        Observacion obs = new Observacion();
+        if (!eficienciaPrimerEjeServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaPrimerEjeServicio);
+            if (valor <= 20 && valor >= 15) {
+                obs.setCodigoObservacion("1.7");
+                obs.setCalificacion("LEVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor <= 30 && valor >= 21) {
+                obs.setCodigoObservacion("1.6");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+            if (valor >= 30) {
+                obs.setCodigoObservacion("1.5");
+                obs.setCalificacion("MUY GRAVE");
+
+                arrayObservaciones.add(obs);
+            }
+        }
+        if (!eficienciaSegundoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaSegundoEjeServicio);
+            if (valor <= 20 && valor >= 15) {
+                obs.setCodigoObservacion("1.10");
+                obs.setCalificacion("LEVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor <= 30 && valor >= 21) {
+                obs.setCodigoObservacion("1.9");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+            if (valor >= 30) {
+                obs.setCodigoObservacion("1.8");
+                obs.setCalificacion("MUY GRAVE");
+
+                arrayObservaciones.add(obs);
+            }
+        }
+        if (!eficienciaTercerEjeServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaTercerEjeServicio);
+
+            if (valor <= 30 && valor >= 21) {
+                obs.setCodigoObservacion("1.9");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+            if (valor >= 30) {
+                obs.setCodigoObservacion("1.8");
+                obs.setCalificacion("MUY GRAVE");
+
+                arrayObservaciones.add(obs);
+            }
+        }
+        if (!eficienciaCuartoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaCuartoEjeServicio);
+
+            if (valor <= 30 && valor >= 21) {
+                obs.setCodigoObservacion("1.9");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+            if (valor >= 30) {
+                obs.setCodigoObservacion("1.8");
+                obs.setCalificacion("MUY GRAVE");
+
+                arrayObservaciones.add(obs);
+            }
+        }
+        if (!eficienciaQuintoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaQuintoEjeServicio);
+
+            if (valor <= 30 && valor >= 21) {
+                obs.setCodigoObservacion("1.9");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+            if (valor >= 30) {
+                obs.setCodigoObservacion("1.8");
+                obs.setCalificacion("MUY GRAVE");
+
+                arrayObservaciones.add(obs);
+            }
+        }
+
+        //OBSERVACIONES FRENO DE SERVICIO
+        String eficienciaServicio = jTextField50.getText();
+        if (!eficienciaServicio.equals("")) {
+            double valor = Double.parseDouble(eficienciaServicio);
+            if (valor >= 30 && valor <= 50) {
+                obs.setCodigoObservacion("1.2");
+                obs.setCalificacion("Leve");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >= 20 && valor <= 29) {
+                obs.setCodigoObservacion("1.3");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >= 0 && valor <= 20) {
+                obs.setCodigoObservacion("1.4");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+        }
+
+        //OBSERVACIONES FRENO DE ESTACIONAMIENTO
+        String eficienciaEstacionamiento = jTextField85.getText();
+        if (!eficienciaEstacionamiento.equals("")) {
+            double valor = Double.parseDouble(eficienciaEstacionamiento);
+            if (valor >= 5 && valor <= 15) {
+                obs.setCodigoObservacion("1.11");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor > 0 && valor < 5) {
+                obs.setCodigoObservacion("6.3");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor == 0) {
+                obs.setCodigoObservacion("6.3");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+        }
+
+        //OBSERVACIONES Suspension
+        String desvSuspensionDelantera = jTextField179.getText();
+
+        if (!desvSuspensionDelantera.equals("")) {
+            double valor = Double.parseDouble(desvSuspensionDelantera);
+
+            if (valor >= 41 && valor <= 50) {
+                obs.setCodigoObservacion("C.2.2.1");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >=30 && valor <= 40) {
+                obs.setCodigoObservacion("C.2.2.2");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >=0 && valor <= 29) {
+                obs.setCodigoObservacion("C.2.2.3");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+        }
+        
+        //OBSERVACIONES Suspension
+        String desvSuspensionPosterior= jTextField184.getText();
+
+        if (!desvSuspensionPosterior.equals("")) {
+            double valor = Double.parseDouble(desvSuspensionPosterior);
+
+            if (valor >= 41 && valor <= 50) {
+                obs.setCodigoObservacion("C.2.2.1");
+                obs.setCalificacion("GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >=30 && valor <= 40) {
+                obs.setCodigoObservacion("C.2.2.2");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+            if (valor >=0 && valor <= 29) {
+                obs.setCodigoObservacion("C.2.2.3");
+                obs.setCalificacion("MUY GRAVE");
+                arrayObservaciones.add(obs);
+            }
+
+        }
+
+    }
 
     public boolean validarVacios() {
 
@@ -4260,6 +4451,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         public void insertUpdate(DocumentEvent e) {
             String x = jTextField40.getText();
+
             if (!x.equals("")) {
                 double valor = Double.parseDouble(x);
                 if (valor <= 14) {
@@ -4272,7 +4464,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     // LEVE D 1.7 
                 }
                 if (valor >= 21 && valor <= 30) {
+
                     jTextField45.setText("D");
+
                     // GRAVE 1.6
                     consultarComboFrenoServicio();
                 }

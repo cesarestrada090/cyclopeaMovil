@@ -974,8 +974,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="PRUEBA DE FRENOS">
-                    <Property name="tabTitle" type="java.lang.String" value="PRUEBA DE FRENOS"/>
+                  <JTabbedPaneConstraints tabName="dese">
+                    <Property name="tabTitle" type="java.lang.String" value="dese"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -2198,29 +2198,14 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField76">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField77">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField78">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField79">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField80">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField85">
                   <Properties>
@@ -2543,8 +2528,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="PRUEBA DE ALINEAMIENTO - PRUEBA DE LUCES">
-                    <Property name="tabTitle" type="java.lang.String" value="PRUEBA DE ALINEAMIENTO - PRUEBA DE LUCES"/>
+                  <JTabbedPaneConstraints tabName="de Frenos">
+                    <Property name="tabTitle" type="java.lang.String" value="de Frenos"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
