@@ -339,6 +339,12 @@ public class CertificadoDAL {
                 Certificados[i][49] = rs.getString(50);
                 Certificados[i][50] = rs.getString(51);
                 Certificados[i][51] = rs.getString(52);
+//                if (rs.getBinaryStream(53)!=null){
+//                    Certificados[i][52] = rs.getBinaryStream(53);
+//                }else{
+//                    Certificados[i][52] = "SI";
+//                }
+                //Certificados[i][52] = rs.getBinaryStream(53);
                 i++;
             }
             return Certificados;

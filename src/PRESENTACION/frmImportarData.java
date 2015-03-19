@@ -117,6 +117,7 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                 List lstVehiculos = new ArrayList<Vehiculo>();
                 List lstResultados = new ArrayList<Resultados>();
                 List lstObservaciones = new ArrayList<Observacion>();
+                Fotografias objFoto = new Fotografias();
 
                 boolean rpta = true;
 
@@ -233,12 +234,22 @@ public class frmImportarData extends javax.swing.JInternalFrame {
                         objResultado.setPisos(Integer.parseInt(cellTempList.get(48).toString()));
 
                         lstResultados.add(objResultado);
+                        
+                        
+//                        objFoto.setNumDocEval(10000);
+//                        objFoto.setTipoDocEval(100);
+//                        objFoto.setFoto1((FileInputStream) cellTempList.get(52));
+//                        objFoto.setFoto2((FileInputStream) cellTempList.get(52));
+//                        objFoto.setFoto3((FileInputStream) cellTempList.get(52));
 
                     }
 
                     i = i + 1;
 
                 }
+                
+//                CertificadoBL objFotoBL=new CertificadoBL();
+//                objFotoBL.registrarFotografia(objFoto);
 
                 HSSFSheet worksheet2 = workbook.getSheet("Observaciones");
 

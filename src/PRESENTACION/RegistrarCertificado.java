@@ -121,6 +121,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField35.getDocument().addDocumentListener(new FrenadoServicio05());
         jTextField39.getDocument().addDocumentListener(new FrenadoServicio05());
 
+        //EFICIENCIA FRENO SERVICIO
+        jTextField50.getDocument().addDocumentListener(new EficienciaFrenoServicio());
+        //EFICIENCIA FRENO ESTACIONAMIENTO
+        jTextField85.getDocument().addDocumentListener(new EficienciaFrenoEstacionamiento());
+        
+        
+        
+        //Validar frenometro
+        jTextField185.getDocument().addDocumentListener(new validarGasometro());
+        jTextField186.getDocument().addDocumentListener(new validarGasometro());
+        jTextField187.getDocument().addDocumentListener(new validarGasometro());
+        jTextField188.getDocument().addDocumentListener(new validarGasometro());
+        jTextField189.getDocument().addDocumentListener(new validarGasometro());
+        jTextField190.getDocument().addDocumentListener(new validarGasometro());
+        jTextField191.getDocument().addDocumentListener(new validarGasometro());
+        jTextField192.getDocument().addDocumentListener(new validarGasometro());
+        jTextField193.getDocument().addDocumentListener(new validarGasometro());
+        
+
         jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
@@ -713,7 +732,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox12.setEnabled(false);
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "Gasolina" }));
+        jComboBox13.setEditable(true);
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
         jComboBox13.setEnabled(false);
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
@@ -1229,6 +1249,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField40KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField40KeyTyped(evt);
             }
         });
 
@@ -3967,14 +3990,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 }
 
                 Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
-                
-                if (EmiGResultFinal==0){
+
+                if (EmiGResultFinal == 0) {
                     e.setResultado("APROBADO");
-                }else{
+                } else {
                     e.setResultado("DESAPROBADO");
                 }
-                        
-                
+
                 GasometroDL g = new GasometroDL();
 
                 if (jComboBox13.getSelectedIndex() == 0) {
@@ -3988,12 +4010,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double Sonometro = Double.parseDouble(jTextField194.getText());
                 Integer EmiSResultado = jComboBox2.getSelectedIndex();
+                
+                if (EmiSResultado==0){
+                    s.setResultado("APROBADO");
+                }else{
+                    s.setResultado("DESAPROBADO");
+                }
 
                 s.setIdCertificado(idCertificado);
                 s.setSonometroValor(Sonometro);
-                s.setResultado(EmiSResultado.toString());
+                
                 SonometroBL sb = new SonometroBL();
                 sb.registrarSonometro(s);
+                
             } catch (NumberFormatException e) {
             }
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
@@ -5003,7 +5032,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField75.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5018,7 +5047,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField75.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5038,7 +5067,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField74.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5053,7 +5082,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField74.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5073,7 +5102,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField73.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5088,7 +5117,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField73.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5108,7 +5137,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField72.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5123,7 +5152,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField72.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5143,7 +5172,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField71.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5158,7 +5187,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField71.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5178,7 +5207,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField40.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5193,7 +5222,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField40.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5213,7 +5242,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField41.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5228,7 +5257,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField41.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5248,7 +5277,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField42.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5263,7 +5292,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField42.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5283,7 +5312,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField43.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5298,7 +5327,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField43.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5318,7 +5347,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField44.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
 
@@ -5333,7 +5362,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf((double)Math.round(resultado*100)/100 ));
+                jTextField44.setText(String.valueOf((double) Math.round(resultado * 100) / 100));
 
             }
         }
@@ -5760,6 +5789,155 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
     }
 
+    class validarGasometro implements DocumentListener {
+
+        public void insertUpdate(DocumentEvent e) {
+            if (jComboBox13.getSelectedIndex() == 0) {
+                double tAceite = Double.parseDouble(jTextField185.getText());
+                double Rpm = Double.parseDouble(jTextField186.getText());
+                double Opacidad = Double.parseDouble(jTextField187.getText());
+                
+
+                //iniciamos la validacion para Diesel
+                // Menor a 1995
+                if (objTarjetaP.getFabricacion() <= 1995) {
+                    if (Opacidad > 3 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
+                    if (Opacidad > 2.5 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 2002) {
+                    if (Opacidad > 2.1 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+
+            } else {
+                double COralenti = Double.parseDouble(jTextField188.getText());
+                double COCO2ralenti = Double.parseDouble(jTextField189.getText());
+                double HCralenti = Double.parseDouble(jTextField190.getText());
+                double COAcel = Double.parseDouble(jTextField181.getText());
+                double COCO2Acel = Double.parseDouble(jTextField181.getText());
+                double HCAcel = Double.parseDouble(jTextField181.getText());
+                
+                //iniciamos la validacion para Diesel
+                // Menor a 1995
+                if (objTarjetaP.getFabricacion() <= 1995) {
+                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
+                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 2002) {
+                   if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti > 12 || COCO2Acel > 12) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            if (jComboBox13.getSelectedIndex() == 0) {
+                double tAceite = Double.parseDouble(jTextField185.getText());
+                double Rpm = Double.parseDouble(jTextField186.getText());
+                double Opacidad = Double.parseDouble(jTextField187.getText());
+                
+
+                //iniciamos la validacion para Diesel
+                // Menor a 1995
+                if (objTarjetaP.getFabricacion() <= 1995) {
+                    if (Opacidad > 3 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
+                    if (Opacidad > 2.5 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 2002) {
+                    if (Opacidad > 2.1 || Rpm < 2250 || Rpm > 2750 || tAceite < 70 || tAceite > 90) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+
+            } else {
+                double COralenti = Double.parseDouble(jTextField188.getText());
+                double COCO2ralenti = Double.parseDouble(jTextField189.getText());
+                double HCralenti = Double.parseDouble(jTextField190.getText());
+                double COAcel = Double.parseDouble(jTextField181.getText());
+                double COCO2Acel = Double.parseDouble(jTextField181.getText());
+                double HCAcel = Double.parseDouble(jTextField181.getText());
+                
+                //iniciamos la validacion para Diesel
+                // Menor a 1995
+                if (objTarjetaP.getFabricacion() <= 1995) {
+                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
+                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+                if (objTarjetaP.getFabricacion() > 2002) {
+                   if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti > 12 || COCO2Acel > 12) {
+                        jComboBox1.setSelectedIndex(1);
+                    }
+                    else{
+                        jComboBox1.setSelectedIndex(0);
+                    }
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
 
     private void jTextField40FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusGained
         // TODO add your handling code here:
@@ -5996,6 +6174,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jTextField40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

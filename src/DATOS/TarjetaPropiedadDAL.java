@@ -26,7 +26,7 @@ public class TarjetaPropiedadDAL {
 
     public boolean registrarDatosTarjeta(TarjetaPropiedad v) {
         try {
-            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
             //cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
             String sentencia = "insert into tarjetapropiedad(placa,ntarjeta,razon1,domicilio,idclase,idmarca,fabricacion,"
                     + "idmodelo,version,idcombustible,idcarroceria,ejes,colores,nmotor,cilindros,nserie,vin,ruedas,pasajeros,asientos,"
@@ -80,25 +80,22 @@ public class TarjetaPropiedadDAL {
             }
         }
     }
-    
-    public boolean actualizarTarjetaPropiedad(int placa)
-    {
-        try {
-            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
-            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
-            String sentencia="update tarjetaPropiedad set estado='1'"
-                    + " where id_tarjeta=(?)";
-            ps=(PreparedStatement) cn.prepareStatement(sentencia);
-            ps.setInt(1,placa);
 
+    public boolean actualizarTarjetaPropiedad(int placa) {
+        try {
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            String sentencia = "update tarjetaPropiedad set estado='1'"
+                    + " where id_tarjeta=(?)";
+            ps = (PreparedStatement) cn.prepareStatement(sentencia);
+            ps.setInt(1, placa);
 
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
         } catch (SQLException ex) {
             return false;
-        }
-        finally{
+        } finally {
             try {
                 cn.close();
                 ps.close();
@@ -108,25 +105,23 @@ public class TarjetaPropiedadDAL {
             }
         }
     }
-    
-    public int obtenerNumeroRegistroTarjeta()
-    {
-        try{
-            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            st=cn.createStatement();
-            rs=st.executeQuery("select max(id_tarjeta) from tarjetaPropiedad;");
+
+    public int obtenerNumeroRegistroTarjeta() {
+        try {
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            st = cn.createStatement();
+            rs = st.executeQuery("select max(id_tarjeta) from tarjetaPropiedad;");
             if (rs.next()) {
-                Integer numero= rs.getInt(1);
-                if(numero!=null){
+                Integer numero = rs.getInt(1);
+                if (numero != null) {
                     return numero;
-                }
-                else
+                } else {
                     return 0;
+                }
             }
-        }catch(SQLException ex){
-            showMessageDialog(null,ex.getMessage(),"Error",0);
-        }
-        finally{
+        } catch (SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
             try {
                 cn.close();
                 st.close();
@@ -137,37 +132,37 @@ public class TarjetaPropiedadDAL {
         }
         return 0;
     }
-    
-    
-    public Object[][] listarTarjetas()
-    {        Object[][] Certificados=null;
+
+    public Object[][] listarTarjetas() {
+        Object[][] Certificados = null;
         try {
-            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=cn.prepareCall("{CALL listarTarjetas()}");
-            rs=cs.executeQuery();
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            cs = cn.prepareCall("{CALL listarTarjetas()}");
+            rs = cs.executeQuery();
 
-            int current=rs.getRow(); rs.last();
-            int count=rs.getRow(); rs.beforeFirst();
+            int current = rs.getRow();
+            rs.last();
+            int count = rs.getRow();
+            rs.beforeFirst();
             rs.relative(current);
-            
-            Certificados= new Object[count][52];
-            int i=0;
-            while(rs.next()){
 
-                Certificados[i][0]=rs.getString(1);
-                Certificados[i][1]=rs.getString(2);
-                Certificados[i][2]=rs.getString(3);
-                Certificados[i][3]=rs.getString(4);
-                Certificados[i][4]=rs.getString(5);                
+            Certificados = new Object[count][52];
+            int i = 0;
+            while (rs.next()) {
+
+                Certificados[i][0] = rs.getString(1);
+                Certificados[i][1] = rs.getString(2);
+                Certificados[i][2] = rs.getString(3);
+                Certificados[i][3] = rs.getString(4);
+                Certificados[i][4] = rs.getString(5);
                 i++;
             }
             return Certificados;
         } catch (Exception ex) {
-            showMessageDialog(null,ex.getMessage(),"Error",0);
-        }
-        finally{
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
             try {
-                cn.close();                
+                cn.close();
                 rs.close();
                 cs.close();
             } catch (SQLException ex) {
@@ -176,97 +171,127 @@ public class TarjetaPropiedadDAL {
         }
         return null;
     }
-    
+
     public TarjetaPropiedad obtenerTarjetaP(int idTarjeta) {
-    {        TarjetaPropiedad tarjeta=new TarjetaPropiedad();
-        try {
-            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=cn.prepareCall("{CALL obtenerTarjeta("+idTarjeta+")}");
-            rs=cs.executeQuery();
-
-            int current=rs.getRow(); rs.last();
-            int count=rs.getRow(); rs.beforeFirst();
-            rs.relative(current);
-            
-            while(rs.next()){
-                tarjeta.setIdTarjeta(rs.getInt(1));
-                tarjeta.setPlaca(rs.getString(2));
-                tarjeta.setnTarjeta(rs.getString(3));
-                tarjeta.setNombrePropietario(rs.getString(4));
-                tarjeta.setIdCategoria(rs.getString(5));
-                tarjeta.setIdMarca(rs.getString(6));
-                tarjeta.setFabricacion(Integer.parseInt(rs.getString(7)));
-                tarjeta.setIdModelo(rs.getString(8));
-                tarjeta.setVersion(rs.getString(9));
-                tarjeta.setIdCombustible(rs.getString(10));
-                tarjeta.setIdCarroceria(rs.getString(11));
-                tarjeta.setEjes(Integer.parseInt(rs.getString(12)));
-                tarjeta.setColores(rs.getString(13));
-                tarjeta.setnMotor(rs.getString(14));
-                tarjeta.setCilindros(Integer.parseInt(rs.getString(15)));                
-                tarjeta.setnSerie(rs.getString(16));
-                tarjeta.setVin(rs.getString(17));
-                tarjeta.setRuedas(Integer.parseInt(rs.getString(18)));
-                tarjeta.setPasajeros(Integer.parseInt(rs.getString(19)));
-                tarjeta.setAsientos(Integer.parseInt(rs.getString(20)));
-                tarjeta.setPesoSeco(Double.parseDouble(rs.getString(21)));
-                tarjeta.setPesoBruto(Double.parseDouble(rs.getString(22)));
-                tarjeta.setLongitud(Double.parseDouble(rs.getString(23)));                
-                tarjeta.setAltura(Double.parseDouble(rs.getString(24)));
-                tarjeta.setAncho(Double.parseDouble(rs.getString(25)));
-                tarjeta.setCargaUtil(rs.getDouble(26));
-                tarjeta.setnRuedas(rs.getInt(27));
-                tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
-                tarjeta.setTipoServicio(rs.getString(29));
-                tarjeta.setFecha(rs.getDate(30));
-            }
-            
-            return tarjeta;
-            
-        } catch (Exception ex) {
-            showMessageDialog(null,ex.getMessage(),"Error",0);
-        }
-        finally{
+        {
+            TarjetaPropiedad tarjeta = new TarjetaPropiedad();
             try {
-                cn.close();                
+                cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+                cs = cn.prepareCall("{CALL obtenerTarjeta(" + idTarjeta + ")}");
+                rs = cs.executeQuery();
+
+                int current = rs.getRow();
+                rs.last();
+                int count = rs.getRow();
+                rs.beforeFirst();
+                rs.relative(current);
+
+                while (rs.next()) {
+                    tarjeta.setIdTarjeta(rs.getInt(1));
+                    tarjeta.setPlaca(rs.getString(2));
+                    tarjeta.setnTarjeta(rs.getString(3));
+                    tarjeta.setNombrePropietario(rs.getString(4));
+                    tarjeta.setIdCategoria(rs.getString(5));
+                    tarjeta.setIdMarca(rs.getString(6));
+                    tarjeta.setFabricacion(Integer.parseInt(rs.getString(7)));
+                    tarjeta.setIdModelo(rs.getString(8));
+                    tarjeta.setVersion(rs.getString(9));
+                    tarjeta.setIdCombustible(rs.getString(10));
+                    tarjeta.setIdCarroceria(rs.getString(11));
+                    tarjeta.setEjes(Integer.parseInt(rs.getString(12)));
+                    tarjeta.setColores(rs.getString(13));
+                    tarjeta.setnMotor(rs.getString(14));
+                    tarjeta.setCilindros(Integer.parseInt(rs.getString(15)));
+                    tarjeta.setnSerie(rs.getString(16));
+                    tarjeta.setVin(rs.getString(17));
+                    tarjeta.setRuedas(Integer.parseInt(rs.getString(18)));
+                    tarjeta.setPasajeros(Integer.parseInt(rs.getString(19)));
+                    tarjeta.setAsientos(Integer.parseInt(rs.getString(20)));
+                    tarjeta.setPesoSeco(Double.parseDouble(rs.getString(21)));
+                    tarjeta.setPesoBruto(Double.parseDouble(rs.getString(22)));
+                    tarjeta.setLongitud(Double.parseDouble(rs.getString(23)));
+                    tarjeta.setAltura(Double.parseDouble(rs.getString(24)));
+                    tarjeta.setAncho(Double.parseDouble(rs.getString(25)));
+                    tarjeta.setCargaUtil(rs.getDouble(26));
+                    tarjeta.setnRuedas(rs.getInt(27));
+                    tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
+                    tarjeta.setTipoServicio(rs.getString(29));
+                    tarjeta.setFecha(rs.getDate(30));
+                }
+
+                return tarjeta;
+
+            } catch (Exception ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            } finally {
+                try {
+                    cn.close();
+                    rs.close();
+                    cs.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return null;
+        }
+    }
+
+    public int obtenerTipoServicio(int idTarjeta) {
+        try {
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT tipoServicio FROM tarjetapropiedad t where t.id_Tarjeta='" + idTarjeta + "';");
+            if (rs.next()) {
+                Integer numero = rs.getInt(1);
+                if (numero != null) {
+                    return numero;
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                cn.close();
+                st.close();
                 rs.close();
-                cs.close();
             } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return null;
-    }
+        return 0;
     }
 
-    public Object[][] listarAllObservaciones()
-    {        Object[][] Certificados=null;
+    public Object[][] listarAllObservaciones() {
+        Object[][] Certificados = null;
         try {
-            cn= Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);
-            cs=cn.prepareCall("{CALL listarObservaciones()}");
-            rs=cs.executeQuery();
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            cs = cn.prepareCall("{CALL listarObservaciones()}");
+            rs = cs.executeQuery();
 
-            int current=rs.getRow(); rs.last();
-            int count=rs.getRow(); rs.beforeFirst();
+            int current = rs.getRow();
+            rs.last();
+            int count = rs.getRow();
+            rs.beforeFirst();
             rs.relative(current);
-            
-            Certificados= new Object[count][4];
-            int i=0;
-            while(rs.next()){
 
-                Certificados[i][0]=rs.getString(1);
-                Certificados[i][1]=rs.getString(2);
-                Certificados[i][2]=rs.getString(3);
-                Certificados[i][3]=rs.getString(4);                
+            Certificados = new Object[count][4];
+            int i = 0;
+            while (rs.next()) {
+
+                Certificados[i][0] = rs.getString(1);
+                Certificados[i][1] = rs.getString(2);
+                Certificados[i][2] = rs.getString(3);
+                Certificados[i][3] = rs.getString(4);
                 i++;
             }
             return Certificados;
         } catch (Exception ex) {
-            showMessageDialog(null,ex.getMessage(),"Error",0);
-        }
-        finally{
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
             try {
-                cn.close();                
+                cn.close();
                 rs.close();
                 cs.close();
             } catch (SQLException ex) {
@@ -275,7 +300,7 @@ public class TarjetaPropiedadDAL {
         }
         return null;
     }
-    
+
 }
 /*
  *
