@@ -1250,6 +1250,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField40KeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField40KeyTyped(evt);
+            }
         });
 
         jTextField41.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -4007,12 +4010,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double Sonometro = Double.parseDouble(jTextField194.getText());
                 Integer EmiSResultado = jComboBox2.getSelectedIndex();
+                
+                if (EmiSResultado==0){
+                    s.setResultado("APROBADO");
+                }else{
+                    s.setResultado("DESAPROBADO");
+                }
 
                 s.setIdCertificado(idCertificado);
                 s.setSonometroValor(Sonometro);
-                s.setResultado(EmiSResultado.toString());
+                
                 SonometroBL sb = new SonometroBL();
                 sb.registrarSonometro(s);
+                
             } catch (NumberFormatException e) {
             }
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
@@ -6164,6 +6174,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jTextField40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

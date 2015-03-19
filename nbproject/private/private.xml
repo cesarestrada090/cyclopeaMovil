@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group/>
-=======
-        <group>
-            <file>file:/C:/cyclopeaMovil/src/NEGOCIO/TarjetaPropiedadBL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/NEGOCIO/CertificadoBL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/DATOS/TarjetaPropiedadDAL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/PRESENTACION/ListarCertificados.java</file>
-            <file>file:/C:/cyclopeaMovil/src/PRESENTACION/RegistrarCertificado.java</file>
-            <file>file:/C:/cyclopeaMovil/src/DATOS/CertificadoDAL.java</file>
-            <file>file:/C:/cyclopeaMovil/src/PRESENTACION/ListarTarjetasPreregistradas.java</file>
-            <file>file:/C:/cyclopeaMovil/src/PRESENTACION/RegistrarTarjeta.java</file>
-        </group>
->>>>>>> 8bc2bbfeb1ea98f34fa845c65332ba27af2ff8a4
     </open-files>
 </project-private>
