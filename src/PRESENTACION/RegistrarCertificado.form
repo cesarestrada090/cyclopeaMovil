@@ -1477,7 +1477,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField1">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="p14" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1491,7 +1490,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField2">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="p11" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1504,7 +1502,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField3">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="p12" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1517,7 +1514,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField4">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="p13" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1581,7 +1577,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField12">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="p15" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1718,7 +1713,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField30">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d1" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1731,7 +1725,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField31">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq1" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1745,7 +1738,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField32">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d2" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1758,7 +1750,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField33">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d3" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1771,7 +1762,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField34">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d4" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1784,7 +1774,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField35">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d5" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1797,7 +1786,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField36">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq2" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1810,7 +1798,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField37">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq3" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1823,7 +1810,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField38">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq4" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1836,7 +1822,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField39">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq15" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -1850,14 +1835,15 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="de11"/>
                   </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField40ActionPerformed"/>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField40FocusGained"/>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField40FocusLost"/>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField40FocusGained"/>
                     <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="jTextField40InputMethodTextChanged"/>
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField40KeyPressed"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField40KeyTyped"/>
@@ -1866,6 +1852,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField41">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="dd12"/>
@@ -1877,6 +1864,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField42">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="d13"/>
@@ -1889,6 +1877,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField43">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="d14"/>
@@ -1901,6 +1890,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="d15"/>
@@ -1942,7 +1932,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField50">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField61KeyTyped"/>
@@ -2028,7 +2017,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField61">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d10" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2041,7 +2029,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField62">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d9" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2054,7 +2041,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField63">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d8" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2067,7 +2053,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField64">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d7" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2080,7 +2065,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField65">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="d6" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2093,7 +2077,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField66">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq6" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2106,7 +2089,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField67">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq7" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2119,7 +2101,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField68">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq8" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2132,7 +2113,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField69">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq9" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2145,7 +2125,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField70">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="name" type="java.lang.String" value="izq10" noResource="true"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2158,7 +2137,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField71">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="d20" noResource="true"/>
@@ -2173,7 +2151,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField72">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2186,7 +2163,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField73">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2199,7 +2175,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField74">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2212,7 +2187,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField75">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -2251,7 +2225,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField85">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="10"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField61KeyTyped"/>
@@ -2940,7 +2913,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField5">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -2949,7 +2921,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField6">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -2958,7 +2929,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField7">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -2967,7 +2937,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField8">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -2976,7 +2945,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField9">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -2996,35 +2964,30 @@
                 <Component class="javax.swing.JTextField" name="jTextField10">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField11">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField13">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField14">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField15">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -3042,7 +3005,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField16">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3051,7 +3013,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField17">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3060,7 +3021,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField18">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3069,7 +3029,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField19">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3078,7 +3037,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField20">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3098,35 +3056,30 @@
                 <Component class="javax.swing.JTextField" name="jTextField21">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField22">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField23">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField24">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField25">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -3213,7 +3166,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField159">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3222,7 +3174,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField160">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3231,7 +3182,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField161">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3240,7 +3190,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField162">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3249,7 +3198,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField163">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3258,13 +3206,11 @@
                 <Component class="javax.swing.JTextField" name="jTextField164">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField165">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3273,7 +3219,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField166">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3304,13 +3249,11 @@
                 <Component class="javax.swing.JTextField" name="jTextField167">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField168">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3319,40 +3262,34 @@
                 <Component class="javax.swing.JTextField" name="jTextField169">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField170">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="20"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField171">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField172">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField173">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField174">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="A"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -3608,7 +3545,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField177">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField177ActionPerformed"/>
@@ -3618,7 +3555,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField178">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField184KeyTyped"/>
@@ -3627,7 +3564,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField179">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField184KeyTyped"/>
@@ -3636,7 +3573,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField180">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -3646,7 +3583,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField181">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
@@ -3656,7 +3592,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField182">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
@@ -3666,7 +3601,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField183">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField184KeyTyped"/>
@@ -3675,7 +3610,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField184">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
@@ -3891,7 +3826,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField185">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -3900,7 +3834,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField186">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -3909,7 +3842,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField187">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -3948,7 +3880,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField188">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -3957,7 +3888,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField189">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -3966,7 +3896,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField190">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -4005,7 +3934,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField191">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -4014,7 +3942,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField192">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -4023,7 +3950,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField193">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="60"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField187KeyTyped"/>
@@ -4166,7 +4092,6 @@
                 <Component class="javax.swing.JTextField" name="jTextField194">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="80"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox2">
