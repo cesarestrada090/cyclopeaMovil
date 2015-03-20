@@ -2078,7 +2078,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField74.getAccessibleContext().setAccessibleName("d17");
         jTextField75.getAccessibleContext().setAccessibleName("d16");
 
-        jTabbedPane1.addTab("dese", jPanel1);
+        jTabbedPane1.addTab("FRENOS", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2260,6 +2260,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         });
 
         jTextField161.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField161.setEnabled(false);
         jTextField161.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField18KeyTyped(evt);
@@ -2283,6 +2284,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField164.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField165.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField165.setEnabled(false);
         jTextField165.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField18KeyTyped(evt);
@@ -2314,6 +2316,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         });
 
         jTextField169.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField169.setEnabled(false);
 
         jTextField170.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -2576,7 +2579,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("de Frenos", jPanel2);
+        jTabbedPane1.addTab("ALINEAMIENTO - LUCES", jPanel2);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 

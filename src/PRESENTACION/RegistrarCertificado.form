@@ -974,8 +974,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="dese">
-                    <Property name="tabTitle" type="java.lang.String" value="dese"/>
+                  <JTabbedPaneConstraints tabName="FRENOS">
+                    <Property name="tabTitle" type="java.lang.String" value="FRENOS"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -2528,8 +2528,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="de Frenos">
-                    <Property name="tabTitle" type="java.lang.String" value="de Frenos"/>
+                  <JTabbedPaneConstraints tabName="ALINEAMIENTO - LUCES">
+                    <Property name="tabTitle" type="java.lang.String" value="ALINEAMIENTO - LUCES"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -3165,6 +3165,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField161">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3194,6 +3195,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField165">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
@@ -3245,6 +3247,7 @@
                 <Component class="javax.swing.JTextField" name="jTextField169">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField170">
