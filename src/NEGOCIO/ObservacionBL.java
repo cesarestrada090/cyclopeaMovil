@@ -25,5 +25,12 @@ public class ObservacionBL {
           else
               return false;
     }
+    
+    public String obtenerDescripcion(String codigo)
+    {
+        
+              return new ObservacionDAL().obtenerDescripcion(codigo);
+         
+    }
 
 }

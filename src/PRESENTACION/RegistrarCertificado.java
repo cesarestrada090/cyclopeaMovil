@@ -83,25 +83,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         //luces bajas
         jTextField159.getDocument().addDocumentListener(new validarLuxometroBajas());
         jTextField163.getDocument().addDocumentListener(new validarLuxometroBajas());
-        jTextField167.getDocument().addDocumentListener(new validarLuxometroBajas());
 
         //luces bajas
         jTextField160.getDocument().addDocumentListener(new validarLuxometroAltas());
         jTextField168.getDocument().addDocumentListener(new validarLuxometroAltas());
-        jTextField164.getDocument().addDocumentListener(new validarLuxometroAltas());
 
         //luces Altas Adicionales
         jTextField161.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
         jTextField165.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
-        jTextField169.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
 
         jTextField162.getDocument().addDocumentListener(new validarLuxometroNeblineras());
         jTextField166.getDocument().addDocumentListener(new validarLuxometroNeblineras());
-        jTextField170.getDocument().addDocumentListener(new validarLuxometroNeblineras());
 
         jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
+        
+        jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
+        jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
+        jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
 
         // FUERZA DE FRENADO ESTACIONAMIENTO
         //EJE 1  
@@ -2078,7 +2078,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField74.getAccessibleContext().setAccessibleName("d17");
         jTextField75.getAccessibleContext().setAccessibleName("d16");
 
-        jTabbedPane1.addTab("dese", jPanel1);
+        jTabbedPane1.addTab("FRENOS", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2260,6 +2260,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         });
 
         jTextField161.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField161.setEnabled(false);
         jTextField161.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField18KeyTyped(evt);
@@ -2283,6 +2284,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField164.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField165.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField165.setEnabled(false);
         jTextField165.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField18KeyTyped(evt);
@@ -2314,6 +2316,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         });
 
         jTextField169.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField169.setEnabled(false);
 
         jTextField170.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -2403,7 +2406,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel31)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2423,9 +2426,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                     .addComponent(jTextField166)
                                     .addComponent(jTextField165, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField169)
-                                    .addComponent(jTextField170, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField170)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2437,7 +2440,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField159, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2449,17 +2452,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                         .addGap(6, 6, 6)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField164)
-                                            .addComponent(jTextField167, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField171)
-                                .addComponent(jTextField172)
-                                .addComponent(jTextField173)
-                                .addComponent(jTextField174, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(692, 692, 692))
+                                            .addComponent(jTextField167)))))))
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField171, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField172, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField173, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField174, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(618, 618, 618))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2577,7 +2579,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("de Frenos", jPanel2);
+        jTabbedPane1.addTab("ALINEAMIENTO - LUCES", jPanel2);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2640,6 +2642,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField179.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField179.setToolTipText("");
+        jTextField179.setEnabled(false);
         jTextField179.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -2673,6 +2676,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField183.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField183.setToolTipText("");
+        jTextField183.setEnabled(false);
         jTextField183.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField184KeyTyped(evt);
@@ -3211,7 +3215,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
         jComboBox20.setEnabled(false);
 
         jLabel69.setText("Tipo de Servicio:");
@@ -3485,6 +3489,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                }else{
+                                    objCertificado.setTitulo("");
+                                    objCertificado.setClaseAut("");
+                                    objCertificado.setTexto("");
                                 }
                             }
                         }
@@ -3606,24 +3614,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             objFrenometro1.setnEjes(1);
             objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//            objFrenometro1.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
             objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
             objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
             objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
             objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
-//            objFrenometro1.setFuerzaEmerDer(Double.parseDouble(jTextField94.getText()));
-//            objFrenometro1.setFuerzaEmerIzq(Double.parseDouble(jTextField92.getText()));
             objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
             objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
-//            objFrenometro1.setResultadoEjeEmergencia(jTextField76.getText());
             objFrenometro1.setResultadoEjeEstacionamiento(jTextField107.getText());
-//            objFrenometro1.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
             objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
             objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
             objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
             objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
-//            objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
             objFrenometro1.setIdCerticado(idCertificado);
 
             FrenometroBL objFrenometroBL = new FrenometroBL();
@@ -3634,24 +3636,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro2.setIdCerticado(idCertificado);
                 objFrenometro2.setnEjes(2);
                 objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
                 objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
                 objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
                 objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
-//                objFrenometro2.setFuerzaEmerDer(Double.parseDouble(jTextField93.getText()));
-//                objFrenometro2.setFuerzaEmerIzq(Double.parseDouble(jTextField95.getText()));
                 objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
-//                objFrenometro2.setResultadoEjeEmergencia(jTextField77.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField108.getText());
                 objFrenometro2.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
                 objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
-//                objFrenometro2.setDesequilibrioEmergencia(Double.parseDouble(jTextField103.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
             } catch (NumberFormatException e) {
@@ -3662,24 +3659,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro3.setIdCerticado(idCertificado);
                 objFrenometro3.setnEjes(3);
                 objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
                 objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
                 objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
                 objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
-//                objFrenometro3.setFuerzaEmerDer(Double.parseDouble(jTextField101.getText()));
-//                objFrenometro3.setFuerzaEmerIzq(Double.parseDouble(jTextField96.getText()));
                 objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
-//                objFrenometro3.setResultadoEjeEmergencia(jTextField78.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField109.getText());
                 objFrenometro3.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
                 objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
-//                objFrenometro3.setDesequilibrioEmergencia(Double.parseDouble(jTextField104.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
             } catch (NumberFormatException e) {
@@ -3689,24 +3681,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro4.setIdCerticado(idCertificado);
                 objFrenometro4.setnEjes(4);
                 objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
                 objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
                 objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
                 objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
-//                objFrenometro4.setFuerzaEmerDer(Double.parseDouble(jTextField100.getText()));
-//                objFrenometro4.setFuerzaEmerIzq(Double.parseDouble(jTextField97.getText()));
                 objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
                 objFrenometro4.setResultadoEjeServicio(jTextField48.getText());
-//                objFrenometro4.setResultadoEjeEmergencia(jTextField79.getText());
                 objFrenometro4.setResultadoEjeEstacionamiento(jTextField110.getText());
-//                objFrenometro4.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
                 objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
-//                objFrenometro4.setDesequilibrioEmergencia(Double.parseDouble(jTextField105.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro4);
             } catch (NumberFormatException e) {
@@ -3717,24 +3703,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro5.setnEjes(5);
                 objFrenometro5.setIdCerticado(idCertificado);
                 objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro5.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
                 objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
                 objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
                 objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
-//                objFrenometro5.setFuerzaEmerDer(Double.parseDouble(jTextField99.getText()));
-//                objFrenometro5.setFuerzaEmerIzq(Double.parseDouble(jTextField98.getText()));
                 objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
-//                objFrenometro5.setResultadoEjeEmergencia(jTextField80.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField111.getText());
-//                objFrenometro5.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
                 objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
-//                objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
             } catch (NumberFormatException e) {
@@ -3877,12 +3857,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objSuspension.setIdCertificado(idCertificado);
                 objSuspension.setDelanteraIzq(Double.parseDouble(jTextField177.getText()));
                 objSuspension.setDelanteraDer(Double.parseDouble(jTextField178.getText()));
-                objSuspension.setDelanteraDesv(Double.parseDouble(jTextField179.getText()));
                 objSuspension.setDelanteraResult(jTextField180.getText());
                 objSuspension.setDelanteraResultFinal(String.valueOf(jComboBox7.getSelectedItem()));
                 objSuspension.setPosteriorIzq(Double.parseDouble(jTextField181.getText()));
                 objSuspension.setPosteriorDer(Double.parseDouble(jTextField182.getText()));
-                objSuspension.setPosteriorDesv(Double.parseDouble(jTextField183.getText()));
                 objSuspension.setPosteriorResult(jTextField184.getText());
                 objSuspension.setPosteriorResultFinal(String.valueOf(jComboBox8.getSelectedItem()));
 
@@ -3967,6 +3945,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             for(int i=0;i<arrayObservaciones.size();i++){
                 Observacion obsTemp= (Observacion)arrayObservaciones.get(i);
                 obsTemp.setIdCertificado(idCertificado);
+                String descripcion= b.obtenerDescripcion(obsTemp.getCodigoObservacion());
+                obsTemp.setInterpretacion(descripcion);
                 b.registrarObservacion(obsTemp);
             }
             
@@ -3991,18 +3971,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaPrimerEjeServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaPrimerEjeServicio);
             if (valor <= 20 && valor >= 15) {
-                obs.setCodigoObservacion("1.7");
+                obs.setCodigoObservacion("D.1.7");
                 obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.6");
+                obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.5");
+                obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4011,18 +3991,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaSegundoEjeServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaSegundoEjeServicio);
             if (valor <= 20 && valor >= 15) {
-                obs.setCodigoObservacion("1.10");
+                obs.setCodigoObservacion("D.1.10");
                 obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4032,13 +4012,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaTercerEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4048,13 +4028,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaCuartoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4064,13 +4044,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaQuintoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4082,17 +4062,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaServicio);
             if (valor >= 30 && valor <= 50) {
-                obs.setCodigoObservacion("1.2");
+                obs.setCodigoObservacion("D.1.2");
                 obs.setCalificacion("Leve");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 20 && valor <= 29) {
-                obs.setCodigoObservacion("1.3");
+                obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 0 && valor <= 20) {
-                obs.setCodigoObservacion("1.4");
+                obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
@@ -4104,17 +4084,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaEstacionamiento.equals("")) {
             double valor = Double.parseDouble(eficienciaEstacionamiento);
             if (valor >= 5 && valor <= 15) {
-                obs.setCodigoObservacion("1.11");
+                obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor > 0 && valor < 5) {
-                obs.setCodigoObservacion("6.3");
+                obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor == 0) {
-                obs.setCodigoObservacion("6.3");
+                obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
@@ -4146,7 +4126,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
         
         //OBSERVACIONES Suspension
-        String desvSuspensionPosterior= jTextField184.getText();
+        String desvSuspensionPosterior= jTextField183.getText();
 
         if (!desvSuspensionPosterior.equals("")) {
             double valor = Double.parseDouble(desvSuspensionPosterior);
@@ -4246,8 +4226,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
-                && !jTextField179.getText().trim().equals("") && !jTextField181.getText().trim().equals("")
-                && !jTextField182.getText().trim().equals("") && !jTextField183.getText().trim().equals("")) {
+                 && !jTextField181.getText().trim().equals("")
+                && !jTextField182.getText().trim().equals("") ) {
             suspensionCompleto = true;
         }
 
@@ -4338,6 +4318,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     && !jTextField29.getText().trim().equals("")) {
                 fotosCompleto = true;
             }
+        }else{
+            fotosCompleto = true;
         }
 
 //        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
@@ -5210,7 +5192,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField22.setText("A");
                 }
             }
 
@@ -5223,7 +5205,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField22.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField22.setText("A");
                 }
             }
         }
@@ -5241,7 +5223,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField23.setText("A");
                 }
             }
 
@@ -5254,7 +5236,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField23.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField23.setText("A");
                 }
             }
         }
@@ -5272,7 +5254,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField24.setText("A");
                 }
             }
 
@@ -5285,7 +5267,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField24.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField24.setText("A");
                 }
             }
         }
@@ -5303,7 +5285,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField25.setText("A");
                 }
             }
 
@@ -5316,7 +5298,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 if (valor <= 1.9 && valor >= 0) {
                     jTextField25.setText("D");
                 } else {
-                    jTextField21.setText("A");
+                    jTextField25.setText("A");
                 }
             }
         }
@@ -5702,7 +5684,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5731,7 +5713,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5765,7 +5747,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5794,7 +5776,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5828,7 +5810,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
                 } else {
@@ -5857,7 +5839,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox7.setSelectedIndex(0);
                     jTextField180.setText("A");
 
@@ -5892,7 +5874,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5921,7 +5903,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5955,7 +5937,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5984,7 +5966,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -6018,7 +6000,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost && suspensionDesvPost) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -6047,7 +6029,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel && suspensionDesvDel) {
+                if (suspensionIzqDel && suspensionDerDel ) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
 
@@ -6069,11 +6051,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
             String ali = jTextField167.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4 && valorAli <= 10 && valorAli >= 4) {
+                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
@@ -6088,11 +6069,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
             String ali = jTextField167.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4 && valorAli <= 10 && valorAli >= 4) {
+                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
@@ -6111,12 +6091,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField160.getText();
             String izq = jTextField168.getText();
-            String ali = jTextField164.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField172.setText("A");
 
                 } else {
@@ -6130,12 +6108,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField160.getText();
             String izq = jTextField168.getText();
-            String ali = jTextField164.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField172.setText("A");
 
                 } else {
@@ -6154,12 +6130,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField161.getText();
             String izq = jTextField165.getText();
-            String ali = jTextField169.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("") ) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField173.setText("A");
 
                 } else {
@@ -6173,12 +6147,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField161.getText();
             String izq = jTextField165.getText();
-            String ali = jTextField169.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
                     jTextField173.setText("A");
 
                 } else {
@@ -6197,12 +6169,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField162.getText();
             String izq = jTextField166.getText();
-            String ali = jTextField170.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField174.setText("A");
 
                 } else {
@@ -6216,12 +6186,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField162.getText();
             String izq = jTextField166.getText();
-            String ali = jTextField170.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
                     jTextField174.setText("A");
 
                 } else {
@@ -6234,7 +6202,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
-
     class SonometroResultado implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {

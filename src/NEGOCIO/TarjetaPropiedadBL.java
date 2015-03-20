@@ -43,8 +43,8 @@ public class TarjetaPropiedadBL {
         return new TarjetaPropiedadDAL().actualizarTarjetaPropiedad(id);
     }
     
-    public int obtenerTipoServicio(int idTarjeta) {
-        return new TarjetaPropiedadDAL().obtenerTipoServicio(idTarjeta);
+    public int obtenerTipoServicio(int idCertificado) {
+        return new TarjetaPropiedadDAL().obtenerTipoServicio(idCertificado);
 
     }
 

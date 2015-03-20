@@ -51,7 +51,7 @@ public class TarjetaPropiedadDAL {
             ps.setInt(15, v.getCilindros());
             ps.setString(16, v.getnSerie());
             ps.setString(17, v.getVin());
-            ps.setObject(18, v.getRuedas());
+            ps.setObject(18, v.getnRuedas());
             ps.setInt(19, v.getPasajeros());
             ps.setInt(20, v.getAsientos());
             ps.setDouble(21, v.getPesoSeco());
@@ -236,11 +236,13 @@ public class TarjetaPropiedadDAL {
         }
     }
 
-    public int obtenerTipoServicio(int idTarjeta) {
+    public int obtenerTipoServicio(int idCertificado) {
         try {
             cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT tipoServicio FROM tarjetapropiedad t where t.id_Tarjeta='" + idTarjeta + "';");
+            rs = st.executeQuery("SELECT t.tipoServicio, cer.idCertificado FROM tarjetapropiedad t\n" +
+                                "inner join certificado cer on cer.idtarjeta=t.id_tarjeta\n" +
+                                "where cer.idCertificado='" + idCertificado + "';");
             if (rs.next()) {
                 Integer numero = rs.getInt(1);
                 if (numero != null) {
