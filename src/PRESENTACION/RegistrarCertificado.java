@@ -102,6 +102,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
+        
+        jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
+        jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
+        jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
 
         // FUERZA DE FRENADO ESTACIONAMIENTO
         //EJE 1  
@@ -3213,7 +3217,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
         jComboBox20.setEnabled(false);
 
         jLabel69.setText("Tipo de Servicio:");
@@ -3487,6 +3491,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                }else{
+                                    objCertificado.setTitulo("");
+                                    objCertificado.setClaseAut("");
+                                    objCertificado.setTexto("");
                                 }
                             }
                         }
@@ -3608,24 +3616,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             objFrenometro1.setnEjes(1);
             objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//            objFrenometro1.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
             objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
             objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
             objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
             objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
             objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
-//            objFrenometro1.setFuerzaEmerDer(Double.parseDouble(jTextField94.getText()));
-//            objFrenometro1.setFuerzaEmerIzq(Double.parseDouble(jTextField92.getText()));
             objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
             objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
-//            objFrenometro1.setResultadoEjeEmergencia(jTextField76.getText());
             objFrenometro1.setResultadoEjeEstacionamiento(jTextField107.getText());
-//            objFrenometro1.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
             objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
             objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
             objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
             objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
-//            objFrenometro1.setDesequilibrioEmergencia(Double.parseDouble(jTextField102.getText()));
             objFrenometro1.setIdCerticado(idCertificado);
 
             FrenometroBL objFrenometroBL = new FrenometroBL();
@@ -3636,24 +3638,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro2.setIdCerticado(idCertificado);
                 objFrenometro2.setnEjes(2);
                 objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro2.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
                 objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
                 objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
                 objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
-//                objFrenometro2.setFuerzaEmerDer(Double.parseDouble(jTextField93.getText()));
-//                objFrenometro2.setFuerzaEmerIzq(Double.parseDouble(jTextField95.getText()));
                 objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
-//                objFrenometro2.setResultadoEjeEmergencia(jTextField77.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField108.getText());
                 objFrenometro2.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
                 objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
-//                objFrenometro2.setDesequilibrioEmergencia(Double.parseDouble(jTextField103.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
             } catch (NumberFormatException e) {
@@ -3664,24 +3661,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro3.setIdCerticado(idCertificado);
                 objFrenometro3.setnEjes(3);
                 objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro3.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
                 objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
                 objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
                 objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
-//                objFrenometro3.setFuerzaEmerDer(Double.parseDouble(jTextField101.getText()));
-//                objFrenometro3.setFuerzaEmerIzq(Double.parseDouble(jTextField96.getText()));
                 objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
-//                objFrenometro3.setResultadoEjeEmergencia(jTextField78.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField109.getText());
                 objFrenometro3.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
                 objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
-//                objFrenometro3.setDesequilibrioEmergencia(Double.parseDouble(jTextField104.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
             } catch (NumberFormatException e) {
@@ -3691,24 +3683,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro4.setIdCerticado(idCertificado);
                 objFrenometro4.setnEjes(4);
                 objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro4.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
                 objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
                 objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
                 objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
-//                objFrenometro4.setFuerzaEmerDer(Double.parseDouble(jTextField100.getText()));
-//                objFrenometro4.setFuerzaEmerIzq(Double.parseDouble(jTextField97.getText()));
                 objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
                 objFrenometro4.setResultadoEjeServicio(jTextField48.getText());
-//                objFrenometro4.setResultadoEjeEmergencia(jTextField79.getText());
                 objFrenometro4.setResultadoEjeEstacionamiento(jTextField110.getText());
-//                objFrenometro4.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
                 objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
-//                objFrenometro4.setDesequilibrioEmergencia(Double.parseDouble(jTextField105.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro4);
             } catch (NumberFormatException e) {
@@ -3719,24 +3705,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro5.setnEjes(5);
                 objFrenometro5.setIdCerticado(idCertificado);
                 objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-//                objFrenometro5.setEficienciaEmergencia(Double.parseDouble(jTextField116.getText()));
                 objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
                 objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
                 objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
                 objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
-//                objFrenometro5.setFuerzaEmerDer(Double.parseDouble(jTextField99.getText()));
-//                objFrenometro5.setFuerzaEmerIzq(Double.parseDouble(jTextField98.getText()));
                 objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
-//                objFrenometro5.setResultadoEjeEmergencia(jTextField80.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField111.getText());
-//                objFrenometro5.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
                 objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
-//                objFrenometro5.setDesequilibrioEmergencia(Double.parseDouble(jTextField106.getText()));
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
             } catch (NumberFormatException e) {
@@ -3991,18 +3971,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaPrimerEjeServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaPrimerEjeServicio);
             if (valor <= 20 && valor >= 15) {
-                obs.setCodigoObservacion("1.7");
+                obs.setCodigoObservacion("D.1.7");
                 obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.6");
+                obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.5");
+                obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4011,18 +3991,18 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaSegundoEjeServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaSegundoEjeServicio);
             if (valor <= 20 && valor >= 15) {
-                obs.setCodigoObservacion("1.10");
+                obs.setCodigoObservacion("D.1.10");
                 obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4032,13 +4012,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaTercerEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4048,13 +4028,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaCuartoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4064,13 +4044,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaQuintoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
-                obs.setCodigoObservacion("1.9");
+                obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
 
             if (valor >= 30) {
-                obs.setCodigoObservacion("1.8");
+                obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
 
                 arrayObservaciones.add(obs);
@@ -4082,17 +4062,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaServicio.equals("")) {
             double valor = Double.parseDouble(eficienciaServicio);
             if (valor >= 30 && valor <= 50) {
-                obs.setCodigoObservacion("1.2");
+                obs.setCodigoObservacion("D.1.2");
                 obs.setCalificacion("Leve");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 20 && valor <= 29) {
-                obs.setCodigoObservacion("1.3");
+                obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 0 && valor <= 20) {
-                obs.setCodigoObservacion("1.4");
+                obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
@@ -4104,17 +4084,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         if (!eficienciaEstacionamiento.equals("")) {
             double valor = Double.parseDouble(eficienciaEstacionamiento);
             if (valor >= 5 && valor <= 15) {
-                obs.setCodigoObservacion("1.11");
+                obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor > 0 && valor < 5) {
-                obs.setCodigoObservacion("6.3");
+                obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
             if (valor == 0) {
-                obs.setCodigoObservacion("6.3");
+                obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
@@ -4146,7 +4126,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
         
         //OBSERVACIONES Suspension
-        String desvSuspensionPosterior= jTextField184.getText();
+        String desvSuspensionPosterior= jTextField183.getText();
 
         if (!desvSuspensionPosterior.equals("")) {
             double valor = Double.parseDouble(desvSuspensionPosterior);
@@ -4338,6 +4318,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     && !jTextField29.getText().trim().equals("")) {
                 fotosCompleto = true;
             }
+        }else{
+            fotosCompleto = true;
         }
 
 //        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();

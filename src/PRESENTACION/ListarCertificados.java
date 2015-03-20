@@ -189,14 +189,23 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         Integer x = idCertificado;
-        String idproducto = "";
+        String intIdCertificado = "";
         if (!x.toString().equals("")) {
-            idproducto = x.toString();
-            Reporte r = new Reporte();
-            r.mostrarReporteProductoPorCodigo(idproducto);
-            Reporte ri = new Reporte();
-            ri.mostrarInformeTecnico(idproducto);
+            intIdCertificado = x.toString();
+            TarjetaPropiedadBL objTarjeta = new TarjetaPropiedadBL();
+            int tipo = objTarjeta.obtenerTipoServicio(idCertificado);
             
+            if (tipo == 7) {
+                Reporte r = new Reporte();
+                r.mostrarCertificadoParticular(intIdCertificado);                
+            } else {
+                Reporte r = new Reporte();
+                r.mostrarCertificado(intIdCertificado);
+            }
+
+            Reporte ri = new Reporte();
+            ri.mostrarInformeTecnico(intIdCertificado);
+
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro", "CAMPOS VACÍOS", 0);
         }

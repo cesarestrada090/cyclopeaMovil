@@ -4374,7 +4374,7 @@
     <Component class="javax.swing.JComboBox" name="jComboBox20">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
+          <StringArray count="8">
             <StringItem index="0" value="Interprovincial tur&#xed;stico estudiantes"/>
             <StringItem index="1" value="Mercanc&#xed;as en General"/>
             <StringItem index="2" value="Mercanc&#xed;as Peligrosas"/>
@@ -4382,6 +4382,7 @@
             <StringItem index="4" value="Transporte P&#xfa;blico de Personas"/>
             <StringItem index="5" value="Transporte Privado de Mercanc&#xed;as"/>
             <StringItem index="6" value="Taxi"/>
+            <StringItem index="7" value="Particular"/>
           </StringArray>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
