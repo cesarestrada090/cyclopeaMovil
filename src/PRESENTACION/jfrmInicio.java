@@ -58,6 +58,7 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -104,6 +105,16 @@ public class jfrmInicio extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem8);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/bd import.png"))); // NOI18N
+        jMenuItem4.setText("Generar Backup");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
         jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/duplicados.png"))); // NOI18N
@@ -651,6 +662,31 @@ public class jfrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        BackupRestoreMovil vv = new BackupRestoreMovil();
+
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension jInternalFrameSize = vv.getSize();
+
+        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+
+        boolean mostrar = true;
+        for (int a = 0; a < jDesktopPane1.getComponentCount(); a++) {
+            if (vv.getClass().isInstance(jDesktopPane1.getComponent(a))) {
+                mostrar = true;
+            } else {
+                mostrar = false;
+            }
+        }
+        if (mostrar) {
+            jDesktopPane1.add(vv);
+            vv.setLocation(width, height);
+            vv.show();
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -679,6 +715,7 @@ public class jfrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem11;
     public final javax.swing.JMenuItem jMenuItem2 = new javax.swing.JMenuItem();
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
