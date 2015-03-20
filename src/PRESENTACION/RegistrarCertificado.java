@@ -83,21 +83,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         //luces bajas
         jTextField159.getDocument().addDocumentListener(new validarLuxometroBajas());
         jTextField163.getDocument().addDocumentListener(new validarLuxometroBajas());
-        jTextField167.getDocument().addDocumentListener(new validarLuxometroBajas());
 
         //luces bajas
         jTextField160.getDocument().addDocumentListener(new validarLuxometroAltas());
         jTextField168.getDocument().addDocumentListener(new validarLuxometroAltas());
-        jTextField164.getDocument().addDocumentListener(new validarLuxometroAltas());
 
         //luces Altas Adicionales
         jTextField161.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
         jTextField165.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
-        jTextField169.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
 
         jTextField162.getDocument().addDocumentListener(new validarLuxometroNeblineras());
         jTextField166.getDocument().addDocumentListener(new validarLuxometroNeblineras());
-        jTextField170.getDocument().addDocumentListener(new validarLuxometroNeblineras());
 
         jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
@@ -2407,7 +2403,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel31)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2427,9 +2423,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                     .addComponent(jTextField166)
                                     .addComponent(jTextField165, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField169)
-                                    .addComponent(jTextField170, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField170)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2441,7 +2437,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField159, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2453,17 +2449,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                         .addGap(6, 6, 6)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField164)
-                                            .addComponent(jTextField167, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField171)
-                                .addComponent(jTextField172)
-                                .addComponent(jTextField173)
-                                .addComponent(jTextField174, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(692, 692, 692))
+                                            .addComponent(jTextField167)))))))
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField171, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField172, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField173, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField174, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(618, 618, 618))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3947,6 +3942,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             for(int i=0;i<arrayObservaciones.size();i++){
                 Observacion obsTemp= (Observacion)arrayObservaciones.get(i);
                 obsTemp.setIdCertificado(idCertificado);
+                String descripcion= b.obtenerDescripcion(obsTemp.getCodigoObservacion());
+                obsTemp.setInterpretacion(descripcion);
                 b.registrarObservacion(obsTemp);
             }
             
@@ -6051,11 +6048,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
             String ali = jTextField167.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4 && valorAli <= 10 && valorAli >= 4) {
+                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
@@ -6070,11 +6066,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
             String ali = jTextField167.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4 && valorAli <= 10 && valorAli >= 4) {
+                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
@@ -6093,12 +6088,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField160.getText();
             String izq = jTextField168.getText();
-            String ali = jTextField164.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField172.setText("A");
 
                 } else {
@@ -6112,12 +6105,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField160.getText();
             String izq = jTextField168.getText();
-            String ali = jTextField164.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField172.setText("A");
 
                 } else {
@@ -6136,12 +6127,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField161.getText();
             String izq = jTextField165.getText();
-            String ali = jTextField169.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("") ) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField173.setText("A");
 
                 } else {
@@ -6155,12 +6144,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField161.getText();
             String izq = jTextField165.getText();
-            String ali = jTextField169.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
                     jTextField173.setText("A");
 
                 } else {
@@ -6179,12 +6166,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField162.getText();
             String izq = jTextField166.getText();
-            String ali = jTextField170.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField174.setText("A");
 
                 } else {
@@ -6198,12 +6183,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField162.getText();
             String izq = jTextField166.getText();
-            String ali = jTextField170.getText();
-            if (!der.equals("") && !izq.equals("") && !ali.equals("")) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                double valorAli = Double.parseDouble(ali);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 && valorAli <= 80 && valorAli >= 20) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
                     jTextField174.setText("A");
 
                 } else {
@@ -6216,7 +6199,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
-
     class SonometroResultado implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
