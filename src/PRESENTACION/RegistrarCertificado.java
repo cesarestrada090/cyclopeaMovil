@@ -512,6 +512,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField157 = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -3112,7 +3113,22 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addContainerGap(394, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("IV. RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR", jPanel5);
+        jTabbedPane3.addTab("V. RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR", jPanel5);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1251, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 474, Short.MAX_VALUE)
+        );
+
+        jTabbedPane3.addTab("IV. OBSERVACIONES DETECTADAS", jPanel4);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -6816,6 +6832,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
