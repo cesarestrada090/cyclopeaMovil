@@ -3582,6 +3582,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     // BOTON GRABAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        jButton4.setEnabled(false);
         resultado = validarVacios();
         if (resultado) {
 
