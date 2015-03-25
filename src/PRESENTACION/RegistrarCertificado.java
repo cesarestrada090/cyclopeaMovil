@@ -55,6 +55,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private FileInputStream fisfoto3;
     private int longitudBytes3;
 
+    private int ResultadoGeneral;
+
     /**
      * Creates new form RegistrarUsuario
      */
@@ -98,7 +100,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
         jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
         jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
-        
+
         jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
         jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
         jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
@@ -1456,6 +1458,36 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jTextField75.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField61KeyTyped(evt);
+            }
+        });
+
+        jTextField76.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField78KeyTyped(evt);
+            }
+        });
+
+        jTextField77.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField78KeyTyped(evt);
+            }
+        });
+
+        jTextField78.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField78KeyTyped(evt);
+            }
+        });
+
+        jTextField79.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField78KeyTyped(evt);
+            }
+        });
+
+        jTextField80.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField78KeyTyped(evt);
             }
         });
 
@@ -3341,7 +3373,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 //        if (jComboBox3.getSelectedIndex() == 0) {
 //            objCertificado.setResultado(1);
 //        } else {
-            objCertificado.setResultado(0);
+//        ObtenerResultado();
+        ResultadoGeneral=1;
+        
+        objCertificado.setResultado(ResultadoGeneral);
 //        }
 
         objCertificado.setVigencia(jTextField157.getText());
@@ -3444,7 +3479,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-                                }else{
+                                } else {
                                     objCertificado.setTitulo("");
                                     objCertificado.setClaseAut("");
                                     objCertificado.setTexto("");
@@ -3533,6 +3568,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         objR.setSuspension(Susp);
+
+        if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1 &&
+            objR.getSuspension()== 1 && objR.getPruebaAli()== 1 && objR.getPruebLuces()== 1 && objR.getProfNeuma()== 1 ) {
+            ResultadoGeneral = 1;
+        } else {
+            ResultadoGeneral = 0;
+        }
 
         return objR;
     }
@@ -3892,23 +3934,22 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
 
             ///
-                //Agregando Observaciones
+            //Agregando Observaciones
             //
-            
             calcularObservaciones();
-            ObservacionBL b= new ObservacionBL();
-            for(int i=0;i<arrayObservaciones.size();i++){
-                Observacion obsTemp= (Observacion)arrayObservaciones.get(i);
+            ObservacionBL b = new ObservacionBL();
+            for (int i = 0; i < arrayObservaciones.size(); i++) {
+                Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
                 obsTemp.setIdCertificado(idCertificado);
-                String descripcion= b.obtenerDescripcion(obsTemp.getCodigoObservacion());
+                String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
                 obsTemp.setInterpretacion(descripcion);
                 b.registrarObservacion(obsTemp);
             }
-            
+
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
-            
+
             dispose();
         }
 
@@ -4067,21 +4108,21 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
-            if (valor >=30 && valor <= 40) {
+            if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
-            if (valor >=0 && valor <= 29) {
+            if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
 
         }
-        
+
         //OBSERVACIONES Suspension
-        String desvSuspensionPosterior= jTextField183.getText();
+        String desvSuspensionPosterior = jTextField183.getText();
 
         if (!desvSuspensionPosterior.equals("")) {
             double valor = Double.parseDouble(desvSuspensionPosterior);
@@ -4091,12 +4132,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
             }
-            if (valor >=30 && valor <= 40) {
+            if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
             }
-            if (valor >=0 && valor <= 29) {
+            if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
@@ -4181,8 +4222,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         /* validar Suspension */
         if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
-                 && !jTextField181.getText().trim().equals("")
-                && !jTextField182.getText().trim().equals("") ) {
+                && !jTextField181.getText().trim().equals("")
+                && !jTextField182.getText().trim().equals("")) {
             suspensionCompleto = true;
         }
 
@@ -4273,7 +4314,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     && !jTextField29.getText().trim().equals("")) {
                 fotosCompleto = true;
             }
-        }else{
+        } else {
             fotosCompleto = true;
         }
 
@@ -5281,7 +5322,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField75.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5296,7 +5337,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField75.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField75.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5316,7 +5357,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField74.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5331,7 +5372,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField74.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField74.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5351,7 +5392,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField73.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5366,7 +5407,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField73.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField73.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5386,7 +5427,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField72.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5401,7 +5442,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField72.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField72.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5421,7 +5462,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField71.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5436,7 +5477,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField71.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField71.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5456,7 +5497,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField40.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5471,7 +5512,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField40.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField40.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5491,7 +5532,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField41.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5506,7 +5547,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField41.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField41.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5526,7 +5567,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField42.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5541,7 +5582,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField42.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField42.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5561,7 +5602,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField43.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5576,7 +5617,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField43.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField43.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5596,7 +5637,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField44.setText(String.valueOf((int) Math.round(resultado)));
 
             }
 
@@ -5611,7 +5652,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 double resta = xd - yd;
                 double resultado = 100 * Math.abs(resta / calcularMayor(xd, yd));
-                jTextField44.setText(String.valueOf((int) Math.round(resultado) ));
+                jTextField44.setText(String.valueOf((int) Math.round(resultado)));
 
             }
         }
@@ -5858,7 +5899,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost ) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5892,7 +5933,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost ) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5921,7 +5962,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqPost && suspensionDerPost ) {
+                if (suspensionIzqPost && suspensionDerPost) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
                 } else {
@@ -5984,7 +6025,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 }
 
-                if (suspensionIzqDel && suspensionDerDel ) {
+                if (suspensionIzqDel && suspensionDerDel) {
                     jComboBox8.setSelectedIndex(0);
                     jTextField184.setText("A");
 
@@ -6085,7 +6126,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField161.getText();
             String izq = jTextField165.getText();
-            if (!der.equals("") && !izq.equals("") ) {
+            if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
                 if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
@@ -6105,7 +6146,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField173.setText("A");
 
                 } else {
@@ -6144,7 +6185,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20 ) {
+                if (valorDer <= 80 && valorDer >= 20 && valorIzq <= 80 && valorIzq >= 20) {
                     jTextField174.setText("A");
 
                 } else {
@@ -6157,6 +6198,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class SonometroResultado implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
@@ -6608,6 +6650,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private void jTextField40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40KeyTyped
+
+    private void jTextField78KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField78KeyTyped
+        // TODO add your handling code here:
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+        if (k != 65 && k != 68) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "Sólo son válidas las letras A y D mayúsculas!!!", "Validando Datos",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField78KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
