@@ -3626,7 +3626,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
                 objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
                 objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
-                objFrenometro1.setResultadoEjeEstacionamiento(jTextField107.getText());
+                objFrenometro1.setResultadoEjeEstacionamiento(jTextField76.getText());
                 objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
@@ -3648,7 +3648,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
                 objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
-                objFrenometro2.setResultadoEjeEstacionamiento(jTextField108.getText());
+                objFrenometro2.setResultadoEjeEstacionamiento(jTextField77.getText());
                 objFrenometro2.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
@@ -3671,7 +3671,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
                 objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
-                objFrenometro3.setResultadoEjeEstacionamiento(jTextField109.getText());
+                objFrenometro3.setResultadoEjeEstacionamiento(jTextField78.getText());
                 objFrenometro3.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
@@ -3693,7 +3693,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
                 objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
                 objFrenometro4.setResultadoEjeServicio(jTextField48.getText());
-                objFrenometro4.setResultadoEjeEstacionamiento(jTextField110.getText());
+                objFrenometro4.setResultadoEjeEstacionamiento(jTextField79.getText());
                 objFrenometro4.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
@@ -3715,7 +3715,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
                 objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
-                objFrenometro5.setResultadoEjeEstacionamiento(jTextField111.getText());
+                objFrenometro5.setResultadoEjeEstacionamiento(jTextField80.getText());
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
