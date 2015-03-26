@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1461,6 +1462,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField76.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField76ActionPerformed(evt);
+            }
+        });
         jTextField76.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
@@ -3627,7 +3633,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
                 objFrenometro1.setIdCerticado(idCertificado);
 
-                
                 objFrenometroBL.registrarFrenometro(objFrenometro1);
             } catch (NumberFormatException e) {
             }
@@ -3845,7 +3850,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objLuzNeblineras.setIdCertificado(idCertificado);
                 objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
                 objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
-                objLuzNeblineras.setAlineamientoLuz(jTextField169.getText());
+                objLuzNeblineras.setAlineamientoLuz(jTextField170.getText());
                 objLuzNeblineras.setResultadoLuz(jTextField174.getText());
                 LuxometroBL objLuxBL = new LuxometroBL();
                 objLuxBL.registrarLuxometro(objLuzNeblineras);
@@ -3940,6 +3945,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             //Agregando Observaciones
             //
             calcularObservaciones();
+
+            HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
+            arrayObservaciones.clear();
+            arrayObservaciones.addAll(hashSet);
             ObservacionBL b = new ObservacionBL();
             for (int i = 0; i < arrayObservaciones.size(); i++) {
                 Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
@@ -6557,7 +6566,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
             jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
             jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
-            jComboBox11.setSelectedItem(objTarjetaP.getFabricacion());
+            jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
             jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
 
@@ -6663,6 +6672,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField78KeyTyped
+
+    private void jTextField76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField76ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField76ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
