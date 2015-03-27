@@ -23,7 +23,7 @@ public class EquipoCertificado {
     }
 
     public void setIdCertificado(int idCertificado) {
-        this.idCertificado = idCertificado;
+        this.idCertificado = idCertificado+1;
     }
 
     
@@ -33,7 +33,7 @@ public class EquipoCertificado {
     }
 
     public void setNumFrenometro(int NumFrenometro) {
-        this.NumFrenometro = NumFrenometro;
+        this.NumFrenometro = NumFrenometro+1;
     }
 
     public int getNumAlineador() {
@@ -41,7 +41,7 @@ public class EquipoCertificado {
     }
 
     public void setNumAlineador(int NumAlineador) {
-        this.NumAlineador = NumAlineador;
+        this.NumAlineador = NumAlineador+1;
     }
 
     public int getNumAnalizador() {
@@ -49,7 +49,7 @@ public class EquipoCertificado {
     }
 
     public void setNumAnalizador(int NumAnalizador) {
-        this.NumAnalizador = NumAnalizador;
+        this.NumAnalizador = NumAnalizador+1;
     }
 
     public int getNumRegloscopio() {
@@ -57,7 +57,7 @@ public class EquipoCertificado {
     }
 
     public void setNumRegloscopio(int NumRegloscopio) {
-        this.NumRegloscopio = NumRegloscopio;
+        this.NumRegloscopio = NumRegloscopio+1;
     }
 
     public int getNumBancoSuspension() {
@@ -65,7 +65,7 @@ public class EquipoCertificado {
     }
 
     public void setNumBancoSuspension(int NumBancoSuspension) {
-        this.NumBancoSuspension = NumBancoSuspension;
+        this.NumBancoSuspension = NumBancoSuspension+1;
     }
 
    
