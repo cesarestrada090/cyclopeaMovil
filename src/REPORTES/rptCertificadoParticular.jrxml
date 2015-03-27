@@ -3901,7 +3901,7 @@ NEUMÁTICOS]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Right">
 					<font size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{resultadoEjeEstacionamiento1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{resultadoEstacionamiento1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="414" y="236" width="32" height="12"/>
