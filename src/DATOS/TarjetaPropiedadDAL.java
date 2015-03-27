@@ -30,8 +30,8 @@ public class TarjetaPropiedadDAL {
             //cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
             String sentencia = "insert into tarjetapropiedad(placa,ntarjeta,razon1,domicilio,idclase,idmarca,fabricacion,"
                     + "idmodelo,version,idcombustible,idcarroceria,ejes,colores,nmotor,cilindros,nserie,vin,ruedas,pasajeros,asientos,"
-                    + "peso_seco,peso_bruto,longitud,altura,ancho,carga_util,estado,fecha,nruedas,kilometraje,tipoServicio)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "peso_seco,peso_bruto,longitud,altura,ancho,carga_util,estado,fecha,nruedas,kilometraje,tipoServicio,ambito)"
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = (PreparedStatement) cn.prepareStatement(sentencia);
 
             ps.setString(1, v.getPlaca());
@@ -65,6 +65,7 @@ public class TarjetaPropiedadDAL {
             ps.setInt(29, v.getnRuedas());
             ps.setDouble(30, v.getKilometraje());
             ps.setString(31, v.getTipoServicio());
+            ps.setInt(32, v.getAmbito());
             ps.executeUpdate();
             return true;
             //"Un usuario ya ha sido registrado con la ubicación seleccionada"
@@ -217,6 +218,7 @@ public class TarjetaPropiedadDAL {
                     tarjeta.setKilometraje(Double.parseDouble(rs.getString(28)));
                     tarjeta.setTipoServicio(rs.getString(29));
                     tarjeta.setFecha(rs.getDate(30));
+                    tarjeta.setAmbito(rs.getInt(31));
                 }
 
                 return tarjeta;

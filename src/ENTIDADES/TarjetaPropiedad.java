@@ -38,6 +38,15 @@ public class TarjetaPropiedad {
     private int idMarcaCarroceria;
     private double Kilometraje;
     private String tipoServicio;
+    private int ambito;
+
+    public int getAmbito() {
+        return ambito;
+    }
+
+    public void setAmbito(int ambito) {
+        this.ambito = ambito;
+    }
 
     public String getTipoServicio() {
         return tipoServicio;

@@ -4352,6 +4352,7 @@
             <StringItem index="3" value="Nacional"/>
           </StringArray>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

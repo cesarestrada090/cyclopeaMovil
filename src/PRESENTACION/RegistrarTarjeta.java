@@ -44,7 +44,6 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 //        for (int i = 0; i < size; i++) {
 //            jComboBox13.addItem((String) listaCombustibles.get(i));
 //        }
-
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
         for (int i = 0; i < size; i++) {
@@ -606,6 +605,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel1.setText("Tipo de Servicio:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Provincial", "Regional", "Nacional" }));
 
@@ -668,7 +672,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
             // CARACTERÍSTICAS DEL VEHÍCULO 
             TarjetaPropiedad objTarjetaP = new TarjetaPropiedad();
-            
+
             objTarjetaP.setAltura(Double.parseDouble(jTextField54.getText()));
             objTarjetaP.setAncho(Double.parseDouble(jTextField53.getText()));
             objTarjetaP.setLongitud(Double.parseDouble(jTextField123.getText()));
@@ -696,10 +700,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setEstado("2"); //Estado 2 significa que se encuentra preregistrado
             objTarjetaP.setTipoServicio(String.valueOf(jComboBox1.getSelectedIndex()));
             objTarjetaP.setFecha(jDateChooser1.getDate());
+            objTarjetaP.setAmbito(jComboBox2.getSelectedIndex());
 
             TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
             objTPBL.registrarTarjetaPropiedad(objTarjetaP);
-            
+
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO DE TARJETA DE PROPIEDAD", 1);
             dispose();
         }
@@ -712,7 +717,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField51KeyTyped
 
@@ -725,7 +730,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField55KeyTyped
 
@@ -735,7 +740,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField119KeyTyped
 
@@ -745,7 +750,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField52KeyTyped
 
@@ -759,7 +764,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField124KeyTyped
 
@@ -773,7 +778,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField115KeyTyped
 
@@ -791,7 +796,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField84KeyTyped
 
@@ -806,7 +811,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField82KeyTyped
 
@@ -814,8 +819,17 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField82InputMethodTextChanged
 
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        if (jComboBox1.getSelectedIndex()==0){
+            jComboBox2.enable(true);
+        }else{
+            jComboBox2.enable(false);
+        }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
     public boolean validarVacios() {
-         //Tarjeta de Propiedad
+        //Tarjeta de Propiedad
         if (jTextField55.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el número de tarjeta", "CAMPOS VACÍOS", 0);
@@ -836,13 +850,13 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
+        String s = ((JTextField) jDateChooser1.getDateEditor().getUiComponent()).getText();
         if (s.equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese la fecha de Inspeccion", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        
+
         if (jTextField112.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el número de Serie", "CAMPOS VACÍOS", 0);
@@ -919,7 +933,15 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese la carga útil del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        
+
+        if (jComboBox1.getSelectedIndex() == 0) {
+            if (jComboBox2.getSelectedIndex() == 0) {
+                resultado = false;
+                JOptionPane.showMessageDialog(null, "Seleccione el Ámbito", "CAMPOS VACÍOS", 0);
+                return resultado;
+            }
+        }
+
         return true;
     }
 

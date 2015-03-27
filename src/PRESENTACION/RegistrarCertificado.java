@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -3218,6 +3217,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jLabel17.setText("Ámbito :");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Provincial", "Regional", "Nacional" }));
+        jComboBox3.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -3407,13 +3407,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         objCertificado.setNumExpediente(generarCodigoExpediente());
 
         int tipoServicio = jComboBox20.getSelectedIndex();
+        
+        String ambito=" ";
+        
+        if (objTarjetaP.getAmbito()==1){
+            ambito="PROVINCIAL";
+        }
+         if (objTarjetaP.getAmbito()==2){            
+            ambito="REGIONAL";
+        }
+          if (objTarjetaP.getAmbito()==3){
+            ambito="NACIONAL";
+        }
 
         if (tipoServicio == 0) { //Interprovincial turístico estudiantes
-            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO NACIONAL");
+            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO "+ambito);
             objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
                     + "TRANSPORTE ESPECIAL");
             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                    + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO NACIONAL  ha aprobado la "
+                    + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO " + ambito + "  ha aprobado la "
                     + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
                     + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
                     + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
@@ -3901,9 +3913,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     double COralenti = Double.parseDouble(jTextField188.getText());
                     double COCO2ralenti = Double.parseDouble(jTextField189.getText());
                     double HCralenti = Double.parseDouble(jTextField190.getText());
-                    double COAcel = Double.parseDouble(jTextField181.getText());
-                    double COCO2Acel = Double.parseDouble(jTextField181.getText());
-                    double HCAcel = Double.parseDouble(jTextField181.getText());
+                    double COAcel = Double.parseDouble(jTextField191.getText());
+                    double COCO2Acel = Double.parseDouble(jTextField192.getText());
+                    double HCAcel = Double.parseDouble(jTextField193.getText());
                     double tAceite = Double.parseDouble(jTextField185.getText());
                     double Rpm = Double.parseDouble(jTextField186.getText());
                     e.setCoRalent(COralenti);
@@ -6582,6 +6594,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
             jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
+            jComboBox3.setSelectedIndex(objTarjetaP.getAmbito());
 
         }
 
