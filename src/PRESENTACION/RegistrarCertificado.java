@@ -6565,7 +6565,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
             jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
             jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
-            jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
+            jComboBox10.setSelectedItem(objTarjetaP.getIdModelo()); //Modelo
+            //jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
             jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
             jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería

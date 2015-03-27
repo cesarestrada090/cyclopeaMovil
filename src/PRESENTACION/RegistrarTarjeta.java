@@ -679,7 +679,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
             objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
             objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
-            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedIndex()));
+            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedItem()));
             objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
             objTarjetaP.setNombrePropietario(jTextField82.getText());
             objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
