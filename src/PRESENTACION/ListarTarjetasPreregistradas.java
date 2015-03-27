@@ -161,25 +161,49 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
 
             try {
                 TarjetaPropiedad objTarjetaPropiedad = new TarjetaPropiedadBL().obtenerTarjetaP(idTarjeta);
-                
-                if (objTarjetaPropiedad.getTipoVehiculo()==4){ // Cualquier Otro tipo de vehículo
+
+                if (objTarjetaPropiedad.getTipoVehiculo() == 4) { // Cualquier Otro tipo de vehículo
                     RegistrarCertificado ad = new RegistrarCertificado();
                     ad.objTarjetaP = objTarjetaPropiedad;
-                    ad.intIdTarjeta=idTarjeta;
+                    ad.intIdTarjeta = idTarjeta;
                     Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
                     Dimension jInternalFrameSize = ad.getSize();
                     int width = (desktopSize.width - jInternalFrameSize.width) / 2;
                     int height = (desktopSize.height - jInternalFrameSize.height) / 2;
                     jfrmInicio.jDesktopPane1.add(ad);
                     ad.setLocation(width, height);
-                    ad.toFront();                
+                    ad.toFront();
                     ad.setVisible(true);
                     dispose();
-                }else{
-                    if (objTarjetaPropiedad.getTipoVehiculo()==2){ //Ómnibus y Camiones
-                        
-                    }else{ //Semiremolque
-                        
+                } else {
+                    if (objTarjetaPropiedad.getTipoVehiculo() == 2) { //Ómnibus y Camiones
+                        //RegistrarCertificadoSinSuspension ad=new RegistrarCertificadoSinSuspension(); DESCOMENTAR
+                        RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
+                        ad.objTarjetaP = objTarjetaPropiedad;
+                        ad.intIdTarjeta = idTarjeta;
+                        Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
+                        Dimension jInternalFrameSize = ad.getSize();
+                        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+                        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+                        jfrmInicio.jDesktopPane1.add(ad);
+                        ad.setLocation(width, height);
+                        ad.toFront();
+                        ad.setVisible(true);
+                        dispose();
+                    } else { //Semiremolque
+                        //RegistrarCertificadoFrenosyNeumaticos ad = new RegistrarCertificadoFrenosyNeumaticos(); DESCOMENTAR
+                        RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
+                        ad.objTarjetaP = objTarjetaPropiedad;
+                        ad.intIdTarjeta = idTarjeta;
+                        Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
+                        Dimension jInternalFrameSize = ad.getSize();
+                        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+                        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+                        jfrmInicio.jDesktopPane1.add(ad);
+                        ad.setLocation(width, height);
+                        ad.toFront();
+                        ad.setVisible(true);
+                        dispose();
                     }
                 }
 
@@ -205,7 +229,7 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        
+
         int indX1 = sel.select("id_Tarjeta", jTable2);
         int indX2 = sel.select("Placa", jTable2);
         int indX3 = sel.select("N° de Tarjeta", jTable2);
