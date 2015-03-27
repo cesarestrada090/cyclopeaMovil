@@ -161,18 +161,27 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
 
             try {
                 TarjetaPropiedad objTarjetaPropiedad = new TarjetaPropiedadBL().obtenerTarjetaP(idTarjeta);
-                RegistrarCertificado ad = new RegistrarCertificado();
-                ad.objTarjetaP = objTarjetaPropiedad;
-                ad.intIdTarjeta=idTarjeta;
-                Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
-                Dimension jInternalFrameSize = ad.getSize();
-                int width = (desktopSize.width - jInternalFrameSize.width) / 2;
-                int height = (desktopSize.height - jInternalFrameSize.height) / 2;
-                jfrmInicio.jDesktopPane1.add(ad);
-                ad.setLocation(width, height);
-                ad.toFront();                
-                ad.setVisible(true);
-                dispose();
+                
+                if (objTarjetaPropiedad.getTipoVehiculo()==4){ // Cualquier Otro tipo de vehículo
+                    RegistrarCertificado ad = new RegistrarCertificado();
+                    ad.objTarjetaP = objTarjetaPropiedad;
+                    ad.intIdTarjeta=idTarjeta;
+                    Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
+                    Dimension jInternalFrameSize = ad.getSize();
+                    int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+                    int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+                    jfrmInicio.jDesktopPane1.add(ad);
+                    ad.setLocation(width, height);
+                    ad.toFront();                
+                    ad.setVisible(true);
+                    dispose();
+                }else{
+                    if (objTarjetaPropiedad.getTipoVehiculo()==2){ //Ómnibus y Camiones
+                        
+                    }else{ //Semiremolque
+                        
+                    }
+                }
 
             } catch (NullPointerException ex) {
 

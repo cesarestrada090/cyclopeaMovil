@@ -39,6 +39,16 @@ public class TarjetaPropiedad {
     private double Kilometraje;
     private String tipoServicio;
     private int ambito;
+    
+    private int TipoVehiculo;
+
+    public int getTipoVehiculo() {
+        return TipoVehiculo;
+    }
+
+    public void setTipoVehiculo(int TipoVehiculo) {
+        this.TipoVehiculo = TipoVehiculo;
+    }
 
     public int getAmbito() {
         return ambito;

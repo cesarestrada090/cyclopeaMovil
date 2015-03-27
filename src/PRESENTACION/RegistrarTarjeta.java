@@ -146,6 +146,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("CYCLOPEA | CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR");
@@ -615,6 +617,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Ámbito :");
 
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Camión", "Semiremolque", "Ómnibus", "Otros", " " }));
+
+        jLabel3.setText("Tipo de Vehículo :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -622,6 +628,9 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTabbedPane3)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
@@ -633,9 +642,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addGap(28, 28, 28)
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane3))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(538, 538, 538)
                 .addComponent(jButton4)
@@ -651,10 +662,12 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -701,7 +714,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setTipoServicio(String.valueOf(jComboBox1.getSelectedIndex()));
             objTarjetaP.setFecha(jDateChooser1.getDate());
             objTarjetaP.setAmbito(jComboBox2.getSelectedIndex());
-
+            objTarjetaP.setTipoVehiculo(jComboBox3.getSelectedIndex());
+            
             TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
             objTPBL.registrarTarjetaPropiedad(objTarjetaP);
 
@@ -821,9 +835,9 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex()==0){
+        if (jComboBox1.getSelectedIndex() == 0) {
             jComboBox2.enable(true);
-        }else{
+        } else {
             jComboBox2.enable(false);
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
@@ -942,6 +956,12 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             }
         }
 
+        if (jComboBox3.getSelectedIndex() == 0) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Seleccione el tipo de Vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+
         return true;
     }
 
@@ -959,6 +979,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox18;
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -984,6 +1005,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
