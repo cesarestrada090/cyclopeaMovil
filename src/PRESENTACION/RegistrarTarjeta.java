@@ -617,7 +617,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Ámbito :");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Camión", "Semiremolque", "Ómnibus", "Otros", " " }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Camión", "Semiremolque", "Ómnibus", "Otros" }));
 
         jLabel3.setText("Tipo de Vehículo :");
 

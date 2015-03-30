@@ -192,11 +192,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     public Boolean resultado = true;
     private boolean frenoServicioCompleto;
     private boolean frenoEstacionamientoCompleto;
-    private boolean frenoEmergenciaCompleto;
-    private boolean suspensionCompleto;
-    private boolean gasometroCompleto;
-    private boolean sonometroCompleto;
-    private boolean luxometroCompleto;
     private boolean alineadorCompleto;
     private boolean fotosCompleto;
 
@@ -1368,6 +1363,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
 
+        jTextField76.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField76ActionPerformed(evt);
@@ -1379,24 +1375,28 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
 
+        jTextField77.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField77.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField78.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField78.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField79.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField79.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField80.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField80.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
@@ -2179,16 +2179,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                 .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
@@ -2198,14 +2189,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                 .addGap(10, 10, 10)
                                 .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))))))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("ALINEAMIENTO - LUCES", jPanel2);
+        jTabbedPane1.addTab("NEUMÁTICOS", jPanel2);
 
         jTabbedPane3.addTab("III. RESULTADOS OBTENIDOS", jTabbedPane1);
 
@@ -2503,14 +2501,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         objCertificado.setCodLocal("00");
         objCertificado.setFecInspeccion(objTarjetaP.getFecha());
         Calendar calendar = Calendar.getInstance();
-//            calendar.setTime(jDateChooser1.getDate()); // Configuramos la fecha que se recibe
         calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
         objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
-
-//        if (jComboBox3.getSelectedIndex() == 0) {
-//            objCertificado.setResultado(1);
-//        } else {
-//        ObtenerResultado();
         ResultadoGeneral = 1;
 
         objCertificado.setResultado(ResultadoGeneral);
@@ -2654,12 +2646,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             objR.setFreServ(0);//
         }
 
-//        if (jComboBox1.getSelectedIndex() == 0) {
-//            objR.setEmigases(1);//
-//        } else {
-//            objR.setEmigases(0);//
-//        }
-
         if (jComboBox4.getSelectedIndex() == 0) {
             objR.setFreeEmer(1);// 
         } else {
@@ -2685,38 +2671,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
 
         objR.setProfNeuma(neumaticos);
-
-//        int luces;
-//        if (("A".equals(jTextField171.getText()) || "".equals(jTextField171.getText())) && ("A".equals(jTextField172.getText()) || "".equals(jTextField172.getText()))
-//                && ("A".equals(jTextField173.getText()) || "".equals(jTextField173.getText())) && ("A".equals(jTextField174.getText()) || "".equals(jTextField174.getText()))) {
-//            luces = 1;
-//        } else {
-//            luces = 0;
-//        }
-//
-//        objR.setPruebLuces(luces);
-
-//        int alineamiento;
-//        if (("A".equals(jTextField10.getText()) || "".equals(jTextField10.getText())) && ("A".equals(jTextField11.getText()) || "".equals(jTextField11.getText()))
-//                && ("A".equals(jTextField15.getText()) || "".equals(jTextField15.getText())) && ("A".equals(jTextField13.getText()) || "".equals(jTextField13.getText()))
-//                && ("A".equals(jTextField14.getText()) || "".equals(jTextField14.getText()))) {
-//            alineamiento = 1;
-//        } else {
-//            alineamiento = 0;
-//        }
-
-        //objR.setPruebaAli(alineamiento);
-
-//        int susDel = jComboBox7.getSelectedIndex();
-//        int susPos = jComboBox8.getSelectedIndex();
-//        int Susp;
-//        if (susDel == 0 & susPos == 0) {
-//            Susp = 1;
-//        } else {
-//            Susp = 0;
-//        }
-//
-//        objR.setSuspension(Susp);
 
         if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
                 && objR.getSuspension() == 1 && objR.getPruebaAli() == 1 && objR.getPruebLuces() == 1 && objR.getProfNeuma() == 1) {
@@ -2882,211 +2836,72 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 objEquipoBL.registrarEquipoCertificado(objEquipos);
             } catch (NumberFormatException e) {
             }
-//            // RESULTADOS - PRUEBA DE ALINEAMIENTO
-//            try {
-//                Alineador objAlineador1 = new Alineador();
-//                objAlineador1.setIdCertificado(idCertificado);
+            
+            // RESULTADOS - PRUEBA DE ALINEAMIENTO
+            try {
+                Alineador objAlineador1 = new Alineador();
+                objAlineador1.setIdCertificado(idCertificado);
 //                objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField5.getText()));
-//                objAlineador1.setEje(1);
-//                objAlineador1.setMedidaejeneumatico(Double.parseDouble(jTextField16.getText()));
+                objAlineador1.setEje(1);
+                objAlineador1.setMedidaejeneumatico(Double.parseDouble(jTextField16.getText()));
 //                objAlineador1.setResultadoejealineamiento(jTextField10.getText());
-//                objAlineador1.setResultadoejeneumatico(jTextField21.getText());
-//
-//                AlineadorBL objAlinBL = new AlineadorBL();
-//                objAlinBL.registrarAlineador(objAlineador1);
-//            } catch (NumberFormatException e) {
-//            }
-//            try {
-//                Alineador objAlineador2 = new Alineador();
-//                objAlineador2.setIdCertificado(idCertificado);
-//                objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
-//                objAlineador2.setEje(2);
-//                objAlineador2.setMedidaejeneumatico(Double.parseDouble(jTextField17.getText()));
-//                objAlineador2.setResultadoejealineamiento(jTextField11.getText());
-//                objAlineador2.setResultadoejeneumatico(jTextField22.getText());
-//                AlineadorBL objAlinBL = new AlineadorBL();
-//                objAlinBL.registrarAlineador(objAlineador2);
-//            } catch (NumberFormatException e) {
-//            }
-//
-//            try {
-//                Alineador objAlineador3 = new Alineador();
-//                objAlineador3.setIdCertificado(idCertificado);
-//                objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
-//                objAlineador3.setEje(3);
-//                objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
-//                objAlineador3.setResultadoejealineamiento(jTextField13.getText());
-//                objAlineador3.setResultadoejeneumatico(jTextField23.getText());
-//                AlineadorBL objAlinBL = new AlineadorBL();
-//                objAlinBL.registrarAlineador(objAlineador3);
-//            } catch (NumberFormatException e) {
-//            }
-//            try {
-//                Alineador objAlineador4 = new Alineador();
-//                objAlineador4.setIdCertificado(idCertificado);
-//                objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
-//                objAlineador4.setEje(4);
-//                objAlineador4.setMedidaejeneumatico(Double.parseDouble(jTextField19.getText()));
-//                objAlineador4.setResultadoejealineamiento(jTextField14.getText());
-//                objAlineador4.setResultadoejeneumatico(jTextField24.getText());
-//                AlineadorBL objAlinBL = new AlineadorBL();
-//                objAlinBL.registrarAlineador(objAlineador4);
-//            } catch (NumberFormatException e) {
-//            }
-//
-//            try {
-//                Alineador objAlineador5 = new Alineador();
-//                objAlineador5.setIdCertificado(idCertificado);
-//                objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
-//                objAlineador5.setEje(5);
-//                objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
-//                objAlineador5.setResultadoejealineamiento(jTextField15.getText());
-//                objAlineador5.setResultadoejeneumatico(jTextField25.getText());
-//                AlineadorBL objAlinBL = new AlineadorBL();
-//                objAlinBL.registrarAlineador(objAlineador5);
-//            } catch (NumberFormatException e) {
-//            }
-//            //// PRUEBA DE LUCES
-//            try {
-//                Luxometro objLuzBaja = new Luxometro();
-//                objLuzBaja.setIdCertificado(idCertificado);
-//                objLuzBaja.setTipoLuz(1);
-//                objLuzBaja.setMedidaDerLuz(Double.parseDouble(jTextField159.getText()));
-//                objLuzBaja.setMedidaIzqLuz(Double.parseDouble(jTextField163.getText()));
-//                objLuzBaja.setAlineamientoLuz(jTextField167.getText());
-//                objLuzBaja.setResultadoLuz(jTextField171.getText());
-//
-//                LuxometroBL objLuxBL = new LuxometroBL();
-//                objLuxBL.registrarLuxometro(objLuzBaja);
-//            } catch (NumberFormatException e) {
-//            }
-//
-//            try {
-//                Luxometro objLuzAlta = new Luxometro();
-//                objLuzAlta.setTipoLuz(2);
-//                objLuzAlta.setIdCertificado(idCertificado);
-//                objLuzAlta.setMedidaDerLuz(Double.parseDouble(jTextField160.getText()));
-//                objLuzAlta.setMedidaIzqLuz(Double.parseDouble(jTextField168.getText()));
-//                objLuzAlta.setAlineamientoLuz(jTextField164.getText());
-//                objLuzAlta.setResultadoLuz(jTextField172.getText());
-//                LuxometroBL objLuxBL = new LuxometroBL();
-//                objLuxBL.registrarLuxometro(objLuzAlta);
-//            } catch (NumberFormatException e) {
-//            }
-//
-//            try {
-//                Luxometro objLuzAltaAd = new Luxometro();
-//                objLuzAltaAd.setTipoLuz(3);
-//                objLuzAltaAd.setIdCertificado(idCertificado);
-//                objLuzAltaAd.setMedidaDerLuz(Double.parseDouble(jTextField161.getText()));
-//                objLuzAltaAd.setMedidaIzqLuz(Double.parseDouble(jTextField165.getText()));
-//                objLuzAltaAd.setAlineamientoLuz(jTextField169.getText());
-//                objLuzAltaAd.setResultadoLuz(jTextField173.getText());
-//                LuxometroBL objLuxBL = new LuxometroBL();
-//                objLuxBL.registrarLuxometro(objLuzAltaAd);
-//            } catch (NumberFormatException e) {
-//            }
-//
-//            try {
-//                Luxometro objLuzNeblineras = new Luxometro();
-//                objLuzNeblineras.setTipoLuz(4);
-//                objLuzNeblineras.setIdCertificado(idCertificado);
-//                objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
-//                objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
-//                objLuzNeblineras.setAlineamientoLuz(jTextField170.getText());
-//                objLuzNeblineras.setResultadoLuz(jTextField174.getText());
-//                LuxometroBL objLuxBL = new LuxometroBL();
-//                objLuxBL.registrarLuxometro(objLuzNeblineras);
-//            } catch (NumberFormatException e) {
-//            }
-//            //// PRUEBA DE SUSPENSIÓN
-//            try {
-//                Suspension objSuspension = new Suspension();
-//                objSuspension.setIdCertificado(idCertificado);
-//                objSuspension.setDelanteraIzq(Double.parseDouble(jTextField177.getText()));
-//                objSuspension.setDelanteraDer(Double.parseDouble(jTextField178.getText()));
-//                objSuspension.setDelanteraResult(jTextField180.getText());
-//                objSuspension.setDelanteraResultFinal(String.valueOf(jComboBox7.getSelectedItem()));
-//                objSuspension.setPosteriorIzq(Double.parseDouble(jTextField181.getText()));
-//                objSuspension.setPosteriorDer(Double.parseDouble(jTextField182.getText()));
-//                objSuspension.setPosteriorResult(jTextField184.getText());
-//                objSuspension.setPosteriorResultFinal(String.valueOf(jComboBox8.getSelectedItem()));
-//
-//                SuspensionBL objSusBL = new SuspensionBL();
-//                objSusBL.registrarSuspension(objSuspension);
-//            } catch (NumberFormatException e) {
-//            }
-//            ////EMISIÓN DE GASES
-//            try {
-//                Gasometro e = new Gasometro();
-//                e.setIdCertificado(idCertificado);
-//
-//                if (jComboBox13.getSelectedIndex() == 0) {
-//                    double tAceite = Double.parseDouble(jTextField185.getText());
-//                    double Rpm = Double.parseDouble(jTextField186.getText());
-//                    double Opacidad = Double.parseDouble(jTextField187.getText());
-//                    e.settAceite(tAceite);
-//                    e.setRpm(Rpm);
-//                    e.setOpacidad(Opacidad);
-//                } else {
-//                    double COralenti = Double.parseDouble(jTextField188.getText());
-//                    double COCO2ralenti = Double.parseDouble(jTextField189.getText());
-//                    double HCralenti = Double.parseDouble(jTextField190.getText());
-//                    double COAcel = Double.parseDouble(jTextField191.getText());
-//                    double COCO2Acel = Double.parseDouble(jTextField192.getText());
-//                    double HCAcel = Double.parseDouble(jTextField193.getText());
-//                    double tAceite = Double.parseDouble(jTextField185.getText());
-//                    double Rpm = Double.parseDouble(jTextField186.getText());
-//                    e.setCoRalent(COralenti);
-//                    e.setCoco2Ralenti(COCO2ralenti);
-//                    e.setHcRalentippm(HCralenti);
-//                    e.setCoAcel(COAcel);
-//                    e.setCoCo2Acel(COCO2Acel);
-//                    e.setHcAcel(HCAcel);
-//                    e.settAceite(tAceite);
-//                    e.setRpm(Rpm);
-//                }
-//
-//                Integer EmiGResultFinal = jComboBox1.getSelectedIndex();
-//
-//                if (EmiGResultFinal == 0) {
-//                    e.setResultado("APROBADO");
-//                } else {
-//                    e.setResultado("DESAPROBADO");
-//                }
-//
-//                GasometroDL g = new GasometroDL();
-//
-//                if (jComboBox13.getSelectedIndex() == 0) {
-//                    g.registrarGasometroDiesel(e);
-//                } else {
-//                    g.registrarGasometroGasolina(e);
-//                }
-//
-//                ////EMISIONES SONORAS
-//                Sonometro s = new Sonometro();
-//
-//                double Sonometro = Double.parseDouble(jTextField194.getText());
-//                Integer EmiSResultado = jComboBox2.getSelectedIndex();
-//
-//                if (EmiSResultado == 0) {
-//                    s.setResultado("APROBADO");
-//                } else {
-//                    s.setResultado("DESAPROBADO");
-//                }
-//
-//                s.setIdCertificado(idCertificado);
-//                s.setSonometroValor(Sonometro);
-//
-//                SonometroBL sb = new SonometroBL();
-//                sb.registrarSonometro(s);
-//
-//            } catch (NumberFormatException e) {
-//            }
+                objAlineador1.setResultadoejeneumatico(jTextField21.getText());
 
-            ///
-            //Agregando Observaciones
-            //
+                AlineadorBL objAlinBL = new AlineadorBL();
+                objAlinBL.registrarAlineador(objAlineador1);
+            } catch (NumberFormatException e) {
+            }
+            try {
+                Alineador objAlineador2 = new Alineador();
+                objAlineador2.setIdCertificado(idCertificado);
+//                objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
+                objAlineador2.setEje(2);
+                objAlineador2.setMedidaejeneumatico(Double.parseDouble(jTextField17.getText()));
+//                objAlineador2.setResultadoejealineamiento(jTextField11.getText());
+                objAlineador2.setResultadoejeneumatico(jTextField22.getText());
+                AlineadorBL objAlinBL = new AlineadorBL();
+                objAlinBL.registrarAlineador(objAlineador2);
+            } catch (NumberFormatException e) {
+            }
+
+            try {
+                Alineador objAlineador3 = new Alineador();
+                objAlineador3.setIdCertificado(idCertificado);
+//                objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
+                objAlineador3.setEje(3);
+                objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
+//                objAlineador3.setResultadoejealineamiento(jTextField13.getText());
+                objAlineador3.setResultadoejeneumatico(jTextField23.getText());
+                AlineadorBL objAlinBL = new AlineadorBL();
+                objAlinBL.registrarAlineador(objAlineador3);
+            } catch (NumberFormatException e) {
+            }
+            try {
+                Alineador objAlineador4 = new Alineador();
+                objAlineador4.setIdCertificado(idCertificado);
+//                objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
+                objAlineador4.setEje(4);
+                objAlineador4.setMedidaejeneumatico(Double.parseDouble(jTextField19.getText()));
+//                objAlineador4.setResultadoejealineamiento(jTextField14.getText());
+                objAlineador4.setResultadoejeneumatico(jTextField24.getText());
+                AlineadorBL objAlinBL = new AlineadorBL();
+                objAlinBL.registrarAlineador(objAlineador4);
+            } catch (NumberFormatException e) {
+            }
+
+            try {
+                Alineador objAlineador5 = new Alineador();
+                objAlineador5.setIdCertificado(idCertificado);
+//                objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
+                objAlineador5.setEje(5);
+                objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
+//                objAlineador5.setResultadoejealineamiento(jTextField15.getText());
+                objAlineador5.setResultadoejeneumatico(jTextField25.getText());
+                AlineadorBL objAlinBL = new AlineadorBL();
+                objAlinBL.registrarAlineador(objAlineador5);
+            } catch (NumberFormatException e) {
+            }
+
             calcularObservaciones();
 
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
@@ -3251,55 +3066,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
 
         }
-
-        //OBSERVACIONES Suspension
-//        String desvSuspensionDelantera = jTextField179.getText();
-//
-//        if (!desvSuspensionDelantera.equals("")) {
-//            double valor = Double.parseDouble(desvSuspensionDelantera);
-//
-//            if (valor >= 41 && valor <= 50) {
-//                obs.setCodigoObservacion("C.2.2.1");
-//                obs.setCalificacion("GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//            if (valor >= 30 && valor <= 40) {
-//                obs.setCodigoObservacion("C.2.2.2");
-//                obs.setCalificacion("MUY GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//            if (valor >= 0 && valor <= 29) {
-//                obs.setCodigoObservacion("C.2.2.3");
-//                obs.setCalificacion("MUY GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//
-//        }
-//
-//        //OBSERVACIONES Suspension
-//        String desvSuspensionPosterior = jTextField183.getText();
-//
-//        if (!desvSuspensionPosterior.equals("")) {
-//            double valor = Double.parseDouble(desvSuspensionPosterior);
-//
-//            if (valor >= 41 && valor <= 50) {
-//                obs.setCodigoObservacion("C.2.2.1");
-//                obs.setCalificacion("GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//            if (valor >= 30 && valor <= 40) {
-//                obs.setCodigoObservacion("C.2.2.2");
-//                obs.setCalificacion("MUY GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//            if (valor >= 0 && valor <= 29) {
-//                obs.setCodigoObservacion("C.2.2.3");
-//                obs.setCalificacion("MUY GRAVE");
-//                arrayObservaciones.add(obs);
-//            }
-//
-//        }
-
     }
 
     public boolean validarVacios() {
@@ -3374,96 +3140,32 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
-
-//        /* validar Suspension */
-//        if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
-//                && !jTextField181.getText().trim().equals("")
-//                && !jTextField182.getText().trim().equals("")) {
-//            suspensionCompleto = true;
-//        }
-//
-//        /* validar Emision Gas  */
-//        if (jComboBox13.getSelectedIndex() == 0) {
-//            if (!jTextField185.getText().trim().equals("") && !jTextField186.getText().trim().equals("")
-//                    && !jTextField187.getText().trim().equals("")) {
-//                gasometroCompleto = true;
-//            }
-//        } else {
-//            if (!jTextField188.getText().trim().equals("")
-//                    && !jTextField189.getText().trim().equals("") && !jTextField190.getText().trim().equals("")
-//                    && !jTextField191.getText().trim().equals("") && !jTextField192.getText().trim().equals("")
-//                    && !jTextField193.getText().trim().equals("")) {
-//                gasometroCompleto = true;
-//
-//            }
-//
-//        }
-//
-//
-//        /* validar Sonometro  */
-//        if (!jTextField194.getText().trim().equals("")) {
-//            sonometroCompleto = true;
-//        }
-//
-//        /* Luces Bajas */
-//        if (!jTextField159.getText().trim().equals("") && !jTextField163.getText().trim().equals("")
-//                && !jTextField167.getText().trim().equals("") && !jTextField163.getText().trim().equals("")) {
-//            luxometroCompleto = true;
-//        }
-//
-//        /* Luces Altas */
-//        if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-//                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
-//            luxometroCompleto = true;
-//        }
-//
-//        /* Luces Altas Adicionales */
-//        if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-//                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
-//            luxometroCompleto = true;
-//        }
-//
-//        /* Luces Neblineras */
-//        if (!jTextField162.getText().trim().equals("") && !jTextField166.getText().trim().equals("")
-//                && !jTextField170.getText().trim().equals("") && !jTextField166.getText().trim().equals("")) {
-//            luxometroCompleto = true;
-//        }
-//
-//        /* Alineamiento primer eje */
-//        if (!jTextField5.getText().trim().equals("") && !jTextField10.getText().trim().equals("")
-//                && !jTextField16.getText().trim().equals("") && !jTextField10.getText().trim().equals("")) {
-//            alineadorCompleto = true;
-//        }
-//
-//        /* Alineamiento Segundo eje */
-//        if (!jTextField6.getText().trim().equals("") && !jTextField11.getText().trim().equals("")
-//                && !jTextField17.getText().trim().equals("") && !jTextField11.getText().trim().equals("")) {
-//            alineadorCompleto = true;
-//        }
-//
-//        /* Alineamiento Tercer eje */
-//        if (!jTextField7.getText().trim().equals("") && !jTextField13.getText().trim().equals("")
-//                && !jTextField18.getText().trim().equals("") && !jTextField13.getText().trim().equals("")) {
-//            alineadorCompleto = true;
-//        }
-//
-//        /* Alineamiento Cuarto eje */
-//        if (!jTextField8.getText().trim().equals("") && !jTextField14.getText().trim().equals("")
-//                && !jTextField19.getText().trim().equals("") && !jTextField14.getText().trim().equals("")) {
-//            alineadorCompleto = true;
-//        }
-//
-//        /* Alineamiento Quinto eje */
-//        if (!jTextField9.getText().trim().equals("") && !jTextField15.getText().trim().equals("")
-//                && !jTextField20.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
-//            alineadorCompleto = true;
-//        }
-
-        if (jTextField28.getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Complete Numero de Documento", "CAMPOS VACÍOS", 0);
-            return false;
+        
+         /* Alineamiento primer eje */
+        if (!jTextField16.getText().trim().equals("")) {
+            alineadorCompleto = true;
         }
 
+        /* Alineamiento Segundo eje */
+        if (!jTextField17.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+
+        /* Alineamiento Tercer eje */
+        if (!jTextField18.getText().trim().equals("") ) {
+            alineadorCompleto = true;
+        }
+
+        /* Alineamiento Cuarto eje */
+        if (!jTextField19.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+
+        /* Alineamiento Quinto eje */
+        if (!jTextField20.getText().trim().equals("")) {
+            alineadorCompleto = true;
+        }
+        
         if (jComboBox20.getSelectedIndex() != 7) {
             if (!jTextField26.getText().trim().equals("") && !jTextField27.getText().trim().equals("")
                     && !jTextField29.getText().trim().equals("")) {
@@ -3473,18 +3175,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             fotosCompleto = true;
         }
 
-//        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-//        if (s.trim().equals("") ) {
-//            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
-//            return false;
-//        }
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
-                && sonometroCompleto
-                && gasometroCompleto
-                && suspensionCompleto
                 && alineadorCompleto
-                && luxometroCompleto
                 && fotosCompleto) {
             resultado = true;
             return true;
@@ -3495,24 +3188,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             if (!frenoEstacionamientoCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete frenos de Estacionamiento", "CAMPOS VACÍOS", 0);
             }
-            if (!sonometroCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de Emisión Sonora", "CAMPOS VACÍOS", 0);
-            }
-            if (!suspensionCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de Suspensión", "CAMPOS VACÍOS", 0);
-            }
-
-            if (!gasometroCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de Emisión de Gases", "CAMPOS VACÍOS", 0);
-            }
             if (!alineadorCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Alineamiento", "CAMPOS VACÍOS", 0);
             }
-
-            if (!luxometroCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de la Prueba de Luces", "CAMPOS VACÍOS", 0);
-            }
-
             if (!fotosCompleto) {
                 JOptionPane.showMessageDialog(null, "Adjunte todas las fotos", "CAMPOS VACÍOS", 0);
             }

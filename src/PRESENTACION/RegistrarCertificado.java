@@ -1463,6 +1463,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField76.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField76ActionPerformed(evt);
@@ -1474,24 +1475,28 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField77.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField77.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField78.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField78.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField79.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField79.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField80.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField80.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);

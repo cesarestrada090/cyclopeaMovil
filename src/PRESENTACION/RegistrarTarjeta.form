@@ -928,13 +928,12 @@
     <Component class="javax.swing.JComboBox" name="jComboBox3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
+          <StringArray count="5">
             <StringItem index="0" value="Seleccione"/>
             <StringItem index="1" value="Cami&#xf3;n"/>
             <StringItem index="2" value="Semiremolque"/>
             <StringItem index="3" value="&#xd3;mnibus"/>
             <StringItem index="4" value="Otros"/>
-            <StringItem index="5" value=" "/>
           </StringArray>
         </Property>
       </Properties>

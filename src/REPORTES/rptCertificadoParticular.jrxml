@@ -134,7 +134,7 @@ IFNULL(CAST(gas.hcRalentippm AS CHAR),'-') as hcRalentippm,
 IFNULL(CAST(gas.coAcel AS CHAR),'-') as coAcel, 
 IFNULL(CAST(gas.coCo2Acel AS CHAR),'-') as coCo2Acel, 
 IFNULL(CAST(gas.HCAcel AS CHAR),'-') as HCAcel, 
-gas.Resultado as resultadoGases, 
+IFNULL(gas.Resultado,'-') as resultadoGases,
 IFNULL(CAST(cer.fecVencimiento AS CHAR),'-') as vencimiento, 
 IFNULL(cer.Vigencia,'-') as VigenciaCer,
 

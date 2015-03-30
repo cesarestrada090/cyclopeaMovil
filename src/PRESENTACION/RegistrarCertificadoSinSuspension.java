@@ -1438,6 +1438,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
 
+        jTextField76.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField76ActionPerformed(evt);
@@ -1449,24 +1450,28 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
 
+        jTextField77.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField77.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField78.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField78.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField79.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField79.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
             }
         });
 
+        jTextField80.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField80.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField78KeyTyped(evt);
@@ -4015,13 +4020,6 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             frenoEstacionamientoCompleto = true;
         }
 
-//        /* validar Suspension */
-//        if (!jTextField177.getText().trim().equals("") && !jTextField178.getText().trim().equals("")
-//                && !jTextField181.getText().trim().equals("")
-//                && !jTextField182.getText().trim().equals("")) {
-//            suspensionCompleto = true;
-//        }
-
         /* validar Emision Gas  */
         if (jComboBox13.getSelectedIndex() == 0) {
             if (!jTextField185.getText().trim().equals("") && !jTextField186.getText().trim().equals("")
@@ -4038,7 +4036,6 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
 
         }
-
 
         /* validar Sonometro  */
         if (!jTextField194.getText().trim().equals("")) {
@@ -4113,16 +4110,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             fotosCompleto = true;
         }
 
-//        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-//        if (s.trim().equals("") ) {
-//            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
-//            return false;
-//        }
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
                 && sonometroCompleto
                 && gasometroCompleto
-                && suspensionCompleto
                 && alineadorCompleto
                 && luxometroCompleto
                 && fotosCompleto) {
@@ -4138,10 +4129,6 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             if (!sonometroCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de Emisión Sonora", "CAMPOS VACÍOS", 0);
             }
-            if (!suspensionCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete campos de Suspensión", "CAMPOS VACÍOS", 0);
-            }
-
             if (!gasometroCompleto) {
                 JOptionPane.showMessageDialog(null, "Complete campos de Emisión de Gases", "CAMPOS VACÍOS", 0);
             }

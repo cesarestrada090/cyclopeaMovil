@@ -176,9 +176,9 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                     ad.setVisible(true);
                     dispose();
                 } else {
-                    if (objTarjetaPropiedad.getTipoVehiculo() == 2) { //Ómnibus y Camiones
-                        //RegistrarCertificadoSinSuspension ad=new RegistrarCertificadoSinSuspension(); DESCOMENTAR
-                        RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
+                    if (objTarjetaPropiedad.getTipoVehiculo() == 1 && objTarjetaPropiedad.getTipoVehiculo() == 3) { //Ómnibus y Camiones
+                        RegistrarCertificadoSinSuspension ad=new RegistrarCertificadoSinSuspension(); //DESCOMENTAR
+                        //RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
                         ad.objTarjetaP = objTarjetaPropiedad;
                         ad.intIdTarjeta = idTarjeta;
                         Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
@@ -191,8 +191,8 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                         ad.setVisible(true);
                         dispose();
                     } else { //Semiremolque
-                        //RegistrarCertificadoFrenosyNeumaticos ad = new RegistrarCertificadoFrenosyNeumaticos(); DESCOMENTAR
-                        RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
+                        RegistrarCertificadoFrenosyNeumaticos ad = new RegistrarCertificadoFrenosyNeumaticos(); //DESCOMENTAR
+                        //RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
                         ad.objTarjetaP = objTarjetaPropiedad;
                         ad.intIdTarjeta = idTarjeta;
                         Dimension desktopSize = jfrmInicio.jDesktopPane1.getSize();
