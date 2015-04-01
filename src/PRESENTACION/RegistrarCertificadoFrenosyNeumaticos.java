@@ -2503,6 +2503,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
         objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
+        
+        //ObtenerResultado();
         ResultadoGeneral = 1;
 
         objCertificado.setResultado(ResultadoGeneral);
@@ -2672,8 +2674,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         objR.setProfNeuma(neumaticos);
 
-        if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
-                && objR.getSuspension() == 1 && objR.getPruebaAli() == 1 && objR.getPruebLuces() == 1 && objR.getProfNeuma() == 1) {
+        if (objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
+             && objR.getProfNeuma() == 1) {
             ResultadoGeneral = 1;
         } else {
             ResultadoGeneral = 0;
@@ -2710,24 +2712,42 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             ResultadoBL resultBL = new ResultadoBL();
             resultBL.registrarResultado(ObtenerResultado());
             FrenometroBL objFrenometroBL = new FrenometroBL();
-            //RESULTADOS - PRUEBA DE FRENOS
+             //RESULTADOS - PRUEBA DE FRENOS
             try {
                 Frenometro objFrenometro1 = new Frenometro();
 
                 objFrenometro1.setnEjes(1);
+                if (!jTextField85.getText().equals("")) {
                 objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                }
+                if (!jTextField50.getText().equals("")) {
                 objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                }
+                if (!jTextField65.getText().equals("")) {
                 objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
+                }
+                if (!jTextField66.getText().equals("")) {
                 objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
+                }
+                if (!jTextField30.getText().equals("")) {
                 objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
+                }
+                if (!jTextField31.getText().equals("")) {
                 objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
+                }
+                if (!jTextField2.getText().equals("")) {
                 objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
+                }
                 objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
                 objFrenometro1.setResultadoEjeEstacionamiento(jTextField76.getText());
                 objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
+                if (!jTextField40.getText().equals("")) {
                 objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
+                }
+                if (!jTextField75.getText().equals("")) {
                 objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
+                }
                 objFrenometro1.setIdCerticado(idCertificado);
 
                 objFrenometroBL.registrarFrenometro(objFrenometro1);
@@ -2737,20 +2757,38 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Frenometro objFrenometro2 = new Frenometro();
                 objFrenometro2.setIdCerticado(idCertificado);
                 objFrenometro2.setnEjes(2);
+                if (!jTextField85.getText().equals("")) {
                 objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                }
+                if (!jTextField50.getText().equals("")) {
                 objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                }
+                if (!jTextField64.getText().equals("")) {
                 objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
+                }
+                if (!jTextField67.getText().equals("")) {
                 objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
+                }
+                if (!jTextField32.getText().equals("")) {
                 objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
+                }
+                if (!jTextField36.getText().equals("")) {
                 objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
+                }
+                if (!jTextField3.getText().equals("")) {
                 objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
+                }
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField77.getText());
                 objFrenometro2.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
+                if (!jTextField41.getText().equals("")) {
                 objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
+                }
+                if (!jTextField74.getText().equals("")) {
                 objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
+                }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
             } catch (NumberFormatException e) {
@@ -2760,20 +2798,38 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             try {
                 objFrenometro3.setIdCerticado(idCertificado);
                 objFrenometro3.setnEjes(3);
+                if (!jTextField85.getText().equals("")) {
                 objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                }
+                if (!jTextField50.getText().equals("")) {
                 objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                }
+                if (!jTextField63.getText().equals("")) {
                 objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
+                }
+                if (!jTextField68.getText().equals("")) {
                 objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
+                }
+                if (!jTextField33.getText().equals("")) {
                 objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
+                }
+                if (!jTextField37.getText().equals("")) {
                 objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
+                }
+                if (!jTextField4.getText().equals("")) {
                 objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
+                }
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField78.getText());
                 objFrenometro3.setResultadoGlobalEmergencia(String.valueOf(jComboBox6.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
+                if (!jTextField42.getText().equals("")) {
                 objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
+                }
+                if (!jTextField73.getText().equals("")) {
                 objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
+                }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
             } catch (NumberFormatException e) {
@@ -2782,19 +2838,37 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Frenometro objFrenometro4 = new Frenometro();
                 objFrenometro4.setIdCerticado(idCertificado);
                 objFrenometro4.setnEjes(4);
-                objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
-                objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
-                objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
-                objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
-                objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
-                objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
-                objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
+                if (!jTextField85.getText().equals("")) {
+                    objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                }
+                if (!jTextField50.getText().equals("")) {
+                    objFrenometro4.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                }
+                if (!jTextField62.getText().equals("")) {
+                    objFrenometro4.setFuerzaEstDer(Double.parseDouble(jTextField62.getText()));
+                }
+                if (!jTextField69.getText().equals("")) {
+                    objFrenometro4.setFuerzaEstIzq(Double.parseDouble(jTextField69.getText()));
+                }
+                if (!jTextField34.getText().equals("")) {
+                    objFrenometro4.setFuerzaServicioDer(Double.parseDouble(jTextField34.getText()));
+                }
+                if (!jTextField38.getText().equals("")) {
+                    objFrenometro4.setFuerzaServicioIzq(Double.parseDouble(jTextField38.getText()));
+                }
+                if (!jTextField1.getText().equals("")) {
+                    objFrenometro4.setPesoServicio(Double.parseDouble(jTextField1.getText()));
+                }
                 objFrenometro4.setResultadoEjeServicio(jTextField48.getText());
                 objFrenometro4.setResultadoEjeEstacionamiento(jTextField79.getText());
                 objFrenometro4.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro4.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
-                objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
-                objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
+                if (!jTextField43.getText().equals("")) {
+                    objFrenometro4.setDesequilibrioServicio(Double.parseDouble(jTextField43.getText()));
+                }
+                if (!jTextField72.getText().equals("")) {
+                    objFrenometro4.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField72.getText()));
+                }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro4);
             } catch (NumberFormatException e) {
@@ -2804,19 +2878,37 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Frenometro objFrenometro5 = new Frenometro();
                 objFrenometro5.setnEjes(5);
                 objFrenometro5.setIdCerticado(idCertificado);
+                if (!jTextField85.getText().equals("")) {
                 objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                }
+                if (!jTextField50.getText().equals("")) {
                 objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                }
+                if (!jTextField61.getText().equals("")) {
                 objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
+                }
+                if (!jTextField70.getText().equals("")) {
                 objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
+                }
+                if (!jTextField35.getText().equals("")) {
                 objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
+                }
+                if (!jTextField39.getText().equals("")) {
                 objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
+                }
+                if (!jTextField12.getText().equals("")) {
                 objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
+                }
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField80.getText());
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
+                if (!jTextField44.getText().equals("")) {
                 objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
+                }
+                if (!jTextField71.getText().equals("")) {
                 objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
+                }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
             } catch (NumberFormatException e) {
@@ -2848,7 +2940,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 objAlineador1.setResultadoejeneumatico(jTextField21.getText());
 
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarAlineador(objAlineador1);
+                objAlinBL.registrarDatosSinAlineamiento(objAlineador1);
             } catch (NumberFormatException e) {
             }
             try {
@@ -2860,7 +2952,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //                objAlineador2.setResultadoejealineamiento(jTextField11.getText());
                 objAlineador2.setResultadoejeneumatico(jTextField22.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarAlineador(objAlineador2);
+                objAlinBL.registrarDatosSinAlineamiento(objAlineador2);
             } catch (NumberFormatException e) {
             }
 
@@ -2873,7 +2965,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //                objAlineador3.setResultadoejealineamiento(jTextField13.getText());
                 objAlineador3.setResultadoejeneumatico(jTextField23.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarAlineador(objAlineador3);
+                objAlinBL.registrarDatosSinAlineamiento(objAlineador3);
             } catch (NumberFormatException e) {
             }
             try {
@@ -2885,7 +2977,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //                objAlineador4.setResultadoejealineamiento(jTextField14.getText());
                 objAlineador4.setResultadoejeneumatico(jTextField24.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarAlineador(objAlineador4);
+                objAlinBL.registrarDatosSinAlineamiento(objAlineador4);
             } catch (NumberFormatException e) {
             }
 
@@ -2898,7 +2990,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //                objAlineador5.setResultadoejealineamiento(jTextField15.getText());
                 objAlineador5.setResultadoejeneumatico(jTextField25.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarAlineador(objAlineador5);
+                objAlinBL.registrarDatosSinAlineamiento(objAlineador5);
             } catch (NumberFormatException e) {
             }
 
@@ -2928,14 +3020,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private void calcularObservaciones() {
 
         //OBSERVACIONES FRENO DE SERVICIO
-        String eficienciaPrimerEjeServicio = jTextField40.getText();
-        String eficienciaSegundoEjeServicio = jTextField41.getText();
-        String eficienciaTercerEjeServicio = jTextField42.getText();
-        String eficienciaCuartoEjeServicio = jTextField43.getText();
-        String eficienciaQuintoEjeServicio = jTextField44.getText();
+        String DesequilibrioPrimerEjeServicio = jTextField40.getText();
+        String DesequilibrioSegundoEjeServicio = jTextField41.getText();
+        String DesequilibrioTercerEjeServicio = jTextField42.getText();
+        String DesequilibrioCuartoEjeServicio = jTextField43.getText();
+        String DesequilibrioQuintoEjeServicio = jTextField44.getText();
         Observacion obs = new Observacion();
-        if (!eficienciaPrimerEjeServicio.equals("")) {
-            double valor = Double.parseDouble(eficienciaPrimerEjeServicio);
+        if (!DesequilibrioPrimerEjeServicio.equals("")) {
+            double valor = Double.parseDouble(DesequilibrioPrimerEjeServicio);
             if (valor <= 20 && valor >= 15) {
                 obs.setCodigoObservacion("D.1.7");
                 obs.setCalificacion("LEVE");
@@ -2954,8 +3046,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
         }
-        if (!eficienciaSegundoEjeServicio.equals("")) {
-            double valor = Double.parseDouble(eficienciaSegundoEjeServicio);
+        if (!DesequilibrioSegundoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(DesequilibrioSegundoEjeServicio);
             if (valor <= 20 && valor >= 15) {
                 obs.setCodigoObservacion("D.1.10");
                 obs.setCalificacion("LEVE");
@@ -2974,8 +3066,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
         }
-        if (!eficienciaTercerEjeServicio.equals("")) {
-            double valor = Double.parseDouble(eficienciaTercerEjeServicio);
+        if (!DesequilibrioTercerEjeServicio.equals("")) {
+            double valor = Double.parseDouble(DesequilibrioTercerEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
                 obs.setCodigoObservacion("D.1.9");
@@ -2990,8 +3082,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
         }
-        if (!eficienciaCuartoEjeServicio.equals("")) {
-            double valor = Double.parseDouble(eficienciaCuartoEjeServicio);
+        if (!DesequilibrioCuartoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(DesequilibrioCuartoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
                 obs.setCodigoObservacion("D.1.9");
@@ -3006,8 +3098,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
         }
-        if (!eficienciaQuintoEjeServicio.equals("")) {
-            double valor = Double.parseDouble(eficienciaQuintoEjeServicio);
+        if (!DesequilibrioQuintoEjeServicio.equals("")) {
+            double valor = Double.parseDouble(DesequilibrioQuintoEjeServicio);
 
             if (valor <= 30 && valor >= 21) {
                 obs.setCodigoObservacion("D.1.9");
@@ -3049,7 +3141,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         String eficienciaEstacionamiento = jTextField85.getText();
         if (!eficienciaEstacionamiento.equals("")) {
             double valor = Double.parseDouble(eficienciaEstacionamiento);
-            if (valor >= 5 && valor <= 15) {
+            if (valor >= 5 && valor < 15) {
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
@@ -3065,7 +3157,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
 
-        }
+        }        
     }
 
     public boolean validarVacios() {

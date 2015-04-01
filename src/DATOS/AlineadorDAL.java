@@ -28,6 +28,39 @@ public class AlineadorDAL {
         try {
             cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
            // cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            String sentencia="insert into alineador(idCertificado,nEje,desviacionAlineamiento,resultadoAlineamiento,medidaObtenidaNeumatico,resultadoNeumatico)"
+                        + " values(?,?,?,?,?,?)";
+            ps=(PreparedStatement) cn.prepareStatement(sentencia);
+            ps.setInt(1,v.getIdCertificado());
+            ps.setInt(2,v.getEje());
+            ps.setDouble(3,v.getDesviacionejealineamiento());
+            ps.setString(4,v.getResultadoejealineamiento());
+            ps.setDouble(5,v.getMedidaejeneumatico());
+            ps.setString(6,v.getResultadoejeneumatico());
+
+            ps.executeUpdate();
+            return true;
+            //"Un usuario ya ha sido registrado con la ubicación seleccionada"
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Datos Registrados con éxito",0);
+            return false;
+        }
+        finally{
+            try {
+                cn.close();
+                ps.close();
+            } catch (SQLException ex) {
+                System.out.print(ex.getMessage());
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public boolean registrarDatosSinAlineamiento(Alineador v)
+    {
+        try {
+            cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
+           // cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
             String sentencia="insert into alineador(idCertificado,nEje,medidaObtenidaNeumatico,resultadoNeumatico)"
                         + " values(?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);

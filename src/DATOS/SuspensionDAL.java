@@ -4,11 +4,7 @@
  */
 
 package DATOS;
-import ENTIDADES.Alineador;
-import ENTIDADES.Certificado;
-import ENTIDADES.Observacion;
 import ENTIDADES.Suspension;
-import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
 import java.util.logging.Level;
@@ -32,20 +28,20 @@ public class SuspensionDAL {
         try {
             cn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña);            
             //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
-            String sentencia="insert into suspension(idCertificado,delanteraIzq,delanteraDer,delanteraDesv,resultadoDelantera,resultadoFinalDelantera,posteriorIzq,posteriorDer,posteriorDesv,resultadoPosterior,resultadoFinalPosterior)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?)";
+            String sentencia="insert into suspension(idCertificado,delanteraIzq,delanteraDer,resultadoDelantera,resultadoFinalDelantera,posteriorIzq,posteriorDer,resultadoPosterior,resultadoFinalPosterior)"
+                    + " values(?,?,?,?,?,?,?,?,?)";
             ps=(PreparedStatement) cn.prepareStatement(sentencia);
             ps.setInt(1,v.getIdCertificado());
             ps.setDouble(2,v.getDelanteraIzq());
             ps.setDouble(3,v.getDelanteraDer());
-            ps.setDouble(4,v.getDelanteraDesv());
-            ps.setString(5,v.getDelanteraResult());
-            ps.setString(6,v.getDelanteraResultFinal());
-            ps.setDouble(7,v.getPosteriorIzq());
-            ps.setDouble(8,v.getPosteriorDer());
-            ps.setDouble(9,v.getPosteriorDesv());
-            ps.setString(10,v.getPosteriorResult());
-            ps.setString(11,v.getPosteriorResultFinal());
+//            ps.setDouble(4,v.getDelanteraDesv());
+            ps.setString(4,v.getDelanteraResult());
+            ps.setString(5,v.getDelanteraResultFinal());
+            ps.setDouble(6,v.getPosteriorIzq());
+            ps.setDouble(7,v.getPosteriorDer());
+//            ps.setDouble(9,v.getPosteriorDesv());
+            ps.setString(8,v.getPosteriorResult());
+            ps.setString(9,v.getPosteriorResultFinal());
 
             ps.executeUpdate();
             return true;
