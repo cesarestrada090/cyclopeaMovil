@@ -33,7 +33,7 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
     public void listarCertificados() {
         String placa = jTextField1.getText();
         Object listaCertificados[][] = new CertificadoBL().listarCertificados(placa);
-        String COLUMNAS[] = {"Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdCertificado"};
+        String COLUMNAS[] = {"Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdInforme"};
         modeloDatos = new DefaultTableModel();
         modeloDatos.setDataVector(listaCertificados, COLUMNAS);
         jTable2.setModel(modeloDatos);
@@ -83,7 +83,7 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdCertificado"
+                "Placa", "Titular", "Fecha de Inspección", "Fecha de Vencimiento", "IdInforme"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -192,15 +192,20 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
         String intIdCertificado = "";
         if (!x.toString().equals("")) {
             intIdCertificado = x.toString();
-            TarjetaPropiedadBL objTarjeta = new TarjetaPropiedadBL();
-            int tipo = objTarjeta.obtenerTipoServicio(idCertificado);
-            
-            if (tipo == 7) {
-                Reporte r = new Reporte();
-                r.mostrarCertificadoParticular(intIdCertificado);                
-            } else {
-                Reporte r = new Reporte();
-                r.mostrarCertificado(intIdCertificado);
+
+            CertificadoBL objCertificadoBL = new CertificadoBL();
+            int resultado = objCertificadoBL.obtenerResultadoCertificado(idCertificado);
+
+            if (resultado == 1) {
+                TarjetaPropiedadBL objTarjeta = new TarjetaPropiedadBL();
+                int tipo = objTarjeta.obtenerTipoServicio(idCertificado);
+                if (tipo == 7) {
+                    Reporte r = new Reporte();
+                    r.mostrarCertificadoParticular(intIdCertificado);
+                } else {
+                    Reporte r = new Reporte();
+                    r.mostrarCertificado(intIdCertificado);
+                }
             }
 
             Reporte ri = new Reporte();
@@ -224,7 +229,7 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        int indX1 = sel.select("IdCertificado", jTable2);
+        int indX1 = sel.select("IdInforme", jTable2);
         if (indX1 < 0) {
             return;
         }

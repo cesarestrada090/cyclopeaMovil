@@ -68,4 +68,9 @@ public class CertificadoBL {
     public Certificado obtenerIds() {
         return new CertificadoDAL().obtenerIds();
     }
+    
+    public int obtenerResultadoCertificado(int idInforme) {
+        return new CertificadoDAL().obtenerResultadoCertificado(idInforme);
+
+    }
 }

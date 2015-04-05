@@ -480,5 +480,33 @@ public class CertificadoDAL {
         }
         return null;
     }
+    
+    public int obtenerResultadoCertificado(int idInforme) {
+        try {
+            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT resultado FROM certificado t\n" +                                
+                                "where idInforme='" + idInforme + "';");
+            if (rs.next()) {
+                Integer numero = rs.getInt(1);
+                if (numero != null) {
+                    return numero;
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                cn.close();
+                st.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CallcenterDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
+    }
 
 }

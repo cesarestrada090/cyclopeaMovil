@@ -74,7 +74,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        jTextField7.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
 //        jTextField8.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
 //        jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
-
         jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
         jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
@@ -104,7 +103,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
 //        jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
 //        jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
-
         // FUERZA DE FRENADO ESTACIONAMIENTO
         //EJE 1  
         jTextField65.getDocument().addDocumentListener(new Frenado01());
@@ -159,9 +157,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         CertificadoBL b = new CertificadoBL();
         int size;
         List listaModelos = b.obtenerListaModelo();
-        for (int i = 0; i < listaModelos.size(); i++) {
-            jComboBox10.addItem((String) listaModelos.get(i));
-        }
+//        for (int i = 0; i < listaModelos.size(); i++) {
+//            jComboBox10.addItem((String) listaModelos.get(i));
+//        }
 
 //        List listaCombustibles = b.obtenerListaCombustible();
 //        size = listaCombustibles.size();
@@ -176,9 +174,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         List listaMarcas = b.obtenerListaMarca();
         size = listaMarcas.size();
-        for (int i = 0; i < size; i++) {
-            jComboBox9.addItem((String) listaMarcas.get(i));
-        }
+//        for (int i = 0; i < size; i++) {
+//            jComboBox9.addItem((String) listaMarcas.get(i));
+//        }
 
         List listaCategorias = b.obtenerListaCategoria();
         size = listaCategorias.size();
@@ -249,8 +247,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
         jComboBox11 = new javax.swing.JComboBox();
         jLabel146 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
@@ -272,6 +268,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jComboBox22 = new javax.swing.JComboBox();
         jLabel55 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -599,10 +597,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jLabel116.setText("Banco de Suspensión N°");
 
-        jComboBox9.setEnabled(false);
-
-        jComboBox10.setEnabled(false);
-
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983" }));
         jComboBox11.setEnabled(false);
 
@@ -728,14 +722,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                         .addComponent(jLabel115))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField84)
-                                        .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboBox10, 0, 139, Short.MAX_VALUE)
-                                        .addComponent(jComboBox11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField83, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                        .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jTextField82, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField82, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField84, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboBox11, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField83, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                        .addComponent(jComboBox14, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -795,7 +789,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jTextField120)
                     .addComponent(jTextField55)
                     .addComponent(jTextField28))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel109, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -842,13 +836,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel89)
-                            .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField121, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel90)
-                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel91)
@@ -1798,7 +1792,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2225,7 +2219,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(jTextField157))
-                .addContainerGap(784, Short.MAX_VALUE))
+                .addContainerGap(794, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2293,7 +2287,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addContainerGap(605, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2347,7 +2341,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel69)
                         .addGap(18, 18, 18)
@@ -2360,15 +2354,15 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                 .addGap(82, 82, 82)
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(532, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel69)
                     .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2503,16 +2497,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, Integer.parseInt(jTextField157.getText()));  // numero de días a añadir, o restar en caso de días<0
         objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
-        
-        //ObtenerResultado();
-        ResultadoGeneral = 1;
+
+        ObtenerResultado();
+        //ResultadoGeneral = 1; 'KCS 03.04.2015
 
         objCertificado.setResultado(ResultadoGeneral);
 //        }
 
         objCertificado.setVigencia(jTextField157.getText());
         objCertificado.setIdTarjeta(intIdTarjeta);
-        objCertificado.setIdCertificado(idCertificado);
+        if (ResultadoGeneral == 1) {
+            objCertificado.setIdCertificado(idCertificado);
+        } else {
+            objCertificado.setIdCertificado(0);
+        }
+
         objCertificado.setIdInforme(idInforme);
         objCertificado.setIdExpediente(idExpediente);
         objCertificado.setNumCertificado(generarCodigoCertificado());
@@ -2520,21 +2519,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         objCertificado.setNumExpediente(generarCodigoExpediente());
 
         int tipoServicio = jComboBox20.getSelectedIndex();
-        
-        String ambito=" ";
-        
-        if (objTarjetaP.getAmbito()==1){
-            ambito="PROVINCIAL";
+
+        String ambito = " ";
+
+        if (objTarjetaP.getAmbito() == 1) {
+            ambito = "PROVINCIAL";
         }
-         if (objTarjetaP.getAmbito()==2){            
-            ambito="REGIONAL";
+        if (objTarjetaP.getAmbito() == 2) {
+            ambito = "REGIONAL";
         }
-          if (objTarjetaP.getAmbito()==3){
-            ambito="NACIONAL";
+        if (objTarjetaP.getAmbito() == 3) {
+            ambito = "NACIONAL";
         }
 
         if (tipoServicio == 0) { //Interprovincial turístico estudiantes
-            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO "+ambito);
+            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO " + ambito);
             objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
                     + "TRANSPORTE ESPECIAL");
             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
@@ -2638,7 +2637,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
     private Resultados ObtenerResultado() {
         Resultados objR = new Resultados();
-        objR.setIdCertificado(idCertificado);//
+        
+        objR.setIdCertificado(idInforme);
+        //objR.setIdCertificado(idCertificado);'KCS 03.04.2015
 
         objR.setDisEjes(1);
 
@@ -2675,7 +2676,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         objR.setProfNeuma(neumaticos);
 
         if (objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
-             && objR.getProfNeuma() == 1) {
+                && objR.getProfNeuma() == 1) {
             ResultadoGeneral = 1;
         } else {
             ResultadoGeneral = 0;
@@ -2699,7 +2700,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             //GRABAR FOTOGRAFÍAS
             if (jComboBox20.getSelectedIndex() != 7) {
                 Fotografias objFoto = new Fotografias();
-                objFoto.setNumDocEval(idCertificado);
+                objFoto.setNumDocEval(idInforme);
+                //objFoto.setNumDocEval(idCertificado); 'KCS 03.04.2015
                 objFoto.setTipoDocEval(1);
                 objFoto.setFoto1(fisfoto1);
                 objFoto.setFoto2(fisfoto2);
@@ -2712,71 +2714,73 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             ResultadoBL resultBL = new ResultadoBL();
             resultBL.registrarResultado(ObtenerResultado());
             FrenometroBL objFrenometroBL = new FrenometroBL();
-             //RESULTADOS - PRUEBA DE FRENOS
+            //RESULTADOS - PRUEBA DE FRENOS
             try {
                 Frenometro objFrenometro1 = new Frenometro();
 
                 objFrenometro1.setnEjes(1);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField65.getText().equals("")) {
-                objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
+                    objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
                 }
                 if (!jTextField66.getText().equals("")) {
-                objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
+                    objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
                 }
                 if (!jTextField30.getText().equals("")) {
-                objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
+                    objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
                 }
                 if (!jTextField31.getText().equals("")) {
-                objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
+                    objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
                 }
                 if (!jTextField2.getText().equals("")) {
-                objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
+                    objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
                 }
                 objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
                 objFrenometro1.setResultadoEjeEstacionamiento(jTextField76.getText());
                 objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField40.getText().equals("")) {
-                objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
+                    objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
                 }
                 if (!jTextField75.getText().equals("")) {
-                objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
+                    objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
                 }
-                objFrenometro1.setIdCerticado(idCertificado);
+                objFrenometro1.setIdCerticado(idInforme);
+                //objFrenometro1.setIdCerticado(idCertificado); 'KCS 03.04.2015
 
                 objFrenometroBL.registrarFrenometro(objFrenometro1);
             } catch (NumberFormatException e) {
             }
             try {
                 Frenometro objFrenometro2 = new Frenometro();
-                objFrenometro2.setIdCerticado(idCertificado);
+                objFrenometro2.setIdCerticado(idInforme);
+                //objFrenometro2.setIdCerticado(idCertificado); 'KCS 03.04.2015
                 objFrenometro2.setnEjes(2);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField64.getText().equals("")) {
-                objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
+                    objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
                 }
                 if (!jTextField67.getText().equals("")) {
-                objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
+                    objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
                 }
                 if (!jTextField32.getText().equals("")) {
-                objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
+                    objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
                 }
                 if (!jTextField36.getText().equals("")) {
-                objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
+                    objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
                 }
                 if (!jTextField3.getText().equals("")) {
-                objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
+                    objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 }
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField77.getText());
@@ -2784,10 +2788,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField41.getText().equals("")) {
-                objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
+                    objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
                 }
                 if (!jTextField74.getText().equals("")) {
-                objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
+                    objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
@@ -2796,28 +2800,29 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             Frenometro objFrenometro3 = new Frenometro();
 
             try {
-                objFrenometro3.setIdCerticado(idCertificado);
+                objFrenometro3.setIdCerticado(idInforme);
+                //objFrenometro3.setIdCerticado(idCertificado); 'KCS 03.04.2015
                 objFrenometro3.setnEjes(3);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField63.getText().equals("")) {
-                objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
+                    objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
                 }
                 if (!jTextField68.getText().equals("")) {
-                objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
+                    objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
                 }
                 if (!jTextField33.getText().equals("")) {
-                objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
+                    objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
                 }
                 if (!jTextField37.getText().equals("")) {
-                objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
+                    objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
                 }
                 if (!jTextField4.getText().equals("")) {
-                objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
+                    objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 }
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField78.getText());
@@ -2825,10 +2830,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField42.getText().equals("")) {
-                objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
+                    objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
                 }
                 if (!jTextField73.getText().equals("")) {
-                objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
+                    objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
@@ -2836,7 +2841,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
             try {
                 Frenometro objFrenometro4 = new Frenometro();
-                objFrenometro4.setIdCerticado(idCertificado);
+                objFrenometro4.setIdCerticado(idInforme);
+                //objFrenometro4.setIdCerticado(idCertificado); 'KCS 03.04.2015
                 objFrenometro4.setnEjes(4);
                 if (!jTextField85.getText().equals("")) {
                     objFrenometro4.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
@@ -2877,37 +2883,38 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             try {
                 Frenometro objFrenometro5 = new Frenometro();
                 objFrenometro5.setnEjes(5);
-                objFrenometro5.setIdCerticado(idCertificado);
+                objFrenometro5.setIdCerticado(idInforme);
+                //objFrenometro5.setIdCerticado(idCertificado); 'KCS 03.04.2015
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField61.getText().equals("")) {
-                objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
+                    objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
                 }
                 if (!jTextField70.getText().equals("")) {
-                objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
+                    objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
                 }
                 if (!jTextField35.getText().equals("")) {
-                objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
+                    objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
                 }
                 if (!jTextField39.getText().equals("")) {
-                objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
+                    objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
                 }
                 if (!jTextField12.getText().equals("")) {
-                objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
+                    objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 }
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField80.getText());
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField44.getText().equals("")) {
-                objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
+                    objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
                 }
                 if (!jTextField71.getText().equals("")) {
-                objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
+                    objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
@@ -2917,7 +2924,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             // DATOS DE LOS EQUIPOS
             try {
                 EquipoCertificado objEquipos = new EquipoCertificado();
-                objEquipos.setIdCertificado(idCertificado);
+                objEquipos.setIdCertificado(idInforme);
+                //objEquipos.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 objEquipos.setNumAlineador(jComboBox15.getSelectedIndex());
                 objEquipos.setNumAnalizador(jComboBox16.getSelectedIndex());
                 objEquipos.setNumBancoSuspension(jComboBox17.getSelectedIndex());
@@ -2928,11 +2936,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 objEquipoBL.registrarEquipoCertificado(objEquipos);
             } catch (NumberFormatException e) {
             }
-            
+
             // RESULTADOS - PRUEBA DE ALINEAMIENTO
             try {
                 Alineador objAlineador1 = new Alineador();
-                objAlineador1.setIdCertificado(idCertificado);
+                objAlineador1.setIdCertificado(idInforme);
+                //objAlineador1.setIdCertificado(idCertificado); 'KCS 03.04.2015
 //                objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField5.getText()));
                 objAlineador1.setEje(1);
                 objAlineador1.setMedidaejeneumatico(Double.parseDouble(jTextField16.getText()));
@@ -2945,7 +2954,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
             try {
                 Alineador objAlineador2 = new Alineador();
-                objAlineador2.setIdCertificado(idCertificado);
+                //objAlineador2.setIdCertificado(idCertificado); 'KCS 03.04.2015
+                objAlineador2.setIdCertificado(idInforme);
 //                objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
                 objAlineador2.setEje(2);
                 objAlineador2.setMedidaejeneumatico(Double.parseDouble(jTextField17.getText()));
@@ -2958,7 +2968,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
             try {
                 Alineador objAlineador3 = new Alineador();
-                objAlineador3.setIdCertificado(idCertificado);
+                objAlineador3.setIdCertificado(idInforme);
+                //objAlineador3.setIdCertificado(idCertificado); 'KCS 03.04.2015
 //                objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
                 objAlineador3.setEje(3);
                 objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
@@ -2970,7 +2981,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
             try {
                 Alineador objAlineador4 = new Alineador();
-                objAlineador4.setIdCertificado(idCertificado);
+                objAlineador4.setIdCertificado(idInforme);
+                //objAlineador4.setIdCertificado(idCertificado); 'KCS 03.04.2015
 //                objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
                 objAlineador4.setEje(4);
                 objAlineador4.setMedidaejeneumatico(Double.parseDouble(jTextField19.getText()));
@@ -2983,7 +2995,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
             try {
                 Alineador objAlineador5 = new Alineador();
-                objAlineador5.setIdCertificado(idCertificado);
+                objAlineador5.setIdCertificado(idInforme);
+                //objAlineador5.setIdCertificado(idCertificado); 'KCS 03.04.2015
 //                objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
                 objAlineador5.setEje(5);
                 objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
@@ -3002,7 +3015,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             ObservacionBL b = new ObservacionBL();
             for (int i = 0; i < arrayObservaciones.size(); i++) {
                 Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
-                obsTemp.setIdCertificado(idCertificado);
+                obsTemp.setIdCertificado(idInforme);
+                //obsTemp.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
                 obsTemp.setInterpretacion(descripcion);
                 b.registrarObservacion(obsTemp);
@@ -3157,7 +3171,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 arrayObservaciones.add(obs);
             }
 
-        }        
+        }
     }
 
     public boolean validarVacios() {
@@ -3232,8 +3246,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 && !jTextField85.getText().trim().equals("")) {
             frenoEstacionamientoCompleto = true;
         }
-        
-         /* Alineamiento primer eje */
+
+        /* Alineamiento primer eje */
         if (!jTextField16.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
@@ -3244,7 +3258,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
 
         /* Alineamiento Tercer eje */
-        if (!jTextField18.getText().trim().equals("") ) {
+        if (!jTextField18.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
@@ -3257,7 +3271,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (!jTextField20.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
-        
+
         if (jComboBox20.getSelectedIndex() != 7) {
             if (!jTextField26.getText().trim().equals("") && !jTextField27.getText().trim().equals("")
                     && !jTextField29.getText().trim().equals("")) {
@@ -3294,46 +3308,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
 
     }
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField96ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField96ActionPerformed
-
-    private void jTextField61KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField61KeyTyped
-        // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
-        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jTextField61KeyTyped
-
-    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
-        // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
-        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jTextField18KeyTyped
-
-    private void jTextField40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField40ActionPerformed
-
-    private void jTextField40InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField40InputMethodTextChanged
-        // TODO add your handling code here:        
-    }//GEN-LAST:event_jTextField40InputMethodTextChanged
-
-    private void jTextField40KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField40KeyPressed
 
     class PrimerEjeFrenometro implements DocumentListener {
 
@@ -3871,7 +3845,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        public void changedUpdate(DocumentEvent e) {
 //        }
 //    }
-
 //    class AlineamientoDesviacionEje2 implements DocumentListener {
 //
 //        String newline = "\n";
@@ -4051,7 +4024,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        public void changedUpdate(DocumentEvent e) {
 //        }
 //    }
-
     class ProfNeumaticos1 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
@@ -4565,6 +4537,168 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
+    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
+        // TODO add your handling code here:
+        if (objTarjetaP != null) {
+            jTextField82.setText(objTarjetaP.getNombrePropietario()); //
+            jTextField83.setText(objTarjetaP.getPlaca()); // placa
+            jTextField84.setText(String.valueOf(objTarjetaP.getKilometraje())); //kilometraje
+            jTextField112.setText(objTarjetaP.getnSerie()); //nserie
+            jTextField113.setText(objTarjetaP.getnMotor()); //nmotor
+            jTextField114.setText(objTarjetaP.getIdMarca()); //Marca Carroceria
+            jTextField115.setText(String.valueOf(objTarjetaP.getEjes())); //Nro Ejes
+            jTextField51.setText(String.valueOf(objTarjetaP.getnRuedas())); //Nro Ruedas
+            jTextField55.setText(objTarjetaP.getnTarjeta());
+            jTextField52.setText(String.valueOf(objTarjetaP.getPasajeros()));
+            jTextField124.setText(String.valueOf(objTarjetaP.getAsientos()));
+            jTextField123.setText(String.valueOf(objTarjetaP.getLongitud()));
+            jTextField53.setText(String.valueOf(objTarjetaP.getAncho()));
+            jTextField54.setText(String.valueOf(objTarjetaP.getAltura()));
+            jTextField122.setText(String.valueOf(objTarjetaP.getColores()));
+            jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
+            jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
+            jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
+
+            jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
+            jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
+            jTextField5.setText(objTarjetaP.getIdMarca()); //Marca
+            jTextField6.setText(objTarjetaP.getIdModelo()); //Modelo
+            //jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
+            jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
+            jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
+            jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
+            jComboBox3.setSelectedIndex(objTarjetaP.getAmbito());
+
+        }
+
+        ObtenerIds();
+
+//        if (jComboBox13.getSelectedIndex() == 0) {
+//            jTextField188.enable(false);
+//            jTextField189.enable(false);
+//            jTextField190.enable(false);
+//            jTextField191.enable(false);
+//            jTextField192.enable(false);
+//            jTextField193.enable(false);
+//        } else {
+//            jTextField187.enable(false);
+//        }
+
+    }//GEN-LAST:event_formAncestorAdded
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto3 = new FileInputStream(se.getSelectedFile());
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField29.setText(PATH);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes3 = (int) se.getSelectedFile().length();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto2 = new FileInputStream(se.getSelectedFile());
+
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField27.setText(PATH);
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes2 = (int) se.getSelectedFile().length();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    //ADJUNTAR IMÁGENES
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            try {
+                fisfoto1 = new FileInputStream(se.getSelectedFile());
+
+                File fileDB = se.getSelectedFile();
+                String PATH = fileDB.getAbsolutePath();
+                jTextField26.setText(PATH);
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.longitudBytes1 = (int) se.getSelectedFile().length();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
+        // TODO add your handling code here:
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField18KeyTyped
+
+    private void jTextField61KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField61KeyTyped
+        // TODO add your handling code here:
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField61KeyTyped
+
+    private void jTextField96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField96ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField96ActionPerformed
+
+    private void jTextField78KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField78KeyTyped
+        // TODO add your handling code here:
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+        if (k != 65 && k != 68) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "Sólo son válidas las letras A y D mayúsculas!!!", "Validando Datos",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField78KeyTyped
+
+    private void jTextField76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField76ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField76ActionPerformed
+
+    private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField75ActionPerformed
+
+    private void jTextField40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40KeyTyped
+
+    private void jTextField40KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40KeyPressed
+
+    private void jTextField40InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField40InputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40InputMethodTextChanged
 
 //    class SuspensionDelanteraIzq implements DocumentListener {
 //
@@ -5141,7 +5275,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        public void changedUpdate(DocumentEvent e) {
 //        }
 //    }
-
 //    class validarGasometro implements DocumentListener {
 //
 //        public void insertUpdate(DocumentEvent e) {
@@ -5317,13 +5450,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 //        }
 //    }
 
-
     private void jTextField40FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField40FocusGained
 
     private void jTextField40FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField40FocusLost
+
     }//GEN-LAST:event_jTextField40FocusLost
+
+    private void jTextField40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField51KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField51KeyTyped
         // TODO add your handling code here:
@@ -5331,12 +5472,22 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField51KeyTyped
 
     private void jTextField51KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField51KeyPressed
+
     }//GEN-LAST:event_jTextField51KeyPressed
+
+    private void jTextField55KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField55KeyTyped
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField55KeyTyped
 
     private void jTextField119KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField119KeyTyped
         // TODO add your handling code here:
@@ -5344,7 +5495,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField119KeyTyped
 
@@ -5354,12 +5505,17 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField52KeyTyped
 
     private void jTextField52KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField52KeyPressed
+
     }//GEN-LAST:event_jTextField52KeyPressed
+
+    private void jTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField52ActionPerformed
 
     private void jTextField124KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField124KeyTyped
         // TODO add your handling code here:
@@ -5367,11 +5523,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField124KeyTyped
 
     private void jTextField124KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField124KeyPressed
+
     }//GEN-LAST:event_jTextField124KeyPressed
 
     private void jTextField115KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField115KeyTyped
@@ -5380,11 +5537,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField115KeyTyped
 
     private void jTextField115KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField115KeyPressed
+
     }//GEN-LAST:event_jTextField115KeyPressed
 
     private void jTextField113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField113ActionPerformed
@@ -5397,7 +5555,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField84KeyTyped
 
@@ -5412,7 +5570,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField82KeyTyped
 
@@ -5420,156 +5578,11 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField82InputMethodTextChanged
 
-    private void jTextField55KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField55KeyTyped
-        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
-        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-            JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jTextField55KeyTyped
-
-    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
-        // TODO add your handling code here:
-        if (objTarjetaP != null) {
-            jTextField82.setText(objTarjetaP.getNombrePropietario()); //
-            jTextField83.setText(objTarjetaP.getPlaca()); // placa
-            jTextField84.setText(String.valueOf(objTarjetaP.getKilometraje())); //kilometraje
-            jTextField112.setText(objTarjetaP.getnSerie()); //nserie
-            jTextField113.setText(objTarjetaP.getnMotor()); //nmotor
-            jTextField114.setText(objTarjetaP.getIdMarca()); //Marca Carroceria
-            jTextField115.setText(String.valueOf(objTarjetaP.getEjes())); //Nro Ejes
-            jTextField51.setText(String.valueOf(objTarjetaP.getnRuedas())); //Nro Ruedas
-            jTextField55.setText(objTarjetaP.getnTarjeta());
-            jTextField52.setText(String.valueOf(objTarjetaP.getPasajeros()));
-            jTextField124.setText(String.valueOf(objTarjetaP.getAsientos()));
-            jTextField123.setText(String.valueOf(objTarjetaP.getLongitud()));
-            jTextField53.setText(String.valueOf(objTarjetaP.getAncho()));
-            jTextField54.setText(String.valueOf(objTarjetaP.getAltura()));
-            jTextField122.setText(String.valueOf(objTarjetaP.getColores()));
-            jTextField121.setText(String.valueOf(objTarjetaP.getPesoSeco()));
-            jTextField119.setText(String.valueOf(objTarjetaP.getPesoBruto()));
-            jTextField120.setText(String.valueOf(objTarjetaP.getCargaUtil()));
-
-            jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
-            jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
-            jComboBox9.setSelectedItem(objTarjetaP.getIdMarca()); //Marca
-            jComboBox10.setSelectedItem(objTarjetaP.getIdModelo()); //Modelo
-            //jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
-            jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
-            jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
-            jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
-            jComboBox3.setSelectedIndex(objTarjetaP.getAmbito());
-
-        }
-
-        ObtenerIds();
-
-//        if (jComboBox13.getSelectedIndex() == 0) {
-//            jTextField188.enable(false);
-//            jTextField189.enable(false);
-//            jTextField190.enable(false);
-//            jTextField191.enable(false);
-//            jTextField192.enable(false);
-//            jTextField193.enable(false);
-//        } else {
-//            jTextField187.enable(false);
-//        }
-
-
-    }//GEN-LAST:event_formAncestorAdded
-
-    //ADJUNTAR IMÁGENES
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser se = new JFileChooser();
-        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int estado = se.showOpenDialog(null);
-        if (estado == JFileChooser.APPROVE_OPTION) {
-            try {
-                fisfoto1 = new FileInputStream(se.getSelectedFile());
-
-                File fileDB = se.getSelectedFile();
-                String PATH = fileDB.getAbsolutePath();
-                jTextField26.setText(PATH);
-
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.longitudBytes1 = (int) se.getSelectedFile().length();
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser se = new JFileChooser();
-        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int estado = se.showOpenDialog(null);
-        if (estado == JFileChooser.APPROVE_OPTION) {
-            try {
-                fisfoto2 = new FileInputStream(se.getSelectedFile());
-
-                File fileDB = se.getSelectedFile();
-                String PATH = fileDB.getAbsolutePath();
-                jTextField27.setText(PATH);
-
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.longitudBytes2 = (int) se.getSelectedFile().length();
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser se = new JFileChooser();
-        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int estado = se.showOpenDialog(null);
-        if (estado == JFileChooser.APPROVE_OPTION) {
-            try {
-                fisfoto3 = new FileInputStream(se.getSelectedFile());
-                File fileDB = se.getSelectedFile();
-                String PATH = fileDB.getAbsolutePath();
-                jTextField29.setText(PATH);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(RegistrarCertificadoFrenosyNeumaticos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.longitudBytes3 = (int) se.getSelectedFile().length();
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField52ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField52ActionPerformed
-
-    private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField75ActionPerformed
-
-    private void jTextField40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField40KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField40KeyTyped
-
-    private void jTextField78KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField78KeyTyped
-        // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
-        if (k != 65 && k != 68) {//Si el caracter ingresado es una letra
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-            JOptionPane.showMessageDialog(null, "Sólo son válidas las letras A y D mayúsculas!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jTextField78KeyTyped
-
-    private void jTextField76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField76ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField76ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
     private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox13;
@@ -5585,7 +5598,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -5744,12 +5756,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField47;
     private javax.swing.JTextField jTextField48;
     private javax.swing.JTextField jTextField49;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField50;
     private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField52;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField61;
     private javax.swing.JTextField jTextField62;
     private javax.swing.JTextField jTextField63;

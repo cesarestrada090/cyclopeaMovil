@@ -246,7 +246,7 @@ public class TarjetaPropiedadDAL {
             st = cn.createStatement();
             rs = st.executeQuery("SELECT t.tipoServicio, cer.idCertificado FROM tarjetapropiedad t\n" +
                                 "inner join certificado cer on cer.idtarjeta=t.id_tarjeta\n" +
-                                "where cer.idCertificado='" + idCertificado + "';");
+                                "where cer.idInforme='" + idCertificado + "';");
             if (rs.next()) {
                 Integer numero = rs.getInt(1);
                 if (numero != null) {

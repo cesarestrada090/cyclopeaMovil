@@ -35,9 +35,9 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         CertificadoBL b = new CertificadoBL();
         int size;
         List listaModelos = b.obtenerListaModelo();
-        for (int i = 0; i < listaModelos.size(); i++) {
-            jComboBox10.addItem((String) listaModelos.get(i));
-        }
+//        for (int i = 0; i < listaModelos.size(); i++) {
+//            jComboBox10.addItem((String) listaModelos.get(i));
+//        }
 
 //        List listaCombustibles = b.obtenerListaCombustible();
 //        size = listaCombustibles.size();
@@ -52,9 +52,9 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
         List listaMarcas = b.obtenerListaMarca();
         size = listaMarcas.size();
-        for (int i = 0; i < size; i++) {
-            jComboBox9.addItem((String) listaMarcas.get(i));
-        }
+//        for (int i = 0; i < size; i++) {
+//            jComboBox9.addItem((String) listaMarcas.get(i));
+//        }
 
         List listaCategorias = b.obtenerListaCategoria();
         size = listaCategorias.size();
@@ -119,8 +119,6 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
         jComboBox11 = new javax.swing.JComboBox();
         jLabel146 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
@@ -140,6 +138,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jComboBox18 = new javax.swing.JComboBox();
         jComboBox19 = new javax.swing.JComboBox();
         jTextField51 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -410,11 +410,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(jTextField84)
-                                                    .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jComboBox10, 0, 139, Short.MAX_VALUE)
                                                     .addComponent(jComboBox11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(jTextField83, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                    .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jTextField2)
+                                                    .addComponent(jTextField1))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel100)
@@ -510,13 +510,13 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel89)
-                            .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField121, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel90)
-                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel91)
@@ -703,8 +703,8 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setPesoSeco(Double.parseDouble(jTextField121.getText()));
             objTarjetaP.setPesoBruto(Double.parseDouble(jTextField119.getText()));
             objTarjetaP.setIdCombustible(String.valueOf(jComboBox13.getSelectedItem()));
-            objTarjetaP.setIdMarca((String.valueOf(jComboBox9.getSelectedItem())));
-            objTarjetaP.setIdModelo(String.valueOf(jComboBox10.getSelectedItem()));
+            objTarjetaP.setIdMarca(jTextField1.getText());
+            objTarjetaP.setIdModelo(jTextField2.getText());
             objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
             objTarjetaP.setNombrePropietario(jTextField82.getText());
             objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
@@ -859,6 +859,16 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese la placa del vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
+        if (jTextField1.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese la marca del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
+        if (jTextField2.getText().trim().equals("")) {
+            resultado = false;
+            JOptionPane.showMessageDialog(null, "Ingrese el modelo del vehículo", "CAMPOS VACÍOS", 0);
+            return resultado;
+        }
         if (jTextField84.getText().trim().equals("")) {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Ingrese el kilometraje del vehículo", "CAMPOS VACÍOS", 0);
@@ -968,7 +978,6 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
     private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox13;
@@ -980,7 +989,6 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel100;
@@ -1021,6 +1029,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField112;
     private javax.swing.JTextField jTextField113;
     private javax.swing.JTextField jTextField114;
@@ -1031,6 +1040,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField122;
     private javax.swing.JTextField jTextField123;
     private javax.swing.JTextField jTextField124;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField52;
     private javax.swing.JTextField jTextField53;
