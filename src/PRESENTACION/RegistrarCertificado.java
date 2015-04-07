@@ -3545,13 +3545,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         objCertificado.setVigencia(jTextField157.getText());
         objCertificado.setIdTarjeta(intIdTarjeta);
-        
-        if (ResultadoGeneral==1){
+
+        if (ResultadoGeneral == 1) {
             objCertificado.setIdCertificado(idCertificado);
-        }else{
+        } else {
             objCertificado.setIdCertificado(0);
-        }        
-        
+        }
+
         objCertificado.setIdInforme(idInforme);
         objCertificado.setIdExpediente(idExpediente);
         objCertificado.setNumCertificado(generarCodigoCertificado());
@@ -3559,21 +3559,21 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         objCertificado.setNumExpediente(generarCodigoExpediente());
 
         int tipoServicio = jComboBox20.getSelectedIndex();
-        
-        String ambito=" ";
-        
-        if (objTarjetaP.getAmbito()==1){
-            ambito="PROVINCIAL";
+
+        String ambito = " ";
+
+        if (objTarjetaP.getAmbito() == 1) {
+            ambito = "PROVINCIAL";
         }
-         if (objTarjetaP.getAmbito()==2){            
-            ambito="REGIONAL";
+        if (objTarjetaP.getAmbito() == 2) {
+            ambito = "REGIONAL";
         }
-          if (objTarjetaP.getAmbito()==3){
-            ambito="NACIONAL";
+        if (objTarjetaP.getAmbito() == 3) {
+            ambito = "NACIONAL";
         }
 
         if (tipoServicio == 0) { //Interprovincial turístico estudiantes
-            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO "+ambito);
+            objCertificado.setClaseAut("MODALIDAD: TURISTICO DE AMBITO " + ambito);
             objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
                     + "TRANSPORTE ESPECIAL");
             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
@@ -3677,7 +3677,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
     private Resultados ObtenerResultado() {
         Resultados objR = new Resultados();
-        
+
         objR.setIdCertificado(idInforme);
         //objR.setIdCertificado(idCertificado);'KCS 03.04.2015
 
@@ -3798,37 +3798,37 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
                 objFrenometro1.setnEjes(1);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro1.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro1.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField65.getText().equals("")) {
-                objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
+                    objFrenometro1.setFuerzaEstDer(Double.parseDouble(jTextField65.getText()));
                 }
                 if (!jTextField66.getText().equals("")) {
-                objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
+                    objFrenometro1.setFuerzaEstIzq(Double.parseDouble(jTextField66.getText()));
                 }
                 if (!jTextField30.getText().equals("")) {
-                objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
+                    objFrenometro1.setFuerzaServicioDer(Double.parseDouble(jTextField30.getText()));
                 }
                 if (!jTextField31.getText().equals("")) {
-                objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
+                    objFrenometro1.setFuerzaServicioIzq(Double.parseDouble(jTextField31.getText()));
                 }
                 if (!jTextField2.getText().equals("")) {
-                objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
+                    objFrenometro1.setPesoServicio(Double.parseDouble(jTextField2.getText()));
                 }
                 objFrenometro1.setResultadoEjeServicio(jTextField45.getText());
-                
+
                 objFrenometro1.setResultadoEjeEstacionamiento(jTextField76.getText());
-                
+
                 objFrenometro1.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro1.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField40.getText().equals("")) {
-                objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
+                    objFrenometro1.setDesequilibrioServicio(Double.parseDouble(jTextField40.getText()));
                 }
                 if (!jTextField75.getText().equals("")) {
-                objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
+                    objFrenometro1.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField75.getText()));
                 }
                 objFrenometro1.setIdCerticado(idInforme);
 //                objFrenometro1.setIdCerticado(idCertificado); 'KCS 02.04.2015
@@ -3842,25 +3842,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 //objFrenometro2.setIdCerticado(idCertificado); 'KCS 02.04.2015
                 objFrenometro2.setnEjes(2);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro2.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro2.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField64.getText().equals("")) {
-                objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
+                    objFrenometro2.setFuerzaEstDer(Double.parseDouble(jTextField64.getText()));
                 }
                 if (!jTextField67.getText().equals("")) {
-                objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
+                    objFrenometro2.setFuerzaEstIzq(Double.parseDouble(jTextField67.getText()));
                 }
                 if (!jTextField32.getText().equals("")) {
-                objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
+                    objFrenometro2.setFuerzaServicioDer(Double.parseDouble(jTextField32.getText()));
                 }
                 if (!jTextField36.getText().equals("")) {
-                objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
+                    objFrenometro2.setFuerzaServicioIzq(Double.parseDouble(jTextField36.getText()));
                 }
                 if (!jTextField3.getText().equals("")) {
-                objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
+                    objFrenometro2.setPesoServicio(Double.parseDouble(jTextField3.getText()));
                 }
                 objFrenometro2.setResultadoEjeServicio(jTextField46.getText());
                 objFrenometro2.setResultadoEjeEstacionamiento(jTextField77.getText());
@@ -3868,14 +3868,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro2.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro2.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField41.getText().equals("")) {
-                objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
+                    objFrenometro2.setDesequilibrioServicio(Double.parseDouble(jTextField41.getText()));
                 }
                 if (!jTextField74.getText().equals("")) {
-                objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
+                    objFrenometro2.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField74.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro2);
-                
+
             } catch (NumberFormatException e) {
             }
             Frenometro objFrenometro3 = new Frenometro();
@@ -3885,25 +3885,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 //objFrenometro3.setIdCerticado(idCertificado); 'KCS 02.04.2015
                 objFrenometro3.setnEjes(3);
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro3.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro3.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField63.getText().equals("")) {
-                objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
+                    objFrenometro3.setFuerzaEstDer(Double.parseDouble(jTextField63.getText()));
                 }
                 if (!jTextField68.getText().equals("")) {
-                objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
+                    objFrenometro3.setFuerzaEstIzq(Double.parseDouble(jTextField68.getText()));
                 }
                 if (!jTextField33.getText().equals("")) {
-                objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
+                    objFrenometro3.setFuerzaServicioDer(Double.parseDouble(jTextField33.getText()));
                 }
                 if (!jTextField37.getText().equals("")) {
-                objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
+                    objFrenometro3.setFuerzaServicioIzq(Double.parseDouble(jTextField37.getText()));
                 }
                 if (!jTextField4.getText().equals("")) {
-                objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
+                    objFrenometro3.setPesoServicio(Double.parseDouble(jTextField4.getText()));
                 }
                 objFrenometro3.setResultadoEjeServicio(jTextField47.getText());
                 objFrenometro3.setResultadoEjeEstacionamiento(jTextField78.getText());
@@ -3911,10 +3911,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro3.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro3.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField42.getText().equals("")) {
-                objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
+                    objFrenometro3.setDesequilibrioServicio(Double.parseDouble(jTextField42.getText()));
                 }
                 if (!jTextField73.getText().equals("")) {
-                objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
+                    objFrenometro3.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField73.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro3);
@@ -3967,35 +3967,35 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 objFrenometro5.setIdCerticado(idInforme);
                 //objFrenometro5.setIdCerticado(idCertificado); 'KCS 02.04.2015
                 if (!jTextField85.getText().equals("")) {
-                objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
+                    objFrenometro5.setEficienciaEst(Double.parseDouble(jTextField85.getText()));
                 }
                 if (!jTextField50.getText().equals("")) {
-                objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
+                    objFrenometro5.setEficienciaServicio(Double.parseDouble(jTextField50.getText()));
                 }
                 if (!jTextField61.getText().equals("")) {
-                objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
+                    objFrenometro5.setFuerzaEstDer(Double.parseDouble(jTextField61.getText()));
                 }
                 if (!jTextField70.getText().equals("")) {
-                objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
+                    objFrenometro5.setFuerzaEstIzq(Double.parseDouble(jTextField70.getText()));
                 }
                 if (!jTextField35.getText().equals("")) {
-                objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
+                    objFrenometro5.setFuerzaServicioDer(Double.parseDouble(jTextField35.getText()));
                 }
                 if (!jTextField39.getText().equals("")) {
-                objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
+                    objFrenometro5.setFuerzaServicioIzq(Double.parseDouble(jTextField39.getText()));
                 }
                 if (!jTextField12.getText().equals("")) {
-                objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
+                    objFrenometro5.setPesoServicio(Double.parseDouble(jTextField12.getText()));
                 }
                 objFrenometro5.setResultadoEjeServicio(jTextField49.getText());
                 objFrenometro5.setResultadoEjeEstacionamiento(jTextField80.getText());
                 objFrenometro5.setResultadoGlobalEstacionamiento(String.valueOf(jComboBox5.getSelectedItem()));
                 objFrenometro5.setResultadoGlobalServicio(String.valueOf(jComboBox4.getSelectedItem()));
                 if (!jTextField44.getText().equals("")) {
-                objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
+                    objFrenometro5.setDesequilibrioServicio(Double.parseDouble(jTextField44.getText()));
                 }
                 if (!jTextField71.getText().equals("")) {
-                objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
+                    objFrenometro5.setDesequilibrioEstacionamiento(Double.parseDouble(jTextField71.getText()));
                 }
 
                 objFrenometroBL.registrarFrenometro(objFrenometro5);
@@ -4447,6 +4447,51 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         }
 
+        // OBSERVACIONES I
+        try {
+            obs.setCodigoObservacion(jTextField58.getText().trim());
+            obs.setInterpretacion(jTextField59.getText().trim());
+            obs.setCalificacion(jTextField60.getText().trim());            
+            arrayObservaciones.add(obs);
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES II
+        try {
+            obs.setCodigoObservacion(jTextField81.getText().trim());
+            obs.setInterpretacion(jTextField86.getText().trim());
+            obs.setCalificacion(jTextField87.getText().trim());            
+            arrayObservaciones.add(obs);
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES III
+        try {
+            obs.setCodigoObservacion(jTextField88.getText().trim());
+            obs.setInterpretacion(jTextField89.getText().trim());
+            obs.setCalificacion(jTextField90.getText().trim());            
+            arrayObservaciones.add(obs);
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES IV
+        try {
+            obs.setCodigoObservacion(jTextField91.getText().trim());
+            obs.setInterpretacion(jTextField117.getText().trim());
+            obs.setCalificacion(jTextField118.getText().trim());            
+            arrayObservaciones.add(obs);
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES V
+        try {
+            obs.setCodigoObservacion(jTextField125.getText().trim());
+            obs.setInterpretacion(jTextField126.getText().trim());
+            obs.setCalificacion(jTextField127.getText().trim());            
+            arrayObservaciones.add(obs);
+        } catch (NumberFormatException e) {
+        }
+
     }
 
     public boolean validarVacios() {
@@ -4618,21 +4663,62 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         } else {
             fotosCompleto = true;
         }
-        
-        //Primeras observaciones adicionales        
+
+        //Primera observaciones adicionales        
         if (!jTextField58.getText().trim().equals("") || !jTextField59.getText().trim().equals("")
-                || !jTextField60.getText().trim().equals("") ) {
-            if (!jTextField58.getText().trim().equals("") || !jTextField59.getText().trim().equals("")
-                || !jTextField60.getText().trim().equals("") ) {
+                || !jTextField60.getText().trim().equals("")) {
+            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")
+                    && !jTextField60.getText().trim().equals("")) {
                 observacionesCompleto = true;
-            }            
+            }
+        } else {
+            observacionesCompleto = true;
         }
 
-//        String s = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-//        if (s.trim().equals("") ) {
-//            JOptionPane.showMessageDialog(null, "Complete Fecha de inspección", "CAMPOS VACÍOS", 0);
-//            return false;
-//        }
+        //Segunda fila de observaciones adicionales        
+        if (!jTextField81.getText().trim().equals("") || !jTextField87.getText().trim().equals("")
+                || !jTextField86.getText().trim().equals("")) {
+            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")
+                    && !jTextField87.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Tercer observaciones adicionales        
+        if (!jTextField88.getText().trim().equals("") || !jTextField89.getText().trim().equals("")
+                || !jTextField90.getText().trim().equals("")) {
+            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")
+                    && !jTextField90.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Cuarta fila de observaciones adicionales        
+        if (!jTextField91.getText().trim().equals("") || !jTextField117.getText().trim().equals("")
+                || !jTextField118.getText().trim().equals("")) {
+            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")
+                    && !jTextField118.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Quinta fila de observaciones adicionales        
+        if (!jTextField125.getText().trim().equals("") || !jTextField126.getText().trim().equals("")
+                || !jTextField127.getText().trim().equals("")) {
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")
+                    && !jTextField127.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
                 && sonometroCompleto
@@ -4673,7 +4759,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Adjunte todas las fotos", "CAMPOS VACÍOS", 0);
             }
             if (!observacionesCompleto) {
-                JOptionPane.showMessageDialog(null, "Complete frenos de Servicio", "CAMPOS VACÍOS", 0);
+                JOptionPane.showMessageDialog(null, "Complete las observaciones", "CAMPOS VACÍOS", 0);
             }
 
             resultado = false;
@@ -6866,10 +6952,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
             jComboBox20.setSelectedIndex(Integer.parseInt(objTarjetaP.getTipoServicio())); //Tipo de Servicio
             jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
-            
+
             jTextField56.setText(objTarjetaP.getIdMarca()); //Marca
             jTextField57.setText(objTarjetaP.getIdModelo()); //Modelo
-            
+
             //jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
             jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
