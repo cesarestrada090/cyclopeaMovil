@@ -520,22 +520,22 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jTextField58 = new javax.swing.JTextField();
         jTextField59 = new javax.swing.JTextField();
-        jTextField60 = new javax.swing.JTextField();
         jTextField81 = new javax.swing.JTextField();
         jTextField86 = new javax.swing.JTextField();
-        jTextField87 = new javax.swing.JTextField();
         jTextField88 = new javax.swing.JTextField();
         jTextField89 = new javax.swing.JTextField();
-        jTextField90 = new javax.swing.JTextField();
         jTextField91 = new javax.swing.JTextField();
         jTextField117 = new javax.swing.JTextField();
-        jTextField118 = new javax.swing.JTextField();
         jTextField125 = new javax.swing.JTextField();
         jTextField126 = new javax.swing.JTextField();
-        jTextField127 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox();
+        jComboBox10 = new javax.swing.JComboBox();
+        jComboBox21 = new javax.swing.JComboBox();
+        jComboBox23 = new javax.swing.JComboBox();
+        jComboBox24 = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jComboBox20 = new javax.swing.JComboBox();
         jLabel69 = new javax.swing.JLabel();
@@ -550,10 +550,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -3233,40 +3233,25 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField59.setToolTipText("");
 
-        jTextField60.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField60.setToolTipText("");
-
         jTextField81.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField81.setToolTipText("");
 
         jTextField86.setToolTipText("");
-
-        jTextField87.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField87.setToolTipText("");
 
         jTextField88.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField88.setToolTipText("");
 
         jTextField89.setToolTipText("");
 
-        jTextField90.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField90.setToolTipText("");
-
         jTextField91.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField91.setToolTipText("");
 
         jTextField117.setToolTipText("");
 
-        jTextField118.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField118.setToolTipText("");
-
         jTextField125.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField125.setToolTipText("");
 
         jTextField126.setToolTipText("");
-
-        jTextField127.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField127.setToolTipText("");
 
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("CÓDIGO");
@@ -3277,6 +3262,16 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel71.setText("CALIFICACIÓN");
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
+
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
+
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
+
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -3299,15 +3294,20 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     .addComponent(jTextField86, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField59, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, 963, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField118, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField127, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField60, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField87, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField90, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(87, 87, 87))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel71)
+                        .addGap(87, 87, 87))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3321,27 +3321,27 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField89, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField91, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField118, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField125, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField126, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField127, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(274, Short.MAX_VALUE))
         );
 
@@ -4244,7 +4244,11 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obsTemp.setIdCertificado(idInforme);
                 //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
-                obsTemp.setInterpretacion(descripcion);
+                if (descripcion.equalsIgnoreCase("No Conocida")) {
+                    
+                } else {
+                    obsTemp.setInterpretacion(descripcion);
+                }
                 b.registrarObservacion(obsTemp);
             }
 
@@ -4449,46 +4453,62 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         // OBSERVACIONES I
         try {
-            obs.setCodigoObservacion(jTextField58.getText().trim());
-            obs.setInterpretacion(jTextField59.getText().trim());
-            obs.setCalificacion(jTextField60.getText().trim());            
-            arrayObservaciones.add(obs);
+            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")) {
+                Observacion obs1= new Observacion();
+                obs1.setCodigoObservacion(jTextField58.getText().trim());
+                obs1.setInterpretacion(jTextField59.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox9.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+            }
         } catch (NumberFormatException e) {
         }
-        
+
         // OBSERVACIONES II
         try {
-            obs.setCodigoObservacion(jTextField81.getText().trim());
-            obs.setInterpretacion(jTextField86.getText().trim());
-            obs.setCalificacion(jTextField87.getText().trim());            
-            arrayObservaciones.add(obs);
+            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
+                Observacion obs1= new Observacion();
+                obs1.setCodigoObservacion(jTextField81.getText().trim());
+                obs1.setInterpretacion(jTextField86.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox10.getSelectedItem()));
+
+                arrayObservaciones.add(obs1);
+            }
         } catch (NumberFormatException e) {
         }
-        
+
         // OBSERVACIONES III
         try {
-            obs.setCodigoObservacion(jTextField88.getText().trim());
-            obs.setInterpretacion(jTextField89.getText().trim());
-            obs.setCalificacion(jTextField90.getText().trim());            
-            arrayObservaciones.add(obs);
+            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")) {
+                Observacion obs1= new Observacion();
+                obs1.setCodigoObservacion(jTextField88.getText().trim());
+                obs1.setInterpretacion(jTextField89.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox21.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+            }
         } catch (NumberFormatException e) {
         }
-        
+
         // OBSERVACIONES IV
         try {
-            obs.setCodigoObservacion(jTextField91.getText().trim());
-            obs.setInterpretacion(jTextField117.getText().trim());
-            obs.setCalificacion(jTextField118.getText().trim());            
-            arrayObservaciones.add(obs);
+            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")) {
+                Observacion obs1= new Observacion();
+                obs1.setCodigoObservacion(jTextField91.getText().trim());
+                obs1.setInterpretacion(jTextField117.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox23.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+            }
         } catch (NumberFormatException e) {
         }
-        
+
         // OBSERVACIONES V
         try {
-            obs.setCodigoObservacion(jTextField125.getText().trim());
-            obs.setInterpretacion(jTextField126.getText().trim());
-            obs.setCalificacion(jTextField127.getText().trim());            
-            arrayObservaciones.add(obs);
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
+                Observacion obs1= new Observacion();
+                obs1.setCodigoObservacion(jTextField125.getText().trim());
+                obs1.setInterpretacion(jTextField126.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox24.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+            }
         } catch (NumberFormatException e) {
         }
 
@@ -4665,10 +4685,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         //Primera observaciones adicionales        
-        if (!jTextField58.getText().trim().equals("") || !jTextField59.getText().trim().equals("")
-                || !jTextField60.getText().trim().equals("")) {
-            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")
-                    && !jTextField60.getText().trim().equals("")) {
+        if (!jTextField58.getText().trim().equals("") || !jTextField59.getText().trim().equals("")) {
+            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")) {
                 observacionesCompleto = true;
             }
         } else {
@@ -4676,10 +4694,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         //Segunda fila de observaciones adicionales        
-        if (!jTextField81.getText().trim().equals("") || !jTextField87.getText().trim().equals("")
+        if (!jTextField81.getText().trim().equals("")
                 || !jTextField86.getText().trim().equals("")) {
-            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")
-                    && !jTextField87.getText().trim().equals("")) {
+            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
                 observacionesCompleto = true;
             }
         } else {
@@ -4687,10 +4704,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         //Tercer observaciones adicionales        
-        if (!jTextField88.getText().trim().equals("") || !jTextField89.getText().trim().equals("")
-                || !jTextField90.getText().trim().equals("")) {
-            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")
-                    && !jTextField90.getText().trim().equals("")) {
+        if (!jTextField88.getText().trim().equals("") || !jTextField89.getText().trim().equals("")) {
+            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")) {
                 observacionesCompleto = true;
             }
         } else {
@@ -4698,10 +4713,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         //Cuarta fila de observaciones adicionales        
-        if (!jTextField91.getText().trim().equals("") || !jTextField117.getText().trim().equals("")
-                || !jTextField118.getText().trim().equals("")) {
-            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")
-                    && !jTextField118.getText().trim().equals("")) {
+        if (!jTextField91.getText().trim().equals("") || !jTextField117.getText().trim().equals("")) {
+            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")) {
                 observacionesCompleto = true;
             }
         } else {
@@ -4709,10 +4722,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         }
 
         //Quinta fila de observaciones adicionales        
-        if (!jTextField125.getText().trim().equals("") || !jTextField126.getText().trim().equals("")
-                || !jTextField127.getText().trim().equals("")) {
-            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")
-                    && !jTextField127.getText().trim().equals("")) {
+        if (!jTextField125.getText().trim().equals("") || !jTextField126.getText().trim().equals("")) {
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
                 observacionesCompleto = true;
             }
         } else {
@@ -7075,6 +7086,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
     private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox13;
@@ -7086,13 +7098,17 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox20;
+    private javax.swing.JComboBox jComboBox21;
     private javax.swing.JComboBox jComboBox22;
+    private javax.swing.JComboBox jComboBox23;
+    private javax.swing.JComboBox jComboBox24;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
+    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -7260,7 +7276,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField115;
     private javax.swing.JTextField jTextField116;
     private javax.swing.JTextField jTextField117;
-    private javax.swing.JTextField jTextField118;
     private javax.swing.JTextField jTextField119;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField120;
@@ -7270,7 +7285,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField124;
     private javax.swing.JTextField jTextField125;
     private javax.swing.JTextField jTextField126;
-    private javax.swing.JTextField jTextField127;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
@@ -7358,7 +7372,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField58;
     private javax.swing.JTextField jTextField59;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField60;
     private javax.swing.JTextField jTextField61;
     private javax.swing.JTextField jTextField62;
     private javax.swing.JTextField jTextField63;
@@ -7387,11 +7400,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField84;
     private javax.swing.JTextField jTextField85;
     private javax.swing.JTextField jTextField86;
-    private javax.swing.JTextField jTextField87;
     private javax.swing.JTextField jTextField88;
     private javax.swing.JTextField jTextField89;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextField90;
     private javax.swing.JTextField jTextField91;
     private javax.swing.JTextField jTextField92;
     private javax.swing.JTextField jTextField93;
