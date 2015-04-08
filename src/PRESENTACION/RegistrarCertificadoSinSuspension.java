@@ -56,6 +56,8 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     private int longitudBytes3;
 
     private int ResultadoGeneral;
+    
+    private boolean ObsGravesMuyGraves = false;
 
     /**
      * Creates new form RegistrarUsuario
@@ -198,6 +200,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     private boolean luxometroCompleto;
     private boolean alineadorCompleto;
     private boolean fotosCompleto;
+    private boolean observacionesCompleto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -3263,6 +3266,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     }
 
     private Certificado ObtenerCertificado() {
+        calcularObservaciones();
         //CERTIFICADO
         Certificado objCertificado = new Certificado();
         objCertificado.setNumDocEvaluar(jTextField55.getText());
@@ -3281,6 +3285,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 //        } else {
         ObtenerResultado();
         //ResultadoGeneral = 1;
+        
+        if (ObsGravesMuyGraves) {
+            ResultadoGeneral=0;
+        }
 
         objCertificado.setResultado(ResultadoGeneral);
 //        }
@@ -3482,7 +3490,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         }
 
         objR.setPruebaAli(alineamiento);
-        
+
         if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
                 && objR.getPruebaAli() == 1 && objR.getPruebLuces() == 1 && objR.getProfNeuma() == 1) {
             ResultadoGeneral = 1;
@@ -3942,21 +3950,34 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             ///
             //Agregando Observaciones
             //
-            calcularObservaciones();
+            //calcularObservaciones();
 
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
             arrayObservaciones.clear();
             arrayObservaciones.addAll(hashSet);
             ObservacionBL b = new ObservacionBL();
+//            for (int i = 0; i < arrayObservaciones.size(); i++) {
+//                Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
+//                obsTemp.setIdCertificado(idInforme);
+//                //obsTemp.setIdCertificado(idCertificado); 'KCS 03.04.2015
+//                String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
+//                obsTemp.setInterpretacion(descripcion);
+//                b.registrarObservacion(obsTemp);
+//            }
+
             for (int i = 0; i < arrayObservaciones.size(); i++) {
                 Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
                 obsTemp.setIdCertificado(idInforme);
-                //obsTemp.setIdCertificado(idCertificado); 'KCS 03.04.2015
+                //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
-                obsTemp.setInterpretacion(descripcion);
+                if (descripcion.equalsIgnoreCase("No Conocida")) {
+                    
+                } else {
+                    obsTemp.setInterpretacion(descripcion);
+                }
                 b.registrarObservacion(obsTemp);
             }
-
+            
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
@@ -3986,13 +4007,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioSegundoEjeServicio.equals("")) {
@@ -4006,13 +4028,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioTercerEjeServicio.equals("")) {
@@ -4022,13 +4045,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioCuartoEjeServicio.equals("")) {
@@ -4038,13 +4062,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioQuintoEjeServicio.equals("")) {
@@ -4054,13 +4079,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
 
@@ -4077,11 +4103,13 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 0 && valor <= 20) {
                 obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
         }
@@ -4094,18 +4122,95 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor > 0 && valor < 5) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor == 0) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
+        }
 
+        // OBSERVACIONES I
+        try {
+            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField58.getText().trim());
+                obs1.setInterpretacion(jTextField59.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox7.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES II
+        try {
+            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField81.getText().trim());
+                obs1.setInterpretacion(jTextField86.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox8.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES III
+        try {
+            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField88.getText().trim());
+                obs1.setInterpretacion(jTextField89.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox9.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES IV
+        try {
+            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField91.getText().trim());
+                obs1.setInterpretacion(jTextField117.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox10.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES V
+        try {
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField125.getText().trim());
+                obs1.setInterpretacion(jTextField126.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox21.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
         }
 
     }
@@ -4273,13 +4378,60 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             fotosCompleto = true;
         }
 
+        //Primera observaciones adicionales        
+        if (!jTextField58.getText().trim().equals("") || !jTextField59.getText().trim().equals("")) {
+            if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Segunda fila de observaciones adicionales        
+        if (!jTextField81.getText().trim().equals("")
+                || !jTextField86.getText().trim().equals("")) {
+            if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Tercer observaciones adicionales        
+        if (!jTextField88.getText().trim().equals("") || !jTextField89.getText().trim().equals("")) {
+            if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Cuarta fila de observaciones adicionales        
+        if (!jTextField91.getText().trim().equals("") || !jTextField117.getText().trim().equals("")) {
+            if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Quinta fila de observaciones adicionales        
+        if (!jTextField125.getText().trim().equals("") || !jTextField126.getText().trim().equals("")) {
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
         if (frenoServicioCompleto
                 && frenoEstacionamientoCompleto
                 && sonometroCompleto
                 && gasometroCompleto
                 && alineadorCompleto
                 && luxometroCompleto
-                && fotosCompleto) {
+                && fotosCompleto
+                && observacionesCompleto) {
             resultado = true;
             return true;
         } else {

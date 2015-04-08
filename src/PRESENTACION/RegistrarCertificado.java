@@ -56,6 +56,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private int longitudBytes3;
 
     private int ResultadoGeneral;
+    
+    private boolean ObsGravesMuyGraves=false;
 
     /**
      * Creates new form RegistrarUsuario
@@ -3521,6 +3523,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     }
 
     private Certificado ObtenerCertificado() {
+        calcularObservaciones();
         //CERTIFICADO
         Certificado objCertificado = new Certificado();
         objCertificado.setNumDocEvaluar(jTextField55.getText());
@@ -3540,6 +3543,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         ObtenerResultado();
         //ResultadoGeneral = 1; 'KCS 02.04.2015
 
+        if (ObsGravesMuyGraves) {
+            ResultadoGeneral=0;
+        }
+        
         objCertificado.setResultado(ResultadoGeneral);
 //        }
 
@@ -4233,7 +4240,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             ///
             //Agregando Observaciones
             //
-            calcularObservaciones();
+            //calcularObservaciones();
 
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
             arrayObservaciones.clear();
@@ -4281,13 +4288,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioSegundoEjeServicio.equals("")) {
@@ -4301,13 +4309,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioTercerEjeServicio.equals("")) {
@@ -4317,13 +4326,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioCuartoEjeServicio.equals("")) {
@@ -4333,13 +4343,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
         if (!DesequilibrioQuintoEjeServicio.equals("")) {
@@ -4349,13 +4360,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
         }
 
@@ -4372,11 +4384,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 0 && valor <= 20) {
                 obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
         }
@@ -4389,16 +4403,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor > 0 && valor < 5) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor == 0) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
         }
@@ -4413,16 +4430,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("C.2.2.1");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
-                obs.setCalificacion("MUY GRAVE");
+                obs.setCalificacion("MUY GRAVE");                
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
         }
@@ -4437,16 +4457,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("C.2.2.1");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
             if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves=true;
             }
 
         }
@@ -4459,6 +4482,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs1.setInterpretacion(jTextField59.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox9.getSelectedItem()));
                 arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
+                    ObsGravesMuyGraves=true;
+                }
             }
         } catch (NumberFormatException e) {
         }
@@ -4470,8 +4496,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs1.setCodigoObservacion(jTextField81.getText().trim());
                 obs1.setInterpretacion(jTextField86.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox10.getSelectedItem()));
-
                 arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
+                    ObsGravesMuyGraves=true;
+                }
             }
         } catch (NumberFormatException e) {
         }
@@ -4484,6 +4512,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs1.setInterpretacion(jTextField89.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox21.getSelectedItem()));
                 arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
+                    ObsGravesMuyGraves=true;
+                }
             }
         } catch (NumberFormatException e) {
         }
@@ -4496,6 +4527,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs1.setInterpretacion(jTextField117.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox23.getSelectedItem()));
                 arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
+                    ObsGravesMuyGraves=true;
+                }
             }
         } catch (NumberFormatException e) {
         }
@@ -4508,6 +4542,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs1.setInterpretacion(jTextField126.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox24.getSelectedItem()));
                 arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
+                    ObsGravesMuyGraves=true;
+                }
             }
         } catch (NumberFormatException e) {
         }

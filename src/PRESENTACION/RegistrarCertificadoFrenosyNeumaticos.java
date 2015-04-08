@@ -44,6 +44,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     boolean suspensionDerPost = true;
     boolean suspensionDesvPost = true;
     boolean sonometroResult = true;
+    private boolean ObsGravesMuyGraves=false;
 
     public TarjetaPropiedad objTarjetaP; // = new TarjetaPropiedad();
     public int intIdTarjeta;
@@ -69,40 +70,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jTextField43.getDocument().addDocumentListener(new CuartoEjeFrenometro());
         jTextField44.getDocument().addDocumentListener(new QuintoEjeFrenometro());
 
-//        jTextField5.getDocument().addDocumentListener(new AlineamientoDesviacionEje1());
-//        jTextField6.getDocument().addDocumentListener(new AlineamientoDesviacionEje2());
-//        jTextField7.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
-//        jTextField8.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
-//        jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
         jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
         jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
         jTextField19.getDocument().addDocumentListener(new ProfNeumaticos4());
         jTextField20.getDocument().addDocumentListener(new ProfNeumaticos5());
 
-//        //luces
-//        //luces bajas
-//        jTextField159.getDocument().addDocumentListener(new validarLuxometroBajas());
-//        jTextField163.getDocument().addDocumentListener(new validarLuxometroBajas());
-//
-//        //luces bajas
-//        jTextField160.getDocument().addDocumentListener(new validarLuxometroAltas());
-//        jTextField168.getDocument().addDocumentListener(new validarLuxometroAltas());
-//
-//        //luces Altas Adicionales
-//        jTextField161.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
-//        jTextField165.getDocument().addDocumentListener(new validarLuxometroAltasAdicionales());
-//
-//        jTextField162.getDocument().addDocumentListener(new validarLuxometroNeblineras());
-//        jTextField166.getDocument().addDocumentListener(new validarLuxometroNeblineras());
-//
-//        jTextField181.getDocument().addDocumentListener(new SuspensionPosteriorIzq());
-//        jTextField182.getDocument().addDocumentListener(new SuspensionPosteriorDer());
-//        jTextField183.getDocument().addDocumentListener(new SuspensionPosteriorDesv());
-//
-//        jTextField177.getDocument().addDocumentListener(new SuspensionDelanteraIzq());
-//        jTextField178.getDocument().addDocumentListener(new SuspensionDelanteraDer());
-//        jTextField179.getDocument().addDocumentListener(new SuspensionDelanteraDesv());
         // FUERZA DE FRENADO ESTACIONAMIENTO
         //EJE 1  
         jTextField65.getDocument().addDocumentListener(new Frenado01());
@@ -142,30 +115,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         //EFICIENCIA FRENO ESTACIONAMIENTO
         jTextField85.getDocument().addDocumentListener(new EficienciaFrenoEstacionamiento());
 
-//        //Validar frenometro
-//        jTextField185.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField186.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField187.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField188.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField189.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField190.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField191.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField192.getDocument().addDocumentListener(new validarGasometro());
-//        jTextField193.getDocument().addDocumentListener(new validarGasometro());
-//
-//        jTextField194.getDocument().addDocumentListener(new SonometroResultado());
         CertificadoBL b = new CertificadoBL();
         int size;
         List listaModelos = b.obtenerListaModelo();
-//        for (int i = 0; i < listaModelos.size(); i++) {
-//            jComboBox10.addItem((String) listaModelos.get(i));
-//        }
-
-//        List listaCombustibles = b.obtenerListaCombustible();
-//        size = listaCombustibles.size();
-//        for (int i = 0; i < size; i++) {
-//            jComboBox13.addItem((String) listaCombustibles.get(i));
-//        }
         List listaCarrocerias = b.obtenerListaCarroceria();
         size = listaCarrocerias.size();
         for (int i = 0; i < size; i++) {
@@ -174,9 +126,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         List listaMarcas = b.obtenerListaMarca();
         size = listaMarcas.size();
-//        for (int i = 0; i < size; i++) {
-//            jComboBox9.addItem((String) listaMarcas.get(i));
-//        }
 
         List listaCategorias = b.obtenerListaCategoria();
         size = listaCategorias.size();
@@ -192,6 +141,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private boolean frenoEstacionamientoCompleto;
     private boolean alineadorCompleto;
     private boolean fotosCompleto;
+    private boolean observacionesCompleto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2606,6 +2556,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     }
 
     private Certificado ObtenerCertificado() {
+        calcularObservaciones();
         //CERTIFICADO
         Certificado objCertificado = new Certificado();
         objCertificado.setNumDocEvaluar(jTextField55.getText());
@@ -2619,7 +2570,11 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         objCertificado.setFecVencimiento(calendar.getTime()); // Fecha de la próxima inspección
 
         ObtenerResultado();
-        //ResultadoGeneral = 1; 'KCS 03.04.2015
+        //ResultadoGeneral = 1; 'KCS 03.04.2015       
+
+        if (ObsGravesMuyGraves) {
+            ResultadoGeneral=0;
+        }
 
         objCertificado.setResultado(ResultadoGeneral);
 //        }
@@ -2757,7 +2712,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
     private Resultados ObtenerResultado() {
         Resultados objR = new Resultados();
-        
+
         objR.setIdCertificado(idInforme);
         //objR.setIdCertificado(idCertificado);'KCS 03.04.2015
 
@@ -3127,8 +3082,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             } catch (NumberFormatException e) {
             }
 
-            calcularObservaciones();
-
+            //calcularObservaciones();
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
             arrayObservaciones.clear();
             arrayObservaciones.addAll(hashSet);
@@ -3136,9 +3090,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             for (int i = 0; i < arrayObservaciones.size(); i++) {
                 Observacion obsTemp = (Observacion) arrayObservaciones.get(i);
                 obsTemp.setIdCertificado(idInforme);
-                //obsTemp.setIdCertificado(idCertificado); 'KCS 03.04.2015
+                //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
-                obsTemp.setInterpretacion(descripcion);
+                if (descripcion.equalsIgnoreCase("No Conocida")) {
+                    
+                } else {
+                    obsTemp.setInterpretacion(descripcion);
+                }
                 b.registrarObservacion(obsTemp);
             }
 
@@ -3171,13 +3129,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioSegundoEjeServicio.equals("")) {
@@ -3191,13 +3150,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioTercerEjeServicio.equals("")) {
@@ -3207,13 +3167,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioCuartoEjeServicio.equals("")) {
@@ -3223,13 +3184,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioQuintoEjeServicio.equals("")) {
@@ -3239,13 +3201,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
-
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
         }
 
@@ -3262,11 +3225,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 0 && valor <= 20) {
                 obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
 
         }
@@ -3279,18 +3244,95 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
             if (valor > 0 && valor < 5) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
             if (valor == 0) {
                 obs.setCodigoObservacion("D.6.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
+                ObsGravesMuyGraves = true;
             }
+        }
 
+        // OBSERVACIONES I
+        try {
+            if (!jTextField7.getText().trim().equals("") && !jTextField8.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField7.getText().trim());
+                obs1.setInterpretacion(jTextField8.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox1.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES II
+        try {
+            if (!jTextField10.getText().trim().equals("") && !jTextField11.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField10.getText().trim());
+                obs1.setInterpretacion(jTextField11.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox2.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES III
+        try {
+            if (!jTextField14.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField14.getText().trim());
+                obs1.setInterpretacion(jTextField15.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox8.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES IV
+        try {
+            if (!jTextField57.getText().trim().equals("") && !jTextField58.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField57.getText().trim());
+                obs1.setInterpretacion(jTextField58.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox9.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        // OBSERVACIONES V
+        try {
+            if (!jTextField60.getText().trim().equals("") && !jTextField81.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField60.getText().trim());
+                obs1.setInterpretacion(jTextField81.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox7.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().trim().toUpperCase().equals("GRAVE") || obs1.getCalificacion().trim().toUpperCase().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
         }
     }
 
@@ -3399,6 +3441,52 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         } else {
             fotosCompleto = true;
+        }
+
+        //Primera observaciones adicionales        
+        if (!jTextField7.getText().trim().equals("") || !jTextField8.getText().trim().equals("")) {
+            if (!jTextField7.getText().trim().equals("") && !jTextField8.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Segunda fila de observaciones adicionales        
+        if (!jTextField10.getText().trim().equals("")
+                || !jTextField11.getText().trim().equals("")) {
+            if (!jTextField10.getText().trim().equals("") && !jTextField11.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Tercer observaciones adicionales        
+        if (!jTextField14.getText().trim().equals("") || !jTextField15.getText().trim().equals("")) {
+            if (!jTextField14.getText().trim().equals("") && !jTextField15.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Cuarta fila de observaciones adicionales        
+        if (!jTextField57.getText().trim().equals("") || !jTextField58.getText().trim().equals("")) {
+            if (!jTextField57.getText().trim().equals("") && !jTextField58.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
+        }
+
+        //Quinta fila de observaciones adicionales        
+        if (!jTextField60.getText().trim().equals("") || !jTextField81.getText().trim().equals("")) {
+            if (!jTextField60.getText().trim().equals("") && !jTextField81.getText().trim().equals("")) {
+                observacionesCompleto = true;
+            }
+        } else {
+            observacionesCompleto = true;
         }
 
         if (frenoServicioCompleto
@@ -3684,7 +3772,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     consultarComboFrenoServicio();
                 }
             }
-
         }
 
         public void removeUpdate(DocumentEvent e) {
@@ -4684,7 +4771,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             jComboBox14.setSelectedItem(objTarjetaP.getIdCategoria()); //Categoría
             jTextField5.setText(objTarjetaP.getIdMarca()); //Marca
             jTextField6.setText(objTarjetaP.getIdModelo()); //Modelo
-            //jComboBox10.setSelectedIndex(Integer.parseInt(objTarjetaP.getIdModelo())); //Modelo
             jComboBox11.setSelectedItem(String.valueOf(objTarjetaP.getFabricacion()));
             jComboBox13.setSelectedItem(objTarjetaP.getIdCombustible());//Combustible
             jComboBox12.setSelectedItem(objTarjetaP.getIdCarroceria()); //Carrocería
@@ -4693,17 +4779,6 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
 
         ObtenerIds();
-
-//        if (jComboBox13.getSelectedIndex() == 0) {
-//            jTextField188.enable(false);
-//            jTextField189.enable(false);
-//            jTextField190.enable(false);
-//            jTextField191.enable(false);
-//            jTextField192.enable(false);
-//            jTextField193.enable(false);
-//        } else {
-//            jTextField187.enable(false);
-//        }
 
     }//GEN-LAST:event_formAncestorAdded
 
@@ -4772,7 +4847,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField18KeyTyped
 
@@ -4782,7 +4857,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField61KeyTyped
 
@@ -4796,7 +4871,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k != 65 && k != 68) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Sólo son válidas las letras A y D mayúsculas!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField78KeyTyped
 
@@ -5592,7 +5667,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField51KeyTyped
 
@@ -5605,7 +5680,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField55KeyTyped
 
@@ -5615,7 +5690,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField119KeyTyped
 
@@ -5625,7 +5700,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField52KeyTyped
 
@@ -5643,7 +5718,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField124KeyTyped
 
@@ -5657,7 +5732,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField115KeyTyped
 
@@ -5675,7 +5750,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "Debe ingresar sólo números!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField84KeyTyped
 
@@ -5690,7 +5765,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
-                JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jTextField82KeyTyped
 

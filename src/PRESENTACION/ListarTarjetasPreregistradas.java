@@ -176,7 +176,7 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                     ad.setVisible(true);
                     dispose();
                 } else {
-                    if (objTarjetaPropiedad.getTipoVehiculo() == 1 && objTarjetaPropiedad.getTipoVehiculo() == 3) { //Ómnibus y Camiones
+                    if (objTarjetaPropiedad.getTipoVehiculo() == 1 || objTarjetaPropiedad.getTipoVehiculo() == 3) { //Ómnibus y Camiones
                         RegistrarCertificadoSinSuspension ad=new RegistrarCertificadoSinSuspension(); //DESCOMENTAR
                         //RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
                         ad.objTarjetaP = objTarjetaPropiedad;
@@ -231,10 +231,6 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         int indX1 = sel.select("id_Tarjeta", jTable2);
-        int indX2 = sel.select("Placa", jTable2);
-        int indX3 = sel.select("N° de Tarjeta", jTable2);
-        int indX4 = sel.select("Año de Fabricación", jTable2);
-        int indX5 = sel.select("Marca", jTable2);
         if (indX1 < 0) {
             return;
         }
