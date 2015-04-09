@@ -71,6 +71,9 @@ public class CertificadoBL {
     
     public int obtenerResultadoCertificado(int idInforme) {
         return new CertificadoDAL().obtenerResultadoCertificado(idInforme);
-
+    }
+    
+    public boolean anularCertificado(int idInforme) {
+        return new CertificadoDAL().anularCertificado(idInforme);
     }
 }

@@ -6,7 +6,6 @@ package DATOS;
 
 import ENTIDADES.Certificado;
 import ENTIDADES.Fotografias;
-import ENTIDADES.Vehiculo;
 import PRESENTACION.frmInicio;
 import java.sql.*;
 import java.util.ArrayList;
@@ -507,6 +506,31 @@ public class CertificadoDAL {
             }
         }
         return 0;
+    }
+    
+    public boolean anularCertificado(int idInforme) {
+        try {
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
+            //cn=(Connection) Conexion.obtenerConexionMySQL("Localhost","bdnuevamovil","root","123456");
+            String sentencia = "update certificado set estadoCertificado='3'"  // estado anulado = 3
+                    + " where idInforme=(?)";
+            ps = (PreparedStatement) cn.prepareStatement(sentencia);
+            ps.setInt(1, idInforme);
+
+            ps.executeUpdate();
+            return true;
+            //"Un usuario ya ha sido registrado con la ubicación seleccionada"
+        } catch (SQLException ex) {
+            return false;
+        } finally {
+            try {
+                cn.close();
+                ps.close();
+            } catch (SQLException ex) {
+                System.out.print(ex.getMessage());
+                Logger.getLogger(UsuarioDAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
 }

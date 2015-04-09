@@ -67,6 +67,7 @@ public class jfrmInicio extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -196,6 +197,16 @@ public class jfrmInicio extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem11);
+
+        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Iconos/clos.png"))); // NOI18N
+        jMenuItem12.setText("Anular Certificado");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
 
@@ -687,6 +698,32 @@ public class jfrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        ListarCertificadosAnulacion vv = new ListarCertificadosAnulacion();
+
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension jInternalFrameSize = vv.getSize();
+
+        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+
+        boolean mostrar = true;
+        for (int a = 0; a < jDesktopPane1.getComponentCount(); a++) {
+            if (vv.getClass().isInstance(jDesktopPane1.getComponent(a))) {
+                mostrar = true;
+            } else {
+                mostrar = false;
+            }
+        }
+        if (mostrar) {
+            jDesktopPane1.add(vv);
+            vv.setLocation(width, height);
+            vv.show();
+        }
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -713,6 +750,7 @@ public class jfrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     public final javax.swing.JMenuItem jMenuItem2 = new javax.swing.JMenuItem();
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
