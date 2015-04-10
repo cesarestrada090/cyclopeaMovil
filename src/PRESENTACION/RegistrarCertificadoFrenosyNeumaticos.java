@@ -70,6 +70,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jTextField43.getDocument().addDocumentListener(new CuartoEjeFrenometro());
         jTextField44.getDocument().addDocumentListener(new QuintoEjeFrenometro());
 
+        jTextField9.getDocument().addDocumentListener(new AlineamientoDesviacionEje1());
+        jTextField56.getDocument().addDocumentListener(new AlineamientoDesviacionEje2());
+        jTextField86.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
+        jTextField88.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
+        jTextField90.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
+        
         jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
         jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
@@ -351,6 +357,18 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jTextField25 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField56 = new javax.swing.JTextField();
+        jTextField59 = new javax.swing.JTextField();
+        jTextField86 = new javax.swing.JTextField();
+        jTextField87 = new javax.swing.JTextField();
+        jTextField88 = new javax.swing.JTextField();
+        jTextField89 = new javax.swing.JTextField();
+        jTextField90 = new javax.swing.JTextField();
+        jTextField91 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jTextField157 = new javax.swing.JTextField();
@@ -425,10 +443,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1101,10 +1119,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2067,6 +2085,38 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jLabel34.setText("PRUEBA DE ALINEAMIENTO");
         jLabel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel23.setText("Desviación (m/Km)");
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Resultado");
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField13.setEnabled(false);
+
+        jTextField56.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField59.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField59.setEnabled(false);
+
+        jTextField86.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField87.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField87.setEnabled(false);
+
+        jTextField88.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField89.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField89.setEnabled(false);
+
+        jTextField90.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jTextField91.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField91.setEnabled(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -2075,34 +2125,54 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7))
-                                    .addComponent(jLabel6))))
-                        .addGap(235, 235, 235)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
+                                        .addGap(10, 10, 10)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField16)
-                                            .addComponent(jTextField20))
-                                        .addGap(32, 32, 32))
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel10)
+                                                .addComponent(jLabel9)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel7))
+                                            .addComponent(jLabel6))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(13, 13, 13)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTextField56, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField86, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField88, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField90, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel23)))
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField91)
+                                    .addComponent(jTextField89)
+                                    .addComponent(jTextField87)
+                                    .addComponent(jTextField59)
+                                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField16)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField18)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField20)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(32, 32, 32)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextField21)
@@ -2110,21 +2180,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                     .addComponent(jTextField23, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextField22)
                                     .addComponent(jTextField25))))
-                        .addGap(1187, 1187, 1187))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(1187, 1187, 1187))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel16)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel23)
+                        .addComponent(jLabel24))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
                         .addComponent(jLabel15)))
@@ -2134,7 +2204,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
+                        .addGap(8, 8, 8)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2144,29 +2214,47 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                 .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addComponent(jTextField56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9))
+                            .addComponent(jTextField88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jTextField90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
+                                .addGap(64, 64, 64)
+                                .addComponent(jTextField89, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField91, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                                    .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("NEUMÁTICOS", jPanel2);
+        jTabbedPane1.addTab("ALINEAMIENTO - NEUMÁTICOS", jPanel2);
 
         jTabbedPane3.addTab("III. RESULTADOS OBTENIDOS", jTabbedPane1);
 
@@ -3017,27 +3105,27 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Alineador objAlineador1 = new Alineador();
                 objAlineador1.setIdCertificado(idInforme);
                 //objAlineador1.setIdCertificado(idCertificado); 'KCS 03.04.2015
-//                objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField5.getText()));
+                objAlineador1.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
                 objAlineador1.setEje(1);
                 objAlineador1.setMedidaejeneumatico(Double.parseDouble(jTextField16.getText()));
-//                objAlineador1.setResultadoejealineamiento(jTextField10.getText());
+                objAlineador1.setResultadoejealineamiento(jTextField13.getText());
                 objAlineador1.setResultadoejeneumatico(jTextField21.getText());
 
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarDatosSinAlineamiento(objAlineador1);
+                objAlinBL.registrarAlineador(objAlineador1);
             } catch (NumberFormatException e) {
             }
             try {
                 Alineador objAlineador2 = new Alineador();
                 //objAlineador2.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 objAlineador2.setIdCertificado(idInforme);
-//                objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField6.getText()));
+                objAlineador2.setDesviacionejealineamiento(Double.parseDouble(jTextField56.getText()));
                 objAlineador2.setEje(2);
                 objAlineador2.setMedidaejeneumatico(Double.parseDouble(jTextField17.getText()));
-//                objAlineador2.setResultadoejealineamiento(jTextField11.getText());
+                objAlineador2.setResultadoejealineamiento(jTextField59.getText());
                 objAlineador2.setResultadoejeneumatico(jTextField22.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarDatosSinAlineamiento(objAlineador2);
+                objAlinBL.registrarAlineador(objAlineador2);
             } catch (NumberFormatException e) {
             }
 
@@ -3045,26 +3133,26 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Alineador objAlineador3 = new Alineador();
                 objAlineador3.setIdCertificado(idInforme);
                 //objAlineador3.setIdCertificado(idCertificado); 'KCS 03.04.2015
-//                objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField7.getText()));
+                objAlineador3.setDesviacionejealineamiento(Double.parseDouble(jTextField86.getText()));
                 objAlineador3.setEje(3);
                 objAlineador3.setMedidaejeneumatico(Double.parseDouble(jTextField18.getText()));
-//                objAlineador3.setResultadoejealineamiento(jTextField13.getText());
+                objAlineador3.setResultadoejealineamiento(jTextField87.getText());
                 objAlineador3.setResultadoejeneumatico(jTextField23.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarDatosSinAlineamiento(objAlineador3);
+                objAlinBL.registrarAlineador(objAlineador3);
             } catch (NumberFormatException e) {
             }
             try {
                 Alineador objAlineador4 = new Alineador();
                 objAlineador4.setIdCertificado(idInforme);
                 //objAlineador4.setIdCertificado(idCertificado); 'KCS 03.04.2015
-//                objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField8.getText()));
+                objAlineador4.setDesviacionejealineamiento(Double.parseDouble(jTextField88.getText()));
                 objAlineador4.setEje(4);
                 objAlineador4.setMedidaejeneumatico(Double.parseDouble(jTextField19.getText()));
-//                objAlineador4.setResultadoejealineamiento(jTextField14.getText());
+                objAlineador4.setResultadoejealineamiento(jTextField89.getText());
                 objAlineador4.setResultadoejeneumatico(jTextField24.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarDatosSinAlineamiento(objAlineador4);
+                objAlinBL.registrarAlineador(objAlineador4);
             } catch (NumberFormatException e) {
             }
 
@@ -3072,13 +3160,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 Alineador objAlineador5 = new Alineador();
                 objAlineador5.setIdCertificado(idInforme);
                 //objAlineador5.setIdCertificado(idCertificado); 'KCS 03.04.2015
-//                objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField9.getText()));
+                objAlineador5.setDesviacionejealineamiento(Double.parseDouble(jTextField90.getText()));
                 objAlineador5.setEje(5);
                 objAlineador5.setMedidaejeneumatico(Double.parseDouble(jTextField20.getText()));
-//                objAlineador5.setResultadoejealineamiento(jTextField15.getText());
+                objAlineador5.setResultadoejealineamiento(jTextField91.getText());
                 objAlineador5.setResultadoejeneumatico(jTextField25.getText());
                 AlineadorBL objAlinBL = new AlineadorBL();
-                objAlinBL.registrarDatosSinAlineamiento(objAlineador5);
+                objAlinBL.registrarAlineador(objAlineador5);
             } catch (NumberFormatException e) {
             }
 
@@ -3410,27 +3498,27 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
 
         /* Alineamiento primer eje */
-        if (!jTextField16.getText().trim().equals("")) {
+        if (!jTextField16.getText().trim().equals("") && !jTextField9.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Segundo eje */
-        if (!jTextField17.getText().trim().equals("")) {
+        if (!jTextField17.getText().trim().equals("") && !jTextField56.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Tercer eje */
-        if (!jTextField18.getText().trim().equals("")) {
+        if (!jTextField18.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Cuarto eje */
-        if (!jTextField19.getText().trim().equals("")) {
+        if (!jTextField19.getText().trim().equals("") && !jTextField88.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
         /* Alineamiento Quinto eje */
-        if (!jTextField20.getText().trim().equals("")) {
+        if (!jTextField20.getText().trim().equals("") && !jTextField90.getText().trim().equals("")) {
             alineadorCompleto = true;
         }
 
@@ -4008,229 +4096,230 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         }
     }
 
-//    class AlineamientoDesviacionEje1 implements DocumentListener {
-//
-//        String newline = "\n";
-//
-////        public void insertUpdate(DocumentEvent e) {
-////            String x = jTextField5.getText();
-////            if (!x.equals("")) {
-////                double valor = Double.parseDouble(x);
-////                if (valor <= 10 && valor >= 0) {
-////                    jTextField10.setText("A");
-////                }
-////                if (valor > 10 && valor <= 12) {
-////                    jTextField10.setText("D");
-////                    //GRAVE 1.9
-////                }
-////                if (valor >= 12) {
-////                    jTextField10.setText("D");
-////                    // MUY GRAVE 1.8
-////                }
-////            }
-////
-////        }
-////
-////        public void removeUpdate(DocumentEvent e) {
-////            String x = jTextField5.getText();
-////            if (!x.equals("")) {
-////                double valor = Double.parseDouble(x);
-////                if (valor <= 10 && valor >= 0) {
-////                    jTextField10.setText("A");
-////                }
-////                if (valor > 10 && valor <= 12) {
-////                    jTextField10.setText("D");
-////                    //GRAVE 1.9
-////                }
-////                if (valor >= 12) {
-////                    jTextField10.setText("D");
-////                    // MUY GRAVE 1.8
-////                }
-////            }
-////        }
-//
-//        public void changedUpdate(DocumentEvent e) {
-//        }
-//    }
-//    class AlineamientoDesviacionEje2 implements DocumentListener {
-//
-//        String newline = "\n";
-//
-//        public void insertUpdate(DocumentEvent e) {
-//            String x = jTextField6.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField11.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField11.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField11.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//
-//        }
-//
-//        public void removeUpdate(DocumentEvent e) {
-//            String x = jTextField6.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField11.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField11.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField11.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//        }
-//
-//        public void changedUpdate(DocumentEvent e) {
-//        }
-//    }
-//
-//    class AlineamientoDesviacionEje3 implements DocumentListener {
-//
-//        String newline = "\n";
-//
-//        public void insertUpdate(DocumentEvent e) {
-//            String x = jTextField7.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField13.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField13.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField13.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//
-//        }
-//
-//        public void removeUpdate(DocumentEvent e) {
-//            String x = jTextField7.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField13.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField13.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField13.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//        }
-//
-//        public void changedUpdate(DocumentEvent e) {
-//        }
-//    }
-//
-//    class AlineamientoDesviacionEje4 implements DocumentListener {
-//
-//        String newline = "\n";
-//
-//        public void insertUpdate(DocumentEvent e) {
-//            String x = jTextField8.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField14.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField14.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField14.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//
-//        }
-//
-//        public void removeUpdate(DocumentEvent e) {
-//            String x = jTextField8.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField14.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField14.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField14.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//        }
-//
-//        public void changedUpdate(DocumentEvent e) {
-//        }
-//    }
-//
-//    class AlineamientoDesviacionEje5 implements DocumentListener {
-//
-//        String newline = "\n";
-//
-//        public void insertUpdate(DocumentEvent e) {
-//            String x = jTextField9.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField15.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField15.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField15.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//
-//        }
-//
-//        public void removeUpdate(DocumentEvent e) {
-//            String x = jTextField9.getText();
-//            if (!x.equals("")) {
-//                double valor = Double.parseDouble(x);
-//                if (valor <= 10 && valor >= 0) {
-//                    jTextField15.setText("A");
-//                }
-//                if (valor > 10 && valor <= 12) {
-//                    jTextField15.setText("D");
-//                    //GRAVE 1.9
-//                }
-//                if (valor >= 12) {
-//                    jTextField15.setText("D");
-//                    // MUY GRAVE 1.8
-//                }
-//            }
-//        }
-//
-//        public void changedUpdate(DocumentEvent e) {
-//        }
-//    }
+    //ALINEAMIENTO
+    class AlineamientoDesviacionEje1 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField9.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField13.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField13.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField13.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField9.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField13.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField13.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField13.setText("D");
+                    // MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+    class AlineamientoDesviacionEje2 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField56.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField59.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField59.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField59.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField56.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField59.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField59.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField59.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class AlineamientoDesviacionEje3 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField86.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField87.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField87.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField87.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField86.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField87.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField87.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField87.setText("D");
+                    //MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class AlineamientoDesviacionEje4 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField88.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField89.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField89.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField89.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField88.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField89.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField89.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField89.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
+
+    class AlineamientoDesviacionEje5 implements DocumentListener {
+
+        String newline = "\n";
+
+        public void insertUpdate(DocumentEvent e) {
+            String x = jTextField90.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField91.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField91.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField91.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+
+        }
+
+        public void removeUpdate(DocumentEvent e) {
+            String x = jTextField90.getText();
+            if (!x.equals("")) {
+                double valor = Double.parseDouble(x);
+                if (valor <= 10 && valor >= 0) {
+                    jTextField91.setText("A");
+                }
+                if (valor > 10 && valor <= 12) {
+                    jTextField91.setText("D");
+                    //GRAVE 1.9
+                }
+                if (valor >= 12) {
+                    jTextField91.setText("D");
+                     //MUY GRAVE 1.8
+                }
+            }
+        }
+
+        public void changedUpdate(DocumentEvent e) {
+        }
+    }
     class ProfNeumaticos1 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {
@@ -5833,6 +5922,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
@@ -5924,6 +6015,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField122;
     private javax.swing.JTextField jTextField123;
     private javax.swing.JTextField jTextField124;
+    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField157;
@@ -5971,8 +6063,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
+    private javax.swing.JTextField jTextField56;
     private javax.swing.JTextField jTextField57;
     private javax.swing.JTextField jTextField58;
+    private javax.swing.JTextField jTextField59;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField60;
     private javax.swing.JTextField jTextField61;
@@ -6002,6 +6096,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField83;
     private javax.swing.JTextField jTextField84;
     private javax.swing.JTextField jTextField85;
+    private javax.swing.JTextField jTextField86;
+    private javax.swing.JTextField jTextField87;
+    private javax.swing.JTextField jTextField88;
+    private javax.swing.JTextField jTextField89;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextField90;
+    private javax.swing.JTextField jTextField91;
     private javax.swing.JTextField jTextField92;
     private javax.swing.JTextField jTextField93;
     private javax.swing.JTextField jTextField94;

@@ -171,10 +171,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -322,7 +322,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 
@@ -715,7 +715,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setFecha(jDateChooser1.getDate());
             objTarjetaP.setAmbito(jComboBox2.getSelectedIndex());
             objTarjetaP.setTipoVehiculo(jComboBox3.getSelectedIndex());
-            
+
             TarjetaPropiedadBL objTPBL = new TarjetaPropiedadBL();
             objTPBL.registrarTarjetaPropiedad(objTarjetaP);
 
@@ -970,6 +970,14 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             resultado = false;
             JOptionPane.showMessageDialog(null, "Seleccione el tipo de Vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
+        }
+        if (jComboBox3.getSelectedIndex() != 2) {
+            if (jComboBox13.getSelectedIndex() == 0) {
+                resultado = false;
+                JOptionPane.showMessageDialog(null, "Seleccione el tipo de Combustible", "CAMPOS VACÍOS", 0);
+                return resultado;
+            }
+
         }
 
         return true;

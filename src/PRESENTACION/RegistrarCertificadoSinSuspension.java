@@ -6136,7 +6136,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
+                if (valorDer >= 4 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
@@ -6154,7 +6154,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
-                if (valorDer <= 10 && valorDer >= 4 && valorIzq <= 10 && valorIzq >= 4) {
+                if (valorDer >= 4 && valorIzq >= 4) {
                     jTextField171.setText("A");
 
                 } else {
