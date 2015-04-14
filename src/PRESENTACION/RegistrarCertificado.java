@@ -3656,9 +3656,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                         + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
                                 if (tipoServicio == 6) { //Taxi
-                                    objCertificado.setTitulo("SERVICIO DE TAXI");
-                                    objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
+                                    objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
                                             + "DE PERSONAS EN TAXI");
+                                    objCertificado.setClaseAut("SERVICIO DE TAXI");
                                     objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
                                             + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
                                             + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "

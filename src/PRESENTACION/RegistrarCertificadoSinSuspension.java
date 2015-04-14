@@ -3926,6 +3926,12 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                     g.registrarGasometroGasolina(e);
                 }
 
+                
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            try{
                 ////EMISIONES SONORAS
                 Sonometro s = new Sonometro();
 
@@ -3938,13 +3944,13 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                     s.setResultado("DESAPROBADO");
                 }
 
-                s.setIdCertificado(idCertificado);
+                s.setIdCertificado(idInforme);
                 s.setSonometroValor(Sonometro);
 
                 SonometroBL sb = new SonometroBL();
                 sb.registrarSonometro(s);
-
-            } catch (NumberFormatException e) {
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
             }
 
             ///

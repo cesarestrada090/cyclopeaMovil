@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1387"/>
+	<property name="ireport.y" value="874"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -1980,56 +1980,56 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[IV. OBSERVACIONES DETECTADAS]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="577" width="555" height="12" backcolor="#009933"/>
+				<reportElement x="0" y="564" width="555" height="12" backcolor="#009933"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="6" y="576" width="272" height="12" forecolor="#FFFFFF"/>
+				<reportElement x="6" y="563" width="272" height="12" forecolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[V. RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="589" width="138" height="12"/>
+				<reportElement x="0" y="576" width="138" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="0" y="601" width="138" height="12"/>
+				<reportElement x="0" y="588" width="138" height="25"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="138" y="589" width="139" height="12"/>
+				<reportElement x="138" y="576" width="139" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="138" y="601" width="139" height="12"/>
+				<reportElement x="138" y="588" width="139" height="25"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="277" y="589" width="139" height="12"/>
+				<reportElement x="277" y="576" width="139" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="277" y="601" width="139" height="12"/>
+				<reportElement x="277" y="588" width="139" height="25"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="416" y="589" width="139" height="12"/>
+				<reportElement x="416" y="576" width="139" height="26"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -3354,21 +3354,21 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[CALIFICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="589" width="137" height="12"/>
+				<reportElement x="1" y="576" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[RESULTADO DE LA INSPECCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="589" width="137" height="12"/>
+				<reportElement x="138" y="576" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[VIGENCIA DEL CERTIFICADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="277" y="589" width="137" height="12"/>
+				<reportElement x="277" y="576" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4556,14 +4556,14 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{sonometroValor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="279" y="601" width="138" height="14"/>
+				<reportElement x="292" y="588" width="110" height="27"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vencimiento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="163" y="601" width="31" height="12"/>
+				<reportElement x="163" y="588" width="31" height="25"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4605,7 +4605,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="0" y="457" width="555" height="119"/>
+				<reportElement x="0" y="457" width="555" height="106"/>
 				<subreportParameter name="parasubreport">
 					<subreportParameterExpression><![CDATA[$P{idCertificado}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -4613,14 +4613,14 @@ NEUMÁTICOS]]></text>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report1.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="202" y="601" width="57" height="12"/>
+				<reportElement x="202" y="588" width="57" height="25"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[meses]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="1" y="601" width="137" height="12"/>
+				<reportElement x="12" y="588" width="116" height="25"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
