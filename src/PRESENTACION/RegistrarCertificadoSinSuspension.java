@@ -752,12 +752,16 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jComboBox14.setEnabled(false);
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox15.setSelectedIndex(2);
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox16.setSelectedIndex(1);
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox17.setSelectedIndex(4);
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox18.setSelectedIndex(3);
 
         jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
@@ -3100,7 +3104,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turístico", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular", "Estudiantes" }));
         jComboBox20.setEnabled(false);
 
         jLabel69.setText("Tipo de Servicio:");
@@ -4124,24 +4128,25 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         String eficienciaEstacionamiento = jTextField85.getText();
         if (!eficienciaEstacionamiento.equals("")) {
             double valor = Double.parseDouble(eficienciaEstacionamiento);
-            if (valor >= 5 && valor < 15) {
+            //if (valor >= 5 && valor < 15) {
+            if (valor < 15) {
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
                 ObsGravesMuyGraves=true;
             }
-            if (valor > 0 && valor < 5) {
-                obs.setCodigoObservacion("D.6.3");
-                obs.setCalificacion("MUY GRAVE");
-                arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
-            }
-            if (valor == 0) {
-                obs.setCodigoObservacion("D.6.3");
-                obs.setCalificacion("MUY GRAVE");
-                arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
-            }
+//            if (valor > 0 && valor < 5) {
+//                obs.setCodigoObservacion("D.6.3");
+//                obs.setCalificacion("MUY GRAVE");
+//                arrayObservaciones.add(obs);
+//                ObsGravesMuyGraves=true;
+//            }
+//            if (valor == 0) {
+//                obs.setCodigoObservacion("D.6.3");
+//                obs.setCalificacion("MUY GRAVE");
+//                arrayObservaciones.add(obs);
+//                ObsGravesMuyGraves=true;
+//            }
         }
 
         // OBSERVACIONES I
@@ -6392,21 +6397,21 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //iniciamos la validacion para Diesel
                 // Menor a 1995
                 if (objTarjetaP.getFabricacion() <= 1995) {
-                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti < 10 || COCO2Acel < 10) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
                     }
                 }
                 if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
-                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti > 10 || COCO2Acel > 10) {
+                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti < 10 || COCO2Acel < 10) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
                     }
                 }
                 if (objTarjetaP.getFabricacion() > 2002) {
-                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti > 12 || COCO2Acel > 12) {
+                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti < 12 || COCO2Acel < 12) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);

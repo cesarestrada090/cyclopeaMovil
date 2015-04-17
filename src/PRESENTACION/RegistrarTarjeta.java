@@ -171,10 +171,10 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
         jLabel92.setText("2. Placa:");
 
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -606,7 +606,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Tipo de Servicio:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turístico", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular", "Estudiantes" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);

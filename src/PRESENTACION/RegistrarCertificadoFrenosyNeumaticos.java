@@ -443,10 +443,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -641,12 +641,16 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jComboBox14.setEnabled(false);
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox15.setSelectedIndex(2);
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox16.setSelectedIndex(1);
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox17.setSelectedIndex(4);
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox18.setSelectedIndex(3);
 
         jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
@@ -1119,10 +1123,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2478,7 +2482,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Interprovincial turístico estudiantes", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turístico", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular", "Estudiantes" }));
         jComboBox20.setEnabled(false);
 
         jLabel69.setText("Tipo de Servicio:");
@@ -3328,24 +3332,25 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         String eficienciaEstacionamiento = jTextField85.getText();
         if (!eficienciaEstacionamiento.equals("")) {
             double valor = Double.parseDouble(eficienciaEstacionamiento);
-            if (valor >= 5 && valor < 15) {
+            //if (valor >= 5 && valor < 15) {
+            if (valor < 15) {
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
                 ObsGravesMuyGraves = true;
             }
-            if (valor > 0 && valor < 5) {
-                obs.setCodigoObservacion("D.6.3");
-                obs.setCalificacion("MUY GRAVE");
-                arrayObservaciones.add(obs);
-                ObsGravesMuyGraves = true;
-            }
-            if (valor == 0) {
-                obs.setCodigoObservacion("D.6.3");
-                obs.setCalificacion("MUY GRAVE");
-                arrayObservaciones.add(obs);
-                ObsGravesMuyGraves = true;
-            }
+//            if (valor > 0 && valor < 5) {
+//                obs.setCodigoObservacion("D.6.3");
+//                obs.setCalificacion("MUY GRAVE");
+//                arrayObservaciones.add(obs);
+//                ObsGravesMuyGraves = true;
+//            }
+//            if (valor == 0) {
+//                obs.setCodigoObservacion("D.6.3");
+//                obs.setCalificacion("MUY GRAVE");
+//                arrayObservaciones.add(obs);
+//                ObsGravesMuyGraves = true;
+//            }
         }
 
         // OBSERVACIONES I
