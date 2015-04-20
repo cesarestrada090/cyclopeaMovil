@@ -56,7 +56,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     private int longitudBytes3;
 
     private int ResultadoGeneral;
-    
+
     private boolean ObsGravesMuyGraves = false;
 
     /**
@@ -3289,9 +3289,9 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 //        } else {
         ObtenerResultado();
         //ResultadoGeneral = 1;
-        
+
         if (ObsGravesMuyGraves) {
-            ResultadoGeneral=0;
+            ResultadoGeneral = 0;
         }
 
         objCertificado.setResultado(ResultadoGeneral);
@@ -3416,10 +3416,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
                                     if (tipoServicio == 8) { //estudiantes
-                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA Para el servicio de transporte publico de personas bajo la modalidad de transporte especial");
-                                        objCertificado.setClaseAut("Modalidad :  Transporte de Estudiantes de Ambito:"+ambito);
+                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
+                                        objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
                                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
-                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                                + "destinado al servicio especial de transporte público de personas, ha aprobado la Inspección "
                                                 + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
                                                 + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
                                                 + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
@@ -3944,12 +3944,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                     g.registrarGasometroGasolina(e);
                 }
 
-                
-
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            try{
+            try {
                 ////EMISIONES SONORAS
                 Sonometro s = new Sonometro();
 
@@ -3967,7 +3965,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
                 SonometroBL sb = new SonometroBL();
                 sb.registrarSonometro(s);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
 
@@ -3975,7 +3973,6 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             //Agregando Observaciones
             //
             //calcularObservaciones();
-
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
             arrayObservaciones.clear();
             arrayObservaciones.addAll(hashSet);
@@ -3995,13 +3992,13 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
                 if (descripcion.equalsIgnoreCase("No Conocida")) {
-                    
+
                 } else {
                     obsTemp.setInterpretacion(descripcion);
                 }
                 b.registrarObservacion(obsTemp);
             }
-            
+
             JOptionPane.showMessageDialog(null, "Registro guardado correctamente", "REGISTRO CERTIFICADO", 1);
             //objTarjetaP.equals(c)
             new TarjetaPropiedadBL().actualizarTarjetaPropiedad(objTarjetaP.getIdTarjeta());
@@ -4031,14 +4028,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioSegundoEjeServicio.equals("")) {
@@ -4052,14 +4049,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioTercerEjeServicio.equals("")) {
@@ -4069,14 +4066,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioCuartoEjeServicio.equals("")) {
@@ -4086,14 +4083,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioQuintoEjeServicio.equals("")) {
@@ -4103,14 +4100,14 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
 
@@ -4127,13 +4124,13 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 0 && valor <= 20) {
                 obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
         }
@@ -4147,7 +4144,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 //            if (valor > 0 && valor < 5) {
 //                obs.setCodigoObservacion("D.6.3");

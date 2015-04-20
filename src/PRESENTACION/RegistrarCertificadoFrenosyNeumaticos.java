@@ -2789,11 +2789,11 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
-                                    if (tipoServicio == 8) { //Estudiantes
-                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA Para el servicio de transporte publico de personas bajo la modalidad de transporte especial");
-                                        objCertificado.setClaseAut("Modalidad :  Transporte de Estudiantes de Ambito "+ambito);
+                                    if (tipoServicio == 8) { //estudiantes
+                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
+                                        objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
                                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
-                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                                + "destinado al servicio especial de transporte público de personas, ha aprobado la Inspección "
                                                 + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
                                                 + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
                                                 + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
