@@ -44,7 +44,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     boolean suspensionDerPost = true;
     boolean suspensionDesvPost = true;
     boolean sonometroResult = true;
-    private boolean ObsGravesMuyGraves=false;
+    private boolean ObsGravesMuyGraves = false;
 
     public TarjetaPropiedad objTarjetaP; // = new TarjetaPropiedad();
     public int intIdTarjeta;
@@ -75,7 +75,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jTextField86.getDocument().addDocumentListener(new AlineamientoDesviacionEje3());
         jTextField88.getDocument().addDocumentListener(new AlineamientoDesviacionEje4());
         jTextField90.getDocument().addDocumentListener(new AlineamientoDesviacionEje5());
-        
+
         jTextField16.getDocument().addDocumentListener(new ProfNeumaticos1());
         jTextField17.getDocument().addDocumentListener(new ProfNeumaticos2());
         jTextField18.getDocument().addDocumentListener(new ProfNeumaticos3());
@@ -2665,7 +2665,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         //ResultadoGeneral = 1; 'KCS 03.04.2015       
 
         if (ObsGravesMuyGraves) {
-            ResultadoGeneral=0;
+            ResultadoGeneral = 0;
         }
 
         objCertificado.setResultado(ResultadoGeneral);
@@ -2789,9 +2789,23 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
-                                    objCertificado.setTitulo("");
-                                    objCertificado.setClaseAut("");
-                                    objCertificado.setTexto("");
+                                    if (tipoServicio == 8) { //Estudiantes
+                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA Para el servicio de transporte publico de personas bajo la modalidad de transporte especial");
+                                        objCertificado.setClaseAut("Modalidad :  Transporte de Estudiantes de Ambito "+ambito);
+                                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
+                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                                + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                                + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
+                                                + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
+                                                + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
+                                                + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                                                + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
+                                                + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                    } else {
+                                        objCertificado.setTitulo("");
+                                        objCertificado.setClaseAut("");
+                                        objCertificado.setTexto("");
+                                    }
                                 }
                             }
                         }
@@ -3185,7 +3199,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
                 if (descripcion.equalsIgnoreCase("No Conocida")) {
-                    
+
                 } else {
                     obsTemp.setInterpretacion(descripcion);
                 }
@@ -4146,6 +4160,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class AlineamientoDesviacionEje2 implements DocumentListener {
 
         String newline = "\n";
@@ -4163,7 +4178,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField59.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
 
@@ -4182,7 +4197,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField59.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
         }
@@ -4208,7 +4223,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField87.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
 
@@ -4253,7 +4268,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField89.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
 
@@ -4272,7 +4287,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField89.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
         }
@@ -4298,7 +4313,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField91.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
 
@@ -4317,7 +4332,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 }
                 if (valor >= 12) {
                     jTextField91.setText("D");
-                     //MUY GRAVE 1.8
+                    //MUY GRAVE 1.8
                 }
             }
         }
@@ -4325,6 +4340,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         public void changedUpdate(DocumentEvent e) {
         }
     }
+
     class ProfNeumaticos1 implements DocumentListener {
 
         public void insertUpdate(DocumentEvent e) {

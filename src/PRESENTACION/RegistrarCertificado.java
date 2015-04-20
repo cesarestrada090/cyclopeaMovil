@@ -56,8 +56,8 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     private int longitudBytes3;
 
     private int ResultadoGeneral;
-    
-    private boolean ObsGravesMuyGraves=false;
+
+    private boolean ObsGravesMuyGraves = false;
 
     /**
      * Creates new form RegistrarUsuario
@@ -3548,9 +3548,9 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         //ResultadoGeneral = 1; 'KCS 02.04.2015
 
         if (ObsGravesMuyGraves) {
-            ResultadoGeneral=0;
+            ResultadoGeneral = 0;
         }
-        
+
         objCertificado.setResultado(ResultadoGeneral);
 //        }
 
@@ -3673,9 +3673,23 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
-                                    objCertificado.setTitulo("");
-                                    objCertificado.setClaseAut("");
-                                    objCertificado.setTexto("");
+                                    if (tipoServicio == 8) { //Taxi
+                                        objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA Para el servicio de transporte publico de personas bajo la modalidad de transporte especial");
+                                        objCertificado.setClaseAut("Modalidad :  Transporte de Estudiantes de Ambito "+ambito);
+                                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
+                                                + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
+                                                + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                                + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
+                                                + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
+                                                + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
+                                                + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
+                                                + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
+                                                + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                    } else {
+                                        objCertificado.setTitulo("");
+                                        objCertificado.setClaseAut("");
+                                        objCertificado.setTexto("");
+                                    }
                                 }
                             }
                         }
@@ -4245,7 +4259,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             //Agregando Observaciones
             //
             //calcularObservaciones();
-
             HashSet<Observacion> hashSet = new HashSet<Observacion>(arrayObservaciones);
             arrayObservaciones.clear();
             arrayObservaciones.addAll(hashSet);
@@ -4256,7 +4269,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 //obsTemp.setIdCertificado(idCertificado); 'KCS 02.04.2015
                 String descripcion = b.obtenerDescripcion(obsTemp.getCodigoObservacion());
                 if (descripcion.equalsIgnoreCase("No Conocida")) {
-                    
+
                 } else {
                     obsTemp.setInterpretacion(descripcion);
                 }
@@ -4292,14 +4305,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.6");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.5");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioSegundoEjeServicio.equals("")) {
@@ -4313,14 +4326,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioTercerEjeServicio.equals("")) {
@@ -4330,14 +4343,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioCuartoEjeServicio.equals("")) {
@@ -4347,14 +4360,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
         if (!DesequilibrioQuintoEjeServicio.equals("")) {
@@ -4364,14 +4377,14 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.9");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
             if (valor >= 30) {
                 obs.setCodigoObservacion("D.1.8");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
         }
 
@@ -4388,13 +4401,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.3");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 0 && valor <= 20) {
                 obs.setCodigoObservacion("D.1.4");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
         }
@@ -4408,7 +4421,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("D.1.11");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 //            if (valor > 0 && valor < 5) {
 //                obs.setCodigoObservacion("D.6.3");
@@ -4434,19 +4447,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("C.2.2.1");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
-                obs.setCalificacion("MUY GRAVE");                
+                obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
         }
@@ -4461,19 +4474,19 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                 obs.setCodigoObservacion("C.2.2.1");
                 obs.setCalificacion("GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 30 && valor <= 40) {
                 obs.setCodigoObservacion("C.2.2.2");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
             if (valor >= 0 && valor <= 29) {
                 obs.setCodigoObservacion("C.2.2.3");
                 obs.setCalificacion("MUY GRAVE");
                 arrayObservaciones.add(obs);
-                ObsGravesMuyGraves=true;
+                ObsGravesMuyGraves = true;
             }
 
         }
@@ -4481,13 +4494,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // OBSERVACIONES I
         try {
             if (!jTextField58.getText().trim().equals("") && !jTextField59.getText().trim().equals("")) {
-                Observacion obs1= new Observacion();
+                Observacion obs1 = new Observacion();
                 obs1.setCodigoObservacion(jTextField58.getText().trim());
                 obs1.setInterpretacion(jTextField59.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox9.getSelectedItem()));
                 arrayObservaciones.add(obs1);
-                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
-                    ObsGravesMuyGraves=true;
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
                 }
             }
         } catch (NumberFormatException e) {
@@ -4496,13 +4509,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // OBSERVACIONES II
         try {
             if (!jTextField81.getText().trim().equals("") && !jTextField86.getText().trim().equals("")) {
-                Observacion obs1= new Observacion();
+                Observacion obs1 = new Observacion();
                 obs1.setCodigoObservacion(jTextField81.getText().trim());
                 obs1.setInterpretacion(jTextField86.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox10.getSelectedItem()));
                 arrayObservaciones.add(obs1);
-                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
-                    ObsGravesMuyGraves=true;
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
                 }
             }
         } catch (NumberFormatException e) {
@@ -4511,13 +4524,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // OBSERVACIONES III
         try {
             if (!jTextField88.getText().trim().equals("") && !jTextField89.getText().trim().equals("")) {
-                Observacion obs1= new Observacion();
+                Observacion obs1 = new Observacion();
                 obs1.setCodigoObservacion(jTextField88.getText().trim());
                 obs1.setInterpretacion(jTextField89.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox21.getSelectedItem()));
                 arrayObservaciones.add(obs1);
-                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
-                    ObsGravesMuyGraves=true;
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
                 }
             }
         } catch (NumberFormatException e) {
@@ -4526,13 +4539,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // OBSERVACIONES IV
         try {
             if (!jTextField91.getText().trim().equals("") && !jTextField117.getText().trim().equals("")) {
-                Observacion obs1= new Observacion();
+                Observacion obs1 = new Observacion();
                 obs1.setCodigoObservacion(jTextField91.getText().trim());
                 obs1.setInterpretacion(jTextField117.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox23.getSelectedItem()));
                 arrayObservaciones.add(obs1);
-                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
-                    ObsGravesMuyGraves=true;
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
                 }
             }
         } catch (NumberFormatException e) {
@@ -4541,13 +4554,13 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
         // OBSERVACIONES V
         try {
             if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
-                Observacion obs1= new Observacion();
+                Observacion obs1 = new Observacion();
                 obs1.setCodigoObservacion(jTextField125.getText().trim());
                 obs1.setInterpretacion(jTextField126.getText().trim());
                 obs1.setCalificacion(String.valueOf(jComboBox24.getSelectedItem()));
                 arrayObservaciones.add(obs1);
-                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")){
-                    ObsGravesMuyGraves=true;
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
                 }
             }
         } catch (NumberFormatException e) {
