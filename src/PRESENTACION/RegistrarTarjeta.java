@@ -835,7 +835,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex() == 0) {
+        if (jComboBox1.getSelectedIndex() == 0 || jComboBox1.getSelectedIndex() == 8) {
             jComboBox2.enable(true);
         } else {
             jComboBox2.enable(false);
