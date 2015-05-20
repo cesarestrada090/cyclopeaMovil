@@ -3673,20 +3673,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
-<<<<<<< HEAD
-                                    if (tipoServicio == 8) { //Estudiantes
-                                        objCertificado.setClaseAut("MODALIDAD: TRANSPORTES DE ESTUDIANTES DE AMBITO " + ambito);
-                                        objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE "
-                                                + "TRANSPORTE ESPECIAL");
-                                        objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
-                                                + "transporte público de personas bajo la modalidad  de transporte especial de ESTUDIANTES de AMBITO " + ambito + "  ha aprobado la "
-                                                + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
-                                                + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
-                                                + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
-                                                + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                                                + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
-                                                + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
-=======
+
                                     if (tipoServicio == 8) { //estudiantes
                                         objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
@@ -3699,7 +3686,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                                                 + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                                 + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                                 + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
->>>>>>> e12d5251ec58b470428eb1ff015a9c1c4cd4bb83
+
                                     } else {
                                         objCertificado.setTitulo("");
                                         objCertificado.setClaseAut("");
