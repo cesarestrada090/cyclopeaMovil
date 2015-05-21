@@ -4,6 +4,7 @@
  */
 package DATOS;
 
+import PRESENTACION.frmInicio;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -23,7 +24,8 @@ public class Reporte {
     
     public void mostrarCertificado(String fecha)
     {
-       Connection cnn=Conexion.obtenerConexionMySQL("localhost","bdnuevamovil","root","123456");
+        
+       Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
             String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptCertificado.jasper";
@@ -65,7 +67,7 @@ public class Reporte {
     
     public void mostrarCertificadoParticular(String fecha)
     {
-       Connection cnn=Conexion.obtenerConexionMySQL("localhost","bdnuevamovil","root","123456");
+       Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
             String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptCertificadoParticular.jasper";
@@ -107,7 +109,7 @@ public class Reporte {
     
     public void mostrarInformeTecnico(String fecha)
     {
-       Connection cnn=Conexion.obtenerConexionMySQL("localhost","bdnuevamovil","root","123456");
+       Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
             String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptInformeTecnico.jasper";
@@ -150,7 +152,7 @@ public class Reporte {
 
     public void mostrarReporteVencimientos(String f)
     {
-       Connection cnn=Conexion.obtenerConexionMySQL("localhost","bdcallcentercyc","root","123456");
+       Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
 
             //String archivo=getClass().getResource("/Reportes/report1.jasper").toString();
