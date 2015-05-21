@@ -482,7 +482,7 @@ public class CertificadoDAL {
     
     public int obtenerResultadoCertificado(int idInforme) {
         try {
-            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
             st = cn.createStatement();
             rs = st.executeQuery("SELECT resultado FROM certificado t\n" +                                
                                 "where idInforme='" + idInforme + "';");

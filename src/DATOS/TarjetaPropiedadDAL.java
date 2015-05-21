@@ -242,7 +242,7 @@ public class TarjetaPropiedadDAL {
 
     public int obtenerTipoServicio(int idCertificado) {
         try {
-            cn = (Connection) Conexion.obtenerConexionMySQL("localhost", "bdnuevamovil", "root", "123456");
+            cn = Conexion.obtenerConexionMySQL(frmInicio.n_servidor, frmInicio.n_baseDatos, frmInicio.n_usuario, frmInicio.n_contraseña);
             st = cn.createStatement();
             rs = st.executeQuery("SELECT t.tipoServicio, cer.idCertificado FROM tarjetapropiedad t\n" +
                                 "inner join certificado cer on cer.idtarjeta=t.id_tarjeta\n" +
