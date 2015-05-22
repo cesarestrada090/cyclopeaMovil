@@ -764,15 +764,19 @@
               <Properties>
                 <Property name="editable" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Diesel"/>
-                    <StringItem index="1" value="BI-Combustible"/>
-                    <StringItem index="2" value="GLP"/>
+                  <StringArray count="5">
+                    <StringItem index="0" value="Diesel o Petr&#xf3;leo"/>
+                    <StringItem index="1" value="BI-Combustible o Dual"/>
+                    <StringItem index="2" value="GLP o GNV"/>
                     <StringItem index="3" value="Gasolina"/>
+                    <StringItem index="4" value=" "/>
                   </StringArray>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox13ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel149">
               <Properties>

@@ -443,10 +443,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -626,8 +626,13 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jComboBox12.setEnabled(false);
 
         jComboBox13.setEditable(true);
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel o Petróleo", "BI-Combustible o Dual", "GLP o GNV", "Gasolina", " " }));
         jComboBox13.setEnabled(false);
+        jComboBox13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox13ActionPerformed(evt);
+            }
+        });
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 
@@ -1123,10 +1128,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -5882,6 +5887,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private void jTextField82InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField82InputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField82InputMethodTextChanged
+
+    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox13ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

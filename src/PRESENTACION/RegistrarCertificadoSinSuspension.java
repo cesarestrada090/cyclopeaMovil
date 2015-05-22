@@ -554,10 +554,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -737,7 +737,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jComboBox12.setEnabled(false);
 
         jComboBox13.setEditable(true);
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel o Petróleo", "BI-Combustible o Dual", "GLP o GNV", "Gasolina", " ", " " }));
         jComboBox13.setEnabled(false);
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
@@ -1234,10 +1234,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
