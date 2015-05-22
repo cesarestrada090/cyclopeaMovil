@@ -3509,7 +3509,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         objR.setPruebaAli(alineamiento);
 
-        if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1
+        if (objR.getDisEjes() == 1 && objR.getFreServ() == 1 && objR.getFreeEmer() == 1 && objR.getFreeEstac() == 1 && objR.getEmigases()== 1 
                 && objR.getPruebaAli() == 1 && objR.getPruebLuces() == 1 && objR.getProfNeuma() == 1) {
             ResultadoGeneral = 1;
         } else {
