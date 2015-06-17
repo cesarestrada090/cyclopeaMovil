@@ -580,10 +580,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -762,7 +762,6 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox12.setEnabled(false);
 
-        jComboBox13.setEditable(true);
         jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel o Petróleo", "BI-Combustible o Dual", "GLP o GNV", "Gasolina", " " }));
         jComboBox13.setEnabled(false);
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
@@ -1269,10 +1268,10 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -6788,7 +6787,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                     }
                 }
                 if (objTarjetaP.getFabricacion() > 2002) {
-                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti > 12 || COCO2Acel > 12) {
+                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti <= 12 || COCO2Acel <= 12) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
