@@ -3180,6 +3180,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextField137" max="32767" attributes="0"/>
+                          <Component id="jTextField135" max="32767" attributes="0"/>
+                          <Component id="jTextField133" max="32767" attributes="0"/>
+                          <Component id="jTextField131" max="32767" attributes="0"/>
+                          <Component id="jTextField129" max="32767" attributes="0"/>
+                          <Component id="jTextField127" max="32767" attributes="0"/>
+                          <Component id="jTextField125" max="32767" attributes="0"/>
+                          <Component id="jTextField117" max="32767" attributes="0"/>
                           <Component id="jTextField60" pref="60" max="32767" attributes="0"/>
                           <Component id="jTextField57" pref="60" max="32767" attributes="0"/>
                           <Component id="jTextField14" pref="60" max="32767" attributes="0"/>
@@ -3189,12 +3197,20 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTextField138" max="32767" attributes="0"/>
+                          <Component id="jTextField136" max="32767" attributes="0"/>
+                          <Component id="jTextField134" max="32767" attributes="0"/>
+                          <Component id="jTextField132" max="32767" attributes="0"/>
+                          <Component id="jTextField130" max="32767" attributes="0"/>
+                          <Component id="jTextField128" max="32767" attributes="0"/>
+                          <Component id="jTextField126" max="32767" attributes="0"/>
+                          <Component id="jTextField118" max="32767" attributes="0"/>
                           <Component id="jTextField8" max="32767" attributes="0"/>
                           <Component id="jTextField11" max="32767" attributes="0"/>
                           <Component id="jTextField15" max="32767" attributes="0"/>
                           <Component id="jTextField58" max="32767" attributes="0"/>
                           <Component id="jTextField81" max="32767" attributes="0"/>
-                          <Component id="jLabel12" alignment="0" pref="959" max="32767" attributes="0"/>
+                          <Component id="jLabel12" alignment="0" pref="960" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3206,6 +3222,14 @@
                           <Component id="jComboBox7" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox8" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox9" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox10" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox21" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox23" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox24" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox25" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox26" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox27" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox28" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   </Group>
@@ -3250,7 +3274,55 @@
                           <Component id="jTextField81" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="257" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField117" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField118" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField125" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField126" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox21" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField127" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField128" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox23" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField129" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField130" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox24" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField131" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField132" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox25" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField133" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField134" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox26" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField135" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField136" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox27" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField137" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField138" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox28" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3354,6 +3426,150 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox9">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField117">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField118">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox10">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField125">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField126">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox21">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField127">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField128">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox23">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField129">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField130">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox24">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField131">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField132">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox25">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField133">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField134">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox26">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField135">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField136">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox27">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Leve"/>
+                    <StringItem index="1" value="Grave"/>
+                    <StringItem index="2" value="Muy Grave"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField137">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField138">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox28">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">

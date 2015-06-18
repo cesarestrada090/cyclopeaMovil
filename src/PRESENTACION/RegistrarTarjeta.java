@@ -322,7 +322,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Diesel", "BI-Combustible", "GLP", "Gasolina" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Diesel", "BI-Combustible", "GLP", "Gasolina", "Petróleo", "Dual", "GNV" }));
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 

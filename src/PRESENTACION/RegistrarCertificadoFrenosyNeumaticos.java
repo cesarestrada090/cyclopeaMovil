@@ -401,6 +401,30 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jComboBox7 = new javax.swing.JComboBox();
         jComboBox8 = new javax.swing.JComboBox();
         jComboBox9 = new javax.swing.JComboBox();
+        jTextField117 = new javax.swing.JTextField();
+        jTextField118 = new javax.swing.JTextField();
+        jComboBox10 = new javax.swing.JComboBox();
+        jTextField125 = new javax.swing.JTextField();
+        jTextField126 = new javax.swing.JTextField();
+        jComboBox21 = new javax.swing.JComboBox();
+        jTextField127 = new javax.swing.JTextField();
+        jTextField128 = new javax.swing.JTextField();
+        jComboBox23 = new javax.swing.JComboBox();
+        jTextField129 = new javax.swing.JTextField();
+        jTextField130 = new javax.swing.JTextField();
+        jComboBox24 = new javax.swing.JComboBox();
+        jTextField131 = new javax.swing.JTextField();
+        jTextField132 = new javax.swing.JTextField();
+        jComboBox25 = new javax.swing.JComboBox();
+        jTextField133 = new javax.swing.JTextField();
+        jTextField134 = new javax.swing.JTextField();
+        jComboBox26 = new javax.swing.JComboBox();
+        jTextField135 = new javax.swing.JTextField();
+        jTextField136 = new javax.swing.JTextField();
+        jComboBox27 = new javax.swing.JComboBox();
+        jTextField137 = new javax.swing.JTextField();
+        jTextField138 = new javax.swing.JTextField();
+        jComboBox28 = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jComboBox20 = new javax.swing.JComboBox();
         jLabel69 = new javax.swing.JLabel();
@@ -443,10 +467,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1128,10 +1152,10 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2409,6 +2433,38 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
 
+        jTextField117.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField125.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField127.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField129.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField131.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField133.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField135.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
+        jTextField137.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -2416,6 +2472,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField137)
+                    .addComponent(jTextField135)
+                    .addComponent(jTextField133)
+                    .addComponent(jTextField131)
+                    .addComponent(jTextField129)
+                    .addComponent(jTextField127)
+                    .addComponent(jTextField125)
+                    .addComponent(jTextField117)
                     .addComponent(jTextField60, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(jTextField57, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
@@ -2424,12 +2488,20 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField138)
+                    .addComponent(jTextField136)
+                    .addComponent(jTextField134)
+                    .addComponent(jTextField132)
+                    .addComponent(jTextField130)
+                    .addComponent(jTextField128)
+                    .addComponent(jTextField126)
+                    .addComponent(jTextField118)
                     .addComponent(jTextField8)
                     .addComponent(jTextField11)
                     .addComponent(jTextField15)
                     .addComponent(jTextField58)
                     .addComponent(jTextField81)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2438,7 +2510,15 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
         jPanel4Layout.setVerticalGroup(
@@ -2474,7 +2554,47 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField118, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField125, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField126, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField127, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField128, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField130, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField131, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField132, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField133, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField134, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField135, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField136, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField137, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField138, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("VI. OBSERVACIONES ADICIONALES", jPanel4);
@@ -3446,6 +3566,131 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             }
         } catch (NumberFormatException e) {
         }
+        
+        
+        //----------------------------------------------------------------------------------------------------------------
+         // OBSERVACIONES VI
+        try {
+            if (!jTextField117.getText().trim().equals("") && !jTextField118.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField117.getText().trim());
+                obs1.setInterpretacion(jTextField118.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox10.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES VI
+        try {
+            if (!jTextField125.getText().trim().equals("") && !jTextField126.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField125.getText().trim());
+                obs1.setInterpretacion(jTextField126.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox21.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        
+        
+        // OBSERVACIONES VII
+        try {
+            if (!jTextField127.getText().trim().equals("") && !jTextField128.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField127.getText().trim());
+                obs1.setInterpretacion(jTextField128.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox23.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES VIII
+        try {
+            if (!jTextField129.getText().trim().equals("") && !jTextField130.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField129.getText().trim());
+                obs1.setInterpretacion(jTextField130.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox24.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES IX
+        try {
+            if (!jTextField131.getText().trim().equals("") && !jTextField132.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField131.getText().trim());
+                obs1.setInterpretacion(jTextField132.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox25.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES X
+        try {
+            if (!jTextField133.getText().trim().equals("") && !jTextField134.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField133.getText().trim());
+                obs1.setInterpretacion(jTextField134.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox26.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES X
+        try {
+            if (!jTextField135.getText().trim().equals("") && !jTextField136.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField135.getText().trim());
+                obs1.setInterpretacion(jTextField136.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox27.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
+        // OBSERVACIONES XI
+        try {
+            if (!jTextField137.getText().trim().equals("") && !jTextField138.getText().trim().equals("")) {
+                Observacion obs1 = new Observacion();
+                obs1.setCodigoObservacion(jTextField137.getText().trim());
+                obs1.setInterpretacion(jTextField138.getText().trim());
+                obs1.setCalificacion(String.valueOf(jComboBox28.getSelectedItem()));
+                arrayObservaciones.add(obs1);
+                if (obs1.getCalificacion().equals("GRAVE") || obs1.getCalificacion().equals("MUY GRAVE")) {
+                    ObsGravesMuyGraves = true;
+                }
+            }
+        } catch (NumberFormatException e) {
+        }
+        
     }
 
     public boolean validarVacios() {
@@ -5898,6 +6143,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
     private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox13;
@@ -5909,7 +6155,14 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JComboBox jComboBox19;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox20;
+    private javax.swing.JComboBox jComboBox21;
     private javax.swing.JComboBox jComboBox22;
+    private javax.swing.JComboBox jComboBox23;
+    private javax.swing.JComboBox jComboBox24;
+    private javax.swing.JComboBox jComboBox25;
+    private javax.swing.JComboBox jComboBox26;
+    private javax.swing.JComboBox jComboBox27;
+    private javax.swing.JComboBox jComboBox28;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
@@ -6038,6 +6291,8 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField114;
     private javax.swing.JTextField jTextField115;
     private javax.swing.JTextField jTextField116;
+    private javax.swing.JTextField jTextField117;
+    private javax.swing.JTextField jTextField118;
     private javax.swing.JTextField jTextField119;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField120;
@@ -6045,7 +6300,21 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
     private javax.swing.JTextField jTextField122;
     private javax.swing.JTextField jTextField123;
     private javax.swing.JTextField jTextField124;
+    private javax.swing.JTextField jTextField125;
+    private javax.swing.JTextField jTextField126;
+    private javax.swing.JTextField jTextField127;
+    private javax.swing.JTextField jTextField128;
+    private javax.swing.JTextField jTextField129;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField130;
+    private javax.swing.JTextField jTextField131;
+    private javax.swing.JTextField jTextField132;
+    private javax.swing.JTextField jTextField133;
+    private javax.swing.JTextField jTextField134;
+    private javax.swing.JTextField jTextField135;
+    private javax.swing.JTextField jTextField136;
+    private javax.swing.JTextField jTextField137;
+    private javax.swing.JTextField jTextField138;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField157;
