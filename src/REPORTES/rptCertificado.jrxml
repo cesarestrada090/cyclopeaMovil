@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="874"/>
+	<property name="ireport.y" value="21"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,7 +99,7 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idCertificado,
-cer.fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
+CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
 tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
 
@@ -314,8 +314,8 @@ left join certificadoequipo ce on ce.idCertificado=cer.idInforme
 left join fotografia f on f.STR_NUMDOCEVAL=cer.idInforme
 where cer.idInforme=$P{idCertificado};]]>
 	</queryString>
-	<field name="idcertificado" class="java.lang.Long"/>
-	<field name="fecinspeccion" class="java.sql.Date"/>
+	<field name="idCertificado" class="java.lang.Long"/>
+	<field name="fecinspeccion" class="java.lang.String"/>
 	<field name="informeInspeccion" class="java.lang.String"/>
 	<field name="razon1" class="java.lang.String"/>
 	<field name="placa" class="java.lang.String"/>
@@ -332,13 +332,13 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="ruedas" class="java.lang.Integer"/>
 	<field name="pasajeros" class="java.lang.Integer"/>
 	<field name="asientos" class="java.lang.Integer"/>
-	<field name="longitud" class="java.math.BigDecimal"/>
-	<field name="altura" class="java.math.BigDecimal"/>
-	<field name="ancho" class="java.math.BigDecimal"/>
+	<field name="longitud" class="java.lang.Double"/>
+	<field name="altura" class="java.lang.Double"/>
+	<field name="ancho" class="java.lang.Double"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.math.BigDecimal"/>
-	<field name="peso_bruto" class="java.math.BigDecimal"/>
-	<field name="carga_util" class="java.math.BigDecimal"/>
+	<field name="peso_seco" class="java.lang.Double"/>
+	<field name="peso_bruto" class="java.lang.Double"/>
+	<field name="carga_util" class="java.lang.Double"/>
 	<field name="concatamanios" class="java.lang.String"/>
 	<field name="frenometronumero" class="java.lang.String"/>
 	<field name="alineadornumero" class="java.lang.String"/>
@@ -640,6 +640,30 @@ Inspección:]]></text>
 	</columnHeader>
 	<detail>
 		<band height="615" splitType="Stretch">
+			<rectangle>
+				<reportElement x="55" y="373" width="35" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="55" y="361" width="35" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="55" y="349" width="35" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="55" y="337" width="35" height="12"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
 			<rectangle>
 				<reportElement x="67" y="248" width="31" height="12"/>
 				<graphicElement>
@@ -2059,31 +2083,31 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="337" width="75" height="12"/>
+				<reportElement x="15" y="337" width="40" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="349" width="75" height="12"/>
+				<reportElement x="15" y="349" width="40" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="361" width="75" height="12"/>
+				<reportElement x="15" y="361" width="40" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="373" width="75" height="12"/>
+				<reportElement x="15" y="373" width="40" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="15" y="385" width="75" height="12"/>
+				<reportElement x="15" y="385" width="40" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -4164,42 +4188,43 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{desviacionAlineamiento3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="14" y="349" width="41" height="12"/>
+				<reportElement x="18" y="349" width="37" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{desviacionAlineamiento2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="14" y="337" width="41" height="12"/>
+				<reportElement x="14" y="337" width="40" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
+					<paragraph tabStopWidth="35"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{desviacionAlineamiento1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="385" width="36" height="12"/>
+				<reportElement x="54" y="385" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoAlineamiento5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="373" width="36" height="12"/>
+				<reportElement x="54" y="374" width="36" height="11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoAlineamiento4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="361" width="36" height="12"/>
+				<reportElement x="55" y="362" width="34" height="11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoAlineamiento3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="349" width="36" height="12"/>
+				<reportElement x="55" y="350" width="36" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4639,7 +4664,7 @@ NEUMÁTICOS]]></text>
 				<reportElement x="2" y="9" width="551" height="40"/>
 			</rectangle>
 			<textField>
-				<reportElement x="1" y="478" width="551" height="92"/>
+				<reportElement x="1" y="443" width="551" height="92"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -4667,7 +4692,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[CLASE DE AUTORIZACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="614" width="554" height="25"/>
+				<reportElement x="0" y="642" width="554" height="25"/>
 				<textElement textAlignment="Justified">
 					<font size="8"/>
 				</textElement>
@@ -4695,7 +4720,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{claseAut}]]></textFieldExpression>
 			</textField>
 			<image hAlign="Center">
-				<reportElement x="1" y="127" width="554" height="320"/>
+				<reportElement x="1" y="115" width="554" height="320"/>
 				<imageExpression><![CDATA[$F{BIN_FOTOGRAFIA}]]></imageExpression>
 			</image>
 		</band>

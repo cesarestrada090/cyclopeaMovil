@@ -3470,8 +3470,8 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField169" max="32767" attributes="0"/>
-                                              <Component id="jTextField170" max="32767" attributes="0"/>
+                                              <Component id="jComboBox35" max="32767" attributes="0"/>
+                                              <Component id="jComboBox36" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -3489,7 +3489,7 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="jLabel32" min="-2" pref="159" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jTextField159" min="-2" pref="71" max="-2" attributes="0"/>
                                                       <Component id="jTextField160" min="-2" pref="71" max="-2" attributes="0"/>
@@ -3499,10 +3499,10 @@
                                                       <Component id="jTextField168" max="32767" attributes="0"/>
                                                       <Component id="jTextField163" min="-2" pref="72" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jTextField164" max="32767" attributes="0"/>
-                                                      <Component id="jTextField167" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="jComboBox33" pref="159" max="32767" attributes="0"/>
+                                                      <Component id="jComboBox34" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -3551,8 +3551,8 @@
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                           <Component id="jTextField159" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField163" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField167" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField171" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox33" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -3562,9 +3562,9 @@
                                           <Component id="jTextField160" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField164" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField168" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField172" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox34" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -3574,7 +3574,7 @@
                                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField161" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField165" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField169" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox35" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -3584,7 +3584,7 @@
                                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField162" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField166" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField170" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox36" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -4020,11 +4020,6 @@
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField164">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextField165">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
@@ -4064,11 +4059,6 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField167">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextField168">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
@@ -4076,17 +4066,6 @@
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField18KeyTyped"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField169">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField170">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField171">
                   <Properties>
@@ -4134,6 +4113,58 @@
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder/>
                       </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox33">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="DER+/IZQ+"/>
+                        <StringItem index="1" value="DER-/IZQ+"/>
+                        <StringItem index="2" value="IZQ+/DER-"/>
+                        <StringItem index="3" value="IZQ-/DER+"/>
+                        <StringItem index="4" value="CEN+/CEN+"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox34">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="DER+/IZQ+"/>
+                        <StringItem index="1" value="DER-/IZQ+"/>
+                        <StringItem index="2" value="IZQ+/DER-"/>
+                        <StringItem index="3" value="IZQ-/DER+"/>
+                        <StringItem index="4" value="CEN+/CEN+"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox35">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="DER+/IZQ+"/>
+                        <StringItem index="1" value="DER-/IZQ+"/>
+                        <StringItem index="2" value="IZQ+/DER-"/>
+                        <StringItem index="3" value="IZQ-/DER+"/>
+                        <StringItem index="4" value="CEN+/CEN+"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox36">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="DER+/IZQ+"/>
+                        <StringItem index="1" value="DER-/IZQ+"/>
+                        <StringItem index="2" value="IZQ+/DER-"/>
+                        <StringItem index="3" value="IZQ-/DER+"/>
+                        <StringItem index="4" value="CEN+/CEN+"/>
+                      </StringArray>
                     </Property>
                   </Properties>
                 </Component>

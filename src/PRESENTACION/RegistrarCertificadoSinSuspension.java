@@ -465,21 +465,21 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jTextField161 = new javax.swing.JTextField();
         jTextField162 = new javax.swing.JTextField();
         jTextField163 = new javax.swing.JTextField();
-        jTextField164 = new javax.swing.JTextField();
         jTextField165 = new javax.swing.JTextField();
         jTextField166 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField167 = new javax.swing.JTextField();
         jTextField168 = new javax.swing.JTextField();
-        jTextField169 = new javax.swing.JTextField();
-        jTextField170 = new javax.swing.JTextField();
         jTextField171 = new javax.swing.JTextField();
         jTextField172 = new javax.swing.JTextField();
         jTextField173 = new javax.swing.JTextField();
         jTextField174 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jComboBox31 = new javax.swing.JComboBox();
+        jComboBox32 = new javax.swing.JComboBox();
+        jComboBox33 = new javax.swing.JComboBox();
+        jComboBox34 = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jTextField157 = new javax.swing.JTextField();
@@ -761,7 +761,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jComboBox12.setEnabled(false);
 
         jComboBox13.setEditable(true);
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel o Petróleo", "BI-Combustible o Dual", "GLP o GNV", "Gasolina", " ", " " }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina", "Petróleo", "Dual", "GNV", " " }));
         jComboBox13.setEnabled(false);
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
@@ -2596,8 +2596,6 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
 
-        jTextField164.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         jTextField165.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField165.setEnabled(false);
         jTextField165.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2621,19 +2619,12 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jLabel33.setText("Resultado");
         jLabel33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField167.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         jTextField168.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField168.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField18KeyTyped(evt);
             }
         });
-
-        jTextField169.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField169.setEnabled(false);
-
-        jTextField170.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField171.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField171.setEnabled(false);
@@ -2655,6 +2646,19 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel35.setText("PRUEBA DE LUCES");
         jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jComboBox31.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+
+        jComboBox32.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+
+        jComboBox33.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+        jComboBox33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox33ActionPerformed(evt);
+            }
+        });
+
+        jComboBox34.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -2742,8 +2746,8 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                     .addComponent(jTextField165, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField169)
-                                    .addComponent(jTextField170)))
+                                    .addComponent(jComboBox33, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox34, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2766,8 +2770,8 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                             .addComponent(jTextField163, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(6, 6, 6)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField164)
-                                            .addComponent(jTextField167)))))))
+                                            .addComponent(jComboBox31, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jComboBox32, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2803,17 +2807,17 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextField159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField163, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField167, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField171, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField171, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel27)
                                 .addComponent(jTextField160, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField164, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField168, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField172, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField172, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField173, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2821,7 +2825,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                 .addComponent(jLabel29)
                                 .addComponent(jTextField161, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField169, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField174, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2829,7 +2833,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                 .addComponent(jLabel30)
                                 .addComponent(jTextField162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField166, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel31))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -3507,12 +3511,12 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                             + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                 } else {
                     if (tipoServicio == 3) { //Transporte de personal
-                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
+                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE ÁMBITO "+ ambito);
                         objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
                                 + "MODALIDAD DE TRANSPORTE ESPECIAL");
                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
-                                + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO "+ambito
+                                + " ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
                                 + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
                                 + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
                                 + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
@@ -3521,11 +3525,11 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                 + "Nº " + objCertificado.getNumExpediente() + ".");
                     } else {
                         if (tipoServicio == 4) { //Transporte público
-                            objCertificado.setClaseAut("ÁMBITO NACIONAL");
+                            objCertificado.setClaseAut("ÁMBITO "+ ambito);
                             objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
                                     + "LA MODALIDAD DE TRANSPORTE REGULAR");
                             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
+                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO "+ ambito + "  ha "
                                     + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
                                     + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
                                     + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
@@ -3547,9 +3551,9 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                         + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
                                 if (tipoServicio == 6) { //Taxi
-                                    objCertificado.setTitulo("SERVICIO DE TAXI");
-                                    objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
+                                    objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
                                             + "DE PERSONAS EN TAXI");
+                                    objCertificado.setClaseAut("SERVICIO DE TAXI");
                                     objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
                                             + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
                                             + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
@@ -3560,6 +3564,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
+
                                     if (tipoServicio == 8) { //estudiantes
                                         objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
@@ -3572,6 +3577,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                                 + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                                 + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                                 + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+
                                     } else {
                                         objCertificado.setTitulo("");
                                         objCertificado.setClaseAut("");
@@ -3905,11 +3911,11 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 EquipoCertificado objEquipos = new EquipoCertificado();
                 objEquipos.setIdCertificado(idInforme);
                 //objEquipos.setIdCertificado(idCertificado); 'KCS 03.04.2015
-                objEquipos.setNumAlineador(jComboBox15.getSelectedIndex());
-                objEquipos.setNumAnalizador(jComboBox16.getSelectedIndex());
-                objEquipos.setNumBancoSuspension(jComboBox17.getSelectedIndex());
-                objEquipos.setNumFrenometro(jComboBox18.getSelectedIndex());
-                objEquipos.setNumRegloscopio(jComboBox19.getSelectedIndex());
+                objEquipos.setNumAlineador(jComboBox16.getSelectedIndex());
+                objEquipos.setNumAnalizador(jComboBox17.getSelectedIndex());
+                objEquipos.setNumBancoSuspension(jComboBox19.getSelectedIndex());
+                objEquipos.setNumFrenometro(jComboBox15.getSelectedIndex());
+                objEquipos.setNumRegloscopio(jComboBox18.getSelectedIndex());
 
                 EquipoCertificadoBL objEquipoBL = new EquipoCertificadoBL();
                 objEquipoBL.registrarEquipoCertificado(objEquipos);
@@ -3992,7 +3998,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 objLuzBaja.setTipoLuz(1);
                 objLuzBaja.setMedidaDerLuz(Double.parseDouble(jTextField159.getText()));
                 objLuzBaja.setMedidaIzqLuz(Double.parseDouble(jTextField163.getText()));
-                objLuzBaja.setAlineamientoLuz(jTextField167.getText());
+                objLuzBaja.setAlineamientoLuz(String.valueOf(jComboBox31.getSelectedItem()));
                 objLuzBaja.setResultadoLuz(jTextField171.getText());
 
                 LuxometroBL objLuxBL = new LuxometroBL();
@@ -4007,7 +4013,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //objLuzAlta.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 objLuzAlta.setMedidaDerLuz(Double.parseDouble(jTextField160.getText()));
                 objLuzAlta.setMedidaIzqLuz(Double.parseDouble(jTextField168.getText()));
-                objLuzAlta.setAlineamientoLuz(jTextField164.getText());
+                objLuzAlta.setAlineamientoLuz(String.valueOf(jComboBox32.getSelectedItem()));
                 objLuzAlta.setResultadoLuz(jTextField172.getText());
                 LuxometroBL objLuxBL = new LuxometroBL();
                 objLuxBL.registrarLuxometro(objLuzAlta);
@@ -4021,7 +4027,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //objLuzAltaAd.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 objLuzAltaAd.setMedidaDerLuz(Double.parseDouble(jTextField161.getText()));
                 objLuzAltaAd.setMedidaIzqLuz(Double.parseDouble(jTextField165.getText()));
-                objLuzAltaAd.setAlineamientoLuz(jTextField169.getText());
+                objLuzAltaAd.setAlineamientoLuz(String.valueOf(jComboBox33.getSelectedItem()));
                 objLuzAltaAd.setResultadoLuz(jTextField173.getText());
                 LuxometroBL objLuxBL = new LuxometroBL();
                 objLuxBL.registrarLuxometro(objLuzAltaAd);
@@ -4035,7 +4041,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //objLuzNeblineras.setIdCertificado(idCertificado); 'KCS 03.04.2015
                 objLuzNeblineras.setMedidaDerLuz(Double.parseDouble(jTextField162.getText()));
                 objLuzNeblineras.setMedidaIzqLuz(Double.parseDouble(jTextField166.getText()));
-                objLuzNeblineras.setAlineamientoLuz(jTextField170.getText());
+                objLuzNeblineras.setAlineamientoLuz(String.valueOf(jComboBox34.getSelectedItem()));
                 objLuzNeblineras.setResultadoLuz(jTextField174.getText());
                 LuxometroBL objLuxBL = new LuxometroBL();
                 objLuxBL.registrarLuxometro(objLuzNeblineras);
@@ -4047,7 +4053,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 e.setIdCertificado(idInforme);
                 //e.setIdCertificado(idCertificado); 'KCS 03.04.2015
 
-                if (jComboBox13.getSelectedIndex() == 0) {
+                if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
                     double tAceite = Double.parseDouble(jTextField185.getText());
                     double Rpm = Double.parseDouble(jTextField186.getText());
                     double Opacidad = Double.parseDouble(jTextField187.getText());
@@ -4083,7 +4089,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
                 GasometroDL g = new GasometroDL();
 
-                if (jComboBox13.getSelectedIndex() == 0) {
+                if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
                     g.registrarGasometroDiesel(e);
                 } else {
                     g.registrarGasometroGasolina(e);
@@ -4579,7 +4585,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         }
 
         /* validar Emision Gas  */
-        if (jComboBox13.getSelectedIndex() == 0) {
+        if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
             if (!jTextField185.getText().trim().equals("") && !jTextField186.getText().trim().equals("")
                     && !jTextField187.getText().trim().equals("")) {
                 gasometroCompleto = true;
@@ -4600,27 +4606,31 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             sonometroCompleto = true;
         }
 
-        /* Luces Bajas */
+        /* Luces Bajas 
+        !jTextField167.getText().trim().equals("") &&*/        
         if (!jTextField159.getText().trim().equals("") && !jTextField163.getText().trim().equals("")
-                && !jTextField167.getText().trim().equals("") && !jTextField163.getText().trim().equals("")) {
+                &&  !jTextField163.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
-        /* Luces Altas */
+        /* Luces Altas 
+        !jTextField164.getText().trim().equals("") &&*/
         if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
+                &&  !jTextField168.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
-        /* Luces Altas Adicionales */
+        /* Luces Altas Adicionales 
+        !jTextField164.getText().trim().equals("") &&*/
         if (!jTextField160.getText().trim().equals("") && !jTextField168.getText().trim().equals("")
-                && !jTextField164.getText().trim().equals("") && !jTextField168.getText().trim().equals("")) {
+                &&  !jTextField168.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
-        /* Luces Neblineras */
+        /* Luces Neblineras 
+        !jTextField170.getText().trim().equals("") &&*/
         if (!jTextField162.getText().trim().equals("") && !jTextField166.getText().trim().equals("")
-                && !jTextField170.getText().trim().equals("") && !jTextField166.getText().trim().equals("")) {
+                &&  !jTextField166.getText().trim().equals("")) {
             luxometroCompleto = true;
         }
 
@@ -6422,7 +6432,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         public void insertUpdate(DocumentEvent e) {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
-            String ali = jTextField167.getText();
+            //String ali = jTextField167.getText();
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
@@ -6440,7 +6450,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         public void removeUpdate(DocumentEvent e) {
             String der = jTextField159.getText();
             String izq = jTextField163.getText();
-            String ali = jTextField167.getText();
+            //String ali = jTextField167.getText();
             if (!der.equals("") && !izq.equals("")) {
                 double valorDer = Double.parseDouble(der);
                 double valorIzq = Double.parseDouble(izq);
@@ -6617,7 +6627,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         public void insertUpdate(DocumentEvent e) {
             double tAceite = 0, Rpm = 0, Opacidad = 0;
-            if (jComboBox13.getSelectedIndex() == 0) {
+            if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
                 if (!jTextField185.getText().equals("")) {
                     tAceite = Double.parseDouble(jTextField185.getText());
                 }
@@ -6676,21 +6686,21 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 //iniciamos la validacion para Diesel
                 // Menor a 1995
                 if (objTarjetaP.getFabricacion() <= 1995) {
-                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti < 10 || COCO2Acel < 10) {
+                    if (COralenti > 3 || HCralenti > 400 || HCAcel > 400 || COCO2ralenti <= 10 || COCO2Acel <= 10) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
                     }
                 }
                 if (objTarjetaP.getFabricacion() > 1995 && objTarjetaP.getFabricacion() <= 2002) {
-                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti < 10 || COCO2Acel < 10) {
+                    if (COralenti > 2.5 || HCralenti > 300 || HCAcel > 300 || COCO2ralenti <= 10 || COCO2Acel <= 10) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
                     }
                 }
                 if (objTarjetaP.getFabricacion() > 2002) {
-                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti < 12 || COCO2Acel < 12) {
+                    if (COralenti > 0.5 || HCralenti > 100 || HCAcel > 100 || COCO2ralenti <= 12 || COCO2Acel <= 12) {
                         jComboBox1.setSelectedIndex(1);
                     } else {
                         jComboBox1.setSelectedIndex(0);
@@ -6702,7 +6712,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         public void removeUpdate(DocumentEvent e) {
             double tAceite = 0, Rpm = 0, Opacidad = 0;
-            if (jComboBox13.getSelectedIndex() == 0) {
+            if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
                 if (!jTextField185.getText().equals("")) {
                     tAceite = Double.parseDouble(jTextField185.getText());
                 }
@@ -6936,7 +6946,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         ObtenerIds();
 
-        if (jComboBox13.getSelectedIndex() == 0) {
+        if (jComboBox13.getSelectedIndex() == 0 || jComboBox13.getSelectedIndex() == 4) {
             jTextField188.enable(false);
             jTextField189.enable(false);
             jTextField190.enable(false);
@@ -7035,6 +7045,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField76ActionPerformed
 
+    private void jComboBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox33ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -7064,6 +7078,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     private javax.swing.JComboBox jComboBox29;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox30;
+    private javax.swing.JComboBox jComboBox31;
+    private javax.swing.JComboBox jComboBox32;
+    private javax.swing.JComboBox jComboBox33;
+    private javax.swing.JComboBox jComboBox34;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
@@ -7257,14 +7275,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
     private javax.swing.JTextField jTextField161;
     private javax.swing.JTextField jTextField162;
     private javax.swing.JTextField jTextField163;
-    private javax.swing.JTextField jTextField164;
     private javax.swing.JTextField jTextField165;
     private javax.swing.JTextField jTextField166;
-    private javax.swing.JTextField jTextField167;
     private javax.swing.JTextField jTextField168;
-    private javax.swing.JTextField jTextField169;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField170;
     private javax.swing.JTextField jTextField171;
     private javax.swing.JTextField jTextField172;
     private javax.swing.JTextField jTextField173;

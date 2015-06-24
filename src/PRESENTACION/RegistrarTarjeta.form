@@ -712,15 +712,14 @@
             <Component class="javax.swing.JComboBox" name="jComboBox13">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="8">
-                    <StringItem index="0" value="-"/>
-                    <StringItem index="1" value="Diesel"/>
-                    <StringItem index="2" value="BI-Combustible"/>
-                    <StringItem index="3" value="GLP"/>
-                    <StringItem index="4" value="Gasolina"/>
-                    <StringItem index="5" value="Petr&#xf3;leo"/>
-                    <StringItem index="6" value="Dual"/>
-                    <StringItem index="7" value="GNV"/>
+                  <StringArray count="7">
+                    <StringItem index="0" value="Diesel"/>
+                    <StringItem index="1" value="BI-Combustible"/>
+                    <StringItem index="2" value="GLP"/>
+                    <StringItem index="3" value="Gasolina"/>
+                    <StringItem index="4" value="Petr&#xf3;leo"/>
+                    <StringItem index="5" value="Dual"/>
+                    <StringItem index="6" value="GNV"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -650,7 +650,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jComboBox12.setEnabled(false);
 
         jComboBox13.setEditable(true);
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel o Petróleo", "BI-Combustible o Dual", "GLP o GNV", "Gasolina", " " }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina", "Petróleo", "Dual", "GNV" }));
         jComboBox13.setEnabled(false);
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2861,12 +2861,12 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                             + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                 } else {
                     if (tipoServicio == 3) { //Transporte de personal
-                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE AMBITO NACIONAL");
+                        objCertificado.setClaseAut("MODALIDAD: TRABAJADORES DE ÁMBITO "+ ambito);
                         objCertificado.setTitulo("CERTIFICACION TECNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA "
                                 + "MODALIDAD DE TRANSPORTE ESPECIAL");
                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO NACIONAL "
-                                + "ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
+                                + "servicio de transporte de personas bajo la modalidad de transporte especial de TRABAJADORES de AMBITO "+ambito
+                                + " ha aprobado la inspección Técnica Vehicular al haberse verificado que se encuentra en buenas condiciones técnicas "
                                 + "y mecánicas de funcionamiento que fue diseñado originalmente de fábrica para el tranporte de persona que cumple "
                                 + "con las condiciones y características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por "
                                 + "Decreto Supremo Nº058-2003-MTC, en los artículos 19º y 23º del Reglamento Nacional de Adminitración de Transporte "
@@ -2875,11 +2875,11 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                 + "Nº " + objCertificado.getNumExpediente() + ".");
                     } else {
                         if (tipoServicio == 4) { //Transporte público
-                            objCertificado.setClaseAut("ÁMBITO NACIONAL");
+                            objCertificado.setClaseAut("ÁMBITO "+ ambito);
                             objCertificado.setTitulo("CERTIFICACIÓN TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PÚBLICO DE PERSONAS BAJO "
                                     + "LA MODALIDAD DE TRANSPORTE REGULAR");
                             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al "
-                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO NACIONAL  ha "
+                                    + "servicio de transporte público de personas bajo la modalidad de Transporte regular de AMBITO "+ ambito + "  ha "
                                     + "aprobado la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas "
                                     + "condiciones técnicas y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el "
                                     + "transporte de personas, que cumple con las condiciones y características técnicas establecidas en el "
@@ -2901,9 +2901,9 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                         + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
                                 if (tipoServicio == 6) { //Taxi
-                                    objCertificado.setTitulo("SERVICIO DE TAXI");
-                                    objCertificado.setClaseAut("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
+                                    objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO ESPECIAL DE TRANSPORTE PÚBLICO "
                                             + "DE PERSONAS EN TAXI");
+                                    objCertificado.setClaseAut("SERVICIO DE TAXI");
                                     objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
                                             + "destinado al servicio especial de transporte público de personas en taxi, ha aprobado la Inspección "
                                             + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
@@ -2914,6 +2914,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                             + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
+
                                     if (tipoServicio == 8) { //estudiantes
                                         objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
@@ -2926,6 +2927,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                                 + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                                 + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
                                                 + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+
                                     } else {
                                         objCertificado.setTitulo("");
                                         objCertificado.setClaseAut("");
@@ -3232,11 +3234,11 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                 EquipoCertificado objEquipos = new EquipoCertificado();
                 objEquipos.setIdCertificado(idInforme);
                 //objEquipos.setIdCertificado(idCertificado); 'KCS 03.04.2015
-                objEquipos.setNumAlineador(jComboBox15.getSelectedIndex());
-                objEquipos.setNumAnalizador(jComboBox16.getSelectedIndex());
-                objEquipos.setNumBancoSuspension(jComboBox17.getSelectedIndex());
-                objEquipos.setNumFrenometro(jComboBox18.getSelectedIndex());
-                objEquipos.setNumRegloscopio(jComboBox19.getSelectedIndex());
+                objEquipos.setNumAlineador(jComboBox16.getSelectedIndex());
+                objEquipos.setNumAnalizador(jComboBox17.getSelectedIndex());
+                objEquipos.setNumBancoSuspension(jComboBox19.getSelectedIndex());
+                objEquipos.setNumFrenometro(jComboBox15.getSelectedIndex());
+                objEquipos.setNumRegloscopio(jComboBox18.getSelectedIndex());
 
                 EquipoCertificadoBL objEquipoBL = new EquipoCertificadoBL();
                 objEquipoBL.registrarEquipoCertificado(objEquipos);

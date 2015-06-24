@@ -322,7 +322,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Diesel", "BI-Combustible", "GLP", "Gasolina", "Petróleo", "Dual", "GNV" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diesel", "BI-Combustible", "GLP", "Gasolina", "Petróleo", "Dual", "GNV" }));
 
         jLabel149.setText("Nro de Tarjeta de Propiedad");
 
@@ -835,9 +835,11 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex() == 0 || jComboBox1.getSelectedIndex() == 8) {
+        if (jComboBox1.getSelectedIndex() == 0 || jComboBox1.getSelectedIndex() == 3 || jComboBox1.getSelectedIndex() == 4 || jComboBox1.getSelectedIndex() == 8) {
+            jComboBox2.setSelectedIndex(0);
             jComboBox2.enable(true);
         } else {
+            jComboBox2.setSelectedIndex(0);
             jComboBox2.enable(false);
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
@@ -971,14 +973,13 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Seleccione el tipo de Vehículo", "CAMPOS VACÍOS", 0);
             return resultado;
         }
-        if (jComboBox3.getSelectedIndex() != 2) {
+        /*if (jComboBox3.getSelectedIndex() != 2) {
             if (jComboBox13.getSelectedIndex() == 0) {
                 resultado = false;
                 JOptionPane.showMessageDialog(null, "Seleccione el tipo de Combustible", "CAMPOS VACÍOS", 0);
                 return resultado;
             }
-
-        }
+        }*/
 
         return true;
     }

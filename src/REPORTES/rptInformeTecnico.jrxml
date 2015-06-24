@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="454"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,7 +99,7 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idCertificado,
-cer.fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
+CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
 tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
 
@@ -310,8 +310,8 @@ left join certificadoequipo ce on ce.idCertificado=cer.idInforme
 left join fotografia f on f.STR_NUMDOCEVAL=cer.idInforme
 where cer.idInforme=$P{idCertificado};]]>
 	</queryString>
-	<field name="idcertificado" class="java.lang.Long"/>
-	<field name="fecinspeccion" class="java.sql.Date"/>
+	<field name="idCertificado" class="java.lang.Long"/>
+	<field name="fecinspeccion" class="java.lang.String"/>
 	<field name="informeInspeccion" class="java.lang.String"/>
 	<field name="razon1" class="java.lang.String"/>
 	<field name="placa" class="java.lang.String"/>
@@ -328,13 +328,13 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="ruedas" class="java.lang.Integer"/>
 	<field name="pasajeros" class="java.lang.Integer"/>
 	<field name="asientos" class="java.lang.Integer"/>
-	<field name="longitud" class="java.math.BigDecimal"/>
-	<field name="altura" class="java.math.BigDecimal"/>
-	<field name="ancho" class="java.math.BigDecimal"/>
+	<field name="longitud" class="java.lang.Double"/>
+	<field name="altura" class="java.lang.Double"/>
+	<field name="ancho" class="java.lang.Double"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.math.BigDecimal"/>
-	<field name="peso_bruto" class="java.math.BigDecimal"/>
-	<field name="carga_util" class="java.math.BigDecimal"/>
+	<field name="peso_seco" class="java.lang.Double"/>
+	<field name="peso_bruto" class="java.lang.Double"/>
+	<field name="carga_util" class="java.lang.Double"/>
 	<field name="concatamanios" class="java.lang.String"/>
 	<field name="frenometronumero" class="java.lang.String"/>
 	<field name="alineadornumero" class="java.lang.String"/>
@@ -4066,7 +4066,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{resultadoAlineamiento5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="373" width="36" height="12"/>
+				<reportElement x="55" y="373" width="35" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4472,7 +4472,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="0" y="457" width="553" height="158"/>
+				<reportElement x="0" y="457" width="555" height="158"/>
 				<subreportParameter name="parasubreport">
 					<subreportParameterExpression><![CDATA[$P{idCertificado}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -4486,6 +4486,9 @@ NEUMÁTICOS]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoGases}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="54" y="337" width="1" height="60"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
