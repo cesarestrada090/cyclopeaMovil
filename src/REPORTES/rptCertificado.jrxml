@@ -3511,7 +3511,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{carga_util}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="479" y="72" width="78" height="15"/>
+				<reportElement x="479" y="72" width="72" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>

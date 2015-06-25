@@ -191,7 +191,8 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                         ad.setVisible(true);
                         dispose();
                     } else { //Semiremolque
-                        RegistrarCertificadoFrenosyNeumaticos ad = new RegistrarCertificadoFrenosyNeumaticos(); //DESCOMENTAR
+                        if (objTarjetaPropiedad.getTipoVehiculo() == 2) { //Ómnibus y Camiones
+                            RegistrarCertificadoFrenosyNeumaticos ad = new RegistrarCertificadoFrenosyNeumaticos(); //DESCOMENTAR
                         //RegistrarCertificado ad = new RegistrarCertificado(); //COMENTAR
                         ad.objTarjetaP = objTarjetaPropiedad;
                         ad.intIdTarjeta = idTarjeta;
@@ -204,6 +205,9 @@ public class ListarTarjetasPreregistradas extends javax.swing.JInternalFrame {
                         ad.toFront();
                         ad.setVisible(true);
                         dispose();
+                        } else{
+                            JOptionPane.showMessageDialog(null, "Ocurrió un error al cargar la pantalla, inténtelo nuevamente", "CAMPOS VACÍOS", 0);
+                        }                       
                     }
                 }
 

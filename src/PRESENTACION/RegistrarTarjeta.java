@@ -960,7 +960,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             return resultado;
         }
 
-        if (jComboBox1.getSelectedIndex() == 0) {
+        if (jComboBox1.getSelectedIndex() == 0 || jComboBox1.getSelectedIndex() == 3 || jComboBox1.getSelectedIndex() == 4) {
             if (jComboBox2.getSelectedIndex() == 0) {
                 resultado = false;
                 JOptionPane.showMessageDialog(null, "Seleccione el Ámbito", "CAMPOS VACÍOS", 0);
