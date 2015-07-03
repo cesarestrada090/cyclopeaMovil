@@ -786,7 +786,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox12.setEnabled(false);
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DIESEL", "BI-COMBUSTIBLE", "GLP", "GASOLINA", "PETRÓLEO", "DUAL", "GNV", "BI-COMBUSTIBLE GLP", "BI-COMB.GLP", "GASOLINA/GLP", "GASOL./GLP", "GASOLINA/GNV", "GASOL./GNV" }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DIESEL", "BI-COMBUSTIBLE", "GLP", "GASOLINA", "PETRÓLEO", "DUAL", "GNV", "BI-COMBUSTIBLE GLP", "BI-COMB.GLP", "GASOLINA/GLP", "GASOL./GLP", "GASOLINA/GNV", "GASOL./GNV", "BI-COMBUSTIBLE GNV", "BI-COMB./GNV." }));
         jComboBox13.setEnabled(false);
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3591,7 +3591,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
     private String generarCodigoCertificado() {
         String numCertificado = "SA-59-";
-        int diferencia = 8 - Integer.toString(idCertificado).length();
+        int diferencia = 6 - Integer.toString(idCertificado).length();
         if ((diferencia) > 0) {
 //            if (diferencia == 7) {
 //                numCertificado = "0000000";
