@@ -97,8 +97,7 @@ public class BackupRestoreMovil extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:   
-        //HACER EL BACKUP DE LA BASE DE DATOS
-        
+        //HACER EL BACKUP DE LA BASE DE DATOS     
         
                 JOptionPane.showMessageDialog(null, "Colocar la extencion .sql seguida del nombre del backup", "Atención",JOptionPane.INFORMATION_MESSAGE);
                      
@@ -114,7 +113,8 @@ public class BackupRestoreMovil extends javax.swing.JInternalFrame {
                         Runtime runtime = Runtime.getRuntime();
  
                         /*backupFile se utiliza para indicarle la ubicacion y nombre del archivo que contendra el backup con la extencion .sql*/
-                        String pathDB = "\"C:\\Program Files (x86)\\MySQL\\MySQL Server 5.1\\bin\\mysqldump.exe\" -uroot -p123456 bdnuevamovil -r "+ PATH;
+                        //String pathDB = "\"C:\\Program Files (x86)\\MySQL\\MySQL Server 5.1\\bin\\mysqldump.exe\" -uroot -p123456 bdnuevamovil -r "+ PATH;
+                        String pathDB = "\"C:\\Archivos de programa\\MySQL\\MySQL Server 5.5\\bin\\mysqldump.exe\" -uroot -p123456 bdnuevamovil -r "+ PATH;
  
                         Process child = runtime.exec(pathDB); 
                         //Process es el que ejecuta el comando para buscar el mysqldump.exe
