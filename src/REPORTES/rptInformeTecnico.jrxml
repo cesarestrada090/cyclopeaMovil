@@ -1389,13 +1389,13 @@ where cer.idInforme=$P{idCertificado};]]>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="57" width="92" height="15"/>
+				<reportElement x="383" y="57" width="38" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="475" y="57" width="80" height="15"/>
+				<reportElement x="421" y="57" width="134" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -2658,7 +2658,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Largo/Ancho/Alto:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="385" y="57" width="41" height="15"/>
+				<reportElement x="385" y="57" width="34" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3326,13 +3326,6 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{idcarroceria}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="283" y="87" width="88" height="15"/>
-				<textElement verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{idmarca}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="285" y="101" width="14" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
@@ -3354,7 +3347,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{ruedas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="476" y="56" width="79" height="15"/>
+				<reportElement x="423" y="56" width="131" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="6"/>
 				</textElement>
@@ -4489,6 +4482,13 @@ NEUMÁTICOS]]></text>
 			<line>
 				<reportElement x="54" y="337" width="1" height="60"/>
 			</line>
+			<textField>
+				<reportElement x="283" y="87" width="88" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marcaaa}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

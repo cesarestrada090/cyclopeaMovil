@@ -786,7 +786,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
 
         jComboBox12.setEnabled(false);
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DIESEL", "BI-COMBUSTIBLE", "GLP", "GASOLINA", "PETRÓLEO", "DUAL", "GNV", "BI-COMBUSTIBLE GLP", "BI-COMB.GLP", "GASOLINA/GLP", "GASOL./GLP", "GASOLINA/GNV", "GASOL./GNV", "BI-COMBUSTIBLE GNV", "BI-COMB./GNV." }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DIESEL", "BI-COMBUSTIBLE", "GLP", "GASOLINA", "PETRÓLEO", "DUAL", "GNV", "BI-COMBUSTIBLE GLP", "BI-COMB.GLP", "GASOLINA/GLP", "GASOL./GLP", "GASOLINA/GNV", "GASOL./GNV", "BI-COMBUSTIBLE GNV", "BI-COMB./GNV.", "BI-COMBUSTIBLE GNL", "DUAL GLP", "DUAL GNV", "DUAL GNL", "GNL", "ETANOL", "HIBRIDO (GASOLINA/BATERIAS)", "HIBRIDO (GASOL/BATERIAS)", "HIBRIDO (DIESEL BATERIAS)", "HIBRIDO (PETRÓLEO BATERIAS)", "SIN VALOR", "------" }));
         jComboBox13.setEnabled(false);
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3513,7 +3513,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turístico", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular", "Estudiantes" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turístico", "Mercancías en General", "Mercancías Peligrosas", "Transporte de Personal", "Transporte Público de Personas", "Transporte Privado de Mercancías", "Taxi", "Particular", "Estudiantes", "Transporte Privado de Personas" }));
         jComboBox20.setEnabled(false);
 
         jLabel69.setText("Tipo de Servicio:");
@@ -7251,12 +7251,12 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
     //CAMPO NOMBRE DEL TITULAR
     private void jTextField82KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField82KeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
-        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-            JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+//        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada
+//        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+//            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+//            JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+//                    JOptionPane.ERROR_MESSAGE);
+//        }
     }//GEN-LAST:event_jTextField82KeyTyped
 
     private void jTextField82InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField82InputMethodTextChanged
