@@ -3569,7 +3569,8 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                         objCertificado.setTitulo("CERTIFICACION TÉCNICA COMPLEMENTARIA PARA EL SERVICIO DE TRANSPORTE PUBLICO DE PERSONAS BAJO LA MODALIDAD DE TRANSPORTE ESPECIAL");
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
                                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
-                                                + "destinado al servicio especial de transporte público de personas, ha aprobado la Inspección "
+                                                + "destinado al servicio especial de transporte público de personas, bajo la modalidad de TRANSPORTE DE ESTUDIANTES "
+                                                + "DE ÁMBITO " + ambito + "ha aprobado la Inspección "
                                                 + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
                                                 + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
                                                 + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "
