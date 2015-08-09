@@ -4549,7 +4549,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             double valor = Double.parseDouble(eficienciaServicio);
             if (valor >= 30 && valor <= 50) {
                 obs.setCodigoObservacion("D.1.2");
-                obs.setCalificacion("Leve");
+                obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 20 && valor <= 29) {

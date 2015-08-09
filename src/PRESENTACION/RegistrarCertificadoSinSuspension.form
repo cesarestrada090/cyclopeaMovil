@@ -5098,7 +5098,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField59" max="32767" attributes="0"/>
-                                  <Component id="jLabel36" pref="956" max="32767" attributes="0"/>
+                                  <Component id="jLabel36" pref="951" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -5289,9 +5289,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5300,9 +5300,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5311,9 +5311,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5322,9 +5322,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5333,9 +5333,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5344,9 +5344,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5369,9 +5369,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5380,9 +5380,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5398,9 +5398,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5416,9 +5416,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5434,9 +5434,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5452,9 +5452,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -5470,9 +5470,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Leve"/>
-                    <StringItem index="1" value="Grave"/>
-                    <StringItem index="2" value="Muy Grave"/>
+                    <StringItem index="0" value="LEVE"/>
+                    <StringItem index="1" value="GRAVE"/>
+                    <StringItem index="2" value="MUY GRAVE"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -578,10 +578,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1258,10 +1258,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3035,45 +3035,45 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel37.setText("CALIFICACIÓN");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField127.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField129.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField132.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField134.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField136.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField138.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox29.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox29.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField140.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox30.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox30.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField142.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -3139,7 +3139,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField59)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE))))
+                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 951, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4269,7 +4269,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             double valor = Double.parseDouble(eficienciaServicio);
             if (valor >= 30 && valor <= 50) {
                 obs.setCodigoObservacion("D.1.2");
-                obs.setCalificacion("Leve");
+                obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 20 && valor <= 29) {

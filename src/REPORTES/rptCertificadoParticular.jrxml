@@ -636,11 +636,6 @@ Inspección:]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numInforme}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="280" y="2" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[marcaaa]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>

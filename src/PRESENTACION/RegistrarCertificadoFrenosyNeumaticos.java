@@ -2423,47 +2423,47 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("CALIFICACIÓN");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField117.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField125.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField127.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField129.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField131.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField133.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField135.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         jTextField137.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Leve", "Grave", "Muy Grave" }));
+        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LEVE", "GRAVE", "MUY GRAVE" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -2501,7 +2501,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                     .addComponent(jTextField15)
                     .addComponent(jTextField58)
                     .addComponent(jTextField81)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3452,7 +3452,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
             double valor = Double.parseDouble(eficienciaServicio);
             if (valor >= 30 && valor <= 50) {
                 obs.setCodigoObservacion("D.1.2");
-                obs.setCalificacion("Leve");
+                obs.setCalificacion("LEVE");
                 arrayObservaciones.add(obs);
             }
             if (valor >= 20 && valor <= 29) {
