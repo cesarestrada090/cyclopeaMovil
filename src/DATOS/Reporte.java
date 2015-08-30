@@ -28,7 +28,7 @@ public class Reporte {
        Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
-            String archivo=System.getProperty("user.dir")+"/REPORTES/rptCertificado.jasper";
+            String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptCertificado.jasper";
             System.out.println("Cargando desde:"+archivo);
             if(archivo==null)
             {
@@ -70,7 +70,7 @@ public class Reporte {
        Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
-            String archivo=System.getProperty("user.dir")+"/REPORTES/rptCertificadoParticular.jasper";
+            String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptCertificadoParticular.jasper";
             System.out.println("Cargando desde:"+archivo);
             if(archivo==null)
             {
@@ -112,7 +112,7 @@ public class Reporte {
        Connection cnn=Conexion.obtenerConexionMySQL(frmInicio.n_servidor,frmInicio.n_baseDatos,frmInicio.n_usuario,frmInicio.n_contraseña); 
         try{
             
-            String archivo=System.getProperty("user.dir")+"/REPORTES/rptInformeTecnico.jasper";
+            String archivo=System.getProperty("user.dir")+"/src/REPORTES/rptInformeTecnico.jasper";
             System.out.println("Cargando desde:"+archivo);
             if(archivo==null)
             {
@@ -156,7 +156,7 @@ public class Reporte {
         try{
 
             //String archivo=getClass().getResource("/Reportes/report1.jasper").toString();
-            String archivo=System.getProperty("user.dir")+"/REPORTES/RVencimientos.jasper";
+            String archivo=System.getProperty("user.dir")+"/src/REPORTES/RVencimientos.jasper";
             System.out.println("Cargando desde:"+archivo);
             if(archivo==null)
             {

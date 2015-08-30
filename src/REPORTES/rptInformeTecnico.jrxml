@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="715"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -63,6 +63,7 @@
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
+		<paragraph tabStopWidth="32"/>
 	</style>
 	<subDataset name="New Dataset 1">
 		<queryString language="SQL">
@@ -511,7 +512,7 @@ where cer.idInforme=$P{idCertificado};]]>
 		<band height="27" splitType="Stretch">
 			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
 			<staticText>
-				<reportElement x="138" y="13" width="242" height="14"/>
+				<reportElement x="197" y="13" width="242" height="14"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -1365,25 +1366,25 @@ where cer.idInforme=$P{idCertificado};]]>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="27" width="93" height="15"/>
+				<reportElement x="383" y="27" width="86" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="475" y="27" width="80" height="15"/>
+				<reportElement x="469" y="27" width="86" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="42" width="92" height="15"/>
+				<reportElement x="383" y="42" width="86" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="475" y="42" width="80" height="15"/>
+				<reportElement x="469" y="42" width="86" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -2644,7 +2645,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Marca Carrocería:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="385" y="27" width="91" height="15"/>
+				<reportElement x="384" y="27" width="87" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4430,8 +4431,8 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{sonometroValor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="477" y="43" width="20" height="13"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<reportElement x="469" y="43" width="28" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{longitud}]]></textFieldExpression>
@@ -4497,7 +4498,7 @@ NEUMÁTICOS]]></text>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<staticText>
-				<reportElement x="2" y="5" width="554" height="20"/>
+				<reportElement x="2" y="3" width="554" height="20"/>
 				<textElement>
 					<font size="7" isBold="false"/>
 				</textElement>

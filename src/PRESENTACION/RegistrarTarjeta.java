@@ -707,7 +707,7 @@ public class RegistrarTarjeta extends javax.swing.JInternalFrame {
             objTarjetaP.setIdModelo(jTextField2.getText());
             objTarjetaP.setKilometraje(Double.parseDouble(jTextField84.getText()));
             objTarjetaP.setNombrePropietario(jTextField82.getText());
-            objTarjetaP.setIdMarcaCarroceria(jComboBox15.getSelectedIndex());
+            objTarjetaP.setIdMarcaCarroceria(jTextField114.getText());
             objTarjetaP.setnRuedas(Integer.parseInt(jTextField51.getText()));
             objTarjetaP.setnTarjeta(jTextField55.getText());
             objTarjetaP.setEstado("2"); //Estado 2 significa que se encuentra preregistrado

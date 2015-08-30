@@ -35,7 +35,7 @@ public class TarjetaPropiedad {
     private double cargaUtil;
     private String estado;
     private Date fecha;
-    private int idMarcaCarroceria;
+    private String idMarcaCarroceria;
     private double Kilometraje;
     private String tipoServicio;
     private int ambito;
@@ -84,16 +84,14 @@ public class TarjetaPropiedad {
 
     
     
-    public int getIdMarcaCarroceria() {
+    public String getIdMarcaCarroceria() {
         return idMarcaCarroceria;
     }
 
-    public void setIdMarcaCarroceria(int idMarcaCarroceria) {
+    public void setIdMarcaCarroceria(String idMarcaCarroceria) {
         this.idMarcaCarroceria = idMarcaCarroceria;
     }
     
-    
-
     public double getKilometraje() {
         return Kilometraje;
     }

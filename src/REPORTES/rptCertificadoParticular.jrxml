@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="81"/>
+	<property name="ireport.y" value="466"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -336,7 +336,7 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="altura" class="java.lang.Double"/>
 	<field name="ancho" class="java.lang.Double"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.lang.Double"/>
+	<field name="peso_seco" class="java.math.BigDecimal"/>
 	<field name="peso_bruto" class="java.lang.Double"/>
 	<field name="carga_util" class="java.lang.Double"/>
 	<field name="concatamanios" class="java.lang.String"/>
@@ -370,56 +370,56 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="resultadoGases" class="java.lang.String"/>
 	<field name="vencimiento" class="java.lang.String"/>
 	<field name="VigenciaCer" class="java.lang.String"/>
-	<field name="pesoServicio1" class="java.lang.Object"/>
-	<field name="pesoServicio2" class="java.lang.Object"/>
-	<field name="pesoServicio3" class="java.lang.Object"/>
-	<field name="pesoServicio4" class="java.lang.Object"/>
-	<field name="pesoServicio5" class="java.lang.Object"/>
-	<field name="fuerzaServicio1" class="java.lang.Object"/>
-	<field name="fuerzaServicio2" class="java.lang.Object"/>
-	<field name="fuerzaServicio3" class="java.lang.Object"/>
-	<field name="fuerzaServicio4" class="java.lang.Object"/>
-	<field name="fuerzaServicio5" class="java.lang.Object"/>
-	<field name="fuerzaIzqServicio1" class="java.lang.Object"/>
-	<field name="fuerzaIzqServicio2" class="java.lang.Object"/>
-	<field name="fuerzaIzqServicio3" class="java.lang.Object"/>
-	<field name="fuerzaIzqServicio4" class="java.lang.Object"/>
-	<field name="fuerzaIzqServicio5" class="java.lang.Object"/>
-	<field name="desequilibrioServicio1" class="java.lang.Object"/>
-	<field name="desequilibrioServicio2" class="java.lang.Object"/>
-	<field name="desequilibrioServicio3" class="java.lang.Object"/>
-	<field name="desequilibrioServicio4" class="java.lang.Object"/>
-	<field name="desequilibrioServicio5" class="java.lang.Object"/>
+	<field name="pesoServicio1" class="java.lang.String"/>
+	<field name="pesoServicio2" class="java.lang.String"/>
+	<field name="pesoServicio3" class="java.lang.String"/>
+	<field name="pesoServicio4" class="java.lang.String"/>
+	<field name="pesoServicio5" class="java.lang.String"/>
+	<field name="fuerzaServicio1" class="java.lang.String"/>
+	<field name="fuerzaServicio2" class="java.lang.String"/>
+	<field name="fuerzaServicio3" class="java.lang.String"/>
+	<field name="fuerzaServicio4" class="java.lang.String"/>
+	<field name="fuerzaServicio5" class="java.lang.String"/>
+	<field name="fuerzaIzqServicio1" class="java.lang.String"/>
+	<field name="fuerzaIzqServicio2" class="java.lang.String"/>
+	<field name="fuerzaIzqServicio3" class="java.lang.String"/>
+	<field name="fuerzaIzqServicio4" class="java.lang.String"/>
+	<field name="fuerzaIzqServicio5" class="java.lang.String"/>
+	<field name="desequilibrioServicio1" class="java.lang.String"/>
+	<field name="desequilibrioServicio2" class="java.lang.String"/>
+	<field name="desequilibrioServicio3" class="java.lang.String"/>
+	<field name="desequilibrioServicio4" class="java.lang.String"/>
+	<field name="desequilibrioServicio5" class="java.lang.String"/>
 	<field name="resultadoEjeServicio1" class="java.lang.String"/>
 	<field name="resultadoEjeServicio2" class="java.lang.String"/>
 	<field name="resultadoEjeServicio3" class="java.lang.String"/>
 	<field name="resultadoEjeServicio4" class="java.lang.String"/>
 	<field name="resultadoEjeServicio5" class="java.lang.String"/>
-	<field name="eficienciaServicio1" class="java.lang.Object"/>
-	<field name="eficienciaServicio2" class="java.lang.Object"/>
-	<field name="eficienciaServicio3" class="java.lang.Object"/>
-	<field name="eficienciaServicio4" class="java.lang.Object"/>
-	<field name="eficienciaServicio5" class="java.lang.Object"/>
+	<field name="eficienciaServicio1" class="java.lang.String"/>
+	<field name="eficienciaServicio2" class="java.lang.String"/>
+	<field name="eficienciaServicio3" class="java.lang.String"/>
+	<field name="eficienciaServicio4" class="java.lang.String"/>
+	<field name="eficienciaServicio5" class="java.lang.String"/>
 	<field name="resultadoServicio1" class="java.lang.String"/>
 	<field name="resultadoServicio2" class="java.lang.String"/>
 	<field name="resultadoServicio3" class="java.lang.String"/>
 	<field name="resultadoServicio4" class="java.lang.String"/>
 	<field name="resultadoServicio5" class="java.lang.String"/>
-	<field name="fuerzaDerEstacionamiento1" class="java.lang.Object"/>
-	<field name="fuerzaDerEstacionamiento2" class="java.lang.Object"/>
-	<field name="fuerzaDerEstacionamiento3" class="java.lang.Object"/>
-	<field name="fuerzaDerEstacionamiento4" class="java.lang.Object"/>
-	<field name="fuerzaDerEstacionamiento5" class="java.lang.Object"/>
-	<field name="fuerzaIzqEstacionamiento1" class="java.lang.Object"/>
-	<field name="fuerzaIzqEstacionamiento2" class="java.lang.Object"/>
-	<field name="fuerzaIzqEstacionamiento3" class="java.lang.Object"/>
-	<field name="fuerzaIzqEstacionamiento4" class="java.lang.Object"/>
-	<field name="fuerzaIzqEstacionamiento5" class="java.lang.Object"/>
-	<field name="desequilibrioEstacionamiento1" class="java.lang.Object"/>
-	<field name="desequilibrioEstacionamiento2" class="java.lang.Object"/>
-	<field name="desequilibrioEstacionamiento3" class="java.lang.Object"/>
-	<field name="desequilibrioEstacionamiento4" class="java.lang.Object"/>
-	<field name="desequilibrioEstacionamiento5" class="java.lang.Object"/>
+	<field name="fuerzaDerEstacionamiento1" class="java.lang.String"/>
+	<field name="fuerzaDerEstacionamiento2" class="java.lang.String"/>
+	<field name="fuerzaDerEstacionamiento3" class="java.lang.String"/>
+	<field name="fuerzaDerEstacionamiento4" class="java.lang.String"/>
+	<field name="fuerzaDerEstacionamiento5" class="java.lang.String"/>
+	<field name="fuerzaIzqEstacionamiento1" class="java.lang.String"/>
+	<field name="fuerzaIzqEstacionamiento2" class="java.lang.String"/>
+	<field name="fuerzaIzqEstacionamiento3" class="java.lang.String"/>
+	<field name="fuerzaIzqEstacionamiento4" class="java.lang.String"/>
+	<field name="fuerzaIzqEstacionamiento5" class="java.lang.String"/>
+	<field name="desequilibrioEstacionamiento1" class="java.lang.String"/>
+	<field name="desequilibrioEstacionamiento2" class="java.lang.String"/>
+	<field name="desequilibrioEstacionamiento3" class="java.lang.String"/>
+	<field name="desequilibrioEstacionamiento4" class="java.lang.String"/>
+	<field name="desequilibrioEstacionamiento5" class="java.lang.String"/>
 	<field name="resultadoEjeEstacionamiento1" class="java.lang.String"/>
 	<field name="resultadoEjeEstacionamiento2" class="java.lang.String"/>
 	<field name="resultadoEjeEstacionamiento3" class="java.lang.String"/>
@@ -519,7 +519,7 @@ where cer.idInforme=$P{idCertificado};]]>
 		<band height="27" splitType="Stretch">
 			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
 			<staticText>
-				<reportElement x="126" y="13" width="264" height="14"/>
+				<reportElement x="181" y="13" width="264" height="14"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -639,7 +639,7 @@ Inspección:]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="615" splitType="Stretch">
+		<band height="638" splitType="Stretch">
 			<rectangle>
 				<reportElement x="67" y="248" width="31" height="12"/>
 				<graphicElement>
@@ -1401,25 +1401,25 @@ Inspección:]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="27" width="93" height="15"/>
+				<reportElement x="383" y="27" width="88" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="475" y="27" width="80" height="15"/>
+				<reportElement x="471" y="27" width="84" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="42" width="92" height="15"/>
+				<reportElement x="383" y="42" width="88" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="475" y="42" width="80" height="15"/>
+				<reportElement x="471" y="42" width="84" height="15"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -1980,62 +1980,62 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[IV. OBSERVACIONES DETECTADAS]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="564" width="555" height="12" backcolor="#009933"/>
+				<reportElement x="0" y="586" width="555" height="12" backcolor="#009933"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="6" y="563" width="272" height="12" forecolor="#FFFFFF"/>
+				<reportElement x="6" y="585" width="272" height="12" forecolor="#FFFFFF"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[V. RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="576" width="138" height="12"/>
+				<reportElement x="0" y="598" width="138" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="0" y="588" width="138" height="26"/>
+				<reportElement x="0" y="610" width="138" height="26"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="138" y="576" width="139" height="12"/>
+				<reportElement x="138" y="598" width="139" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="138" y="588" width="139" height="26"/>
+				<reportElement x="138" y="610" width="139" height="26"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="277" y="576" width="139" height="12"/>
+				<reportElement x="277" y="598" width="139" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="277" y="588" width="139" height="26"/>
+				<reportElement x="277" y="610" width="139" height="26"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="416" y="576" width="139" height="24"/>
+				<reportElement x="416" y="598" width="139" height="24"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="416" y="600" width="139" height="14"/>
+				<reportElement x="416" y="622" width="139" height="14"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -2741,7 +2741,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Marca Carrocería:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="385" y="27" width="91" height="15"/>
+				<reportElement x="385" y="27" width="87" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3360,28 +3360,28 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[CALIFICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="576" width="137" height="12"/>
+				<reportElement x="1" y="598" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[RESULTADO DE LA INSPECCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="576" width="137" height="12"/>
+				<reportElement x="138" y="598" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[VIGENCIA DEL CERTIFICADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="277" y="576" width="137" height="12"/>
+				<reportElement x="277" y="598" width="137" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[FECHA DE LA PRÓXIMA INSPECCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="426" y="600" width="115" height="15"/>
+				<reportElement x="426" y="622" width="115" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4534,21 +4534,21 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{sonometroValor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="292" y="588" width="109" height="26"/>
+				<reportElement x="292" y="610" width="109" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vencimiento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="163" y="588" width="31" height="26"/>
+				<reportElement x="163" y="610" width="31" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{VigenciaCer}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="477" y="43" width="20" height="13"/>
+				<reportElement x="472" y="43" width="25" height="13"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4583,7 +4583,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="0" y="457" width="555" height="106"/>
+				<reportElement x="0" y="457" width="555" height="129"/>
 				<subreportParameter name="parasubreport">
 					<subreportParameterExpression><![CDATA[$P{idCertificado}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -4591,14 +4591,14 @@ NEUMÁTICOS]]></text>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report1.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="202" y="588" width="57" height="26"/>
+				<reportElement x="202" y="610" width="57" height="26"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[meses]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="18" y="588" width="106" height="26"/>
+				<reportElement x="19" y="610" width="106" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4648,7 +4648,7 @@ NEUMÁTICOS]]></text>
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="25" splitType="Stretch"/>
+		<band height="14" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="20" splitType="Stretch"/>

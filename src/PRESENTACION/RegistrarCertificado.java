@@ -7285,7 +7285,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
             jTextField84.setText(String.valueOf(objTarjetaP.getKilometraje())); //kilometraje
             jTextField112.setText(objTarjetaP.getnSerie()); //nserie
             jTextField113.setText(objTarjetaP.getnMotor()); //nmotor
-            jTextField114.setText(objTarjetaP.getIdMarca()); //Marca Carroceria
+            jTextField114.setText(objTarjetaP.getIdMarcaCarroceria()); //Marca Carroceria
             jTextField115.setText(String.valueOf(objTarjetaP.getEjes())); //Nro Ejes
             jTextField51.setText(String.valueOf(objTarjetaP.getnRuedas())); //Nro Ruedas
             jTextField55.setText(objTarjetaP.getnTarjeta());
