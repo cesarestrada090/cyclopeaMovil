@@ -8,6 +8,7 @@
 			<pen lineWidth="1.0" lineColor="#000000"/>
 		</box>
 	</style>
+        
 	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
@@ -100,7 +101,7 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idCertificado,
-CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
+CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,IFNULL(tp.idMarcaCarroceria,' ') as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
 tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
 
@@ -333,7 +334,7 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="altura" class="java.lang.Double"/>
 	<field name="ancho" class="java.lang.Double"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.lang.Double"/>
+	<field name="peso_seco" class="java.math.BigDecimal"/>
 	<field name="peso_bruto" class="java.lang.Double"/>
 	<field name="carga_util" class="java.lang.Double"/>
 	<field name="concatamanios" class="java.lang.String"/>

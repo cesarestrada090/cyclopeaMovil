@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="809"/>
+	<property name="ireport.y" value="1858"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,7 +99,7 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idCertificado,
-CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,tp.idmarca as marcaaa,tp.idmodelo,tp.fabricacion,
+CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,IFNULL(tp.idMarcaCarroceria,' ') as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
 tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
 
@@ -336,7 +336,7 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="altura" class="java.lang.Double"/>
 	<field name="ancho" class="java.lang.Double"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.lang.Double"/>
+	<field name="peso_seco" class="java.math.BigDecimal"/>
 	<field name="peso_bruto" class="java.lang.Double"/>
 	<field name="carga_util" class="java.lang.Double"/>
 	<field name="concatamanios" class="java.lang.String"/>
@@ -4691,27 +4691,6 @@ NEUMÁTICOS]]></text>
 				</textElement>
 				<text><![CDATA[CLASE DE AUTORIZACIÓN]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="669" width="554" height="25"/>
-				<textElement textAlignment="Justified">
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[NOTA: Las observaciones efectuadas deben ser subsanadas antes de la siguiente Inspección Técnica Vehicular de acuerdo a lo establecido en el numeral 6.4.3.1 de la Resolución Directoral Nº. 4000-2007-MTC/15.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="698" width="100" height="20"/>
-				<textElement>
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha de Inspección]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="100" y="698" width="100" height="20"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fecinspeccion}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement x="124" y="59" width="421" height="40"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -4732,6 +4711,28 @@ NEUMÁTICOS]]></text>
 		<band height="7" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="20" splitType="Stretch"/>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="114" y="42" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecinspeccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="42" width="100" height="20"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Inspección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="13" width="554" height="25"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NOTA: Las observaciones efectuadas deben ser subsanadas antes de la siguiente Inspección Técnica Vehicular de acuerdo a lo establecido en el numeral 6.4.3.1 de la Resolución Directoral Nº. 4000-2007-MTC/15.]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>
