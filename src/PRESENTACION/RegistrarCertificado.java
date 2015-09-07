@@ -3757,7 +3757,7 @@ public class RegistrarCertificado extends javax.swing.JInternalFrame {
                         + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
                         + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
                         + "mecánicas de funcionamiento, que cumple con las condiciones y características técnicas establecidas en el Reglamento "
-                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
+                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los artículos 19º y 21º  del Reglamento Nacional "
                         + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
                         + "Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
             } else {

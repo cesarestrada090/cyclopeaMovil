@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="733"/>
+	<property name="ireport.y" value="622"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,9 +99,25 @@ FROM observacion o;]]>
 	</parameter>
 	<queryString>
 		<![CDATA[select cer.idCertificado,
-CAST(cer.fecinspeccion AS CHAR) fecinspeccion,'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,IFNULL(tp.idMarcaCarroceria,' ') as marcaaa,tp.idmodelo,tp.fabricacion,
+
+concat( DATE_FORMAT(cer.fecinspeccion, '%d/'),
+(CASE  WHEN  MONTH(cer.fecinspeccion)=1 THEN "Ene"
+WHEN MONTH(cer.fecinspeccion) = 2 THEN "Feb"
+WHEN MONTH(cer.fecinspeccion) = 3 THEN "Mar"
+WHEN MONTH(cer.fecinspeccion) = 4 THEN "Abr"
+WHEN MONTH(cer.fecinspeccion) = 5 THEN "May"
+WHEN MONTH(cer.fecinspeccion) = 6 THEN "Jun"
+WHEN MONTH(cer.fecinspeccion) = 7 THEN "Jul"
+WHEN MONTH(cer.fecinspeccion) = 8 THEN "Ago"
+WHEN MONTH(cer.fecinspeccion) = 9 THEN "Sep"
+WHEN MONTH(cer.fecinspeccion) = 10 THEN "Oct"
+WHEN MONTH(cer.fecinspeccion) = 11 THEN "Nov"
+WHEN MONTH(cer.fecinspeccion) = 12 THEN "Dic"
+end ), DATE_FORMAT(cer.fecinspeccion, '/%Y')) AS fecinspeccion,
+
+'' as informeInspeccion, UPPER(tp.razon1) as razon1,UPPER(tp.placa) placa,tp.idclase,IFNULL(tp.idMarcaCarroceria,' ') as marcaaa,tp.idmodelo,tp.fabricacion,
 tp.kilometraje,tp.idcombustible,tp.nserie,tp.idcarroceria,tp.idmarca,tp.ejes,tp.ruedas,tp.pasajeros,tp.asientos,
-tp.longitud,tp.altura,tp.ancho,tp.colores,tp.peso_seco,tp.peso_bruto,tp.carga_util,
+FORMAT(tp.longitud,2) as longitud,FORMAT(tp.altura,2) AS altura, FORMAT(tp.ancho,2) AS ancho,tp.colores,FORMAT(tp.peso_seco,2) as peso_seco,FORMAT(tp.peso_bruto,2) as peso_bruto, FORMAT(tp.carga_util,2) as carga_util,
 
 concat(concat(concat(concat(CAST(tp.longitud AS CHAR),'/'),CAST(tp.ancho AS CHAR)),'/'),CAST(tp.altura AS CHAR)) as concatamanios,
 
@@ -135,32 +151,47 @@ IFNULL(CAST(gas.coAcel AS CHAR),'-') as coAcel,
 IFNULL(CAST(gas.coCo2Acel AS CHAR),'-') as coCo2Acel,
 IFNULL(CAST(gas.HCAcel AS CHAR),'-') as HCAcel,
 IFNULL(gas.Resultado,'-') as resultadoGases,
-IFNULL(CAST(cer.fecVencimiento AS CHAR),'-') as vencimiento,
+
+concat( DATE_FORMAT(cer.fecVencimiento, '%d/'),
+(CASE  WHEN  MONTH(cer.fecVencimiento)=1 THEN "Ene"
+WHEN MONTH(cer.fecVencimiento) = 2 THEN "Feb"
+WHEN MONTH(cer.fecVencimiento) = 3 THEN "Mar"
+WHEN MONTH(cer.fecVencimiento) = 4 THEN "Abr"
+WHEN MONTH(cer.fecVencimiento) = 5 THEN "May"
+WHEN MONTH(cer.fecVencimiento) = 6 THEN "Jun"
+WHEN MONTH(cer.fecVencimiento) = 7 THEN "Jul"
+WHEN MONTH(cer.fecVencimiento) = 8 THEN "Ago"
+WHEN MONTH(cer.fecVencimiento) = 9 THEN "Sep"
+WHEN MONTH(cer.fecVencimiento) = 10 THEN "Oct"
+WHEN MONTH(cer.fecVencimiento) = 11 THEN "Nov"
+WHEN MONTH(cer.fecVencimiento) = 12 THEN "Dic"
+end ), DATE_FORMAT(cer.fecVencimiento, '/%Y')) AS vencimiento,
+
 IFNULL(cer.Vigencia,'-') as VigenciaCer,
 
-IF(IFNULL(CAST((select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=1)) as pesoServicio1,
-IF(IFNULL(CAST((select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=2)) as pesoServicio2,
-IF(IFNULL(CAST((select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=3)) as pesoServicio3,
-IF(IFNULL(CAST((select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=4)) as pesoServicio4,
-IF(IFNULL(CAST((select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select pesoservicio from frenometro where idCertificado=cer.idInforme and idEje=5)) as pesoServicio5,
+IF(IFNULL(CAST((select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as pesoServicio1,
+IF(IFNULL(CAST((select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as pesoServicio2,
+IF(IFNULL(CAST((select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as pesoServicio3,
+IF(IFNULL(CAST((select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as pesoServicio4,
+IF(IFNULL(CAST((select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select FORMAT(pesoservicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as pesoServicio5,
 
-IF(IFNULL(CAST((select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaServicio1,
-IF(IFNULL(CAST((select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaServicio2,
-IF(IFNULL(CAST((select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaServicio3,
-IF(IFNULL(CAST((select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaServicio4,
-IF(IFNULL(CAST((select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select fuerzaDerServicio from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaServicio5,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaServicio1,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaServicio2,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaServicio3,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaServicio4,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaServicio5,
 
-IF(IFNULL(CAST((select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaIzqServicio1,
-IF(IFNULL(CAST((select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaIzqServicio2,
-IF(IFNULL(CAST((select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaIzqServicio3,
-IF(IFNULL(CAST((select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaIzqServicio4,
-IF(IFNULL(CAST((select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select fuerzaIzqServicio from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaIzqServicio5,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaIzqServicio1,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaIzqServicio2,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaIzqServicio3,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaIzqServicio4,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaIzqServicio5,
 
-IF(IFNULL(CAST((select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=1)) as desequilibrioServicio1,
-IF(IFNULL(CAST((select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=2)) as desequilibrioServicio2,
-IF(IFNULL(CAST((select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=3)) as desequilibrioServicio3,
-IF(IFNULL(CAST((select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=4)) as desequilibrioServicio4,
-IF(IFNULL(CAST((select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select desequilibrioServicio from frenometro where idCertificado=cer.idInforme and idEje=5)) as desequilibrioServicio5,
+IF(IFNULL(CAST((select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as desequilibrioServicio1,
+IF(IFNULL(CAST((select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as desequilibrioServicio2,
+IF(IFNULL(CAST((select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as desequilibrioServicio3,
+IF(IFNULL(CAST((select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as desequilibrioServicio4,
+IF(IFNULL(CAST((select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioServicio,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as desequilibrioServicio5,
 
 IF(IFNULL((select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=1),' ')=' ','-',(select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=1)) as resultadoEjeServicio1,
 IF(IFNULL((select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=2),' ')=' ','-',(select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=2)) as resultadoEjeServicio2,
@@ -168,11 +199,11 @@ IF(IFNULL((select resultadoEjeServicio from frenometro where idCertificado=cer.i
 IF(IFNULL((select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=4),' ')=' ','-',(select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=4)) as resultadoEjeServicio4,
 IF(IFNULL((select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=5),' ')=' ','-',(select resultadoEjeServicio from frenometro where idCertificado=cer.idInforme and idEje=5)) as resultadoEjeServicio5,
 
-IF(IFNULL(CAST((select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio1,
-IF(IFNULL(CAST((select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio2,
-IF(IFNULL(CAST((select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio3,
-IF(IFNULL(CAST((select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio4,
-IF(IFNULL(CAST((select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select eficienciaServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio5,
+IF(IFNULL(CAST((select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio1,
+IF(IFNULL(CAST((select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio2,
+IF(IFNULL(CAST((select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio3,
+IF(IFNULL(CAST((select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio4,
+IF(IFNULL(CAST((select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaServicio,2) from frenometro where idCertificado=cer.idInforme  limit 1)) as eficienciaServicio5,
 
 IF(IFNULL((select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoServicio1,
 IF(IFNULL((select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoServicio2,
@@ -180,23 +211,23 @@ IF(IFNULL((select resultadoServicio from frenometro where idCertificado=cer.idIn
 IF(IFNULL((select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoServicio4,
 IF(IFNULL((select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoServicio from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoServicio5,
 
-IF(IFNULL(CAST((select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaDerEstacionamiento1,
-IF(IFNULL(CAST((select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaDerEstacionamiento2,
-IF(IFNULL(CAST((select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaDerEstacionamiento3,
-IF(IFNULL(CAST((select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaDerEstacionamiento4,
-IF(IFNULL(CAST((select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select fuerzaDerEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaDerEstacionamiento5,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaDerEstacionamiento1,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaDerEstacionamiento2,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaDerEstacionamiento3,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaDerEstacionamiento4,
+IF(IFNULL(CAST((select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaDerEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaDerEstacionamiento5,
 
-IF(IFNULL(CAST((select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaIzqEstacionamiento1,
-IF(IFNULL(CAST((select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaIzqEstacionamiento2,
-IF(IFNULL(CAST((select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaIzqEstacionamiento3,
-IF(IFNULL(CAST((select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaIzqEstacionamiento4,
-IF(IFNULL(CAST((select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select fuerzaIzqEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaIzqEstacionamiento5,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as fuerzaIzqEstacionamiento1,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as fuerzaIzqEstacionamiento2,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as fuerzaIzqEstacionamiento3,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as fuerzaIzqEstacionamiento4,
+IF(IFNULL(CAST((select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select FORMAT(fuerzaIzqEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as fuerzaIzqEstacionamiento5,
 
-IF(IFNULL(CAST((select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'0')=0,'-',(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1)) as desequilibrioEstacionamiento1,
-IF(IFNULL(CAST((select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'0')=0,'-',(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2)) as desequilibrioEstacionamiento2,
-IF(IFNULL(CAST((select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'0')=0,'-',(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=3)) as desequilibrioEstacionamiento3,
-IF(IFNULL(CAST((select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'0')=0,'-',(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4)) as desequilibrioEstacionamiento4,
-IF(IFNULL(CAST((select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'0')=0,'-',(select desequilibrioEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5)) as desequilibrioEstacionamiento5,
+IF(IFNULL(CAST((select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=1)) as desequilibrioEstacionamiento1,
+IF(IFNULL(CAST((select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=2)) as desequilibrioEstacionamiento2,
+IF(IFNULL(CAST((select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=3)) as desequilibrioEstacionamiento3,
+IF(IFNULL(CAST((select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=4)) as desequilibrioEstacionamiento4,
+IF(IFNULL(CAST((select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5) AS CHAR),'-1')=-1,'-',(select FORMAT(desequilibrioEstacionamiento,2) from frenometro where idCertificado=cer.idInforme and idEje=5)) as desequilibrioEstacionamiento5,
 
 IF(IFNULL((select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1),' ')=' ','-',(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=1)) as resultadoEjeEstacionamiento1,
 IF(IFNULL((select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2),' ')=' ','-',(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=2)) as resultadoEjeEstacionamiento2,
@@ -204,11 +235,11 @@ IF(IFNULL((select resultadoEjeEstacionamiento from frenometro where idCertificad
 IF(IFNULL((select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4),' ')=' ','-',(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=4)) as resultadoEjeEstacionamiento4,
 IF(IFNULL((select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5),' ')=' ','-',(select resultadoEjeEstacionamiento from frenometro where idCertificado=cer.idInforme and idEje=5)) as resultadoEjeEstacionamiento5,
 
-IF(IFNULL(CAST((select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento1,
-IF(IFNULL(CAST((select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento2,
-IF(IFNULL(CAST((select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento3,
-IF(IFNULL(CAST((select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento4,
-IF(IFNULL(CAST((select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select eficienciaEstacionamiento from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento5,
+IF(IFNULL(CAST((select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento1,
+IF(IFNULL(CAST((select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento2,
+IF(IFNULL(CAST((select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento3,
+IF(IFNULL(CAST((select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento4,
+IF(IFNULL(CAST((select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1) AS CHAR),'0')=0,'-',(select FORMAT(eficienciaEstacionamiento,2) from frenometro where idCertificado=cer.idInforme limit 1)) as eficienciaEstacionamiento5,
 
 IF(IFNULL((select resultadoEstacionamiento from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoEstacionamiento from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoEstacionamiento1,
 IF(IFNULL((select resultadoEstacionamiento from frenometro where idCertificado=cer.idInforme  limit 1),' ')=' ','-',(select resultadoEstacionamiento from frenometro where idCertificado=cer.idInforme  limit 1)) as resultadoEstacionamiento2,
@@ -292,7 +323,7 @@ IFNULL((select resultadoAlineamiento from alineador where idCertificado=cer.idIn
 
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idInforme and nEje=1) AS CHAR),'-') as desviacionAlineamiento1,
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idInforme and nEje=2) AS CHAR),'-') as desviacionAlineamiento2,
-IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idInforme and nEje=3) AS CHAR),'-') as desviacionAlineamiento3,
+IFNULL(CAST((select ROUND(desviacionAlineamiento,2) from alineador where idCertificado=cer.idInforme and nEje=3) AS CHAR),'-') as desviacionAlineamiento3,
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idInforme and nEje=4) AS CHAR),'-') as desviacionAlineamiento4,
 IFNULL(CAST((select desviacionAlineamiento from alineador where idCertificado=cer.idInforme and nEje=5) AS CHAR),'-') as desviacionAlineamiento5,
 
@@ -331,13 +362,13 @@ where cer.idInforme=$P{idCertificado};]]>
 	<field name="ruedas" class="java.lang.Integer"/>
 	<field name="pasajeros" class="java.lang.Integer"/>
 	<field name="asientos" class="java.lang.Integer"/>
-	<field name="longitud" class="java.lang.Double"/>
-	<field name="altura" class="java.lang.Double"/>
-	<field name="ancho" class="java.lang.Double"/>
+	<field name="longitud" class="java.lang.String"/>
+	<field name="altura" class="java.lang.String"/>
+	<field name="ancho" class="java.lang.String"/>
 	<field name="colores" class="java.lang.String"/>
-	<field name="peso_seco" class="java.math.BigDecimal"/>
-	<field name="peso_bruto" class="java.lang.Double"/>
-	<field name="carga_util" class="java.lang.Double"/>
+	<field name="peso_seco" class="java.lang.String"/>
+	<field name="peso_bruto" class="java.lang.String"/>
+	<field name="carga_util" class="java.lang.String"/>
 	<field name="concatamanios" class="java.lang.String"/>
 	<field name="frenometronumero" class="java.lang.String"/>
 	<field name="alineadornumero" class="java.lang.String"/>
@@ -645,25 +676,13 @@ Inspección:]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="445" y="421" width="110" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="383" y="421" width="62" height="12"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
 				<reportElement x="445" y="397" width="53" height="12"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="383" y="397" width="62" height="24"/>
+				<reportElement x="383" y="397" width="62" height="36"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -1953,13 +1972,7 @@ ALINEAMIENTO]]></text>
 NEUMÁTICOS]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="397" width="62" height="24"/>
-				<graphicElement>
-					<pen lineWidth="0.75"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="0" y="421" width="62" height="12"/>
+				<reportElement x="0" y="397" width="62" height="36"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -2843,14 +2856,14 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Alineamiento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="244" y="327" width="27" height="11"/>
+				<reportElement x="244" y="327" width="33" height="11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<text><![CDATA[Der]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="281" y="327" width="25" height="11"/>
+				<reportElement x="275" y="327" width="31" height="11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3136,18 +3149,11 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="3" y="397" width="59" height="24"/>
+				<reportElement x="3" y="397" width="59" height="36"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[EMISIÓN DE GASES]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="6" y="421" width="56" height="12"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<text><![CDATA[Límite m - 1]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="64" y="397" width="51" height="12"/>
@@ -3291,7 +3297,7 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement x="498" y="409" width="57" height="12"/>
+				<reportElement x="498" y="409" width="57" height="24"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -3303,14 +3309,7 @@ NEUMÁTICOS]]></text>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="389" y="421" width="56" height="12"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="7"/>
-				</textElement>
-				<text><![CDATA[Límite 86 dB]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="386" y="397" width="59" height="24"/>
+				<reportElement x="386" y="397" width="59" height="36"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -3324,7 +3323,7 @@ NEUMÁTICOS]]></text>
 				<text><![CDATA[Sonómetro (dB)]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="445" y="409" width="53" height="12"/>
+				<reportElement x="445" y="409" width="53" height="24"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
@@ -3582,7 +3581,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{pesoServicio5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="35" y="236" width="32" height="11"/>
+				<reportElement x="35" y="236" width="32" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3657,7 +3656,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{fuerzaIzqServicio3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="98" y="236" width="30" height="11"/>
+				<reportElement x="98" y="236" width="30" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3811,7 +3810,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{fuerzaIzqEstacionamiento5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="270" y="235" width="32" height="12"/>
+				<reportElement x="270" y="235" width="32" height="14"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -3937,7 +3936,7 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{fuerzaIzqEmergencia1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="382" y="249" width="32" height="12"/>
+				<reportElement x="382" y="249" width="33" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7" isItalic="false"/>
 				</textElement>
@@ -4280,14 +4279,14 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{medidaDerLuz4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="274" y="337" width="32" height="12"/>
+				<reportElement x="275" y="337" width="31" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medidaIzqLuz1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="275" y="349" width="32" height="12"/>
+				<reportElement x="274" y="349" width="33" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4518,14 +4517,14 @@ NEUMÁTICOS]]></text>
 				<textFieldExpression><![CDATA[$F{hcRalentippm}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="502" y="408" width="52" height="12"/>
+				<reportElement x="502" y="408" width="52" height="25"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="409" width="51" height="11"/>
+				<reportElement x="445" y="409" width="51" height="24"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4534,40 +4533,40 @@ NEUMÁTICOS]]></text>
 			<textField>
 				<reportElement x="292" y="610" width="109" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vencimiento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="163" y="610" width="31" height="26"/>
+				<reportElement x="150" y="610" width="44" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{VigenciaCer}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="472" y="43" width="25" height="13"/>
+				<reportElement x="471" y="43" width="25" height="13"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{longitud}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="505" y="43" width="20" height="13"/>
+				<reportElement x="502" y="43" width="25" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ancho}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="534" y="43" width="20" height="13"/>
+				<reportElement x="532" y="43" width="25" height="13"/>
 				<textElement verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{altura}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="498" y="43" width="7" height="13"/>
+				<reportElement x="496" y="43" width="7" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7"/>
 				</textElement>
@@ -4591,14 +4590,14 @@ NEUMÁTICOS]]></text>
 			<staticText>
 				<reportElement x="202" y="610" width="57" height="26"/>
 				<textElement verticalAlignment="Middle">
-					<font size="7"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[meses]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="19" y="610" width="106" height="26"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultadoDesc}]]></textFieldExpression>
 			</textField>

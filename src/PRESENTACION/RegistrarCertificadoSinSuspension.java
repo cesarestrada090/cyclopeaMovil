@@ -3480,11 +3480,11 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                     + "TRANSPORTE ESPECIAL");
             objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
                     + "transporte público de personas bajo la modalidad  de transporte especial de   TURISTICO de AMBITO " + ambito + "  ha aprobado la "
-                    + "Inspección Técnica Vehícular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
+                    + "Inspección Técnica Vehicular Complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas "
                     + "de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas, que cumple con las condiciones y "
                     + "características técnicas establecidas en el Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en "
                     + "los artículos 19º y 23º del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
-                    + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehícular "
+                    + "y en la normatividad emitida por la Autoridad competente, según consta en el informe de Inspección Técnica Vehicular "
                     + "Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
         } else {
             if (tipoServicio == 1) { //Mercancías en general
@@ -3495,10 +3495,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                 objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección destinado al servicio de "
                         + "transporte público de mercancías generales o especiales no consideradas como materiales o residuos peligrosos, ha aprobado "
                         + "la Inspección Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas y "
-                        + "mecánicas de funcionamiento, que cumple con las condiciones y características ténicas establecidas en el Reglamento "
-                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 21º  del Reglamento Nacional "
+                        + "mecánicas de funcionamiento, que cumple con las condiciones y características técnicas establecidas en el Reglamento "
+                        + "nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los artículos 19º y 21º  del Reglamento Nacional "
                         + "de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC, según consta en el Informe de Inspección "
-                        + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                        + "Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
             } else {
                 if (tipoServicio == 2) { //Mercancías peligrosas
                     objCertificado.setClaseAut("");
@@ -3507,7 +3507,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                             + "de transporte de materiales y residuos peligrosos ha aprobado la Inspección Técnica Vehicular Complementaria al "
                             + "haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento y cumple con las "
                             + "condiciones y características técnicas establecidas en el artículo 19º del Reglamento Nacional de Vehículos aprobado "
-                            + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehícular NºNº " + objCertificado.getNumInforme()
+                            + "por Decreto Supremo Nº 058-2003-MTC , según consta en el Informe de Inspección Técnica Vehicular NºNº " + objCertificado.getNumInforme()
                             + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                 } else {
                     if (tipoServicio == 3) { //Transporte de personal
@@ -3536,7 +3536,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                     + "Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y los artículos 19º , 20º "
                                     + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y "
                                     + "en la normatividad emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica "
-                                    + "Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                    + "Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                         } else {
                             if (tipoServicio == 5) { //Transporte privado de mercancías
                                 objCertificado.setClaseAut("TRANSPORTE PRIVADO DE MERCANCÍAS DE ÁMBITO NACIONAL");
@@ -3545,9 +3545,9 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                         + "al servicio de transporte privado de mercancias, ha aprobado la Inspección Técnica Vehicular complementaria "
                                         + "al haberse verificado que se encuentra en buenas condiciones técnicas y mecánicas de funcionamiento, "
                                         + "que cumple con las condiciones y características técnicas establecidas en el Reglamento nacional de "
-                                        + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los articulos 19º y 24º  del Reglamento "
+                                        + "Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC y en los artículos 19º y 24º  del Reglamento "
                                         + "Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC y en la normatividad "
-                                        + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehícular Nº " + objCertificado.getNumInforme()
+                                        + "emitida por la Autoridad competente, según consta en el Informe de Inspección Técnica Vehicular Nº " + objCertificado.getNumInforme()
                                         + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                             } else {
                                 if (tipoServicio == 6) { //Taxi
@@ -3562,7 +3562,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                             + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
                                             + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                             + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
-                                            + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                            + "Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
                                 } else {
 
                                     if (tipoServicio == 8) { //estudiantes
@@ -3577,7 +3577,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                                 + "del Reglamento Nacional de Vehículos aprobado por Decreto Supremo Nº 058-2003-MTC, en el artículo 19º "
                                                 + "del Reglamento Nacional de Administración de Transportes aprobado por Decreto Supremo Nº 017-2009-MTC "
                                                 + "y en la normatividad emitida por la Autoridad competente;  según consta en el Informe de Inspección "
-                                                + "Técnica Vehícular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
+                                                + "Técnica Vehicular Nº " + objCertificado.getNumInforme() + " del Expediente Interno Nº " + objCertificado.getNumExpediente() + ".");
 
                                     } else {
                                         objCertificado.setTitulo("");

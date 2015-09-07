@@ -203,8 +203,13 @@ public class ListarCertificados extends javax.swing.JInternalFrame {
                     Reporte r = new Reporte();
                     r.mostrarCertificadoParticular(intIdCertificado);
                 } else {
-                    Reporte r = new Reporte();
-                    r.mostrarCertificado(intIdCertificado);
+                    if (tipo == 2) {
+                        Reporte r = new Reporte();
+                        r.mostrarCertificadoSinCA(intIdCertificado);
+                    } else {
+                        Reporte r = new Reporte();
+                        r.mostrarCertificado(intIdCertificado);
+                    }
                 }
             }
 
