@@ -2920,7 +2920,7 @@ public class RegistrarCertificadoFrenosyNeumaticos extends javax.swing.JInternal
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
                                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
                                                 + "destinado al servicio especial de transporte público de personas, bajo la modalidad de TRANSPORTE DE ESTUDIANTES "
-                                                + "DE ÁMBITO " + ambito + "ha aprobado la Inspección "
+                                                + "DE ÁMBITO " + ambito + " ha aprobado la Inspección "
                                                 + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
                                                 + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
                                                 + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "

@@ -578,10 +578,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
 
         jTextField82.setEnabled(false);
         jTextField82.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField82InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField82.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1258,10 +1258,10 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
             }
         });
         jTextField40.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField40InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextField40.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2647,18 +2647,18 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
         jLabel35.setText("PRUEBA DE LUCES");
         jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jComboBox31.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+        jComboBox31.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "DER-/IZQ-", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
 
-        jComboBox32.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+        jComboBox32.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "DER-/IZQ-", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
 
-        jComboBox33.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+        jComboBox33.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "DER-/IZQ-", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
         jComboBox33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox33ActionPerformed(evt);
             }
         });
 
-        jComboBox34.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
+        jComboBox34.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DER+/IZQ+", "DER-/IZQ+", "DER-/IZQ-", "IZQ+/DER-", "IZQ-/DER+", "CEN+/CEN+" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -3570,7 +3570,7 @@ public class RegistrarCertificadoSinSuspension extends javax.swing.JInternalFram
                                         objCertificado.setClaseAut("MODALIDAD :  TRANSPORTE DE ESTUDIANTES DE ÁMBITO: " + ambito);
                                         objCertificado.setTexto("Mediante el presente documento se certifica que el vehículo materia de inspección "
                                                 + "destinado al servicio especial de transporte público de personas, bajo la modalidad de TRANSPORTE DE ESTUDIANTES "
-                                                + "DE ÁMBITO " + ambito + "ha aprobado la Inspección "
+                                                + "DE ÁMBITO " + ambito + " ha aprobado la Inspección "
                                                 + "Técnica Vehicular complementaria al haberse verificado que se encuentra en buenas condiciones técnicas "
                                                 + "y mecánicas de funcionamiento, que fue diseñado originalmente de fábrica para el transporte de personas,"
                                                 + " cumple con las condiciones y requisitos técnicos establecidos para dicho servicio en el artículo 25º "

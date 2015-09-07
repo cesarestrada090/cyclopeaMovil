@@ -4774,12 +4774,13 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox31">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="6">
                         <StringItem index="0" value="DER+/IZQ+"/>
                         <StringItem index="1" value="DER-/IZQ+"/>
-                        <StringItem index="2" value="IZQ+/DER-"/>
-                        <StringItem index="3" value="IZQ-/DER+"/>
-                        <StringItem index="4" value="CEN+/CEN+"/>
+                        <StringItem index="2" value="DER-/IZQ-"/>
+                        <StringItem index="3" value="IZQ+/DER-"/>
+                        <StringItem index="4" value="IZQ-/DER+"/>
+                        <StringItem index="5" value="CEN+/CEN+"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -4787,12 +4788,13 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox32">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="6">
                         <StringItem index="0" value="DER+/IZQ+"/>
                         <StringItem index="1" value="DER-/IZQ+"/>
-                        <StringItem index="2" value="IZQ+/DER-"/>
-                        <StringItem index="3" value="IZQ-/DER+"/>
-                        <StringItem index="4" value="CEN+/CEN+"/>
+                        <StringItem index="2" value="DER-/IZQ-"/>
+                        <StringItem index="3" value="IZQ+/DER-"/>
+                        <StringItem index="4" value="IZQ-/DER+"/>
+                        <StringItem index="5" value="CEN+/CEN+"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -4800,12 +4802,13 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox33">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="6">
                         <StringItem index="0" value="DER+/IZQ+"/>
                         <StringItem index="1" value="DER-/IZQ+"/>
-                        <StringItem index="2" value="IZQ+/DER-"/>
-                        <StringItem index="3" value="IZQ-/DER+"/>
-                        <StringItem index="4" value="CEN+/CEN+"/>
+                        <StringItem index="2" value="DER-/IZQ-"/>
+                        <StringItem index="3" value="IZQ+/DER-"/>
+                        <StringItem index="4" value="IZQ-/DER+"/>
+                        <StringItem index="5" value="CEN+/CEN+"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -4816,12 +4819,13 @@
                 <Component class="javax.swing.JComboBox" name="jComboBox34">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="6">
                         <StringItem index="0" value="DER+/IZQ+"/>
                         <StringItem index="1" value="DER-/IZQ+"/>
-                        <StringItem index="2" value="IZQ+/DER-"/>
-                        <StringItem index="3" value="IZQ-/DER+"/>
-                        <StringItem index="4" value="CEN+/CEN+"/>
+                        <StringItem index="2" value="DER-/IZQ-"/>
+                        <StringItem index="3" value="IZQ+/DER-"/>
+                        <StringItem index="4" value="IZQ-/DER+"/>
+                        <StringItem index="5" value="CEN+/CEN+"/>
                       </StringArray>
                     </Property>
                   </Properties>
